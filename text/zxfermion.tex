@@ -1,4 +1,4 @@
-\chapter{\label{ch:3-variational-quantum-algorithms}ZxFermion}
+\chapter{\label{zxfermion-package}ZxFermion Package}
 
 ZxFermion is a Python package built on top of PyZX designed for the manipulation and visualisation of circuits of Pauli gadgets. With built-in Clifford tableau logic using Stim, ZxFermion allows users to quickly implement proofs and test ideas.
 
@@ -6,6 +6,13 @@ VQE algorithms used in quantum chemistry often utilise the UCC framework in whic
 
 \section{Creating Gadgets}
 \section{Creating Circuits of Gadgets}
-\section{Creating Other Quantum Gates}
+\section{Pauli \& Clifford Algebra}
+\begin{lstlisting}[language=Python]
+from zxfermion.gates import X, XPlus, XMinus, Z, ZPlus
+
+XPlus + XMinus
+>> Identity
+\end{lstlisting}
+
 \section{Architecture-Aware Circuit Extraction}
 
