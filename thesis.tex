@@ -1,0 +1,97 @@
+% \documentclass[a4paper,twoside,hidelinks]{ociamthesis}  % uncomment lines 99 and 100 in ociamthesis.cls
+% \documentclass[a4paper]{ociamthesis}  % one-sided binding
+\documentclass[a4paper,nobind]{ociamthesis}  % no extra pages
+
+
+%%% DRAFT VERSION %%%
+\fancyfoot[C]{\emph{DRAFT Printed on \today}}  % draft in footer
+
+
+%%% CORRECTIONS %%%
+\correctionstrue  % comment out to remove corrections in blue
+% \mccorrect{blah}  % word corrections
+% \begin{mccorrection} ... \end{mccorrection}  % paragraph corrections
+
+
+%%% BIBLIOGRAPHY %%%
+\bibliographystyle{ref_style}
+
+% uncomment for equations numbered per section rather than per chapter
+% \numberwithin{equation}{subsection}
+
+
+%%% TITLE PAGE %%%
+\title{Diagrammatic Design of Ansätze for Quantum Chemistry}
+\author{Ayman El Amrani}
+\college{St. John's College}
+\degree{Honour School of Chemistry}
+\degreedate{Part II 2024}
+
+
+%%% MACROS %%%
+\renewcommand{\th}{\textsuperscript{th}}  % text superscripts
+\newcommand{\nd}{\textsuperscript{nd}}
+\renewcommand{\st}{\textsuperscript{st}}
+\newcommand{\rd}{\textsuperscript{rd}}
+
+
+%%% ========== BEGIN DOCUMENT ========== %%%
+\begin{document}
+
+%%% LINE SPACING CONFIG %%%
+\setlength{\textbaselineskip}{26pt}  % official line spacing
+\setlength{\frontmatterbaselineskip}{17pt plus1pt minus1pt} % roman pages
+\setlength{\baselineskip}{\textbaselineskip}
+
+%%% SECTION NUMBERING DEPTH CONFIG %%%
+\setcounter{secnumdepth}{2}  % level that is numbered
+\setcounter{tocdepth}{1}  % level that appears in table of contents
+
+
+%%% ========== ROMAN PAGES ========== %%%
+\begin{romanpages}
+\maketitle
+
+%%% DEDICATION %%%
+\begin{dedication}
+Pour ma mère et mon père. \\
+Merci de m'avoir amené jusqu'ici.
+\end{dedication}
+
+%%% ACKNOWLEDGEMENTS %%%
+\begin{acknowledgements}
+ 	\input{text/acknowledgements}
+\end{acknowledgements}
+
+%%% SUMMARY %%%
+\begin{abstract}
+	\input{text/abstract}
+\end{abstract}
+
+\flushbottom  % align bottom of text of each page
+
+%%% TABLE OF CONTENTS %%%
+\tableofcontents
+
+\end{romanpages}
+
+
+%%% ========== CHAPTERS  ========== %%%
+\include{text/introduction}
+\include{text/background}
+\include{text/variational_quantum_algorithms}
+\include{text/phase_polynomials}
+
+
+%%% ========== APPENDICIES  ========== %%%
+\startappendices
+\include{text/appendix}
+
+
+%%% ========== REFERENCES ========== %%%
+\setlength{\baselineskip}{0pt}
+
+{\renewcommand*\MakeUppercase[1]{#1}%
+\bibliography{references}{}
+
+\end{document}
