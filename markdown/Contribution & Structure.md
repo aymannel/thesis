@@ -1,0 +1,5 @@
+"This project develops and applies diagrammatic techniques to analyse parameterised quantum circuits, in order to gain a understanding and intuition behind what makes a good variational quantum circuit." - p3
+- "Chapter 2 introduces diagrammatic notation to describe quantum machine learning, and converts commonly used gates from quantum machine learning into ZX calculus."
+- "Chapter 3 builds upon the work in chapter 2 and develops more techniques for manipulating parameterised quantum circuits, in particular using phase gadgets and Pauli gadgets."
+- "Chapter 4 acts as a reference for diagrammatic quantum machine learning by applying the diagrammatic techniques from chapters 2 and 3 to nineteen quantum circuits taken from quantum machine learning literature."
+- "Chapter 5 describes an optimisation routine that can be applied to a class of circuits commonly used in quantum machine learning."
