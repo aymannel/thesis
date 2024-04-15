@@ -87,6 +87,7 @@
 
 \usepackage{xcolor}
 \usepackage{graphicx} 
+\usepackage[parfill]{parskip}  % newline instead of indentation
 
 \usepackage{fancyhdr}
 \setlength{\headheight}{15pt}
@@ -139,19 +140,6 @@
 
 \usepackage{xfrac}
 
-%\usepackage{enumerate} 
-	% Allows different numbering styles for Lists
-	% to use:
-	% \begin{enumerate}[x] 
-		% \item text 
-	% \end{enumerate} 
-	% where x is:
-	% A	uppercase letters (as produced by \Alph)
-	% a	lowercase letters (as produced by \alph)
-	% I	uppercase roman numerals (as produced by \Roman)
-	% i	lowercase roman numerals (as produced by \roman)
-	% 1	arabic numbers (as produced by \arabic)
-	
 % JEM the following package allows changing spacing in lists (for acknowledgements)
 \usepackage{enumitem}
 

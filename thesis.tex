@@ -3,6 +3,10 @@
 % \documentclass[a4paper]{ociamthesis}  % one-sided binding
 
 
+%%% PACKAGES %%%
+\usepackage{listings}
+
+
 %%% DRAFT VERSION %%%
 \fancyfoot[C]{\emph{DRAFT Printed on \today}}  % draft in footer
 
@@ -39,12 +43,13 @@
 \begin{document}
 
 %%% LINE SPACING CONFIG %%%
-\setlength{\textbaselineskip}{26pt}  % official line spacing
+% \setlength{\textbaselineskip}{26pt}  % official line spacing
+\setlength{\textbaselineskip}{22pt}  % official line spacing
 \setlength{\frontmatterbaselineskip}{17pt plus1pt minus1pt} % roman pages
 \setlength{\baselineskip}{\textbaselineskip}
 
 %%% SECTION NUMBERING DEPTH CONFIG %%%
-\setcounter{secnumdepth}{2}  % level that is numbered
+\setcounter{secnumdepth}{1}  % level that is numbered
 \setcounter{tocdepth}{1}  % level that appears in table of contents
 
 
@@ -79,8 +84,9 @@ Merci de m'avoir amené jusqu'ici.
 %%% ========== CHAPTERS  ========== %%%
 \include{text/introduction}
 \include{text/background}
-\include{text/variational_quantum_algorithms}
 \include{text/phase_polynomials}
+\include{text/compilation_strategy}
+\include{text/zxfermion}
 
 
 %%% ========== APPENDICIES  ========== %%%
