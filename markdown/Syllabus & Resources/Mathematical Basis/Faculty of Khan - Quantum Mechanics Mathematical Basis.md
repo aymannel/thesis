@@ -1,1 +1,0 @@
-[Faculty of Khan: Quantum Mechanics Mathematical Basis](https://www.youtube.com/playlist?list=PLdgVBOaXkb9Bv466YnyxslT4gIlSZdtjw)

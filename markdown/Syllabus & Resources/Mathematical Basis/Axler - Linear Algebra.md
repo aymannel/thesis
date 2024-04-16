@@ -1,1 +1,0 @@
-[Linear Algebra, Axler](https://www.youtube.com/watch?v=lkx2BJcnyxk&list=PLGAnmvB9m7zOBVCZBUUmSinFV0wEir2Vw)

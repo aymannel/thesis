@@ -1,1 +1,0 @@
-[Tensor Calculus](https://www.youtube.com/watch?v=uaQeXi4E7gA&list=PLdgVBOaXkb9D6zw47gsrtE5XqLeRPh27_)

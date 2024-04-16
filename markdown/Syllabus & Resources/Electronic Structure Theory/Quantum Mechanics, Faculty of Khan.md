@@ -1,1 +1,0 @@
-[Quantum Mechanics, Faculty of Khan](https://www.youtube.com/watch?v=kUm4q0UIpio&list=PLdgVBOaXkb9AtG88OsK_c8FDEBDLCC6_9)
