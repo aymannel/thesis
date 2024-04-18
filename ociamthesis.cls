@@ -240,7 +240,7 @@
 %i.e. tabbed in at both sides, and on its own page.
 
 \renewenvironment{abstract}%
-{   \begin{alwayssingle}\chapter*{Abstract}
+{   \begin{alwayssingle}\chapter*{Summary}
     \thispagestyle{empty}
     \pagestyle{empty}
    \setlength{\baselineskip}{\textbaselineskip}}

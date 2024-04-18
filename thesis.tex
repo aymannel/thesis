@@ -4,7 +4,19 @@
 
 
 %%% PACKAGES %%%
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{xpatch}
+\usepackage{custom}
+\usepackage{subfig}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{quantikz}
 \usepackage{listings}
+\usepackage{standalone}
+\usepackage{circuitikz}
+\usepackage{blochsphere}
 
 
 %%% DRAFT VERSION %%%
@@ -15,6 +27,10 @@
 \correctionstrue  % comment out to remove corrections in blue
 % \mccorrect{blah}  % word corrections
 % \begin{mccorrection} ... \end{mccorrection}  % paragraph corrections
+
+
+%%% GRAPHICS %%%
+\graphicspath{{figures/}}
 
 
 %%% BIBLIOGRAPHY %%%
@@ -82,10 +98,10 @@ Merci de m'avoir amené jusqu'ici.
 
 
 %%% ========== CHAPTERS  ========== %%%
-\include{text/introduction}
 \include{text/background}
-\include{text/phase_polynomials}
-\include{text/compilation_strategy}
+\include{text/phase_gadgets}
+\include{text/pauli_gadgets}
+\include{text/controlled_rotations}
 \include{text/zxfermion}
 
 
