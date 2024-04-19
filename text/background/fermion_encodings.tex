@@ -1,0 +1,105 @@
+\section{Fermion-Qubit Encodings}
+The form of the occupation number representation basis suggests the following identification between electronic states and qubit states.
+
+\begin{equation*}
+    \ket{f_{n-1} \dots f_{0}} \quad\rightarrow\quad \ket{q_{n-1} \dots q_{0}}
+\end{equation*}
+
+That is, we allow each qubit to store the occupation number of a given spin-orbital.
+
+% In order to actually simulate a Hamiltonian...
+
+We must map the fermionic creation and annhilation operators onto qubit operators.
+\begin{equation*}
+    \hat a^\dagger \rightarrow \hat Q^+ \qquad
+    \hat a \rightarrow \hat Q
+\end{equation*}
+
+And these operators must behave in the same way as their fermionic analogues.
+
+\begin{equation*}
+\begin{gathered}
+    \hat Q^+ \ket 0 = \ket 1 \qquad \hat Q^+ \ket 1 = 0 \\
+    \hat Q \ket 1 = \ket 0 \qquad \hat Q \ket 0 = 0
+\end{gathered}
+\end{equation*}
+
+Note that we must also preserve the fermionic anti-commutation relations in the qubit operators.
+
+\begin{equation*}
+\begin{gathered}
+    \{ \hat Q_{j}, \hat Q_{k} \} = 0 \qquad
+    %
+    \{ \hat Q_{j}^{\dagger}, \hat Q_{k}^{\dagger} \} = 0 \\
+    %
+    \{ \hat Q_{j}, \hat Q_{k}^{\dagger} \} = \delta_{jk}
+\end{gathered}
+\end{equation*}\medskip
+
+This ensures the fermionic exchange anti-symmetry of our qubit state vector.
+
+We can do this using the \textbf{Jordan-Wigner} transformation by expressing the fermionic operators as a linear combination of the Pauli matrices.
+\begin{figure}
+    \begin{equation*}
+    \begin{gathered}
+        \hat Q^+ = \ket 1 \bra 0 = \frac{1}{2} (X - iY) \\
+        \hat Q = \ket 0 \bra 1 = \frac{1}{2} (X + iY) 
+    \end{gathered}
+    \end{equation*}
+    \caption{Single qubit creation and annhilation operators.}
+\end{figure}
+
+We can see that these do indeed behave in the same way as their fermionic analogues,
+
+\begin{equation*}
+\begin{gathered}
+    \hat Q^+ \ket 0 = (\ket 1 \bra{0})\ket{0} = \ket 1 \qquad
+    \hat Q^+ \ket 1 = (\ket 1 \bra{0})\ket{1} = 0 \\
+    %
+    \hat Q \ket 1 = (\ket 0 \bra{1})\ket{1} = \ket 0 \qquad
+    \hat Q \ket 0 = (\ket 0 \bra{1})\ket{0} = 0
+\end{gathered}
+\end{equation*}
+
+When dealing with \textbf{multiple-qubits}, we must also account for the occupation parity of the qubits preceding the target qubit $j$.
+
+\begin{equation*}
+    a_j^\dagger \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} =
+    (-1)^{\sum_{s=0}^{j-1} f_s}
+    \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0}
+\end{equation*}
+
+We do this by introducing a string of Pauli Z operators that computes the parity of the qubits preceding the target qubit.
+
+\begin{equation*}
+\begin{gathered}
+    \hat a_j^+ = \frac{1}{2} (X - iY) \prod_{k=1}^{j-1} Z_k \qquad
+    \hat a_j = \frac{1}{2} (X + iY) \prod_{k=1}^{j-1} Z_k \\
+    \text{Where $\prod$ is the tensor product.}
+\end{gathered}
+\end{equation*}
+
+A more compact notation is,
+
+\begin{equation*}
+    \hat a_j^+ = \frac{1}{2} (X - iY) \otimes Z^\rightarrow_{j-1} \qquad
+    \hat a_j = \frac{1}{2} (X + iY) \otimes Z^\rightarrow_{j-1}
+\end{equation*}\medskip
+
+Where $Z^\rightarrow_{i}$ is the parity operator with eigenvalues $\pm 1$, and ensures the correct phase is added to the qubit state vector.
+\begin{equation*}
+    Z^\rightarrow_{i} = Z_i \otimes Z_{i-1} \otimes \dots \otimes Z_0
+\end{equation*}
+
+For instance, the creation operator $a^\dagger_3$ maps to the following Pauli string,
+
+\begin{align*}
+    \hat a_3^\dagger &=
+    \frac{1}{2} (X_3 - iY_3) \otimes Z_2 \otimes Z_1 \otimes Z_0 \\
+    %
+    \hat a_3^\dagger &=
+    \frac{1}{2} ( X_3 \otimes Z_2 \otimes Z_1 \otimes Z_0 ) -
+    \frac{1}{2} i ( Y_3 \otimes Z_2 \otimes Z_1 \otimes Z_0 )
+\end{align*}
+
+Usually we drop the subscript specifying the orbital acted on.

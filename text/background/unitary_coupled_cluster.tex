@@ -1,0 +1,190 @@
+\section{Unitary Coupled Cluster}
+\subsection{Second Quantisation}
+In second quantisation, wavefunctions are represented in the occupation number representation.
+\begin{equation*}
+    \ket\psi = \ket{f_{n-1} \dots f_{0}} \qquad \text{where } f_{j} \in {0, 1}
+\end{equation*}
+
+Where $\ket\psi$ represents a Slater determinant usually constructed from Hartree-Fock spin orbitals.
+
+This means that given $n$ spin-orbitals, there exist $2^n$ electronic basis states.
+\begin{equation*}
+    \ket\psi = \ket{0 \dots 10} =
+    \begin{pmatrix} 0 \\ 1 \\ \vdots \\ \vdots \\ \vdots \\ 0 \end{pmatrix} \qquad
+\end{equation*}
+
+Fermionic interactions can be represented in terms of the creation and annhilation operators $a_j^\dagger$ and $a_j$. \bigskip
+
+Consider the excitation of an electron in the lowest spin-orbital to the second spin-orbital.
+
+\begin{equation*}
+\begin{gathered}
+    \ket{\psi_1} \rightarrow \ket{\psi_2} \\
+    a_2^\dagger \, a_1 \ket{001} = \ket{010}
+\end{gathered}
+\end{equation*}
+
+Importantly, due to the exchange anti-symmetry of fermions, the action of the creation/annhilation operators introduces a phase to the electronic wavefunction.
+
+\begin{align*}
+    a_j^\dagger \ket{f_{n-1} \dots
+    f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} &=
+    (-1)^{\sum_{s=0}^{j-1} f_s}
+    \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} \\
+    %
+    a_j^\dagger \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1}
+    \dots f_0} &= \vec 0 \\
+    %
+    a_j \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} &=
+    (-1)^{\sum_{s=0}^{j-1} f_s}
+    \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} \\
+    %
+    a_j \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} &= \vec 0
+\end{align*}
+
+The phase introduced depends on the \textbf{parity} of the spin-orbitals preceding spin-orbital $j$.
+
+In the second-quantisation, this anti-symmetry is expressed in terms of the anti-commutation of creation and annhilation operators.
+\begin{align*}
+    \{ \hat a_{j}, \hat a_{k} \} &=
+    \hat a_{j} \hat a_{k} + \hat a_{k} \hat a_{j} = 0 \\
+    %
+    \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} &=
+    \hat a_{j}^\dagger \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j}^\dagger = 0 \\
+    %
+    \{ \hat a_{j}, \hat a_{k}^{\dagger} \} &= \hat a_{j} \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j} = \delta_{jk} \hat{1}
+\end{align*}
+
+In fact, we find that the phase factor discussed in the previous section is automatically kept track of by these relations.
+
+The Hamiltonian in second quantisation can also be expressed in terms of the creation and annhilation operators.
+
+\begin{equation*}
+    \hat H =
+    \sum_{ij} h_{ij} a^\dagger_i a_j +
+    \frac{1}{2} \sum_{ijkl} h_{ijkl} a^\dagger_i a^\dagger_j a_k a_l +
+    h_\text{Nu}
+\end{equation*}
+
+Where $h_{ij}$ (one-electron overlap integral) and $h_{ijjk}$ (two-electron overlap integral) are computed classically.
+
+
+\subsection{Coupled Cluster \& Unitary Coupled Cluster}
+
+Within the traditional coupled-cluster framework, the ground electronic state is prepared by applying the CC operator to a reference state (usually Hartree-Fock).
+
+\begin{equation*}
+    \ket\psi = e^{\hat T} \ket{\phi_0}
+\end{equation*}
+
+Where $\hat T$ is the cluster excitation operator.
+
+Quantum gates, however, must be unitary operators, so instead, we work within the UCC framework.
+
+\begin{equation*}
+    \ket\psi = e^{\hat T} \ket{\phi_0}
+\end{equation*}
+
+Where $\hat T$ is now an \textbf{anti-Hermitian} operator, and $e^{\hat T}$ is unitary.
+
+In general, we can prepare exact electronic states by applying a sequence of $k$ parametrised unitary operators to our reference state.
+
+\begin{equation*}
+\begin{gathered}
+    \ket\psi = \prod_i^k U_i(\theta_i) \ket{\phi_0} \\
+    \text{Where $U_i(\theta_i)$ is a parametrised unitary operator}
+\end{gathered}
+\end{equation*}\smallskip
+
+The parameters $\theta_i$ are then optimised to find the ground state energy.
+
+General fermionic single and double excitation operators are defined as,
+\begin{equation*}
+    a_q^\dagger a_p \text{ and } a_r^\dagger a_s^\dagger a_q a_p
+\end{equation*}
+
+Exciting one electron from $p$ to $q$, and two electrons from $p, q$ to $r, s$ respectively.
+
+Taking a linear combination of these, we obtain \textbf{anti-Hermitian} fermionic single and double excitation operators.
+\begin{equation*}
+\begin{gathered}
+    \hat\kappa_p^q = a_q^\dagger a_p - a_p^\dagger a_q \\
+    %
+    \hat\kappa_{pq}^{rs} =
+    a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r
+\end{gathered}
+\end{equation*}\smallskip
+
+Such that upon exponentiating, we obtain \textbf{unitary} operators.
+
+\begin{equation*}
+    U^q_p = e^{\hat\kappa_p^q} \qquad
+    %
+    U_{pq}^{rs} = e^{\hat\kappa_{pq}^{rs}}
+\end{equation*}
+
+Recalling the Jordan-Wigner encoding for the creation and annhilation operators,
+
+\begin{equation*}
+    \hat a_j^+ = \frac{1}{2} (X - iY) \otimes Z^\rightarrow_{j-1} \qquad
+    \hat a_j = \frac{1}{2} (X + iY) \otimes Z^\rightarrow_{j-1}
+\end{equation*}
+
+The anti-Hermitian fermionic single and double excitation operators $\kappa_p^q$ and $\kappa_{pq}^{rs}$
+\begin{align*}
+    F_p^q = \frac{i}{2} & (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \\
+    %
+    F_{pq}^{rs} = \frac{i}{8} (
+      & X_p X_q Y_s X_r +
+        Y_p X_q Y_s Y_r +
+        X_p Y_q Y_s Y_r +
+        X_p X_q X_s Y_r - \\
+      & Y_p X_q X_s X_r -
+        X_p Y_q X_s X_r -
+        Y_p Y_q Y_s X_r -
+        Y_p Y_q X_s Y_r )
+    \prod_{k=p+1}^{q-1} Z_k
+    \prod_{l=r+1}^{s-1} Z_l
+\end{align*}
+
+Multiplying by $\theta$ and exponentiating yields the parametrised unitary qubit operators,
+
+\begin{equation*}
+    U^q_p (\theta) =
+    \text{exp} \left( i
+    \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right)
+\end{equation*}
+
+\begin{equation*}
+    U^{rs}_{pq} (\theta) = \text{exp} \left( i \frac{\theta}{8} (
+    X_p X_q Y_s X_r
+    + \dots -
+    Y_p Y_q Y_s X_r -
+    Y_p Y_q X_s Y_r )
+    \prod_{k=p+1}^{q-1} Z_k
+    \prod_{l=r+1}^{s-1} Z_l
+    \right)
+\end{equation*}
+
+To summarise, we constructed anti-Hermitian single and double excitation operators from a linear combination of fermionic excitation operators,
+
+\begin{equation*}
+    \hat\kappa_p^q = a_q^\dagger a_p - a_p^\dagger a_q \qquad
+    %
+    \hat\kappa_{pq}^{rs} =
+    a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r
+\end{equation*}\smallskip
+
+We then mapped these to qubit operators using the Jordan-Wigner transformation,
+\begin{equation*}
+    \hat\kappa_p^q \xrightarrow{\text{JW}} F_p^q \qquad\qquad
+    \hat\kappa_{pq}^{rs} \xrightarrow{\text{JW}} F_{pq}^{rs}
+\end{equation*}
+
+And finally, we exponentiated to yield the parametrised unitary qubit operators.
+\begin{equation*}
+    U^q_p (\theta) = e^{\theta^q_p F_p^q} \qquad
+    %
+    U^{rs}_{pq}(\theta) = e^{\theta_{pq}^{rs} F_{pq}^{rs}}
+\end{equation*}
+
