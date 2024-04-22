@@ -1,9 +1,10 @@
-\section{Second Quantisation}
+\section{Electronic Structure Theory}
 In second quantisation, both observables and states (by acting on the vacuum state) are represented by operators, namely the creation and annhilation operators \cite{Helgaker2000}. In contrast to the standard formulation of quantum mechanics, operators in second quantisation incorporate the relevant Bose or Fermi statistics each time they act on a state, circumventing the need to keep track of symmetrised or antisymmetrised products of single-particle wavefunctions \cite{Fetter1972}. Put differently, the antisymmetry of an electronic wavefunction simply follows from the algebra of the creation and annhilation operators \cite{Helgaker2000}, which greatly simplifies the discussion of systems of many identical interacting fermions \cite{Fetter1972}.
 
 \subsection{Occupation Number Representation}
 The Fock space is a linear abstract vector space spanned by $N$ orthonormal occupation number vectors \cite{Helgaker2000}, each representing a single Slater determinant. Hence, given a basis of $N$ spin orbitals we can construct $2^N$ single Slater determinants, each corresponding to a single occupation number vector in the full Fock space.
 
+TALK ABOUT HOW ON DIRAC NOTATION IS BINARY REPRESENTATION OF ON VECTOR
 The occupation number vector for fermionic systems is succinctly denoted in Dirac notation as below, where the occupation number $f_j$ is 1 if spin orbital $j$ is occupied, and 0 if spin orbital $j$ is unnoccupied.
 \begin{equation*}
     \ket\psi = \ket{f_{n-1} \,\, f_{n-2} \dots f_{1} \,\, f_{0}} \qquad \text{where } f_{j} \in {0, 1}
@@ -25,39 +26,35 @@ Taking the excitation of an electron from spin orbital 0 to spin orbital 1 as an
 \begin{equation*}
     a_1^\dagger \, a_0 \ket{0 \dots 01} = \ket{0 \dots 10}
 \end{equation*}
-Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital $(-1)^{\sum_{s=0}^{j-1} f_s}$.
+SHOW LADDER OPERATORS ACTING ON OPPOSITE STATES
+Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital.
 \begin{align*}
     a_j^\dagger \ket{f_{n-1} \dots
     f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} &=
     (-1)^{\sum_{s=0}^{j-1} f_s}
     \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} \\
     %
-    a_j^\dagger \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1}
-    \dots f_0} &= 0 \\
-    %
     a_j \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} &=
     (-1)^{\sum_{s=0}^{j-1} f_s}
-    \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} \\
-    %
-    a_j \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} &= 0
+    \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0}
 \end{align*}
 In second quantisation, this exchange anti-symmetry requirement is accounted for by the anti-commutation relations of the creation and annhilation operators.
-\begin{equation*}
+\begin{equation}
 \begin{gathered}
-    \{ \hat a_{j}, \hat a_{k} \} =
-    \hat a_{j} \hat a_{k} + \hat a_{k} \hat a_{j} = 0 \qquad
+    \{ \hat a_{j}, \hat a_{k} \} = 0 \qquad \qquad
+    % = \hat a_{j} \hat a_{k} + \hat a_{k} \hat a_{j}
     %
-    \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} =
-    \hat a_{j}^\dagger \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j}^\dagger = 0 \\
+    \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} = 0 \qquad
+    % = \hat a_{j}^\dagger \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j}^\dagger \\
     %
-    \{ \hat a_{j}, \hat a_{k}^{\dagger} \} = \hat a_{j} \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j} = \delta_{jk} \hat{1}
+    \{ \hat a_{j}, \hat a_{k}^{\dagger} \} = \delta_{jk} \hat{1}
+    % = \hat a_{j} \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j}
 \end{gathered}
-\end{equation*}
-
+\end{equation}
 That is, the phase factor required for the second quantised representation to be consistent with the first quantised representation is automatically kept track of by the anticommutation relations of the creation and annhilation operators \cite{Helgaker2000}.
 
 \subsection{Second Quantised Hamiltonian}
-The Hamiltonian in second quantisation is constructed from creation and annhilation operators as below.
+The Hamiltonian in second quantisation is constructed from creation and annhilation operators as follows.
 \begin{equation*}
     \hat H =
     \sum_{ij} h_{ij} a^\dagger_i a_j +
