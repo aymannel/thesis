@@ -1,11 +1,17 @@
+\chapter{\label{background}Background}
+In this chapter, we will discuss the methods required to simulate fermionic systems on a quantum computer. Starting with the Hamiltonian of the system, we will introduce the second quantisation, unitary coupled cluster theory and finally a variational quantum algorithm known as the Variational Quantum Eigensolver.
+
 \section{Fermionic Simulation Scheme}
 
-\begin{enumerate}
-    \item Map some fermionic state, usually in the occupation number representation to a qubit state.
-    \item This mapping must be done in such a way as to preserve the fermionic anti-commutation relations, and hence preserve Pauli antisymmetry.
-    \item Common fermionic-qubit mappings include Jordan-Wigner and Bravyi-Kitaev.
-    \item We then act on the qubit state with a unitary operator that represents a fermionic operator.
-    \item The resulting qubit state is then decoded to yield the resultant fermionic state.
-    \item A successful simulation scheme is one that reproduces the action of the fermionic operator
-\end{enumerate}
+\begin{itemize}
+    \item hamiltonian in first quantisation
+    \item born oppenheimer approximation
+    \item hamiltonian in second quantisation
+    \item anti commutation relations of creation/annhilation operators
+    \item introduction to unitary coupled cluster theory
+\end{itemize}
+
+In order to simulate a fermionic system on a quantum computer, we must map the fermionic state to a qubit state. This is usually done using the occupation number representation [REF SECTION]. We then act on the qubit state with unitary operations that represent the fermionic operations. In order not to violate the Pauli principle, we must choose a fermion-qubit mapping that preserves the fermionic anti-commutation relations. The most common mapping, and the one used throughout this text, is known as the Jordan-Wigner transformation [REF SECTION]. Then, by acting on the qubit state with the unitary qubit operator, we obtain the resultant qubit state, which in the occupation number representation, simply represents the fermionic wavefunction.
+
+A successful simulation scheme is one that reproduces the action of the fermionic operator [CITE BRAVYI-KITAEV PAPER].
 

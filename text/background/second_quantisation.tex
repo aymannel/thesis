@@ -1,0 +1,77 @@
+\section{Second Quantisation}
+In second quantisation, both observables and states (by acting on the vacuum state) are represented by operators, namely the creation and annhilation operators \cite{Helgaker2000}. In contrast to the standard formulation of quantum mechanics, operators in second quantisation incorporate the relevant Bose or Fermi statistics each time they act on a state, circumventing the need to keep track of symmetrised or antisymmetrised products of single-particle wavefunctions \cite{Fetter1972}. Put differently, the antisymmetry of an electronic wavefunction simply follows from the algebra of the creation and annhilation operators \cite{Helgaker2000}, which greatly simplifies the discussion of systems of many identical interacting fermions \cite{Fetter1972}.
+
+\subsection{Occupation Number Representation}
+The Fock space is a linear abstract vector space spanned by $N$ orthonormal occupation number vectors \cite{Helgaker2000}, each representing a single Slater determinant. Hence, given a basis of $N$ spin orbitals we can construct $2^N$ single Slater determinants, each corresponding to a single occupation number vector in the full Fock space.
+
+The occupation number vector for fermionic systems is succinctly denoted in Dirac notation as below, where the occupation number $f_j$ is 1 if spin orbital $j$ is occupied, and 0 if spin orbital $j$ is unnoccupied.
+\begin{equation*}
+    \ket\psi = \ket{f_{n-1} \,\, f_{n-2} \dots f_{1} \,\, f_{0}} \qquad \text{where } f_{j} \in {0, 1}
+\end{equation*}
+Whilst there is a one-to-one mapping between Slater determinants with canonically ordered spin orbitals and the occupation number vectors in the Fock space, it is important to distinguish between the two since, unlike the Slater determinants, the occupation number vectors have no spatial structure and are simply vectors in an abstract vector space. \cite{Helgaker2000}.
+
+\begin{equation*}
+    \ket{\psi_1} = \ket{0 \dots 1} =
+    \begin{pmatrix} 1 \\ \vdots \\ 0 \end{pmatrix} \qquad
+    \dots\qquad
+    \ket{\psi_N} = \ket{1 \dots 1} =
+    \begin{pmatrix} 0 \\ \vdots \\ 1 \end{pmatrix} \qquad
+\end{equation*}
+
+\subsection{Creation and Annhilation Operators}
+Operators in second quantisation are constructed from the creation and annhilation operators $a_j^\dagger$ and $a_j$, where the subscripts $i$ and $j$ denote the spin orbital. $a_j^\dagger$ and $a_j$ are one another's Hermitian adjoints, and are not self-adjoint \cite{Helgaker2000}.
+
+Taking the excitation of an electron from spin orbital 0 to spin orbital 1 as an example, we can construct the following excitation operator.
+\begin{equation*}
+    a_1^\dagger \, a_0 \ket{0 \dots 01} = \ket{0 \dots 10}
+\end{equation*}
+Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital $(-1)^{\sum_{s=0}^{j-1} f_s}$.
+\begin{align*}
+    a_j^\dagger \ket{f_{n-1} \dots
+    f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} &=
+    (-1)^{\sum_{s=0}^{j-1} f_s}
+    \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} \\
+    %
+    a_j^\dagger \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1}
+    \dots f_0} &= 0 \\
+    %
+    a_j \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} &=
+    (-1)^{\sum_{s=0}^{j-1} f_s}
+    \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} \\
+    %
+    a_j \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} &= 0
+\end{align*}
+In second quantisation, this exchange anti-symmetry requirement is accounted for by the anti-commutation relations of the creation and annhilation operators.
+\begin{equation*}
+\begin{gathered}
+    \{ \hat a_{j}, \hat a_{k} \} =
+    \hat a_{j} \hat a_{k} + \hat a_{k} \hat a_{j} = 0 \qquad
+    %
+    \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} =
+    \hat a_{j}^\dagger \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j}^\dagger = 0 \\
+    %
+    \{ \hat a_{j}, \hat a_{k}^{\dagger} \} = \hat a_{j} \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j} = \delta_{jk} \hat{1}
+\end{gathered}
+\end{equation*}
+
+That is, the phase factor required for the second quantised representation to be consistent with the first quantised representation is automatically kept track of by the anticommutation relations of the creation and annhilation operators \cite{Helgaker2000}.
+
+\subsection{Second Quantised Hamiltonian}
+The Hamiltonian in second quantisation is constructed from creation and annhilation operators as below.
+\begin{equation*}
+    \hat H =
+    \sum_{ij} h_{ij} a^\dagger_i a_j +
+    \frac{1}{2} \sum_{ijkl} h_{ijkl} a^\dagger_i a^\dagger_j a_k a_l +
+    h_\text{Nu}
+\end{equation*}
+Where the one-body matrix element $h_{ij}$ corresponds to the kinetic energy of an electron and its interaction energy with the nuclei.
+\begin{equation*}
+h_{ij} = \int^\infty_{-\infty} \psi^*_{i(x_1)} \left( - \frac{1}{2} \nabla^2 + \hat V_{(x_1)} \right) \psi_{j(x_1)} \,\, d^3 x_1 \\
+\end{equation*}
+The two-body matrix element $h_{ijkl}$ corresponds to the repulsive interaction between electrons $i$ and $j$.
+\begin{equation*}
+h_{ijkl} = \int^\infty_{-\infty} \int^\infty_{-\infty} \psi^*_{i(x_1)} \psi^*_{j(x_2)} \left( \frac{1}{|x_1 - x_2|} \right) \psi_{k(x_2)} \psi_{l(x_1)} \,\, d^3 x_1 d^3 x_2
+\end{equation*}
+
+$h_\text{Nu}$ is a constant corresponding to the repulsive interaction between nuclei. These matrix elements are computed classically, allowing us to compute only the inherently quantum aspects of the problem on a quantum computer.
+
