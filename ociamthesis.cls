@@ -87,7 +87,6 @@
 
 \usepackage{xcolor}
 \usepackage{graphicx} 
-\usepackage[parfill]{parskip}  % newline instead of indentation
 
 \usepackage{fancyhdr}
 \setlength{\headheight}{15pt}

@@ -1,4 +1,47 @@
 \section{Electronic Structure Theory}
+
+\subsection{Electronic Structure Problem}
+The main interest of electronic structure theory is the electronic structure problem, which concerns itself with finding approximate solutions to the non-relativistic time-independent Schrödinger equation, $H\ket\psi = E\ket\psi$.
+
+It is an eigenvalue equation of the full molecular Hamiltonian $H$ which describes all the possible interactions within a molecular system of $N$ electrons and $M$ nuclei. Below is the full molecular Hamiltonian in atomic units, where $Z_i$ is the charge of nucleus $i$ and $M_i$ is its mass relative to the mass of an electron.
+\begin{equation*}
+    H =
+    - \sum_{i=1}^{N} \frac{1}{2} \nabla^{2}_{i}
+    - \sum_{i=1}^{M} \frac{1}{2M_i} \nabla^{2}_{i}
+    - \sum_{i=1}^{N} \sum_{j=1}^{M} \frac{Z_j}{|r_{i} - R_{j}|}
+    + \sum_{i=1}^{N} \sum_{j>i}^{N} \frac{1}{|r_{i} - r_{j}|}
+    + \sum_{i=1}^{M} \sum_{j>i}^{M} \frac{Z_{i} Z_{j}}{|R_{i} - R_{j}|}
+\end{equation*}
+
+The first term corresponds to the kinetic energy of all electrons in the system and the second term corresponds to the total kinetic energy of all nuclei. The third term corresponds to the pairwise attractive Coulombic interactions between the $N$ electrons and $M$ nuclei, whilst the fourth and fifth terms correspond to all repulsive Coulombic interactions between electrons and nuclei respectively.
+
+Using the Born-Oppenheimer approximation, we are able to simplify this problem to a purely electronic one. Motivated by the large difference in mass of electrons and nuclei, we can approximate the nuclei as stationary on the timescale of electronic motion such that the electronic wavefunction depends only parametrically on the nuclear coordinates. This allows us to express the full molecular wavefunction as an adiabatic separation as below.
+\begin{equation*}
+    \Phi_\text{total} =
+    \psi_\text{elec}({\{r\}};\{R\}) \,
+    \psi_\text{nuc}(\{R\})
+\end{equation*}
+Within this approximation, the nuclear kinetic energy term can be neglected and the nuclear repulsive term is considered to be constant. Since constants in eigenvalue equations have no effect on the eigenfunctions and simply add to the resulting eigenvalue, we will omit this too. The resulting equation is the electronic Hamiltonian for $N$ electrons. 
+\begin{equation*}
+    H =
+    - \sum_{i=1}^{N} \frac{1}{2} \nabla^{2}_{i}
+    - \sum_{i=1}^{N} \sum_{j=1}^{M} \frac{Z_j}{|r_{i} - R_{j}|}
+    + \sum_{i=1}^{N} \sum_{j>i}^{N} \frac{1}{|r_{i} - r_{j}|}
+\end{equation*}
+We will only concern ourselves with the electronic Hamiltonian throughout the remainder of this text, simply referring to it as the Hamiltonian, $H$.
+
+The solution to the eigenvalue equation involving the electronic Hamiltonian is the electronic wavefunction, which depends only parametrically on the nuclear coordinates. It is solved for fixed nuclear coordinates, such that different arrangements of nuclei yields different functions of the electronic coordinates. The total molecular energy can then be calculated by solving the electronic Schrödinger equation and including the constant repulsive nuclear term.
+\begin{equation*}
+    E_\text{total} = E_\text{elec} + \sum_{i=1}^{M} \sum_{j>i}^{M} \frac{Z_{i} Z_{j}}{|R_{i} - R_{j}|}
+\end{equation*}
+
+% something about how solving the molecular electronic Hamiltonian yields one-electron wavefunctions known as molecular orbitals. these depend only on the spatial coordinates.
+
+\subsection{Many-Electron Wavefunctions}
+something
+
+
+\subsection{Second Quantisation}
 In second quantisation, both observables and states (by acting on the vacuum state) are represented by operators, namely the creation and annhilation operators \cite{Helgaker2000}. In contrast to the standard formulation of quantum mechanics, operators in second quantisation incorporate the relevant Bose or Fermi statistics each time they act on a state, circumventing the need to keep track of symmetrised or antisymmetrised products of single-particle wavefunctions \cite{Fetter1972}. Put differently, the antisymmetry of an electronic wavefunction simply follows from the algebra of the creation and annhilation operators \cite{Helgaker2000}, which greatly simplifies the discussion of systems of many identical interacting fermions \cite{Fetter1972}.
 
 \subsection{Occupation Number Representation}
