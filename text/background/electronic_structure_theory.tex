@@ -5,7 +5,9 @@ The main interest of electronic structure theory is finding approximate solution
 \begin{equation*}
     H\ket\psi = E\ket\psi
 \end{equation*}
-It is an eigenvalue equation of the full molecular Hamiltonian $H$ which describes all the possible interactions within a molecular system of $N$ electrons and $M$ nuclei. Below is the full molecular Hamiltonian in atomic units, where $Z_i$ is the charge of nucleus $i$ and $M_i$ is its mass relative to the mass of an electron.
+It is an eigenvalue equation of the full molecular Hamiltonian $H$ which describes all the possible interactions within a molecular system of $N$ electrons and $M$ nuclei.
+\begin{figure}[H]
+\centering
 \begin{equation*}
     H =
     - \sum_{i=1}^{N} \frac{1}{2} \nabla^{2}_{i}
@@ -14,6 +16,8 @@ It is an eigenvalue equation of the full molecular Hamiltonian $H$ which describ
     + \sum_{i=1}^{N} \sum_{j>i}^{N} \frac{1}{|r_{i} - r_{j}|}
     + \sum_{i=1}^{M} \sum_{j>i}^{M} \frac{Z_{i} Z_{j}}{|R_{i} - R_{j}|}
 \end{equation*}
+\caption{Full Hamiltonian in atomic units, where $Z_i$ is the charge of nucleus $i$ and $M_i$ is its mass relative to the mass of an electron.}
+\end{figure}
 
 The first term corresponds to the kinetic energy of all electrons in the system and the second term corresponds to the total kinetic energy of all nuclei. The third term corresponds to the pairwise attractive Coulombic interactions between the $N$ electrons and $M$ nuclei, whilst the fourth and fifth terms correspond to all repulsive Coulombic interactions between electrons and nuclei respectively.
 
