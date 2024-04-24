@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=rn] (0) at (0, 0) {};
+		\node [style=rn] (1) at (0, 1) {};
+		\node [style=rn] (2) at (0, 2) {};
+		\node [style=rn] (3) at (2, 2) {};
+		\node [style=rn] (4) at (3, 0) {};
+		\node [style=gn] (5) at (3, 1) {};
+		\node [style=gn] (6) at (2, 1) {};
+		\node [style=hbox] (7) at (1, 1) {};
+		\node [style=none] (8) at (4, 2) {};
+		\node [style=none] (9) at (4, 1) {};
+		\node [style=none] (10) at (4, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (10.center) to (4);
+		\draw (4) to (0);
+		\draw (1) to (7);
+		\draw (7) to (6);
+		\draw (6) to (5);
+		\draw (5) to (9.center);
+		\draw (8.center) to (3);
+		\draw (3) to (2);
+		\draw (4) to (5);
+		\draw (6) to (3);
+	\end{pgfonlayer}
+\end{tikzpicture}

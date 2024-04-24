@@ -1,0 +1,9 @@
+\begin{circuitikz}
+\draw (-2,0) node[not port, scale=0.5] (not) {};
+\draw (not.in) -- ++(-0.5,0) node[left] {$0$};
+\draw (not.out) -- ++(0.5,0) node[right] {$1$};
+
+\draw (2,0) node[not port, scale=0.5] (not) {};
+\draw (not.in) -- ++(-0.5,0) node[left] {$1$};
+\draw (not.out) -- ++(0.5,0) node[right] {$0$};
+\end{circuitikz}

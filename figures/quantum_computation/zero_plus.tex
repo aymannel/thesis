@@ -1,0 +1,29 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{scope}
+    \input{zero}
+\end{scope}
+
+\begin{scope}
+    \node at (2.5, 0)   {$\rightarrow$};
+\end{scope}
+
+\begin{scope}[shift={(5,0)}]
+    \input{hadamard_rotation}
+\end{scope}
+
+\begin{scope}
+    \node at (7.5, 0)   {$\rightarrow$};
+\end{scope}
+
+\begin{scope}[shift={(10,0)}]
+    \input{plus}
+\end{scope}
+
+\end{tikzpicture}
+
+\end{document}
+

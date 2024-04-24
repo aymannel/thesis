@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=gn] (0) at (1, 0) {};
+		\node [style=none] (1) at (2, 0.5) {};
+		\node [style=none] (2) at (2, -0.5) {};
+		\node [style={gn_phase}] (3) at (7.25, 0.5) {$\alpha$};
+		\node [style=none] (4) at (8.25, 0.5) {};
+		\node [style=none] (5) at (6, 0) {$\neq$};
+		\node [style={gn_phase}] (7) at (7.25, -0.5) {$\alpha$};
+		\node [style=none] (8) at (8.25, -0.5) {};
+		\node [style={gn_phase}] (9) at (0, 0) {$\alpha$};
+		\node [style={gn_phase}] (10) at (4, 0) {$\alpha$};
+		\node [style=none] (11) at (5, 0.5) {};
+		\node [style=none] (12) at (5, -0.5) {};
+		\node [style=none] (13) at (2.75, 0) {=};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [bend right] (1.center) to (0);
+		\draw [bend right] (0) to (2.center);
+		\draw (4.center) to (3);
+		\draw (8.center) to (7);
+		\draw (0) to (9);
+		\draw [bend right] (11.center) to (10);
+		\draw [bend right] (10) to (12.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

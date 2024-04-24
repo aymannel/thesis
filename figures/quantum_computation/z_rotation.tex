@@ -1,0 +1,10 @@
+\begin{blochsphere}[radius=1.5 cm,tilt=15,rotation=-20,opacity=0.05,nested=true]
+    \drawBall % include when nested
+    \drawBallGrid[style={draw,opacity=0.1}]{30}{30}
+    \drawStatePolar[style=dash, statewidth=0.8pt, statecolor=red, axisarrow=none]{Z}{0}{0}
+    \labelPolar{zero}{0}{0};
+    \node[above] at (zero) {{$Z$}};
+
+    \drawGreatCircle[style={dashed}]{0}{0}{0}
+    \drawRotationLeft[scale=1.3,style={red}]{0}{0}{0}{15}
+\end{blochsphere}

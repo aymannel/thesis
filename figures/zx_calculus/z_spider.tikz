@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=gn] (0) at (3.25, 0) {};
+		\node [style=none] (1) at (5.25, 1) {};
+		\node [style=none] (2) at (5.25, -1) {};
+		\node [style=none] (3) at (1.25, 1) {};
+		\node [style=none] (4) at (1.25, -1) {};
+		\node [style=none] (5) at (1.75, 0) {$\dots$};
+		\node [style=none] (6) at (4.75, 0) {$\dots$};
+		\node [style=none] (7) at (0.5, 0) {$n$};
+		\node [style=none] (8) at (6, 0) {$m$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [bend right] (0) to (2.center);
+		\draw [bend left] (0) to (1.center);
+		\draw [bend left] (0) to (4.center);
+		\draw [bend right] (0) to (3.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

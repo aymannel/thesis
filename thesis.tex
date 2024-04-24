@@ -14,6 +14,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{quantikz}
+\usepackage{verbatim}
 \usepackage{listings}
 \usepackage{standalone}
 \usepackage{circuitikz}
@@ -76,7 +77,10 @@ Merci de m'avoir amené jusqu'ici.
 
 %%% ACKNOWLEDGEMENTS %%%
 \begin{acknowledgements}
- 	\input{text/acknowledgements}
+Thank you Thomas Cervoni for your constant motivation and support. \\
+Thank you David Tew and Stefano Gogioso for your patient supervision. \\
+Thank you Razin Shaikh, Boldizsár Poór, Richie Yeung and Harny Wang for always finding the time to answer my questions. \\
+Thank you to my friends and family for supporting me during this unconvential Master's.
 \end{acknowledgements}
 
 %%% SUMMARY %%%
@@ -94,16 +98,25 @@ Merci de m'avoir amené jusqu'ici.
 
 %%% ========== CHAPTERS  ========== %%%
 
-\include{text/background/simulation_scheme}
+\include{text/background/background}
 \include{text/background/electronic_structure_theory}
+\include{text/background/quantum_computation}
 \include{text/background/fermion_encodings}
 \include{text/background/unitary_coupled_cluster}
-\include{text/background/disco_vqe}
 
-\include{text/phase_gadgets}
-\include{text/pauli_gadgets}
-\include{text/controlled_rotations}
-\include{text/zxfermion}
+\include{text/chapter-1/generators}
+\include{text/chapter-1/rewrite_rules}
+\include{text/chapter-1/phase_gadgets}
+\include{text/chapter-1/pauli_gadgets}
+\include{text/chapter-1/zxfermion}
+
+\include{text/chapter-2/vqe}
+\include{text/chapter-2/disco_vqe}
+\include{text/chapter-2/single_excitation}
+\include{text/chapter-2/double_excitation}
+\include{text/chapter-2/spin_adapted_excitation}
+
+\include{text/chapter-3/controlled_rotations}
 
 
 %%% ========== APPENDICIES  ========== %%%

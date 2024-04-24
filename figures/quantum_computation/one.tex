@@ -1,0 +1,10 @@
+\begin{blochsphere}[radius=1.5 cm,tilt=15,rotation=-20,opacity=0.05,nested=true]
+
+    \drawBall % include when nested
+    \drawBallGrid[style={draw,opacity=0.1}]{30}{30}
+    \drawStatePolar{one}{180}{0}
+
+    \labelPolar{one}{180}{90};
+    \node[below] at (one) {{$\ket 1$}};
+
+\end{blochsphere}

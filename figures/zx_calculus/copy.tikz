@@ -1,0 +1,40 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=gn] (0) at (1, 2.5) {};
+		\node [style=none] (1) at (2, 3) {};
+		\node [style=none] (2) at (2, 2) {};
+		\node [style=gn] (3) at (4.25, 3) {};
+		\node [style=none] (4) at (5.25, 3) {};
+		\node [style=none] (5) at (3, 2.5) {=};
+		\node [style=none] (6) at (6.5, 3) {$= \ket 0$};
+		\node [style=gn] (7) at (1, 0) {};
+		\node [style=none] (8) at (2, 0.5) {};
+		\node [style=none] (9) at (2, -0.5) {};
+		\node [style={gn_phase}] (10) at (4.25, 0.5) {$\pi$};
+		\node [style=none] (11) at (5.25, 0.5) {};
+		\node [style=none] (12) at (3, 0) {=};
+		\node [style=none] (13) at (6.5, 0.5) {$= \ket 1$};
+		\node [style=gn] (14) at (4.25, 2) {};
+		\node [style=none] (15) at (5.25, 2) {};
+		\node [style={gn_phase}] (16) at (4.25, -0.5) {$\pi$};
+		\node [style=none] (17) at (5.25, -0.5) {};
+		\node [style={gn_phase}] (18) at (0, 0) {$\pi$};
+		\node [style=gn] (19) at (0, 2.5) {};
+		\node [style=none] (20) at (6.5, 2) {$= \ket 0$};
+		\node [style=none] (21) at (6.5, -0.5) {$= \ket 1$};
+		\node [style=none] (22) at (-1, 0) {$\ket 1$};
+		\node [style=none] (23) at (-1, 2.5) {$\ket 0$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [bend right] (1.center) to (0);
+		\draw [bend right] (0) to (2.center);
+		\draw (4.center) to (3);
+		\draw [bend right] (8.center) to (7);
+		\draw [bend right] (7) to (9.center);
+		\draw (11.center) to (10);
+		\draw (15.center) to (14);
+		\draw (17.center) to (16);
+		\draw (19) to (0);
+		\draw (7) to (18);
+	\end{pgfonlayer}
+\end{tikzpicture}

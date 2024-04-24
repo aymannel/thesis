@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{blochsphere}
+\usepackage{physics}
+\pagestyle{empty}
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment[]{tikzpicture}
+\setlength\PreviewBorder{6pt}
+
+\begin{document}
+\begin{blochsphere}[radius=1.5 cm,tilt=15,rotation=-20,opacity=0.05]
+    \drawBallGrid[style={draw,opacity=0.1}]{30}{30}
+    \drawStatePolar{minus}{90}{0}
+    \labelPolar{minus}{90}{0};
+    \labelPolar{minus}{90}{0};
+    \node[right] at (minus) {{$\ket -$}};
+\end{blochsphere}
+\end{document}
+
+
+

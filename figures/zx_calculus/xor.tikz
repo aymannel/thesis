@@ -1,0 +1,62 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=rn] (0) at (1, 0.5) {};
+		\node [style=none] (1) at (2, 0.5) {};
+		\node [style=rn] (2) at (0, 1) {};
+		\node [style=rn] (3) at (0, 0) {};
+		\node [style=rn] (11) at (3.75, 0.5) {};
+		\node [style=none] (12) at (4.75, 0.5) {};
+		\node [style=none] (13) at (2.75, 0.5) {=};
+		\node [style=none] (14) at (6, 0.5) {$= \ket 0$};
+		\node [style=rn] (15) at (10.25, -2.25) {};
+		\node [style=none] (16) at (11.25, -2.25) {};
+		\node [style={rn_phase}] (17) at (9.25, -1.75) {$\pi$};
+		\node [style={rn_phase}] (18) at (9.25, -2.75) {$\pi$};
+		\node [style=rn] (19) at (13, -2.25) {};
+		\node [style=none] (20) at (14, -2.25) {};
+		\node [style=none] (21) at (12, -2.25) {=};
+		\node [style=none] (22) at (15.25, -2.25) {$= \ket 0$};
+		\node [style=rn] (23) at (1, -2.25) {};
+		\node [style=none] (24) at (2, -2.25) {};
+		\node [style=rn] (25) at (0, -1.75) {};
+		\node [style={rn_phase}] (26) at (0, -2.75) {$\pi$};
+		\node [style={rn_phase}] (27) at (3.75, -2.25) {$\pi$};
+		\node [style=none] (28) at (4.75, -2.25) {};
+		\node [style=none] (29) at (2.75, -2.25) {=};
+		\node [style=none] (30) at (6, -2.25) {$= \ket 1$};
+		\node [style=rn] (31) at (10.25, 0.5) {};
+		\node [style=none] (32) at (11.25, 0.5) {};
+		\node [style={rn_phase}] (33) at (9.25, 1) {$\pi$};
+		\node [style=rn] (34) at (9.25, 0) {};
+		\node [style={rn_phase}] (35) at (13, 0.5) {$\pi$};
+		\node [style=none] (36) at (14, 0.5) {};
+		\node [style=none] (37) at (12, 0.5) {=};
+		\node [style=none] (38) at (15.25, 0.5) {$= \ket 1$};
+		\node [style=none] (39) at (8.25, 0) {$\ket 0$};
+		\node [style=none] (40) at (8.25, -1.75) {$\ket 1$};
+		\node [style=none] (41) at (8.25, -2.75) {$\ket 1$};
+		\node [style=none] (42) at (8.25, 1) {$\ket 1$};
+		\node [style=none] (43) at (-1, 0) {$\ket 0$};
+		\node [style=none] (44) at (-1, -1.75) {$\ket 0$};
+		\node [style=none] (45) at (-1, -2.75) {$\ket 1$};
+		\node [style=none] (46) at (-1, 1) {$\ket 0$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (1.center) to (0);
+		\draw [bend left] (2) to (0);
+		\draw [bend left] (0) to (3);
+		\draw (12.center) to (11);
+		\draw (16.center) to (15);
+		\draw [bend left] (17) to (15);
+		\draw [bend left] (15) to (18);
+		\draw (20.center) to (19);
+		\draw (24.center) to (23);
+		\draw [bend left] (25) to (23);
+		\draw [bend left] (23) to (26);
+		\draw (28.center) to (27);
+		\draw (32.center) to (31);
+		\draw [bend left] (33) to (31);
+		\draw [bend left] (31) to (34);
+		\draw (36.center) to (35);
+	\end{pgfonlayer}
+\end{tikzpicture}
