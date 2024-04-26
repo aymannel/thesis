@@ -47,7 +47,7 @@
    \rule[5mm]{7mm}{1pt}\hspace{1em}%
    \begin{varwidth}{\textwidth}I hereby certify that this is entirely\\my own work unless otherwise stated.\end{varwidth}}
 
-%
+
 % DECLARATIONS
 %
 % These macros are used to declare arguments needed for the
