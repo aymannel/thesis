@@ -7,15 +7,7 @@
 
 \subsection{Introduction to Qubits}
 
-In quantum computing, the $\ket 0$ and $\ket 1$ states form the computational basis. They are vectors in a two-dimensional complex Hilbert space $\mathbb{C}^2$. We can choose any pair of orthonormal states to form our computational basis. Consider, for instance, the $\ket +$ and $\ket -$ states.
-\begin{equation*}
-\begin{gathered}
-    \ket + = \frac{1}{\sqrt{2}} (\ket 0 + \ket 1) \qquad\qquad
-    \ket - = \frac{1}{\sqrt{2}} (\ket 0 - \ket 1)
-\end{gathered}
-\end{equation*}
-
-We can depict these computational basis states on a Bloch sphere.
+In quantum computing, the $\ket 0$ and $\ket 1$ states form the computational basis. They are vectors in a two-dimensional complex Hilbert space $\mathbb{C}^2$. We can depict these computational basis states on a Bloch sphere.
 \begin{figure}[H]
 \centering
     \begin{minipage}{.4\textwidth}
@@ -28,6 +20,18 @@ We can depict these computational basis states on a Bloch sphere.
       \includegraphics[width=0.5\linewidth]{chapter-1/one}
       \caption{$\ket 1$ state}
     \end{minipage}
+\end{figure}
+
+We can choose any pair of orthonormal states to form our computational basis.
+\begin{equation*}
+\begin{gathered}
+    \ket + = \frac{1}{\sqrt{2}} (\ket 0 + \ket 1) \qquad\qquad
+    \ket - = \frac{1}{\sqrt{2}} (\ket 0 - \ket 1)
+\end{gathered}
+\end{equation*}
+
+\begin{figure}[H]
+\centering
     \begin{minipage}{.4\textwidth}
       \centering
       \includegraphics[width=0.5\linewidth]{chapter-1/plus}
@@ -40,19 +44,11 @@ We can depict these computational basis states on a Bloch sphere.
     \end{minipage}
 \end{figure}
 
-We can choose any pair of orthonormal states to form our computational basis.
-\begin{equation*}
-\begin{gathered}
-    \ket + = \frac{1}{\sqrt{2}} (\ket 0 + \ket 1) \qquad\qquad
-    \ket - = \frac{1}{\sqrt{2}} (\ket 0 - \ket 1)
-\end{gathered}
-\end{equation*}
-
 More generally, any qubit $\ket\psi$ can be represented as complex linear combination of the chosen basis, provided that the qubit state vector is normalised.
 \begin{equation*}
 \begin{gathered}
-    \ket \psi = \alpha\ket 0 + \beta\ket 1 \\
-    |\alpha|^2 + |\beta|^2 = 1 \\
+    \ket \psi = \alpha\ket 0 + \beta\ket 1 \qquad
+    |\alpha|^2 + |\beta|^2 = 1 \qquad
     \alpha, \beta \in \mathbb{C}
 \end{gathered}
 \end{equation*}

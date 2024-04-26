@@ -1,25 +1,4 @@
 \chapter{\label{background}Background}
-In this chapter, we will discuss the methods and concepts required to simulate fermionic systems on a quantum computer, as well as the notation that we will use throughout the text. Starting with ... we will introduce the ... and finally a variational quantum algorithm known as the Variational Quantum Eigensolver.
+In this chapter, we will discuss the methods and concepts required to simulate fermionic systems on a quantum computer, as well as the notation that we will use throughout the text. Starting with electronic structure theory, we will introduce the the fundamentals of quantum computation, fermion-qubit encodings and finally Unitary Coupled Cluster theory.
 
-In this chapter, we will review the concepts and methods required to simulate a fermionic system on a quantum computer. Starting with the electronic structure theory, we will introduce unitary coupled cluster (UCC) and the ZX calculus.
-
-Let us first develop a general fermionic simulation scheme.
-
-\begin{itemize}
-    \item hamiltonian in first quantisation
-    \item born oppenheimer approximation
-    \item hamiltonian in second quantisation
-    \item anti commutation relations of creation/annhilation operators
-    \item introduction to unitary coupled cluster theory
-\end{itemize}
-
-In order to simulate a fermionic system on a quantum computer, we must map the fermionic state to a qubit state. This is usually done using the occupation number representation [REF SECTION]. We then act on the qubit state with unitary operations that represent the fermionic operations. In order not to violate the Pauli principle, we must choose a fermion-qubit mapping that preserves the fermionic anti-commutation relations. The most common mapping, and the one used throughout this text, is known as the Jordan-Wigner transformation [REF SECTION]. Then, by acting on the qubit state with the unitary qubit operator, we obtain the resultant qubit state, which in the occupation number representation, simply represents the fermionic wavefunction.
-
-A successful simulation scheme is one that reproduces the action of the fermionic operator [CITE BRAVYI-KITAEV PAPER].
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{comment}
-remove 'simulation' scheme stuff. this is the introduction of the background. briefly recap that's all.
-\end{comment}
+Let us first develop a general fermionic simulation scheme. Fermionic states can generally be represented on a quantum computer in the occupation number representation (section \ref{second-quantisation}). That is, the state of each qubit is taken to represent the occupancy of each spin orbital. Then, by representing the fermionic creation and annhilation operators in terms of qubit operators in a way that preserves the fermionic anticommutation relations (section \ref{fermion-qubit-encodings}), we are able to express the Hamiltonian in terms of qubit operations. To simulate this Hamiltonian, we obtain the corresponding unitary time evolution operator, usually via a number of Trotter steps.

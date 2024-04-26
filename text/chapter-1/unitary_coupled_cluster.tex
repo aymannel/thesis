@@ -1,4 +1,5 @@
 \section{Unitary Coupled Cluster}
+References: \cite{Anand2021}, \cite{McClean2016}, \cite{Chan2021}
 
 Within the traditional coupled-cluster framework, the ground electronic state is prepared by applying the CC operator to a reference state (usually Hartree-Fock).
 \begin{equation*}
@@ -49,70 +50,5 @@ Such that upon exponentiating, we obtain \textbf{unitary} operators.
     U^q_p = e^{\hat\kappa_p^q} \qquad
     %
     U_{pq}^{rs} = e^{\hat\kappa_{pq}^{rs}}
-\end{equation*}
-
-Recalling the Jordan-Wigner encoding for the creation and annhilation operators,
-
-\begin{equation*}
-    \hat a_j^+ = \frac{1}{2} (X - iY) \otimes Z^\rightarrow_{j-1} \qquad
-    \hat a_j = \frac{1}{2} (X + iY) \otimes Z^\rightarrow_{j-1}
-\end{equation*}
-
-The anti-Hermitian fermionic single and double excitation operators $\kappa_p^q$ and $\kappa_{pq}^{rs}$
-\begin{align*}
-    F_p^q = \frac{i}{2} & (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \\
-    %
-    F_{pq}^{rs} = \frac{i}{8} (
-      & X_p X_q Y_s X_r +
-        Y_p X_q Y_s Y_r +
-        X_p Y_q Y_s Y_r +
-        X_p X_q X_s Y_r - \\
-      & Y_p X_q X_s X_r -
-        X_p Y_q X_s X_r -
-        Y_p Y_q Y_s X_r -
-        Y_p Y_q X_s Y_r )
-    \prod_{k=p+1}^{q-1} Z_k
-    \prod_{l=r+1}^{s-1} Z_l
-\end{align*}
-
-Multiplying by $\theta$ and exponentiating yields the parametrised unitary qubit operators,
-
-\begin{equation*}
-    U^q_p (\theta) =
-    \text{exp} \left( i
-    \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right)
-\end{equation*}
-
-\begin{equation*}
-    U^{rs}_{pq} (\theta) = \text{exp} \left( i \frac{\theta}{8} (
-    X_p X_q Y_s X_r
-    + \dots -
-    Y_p Y_q Y_s X_r -
-    Y_p Y_q X_s Y_r )
-    \prod_{k=p+1}^{q-1} Z_k
-    \prod_{l=r+1}^{s-1} Z_l
-    \right)
-\end{equation*}
-
-To summarise, we constructed anti-Hermitian single and double excitation operators from a linear combination of fermionic excitation operators,
-
-\begin{equation*}
-    \hat\kappa_p^q = a_q^\dagger a_p - a_p^\dagger a_q \qquad
-    %
-    \hat\kappa_{pq}^{rs} =
-    a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r
-\end{equation*}\smallskip
-
-We then mapped these to qubit operators using the Jordan-Wigner transformation,
-\begin{equation*}
-    \hat\kappa_p^q \xrightarrow{\text{JW}} F_p^q \qquad\qquad
-    \hat\kappa_{pq}^{rs} \xrightarrow{\text{JW}} F_{pq}^{rs}
-\end{equation*}
-
-And finally, we exponentiated to yield the parametrised unitary qubit operators.
-\begin{equation*}
-    U^q_p (\theta) = e^{\theta^q_p F_p^q} \qquad
-    %
-    U^{rs}_{pq}(\theta) = e^{\theta_{pq}^{rs} F_{pq}^{rs}}
 \end{equation*}
 
