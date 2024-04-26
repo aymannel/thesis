@@ -18,19 +18,23 @@ The main interest of electronic structure theory is finding approximate solution
 \end{figure}
 The full molecular Hamiltonian, $H$, describes all interactions within a system of $N$ interacting electrons and $M$ nuclei. The first term corresponds to the kinetic energy of all electrons in the system and the second term corresponds to the total kinetic energy of all nuclei. The third term corresponds to the pairwise attractive Coulombic interactions between the $N$ electrons and $M$ nuclei, whilst the fourth and fifth terms correspond to all repulsive Coulombic interactions between electrons and nuclei respectively.
 
-Using the Born-Oppenheimer approximation, we are able to simplify this problem to an electronic one. Motivated by the large difference in mass of electrons and nuclei, we can approximate the nuclei as stationary on the timescale of electronic motion such that the electronic wavefunction depends only parametrically on the nuclear coordinates. This allows us to express the full molecular wavefunction as an adiabatic separation as below.
+Using the Born-Oppenheimer approximation, we are able to simplify the problem to an electronic one. Motivated by the large difference in mass of electrons and nuclei, we can approximate the nuclei as stationary on the timescale of electronic motion such that the electronic wavefunction depends only parametrically on the nuclear coordinates. The full molecular wavefunction can then be expressed as an adiabatic separation as below.
 \begin{equation*}
     \Phi_\text{total} =
     \psi_\text{elec}({\{r\}};\{R\}) \,
     \psi_\text{nuc}(\{R\})
 \end{equation*}
 Within this approximation, the nuclear kinetic energy term can be neglected and the nuclear repulsive term is considered to be constant. Since constants in eigenvalue equations have no effect on the eigenfunctions and simply add to the resulting eigenvalue, we will omit this too. The resulting equation is the electronic Hamiltonian for $N$ electrons. 
+
+\begin{figure}[H]
 \begin{equation*}
     H =
     - \sum_{i=1}^{N} \frac{1}{2} \nabla^{2}_{i}
     - \sum_{i=1}^{N} \sum_{j=1}^{M} \frac{Z_j}{|r_{i} - R_{j}|}
     + \sum_{i=1}^{N} \sum_{j>i}^{N} \frac{1}{|r_{i} - r_{j}|}
 \end{equation*}
+\caption{Electronic molecular Hamiltonian in atomic units.}
+\end{figure}
 Throughout the remainder of this text, we will concern ourselves only with the electronic Hamiltonian, simply referring to it as the Hamiltonian, $H$. The solution to the eigenvalue equation involving the electronic Hamiltonian is the electronic wavefunction, which depends only parametrically on the nuclear coordinates. It is solved for fixed nuclear coordinates, such that different arrangements of nuclei yields different functions of the electronic coordinates. The total molecular energy can then be calculated by solving the electronic Schrödinger equation and including the constant repulsive nuclear term.
 \begin{equation*}
     E_\text{total} = E_\text{elec} + \sum_{i=1}^{M} \sum_{j>i}^{M} \frac{Z_{i} Z_{j}}{|R_{i} - R_{j}|}
@@ -39,11 +43,11 @@ Throughout the remainder of this text, we will concern ourselves only with the e
 \subsection{\label{many-electron-wavefunctions}Many-Electron Wavefunctions}
 References: \cite{Atilla1996}
 
-The many-electron wavefunction, which describes all fermions in given molecular system, must satisfy the Pauli principle. This requires that the many-electron wavefunction be antisymmetric with respect to the exchange of any two fermions. Hence, valid many-electron wavefunctions must both be eigenfunctions of the Hamiltonian and must satisfy the Pauli principle.
+The many-electron wavefunction, which describes all fermions in given molecular system, must satisfy the Pauli principle. This is an independent postulate of quantum mechanics that requires the many-electron wavefunction to be antisymmetric with respect to the exchange of any two fermions. Hence, valid many-electron wavefunctions must be eigenfunctions of the Hamiltonian and satisfy the Pauli principle.
 
-A spatial molecular orbital is defined as a one-particle function of the position vector, spanning the whole molecule. The spatial orbitals form an orthonormal set $\{\psi_i(\mathbf{r})\}$, which if complete can be used to expand any arbitrary function of the position vector, that is, an arbitrary single-particle molecular wavefunction. In practice, only a finite set of such orbitals is available to us, spanning only a subspace of the complete space. Hence, wavefunctions expanded using this finite set are described as being `exact' only within the subspace spanned.
+A spatial molecular orbital is defined as a one-particle function of the position vector, spanning the whole molecule. The spatial orbitals form an orthonormal set $\{\psi_i(\mathbf{r})\}$, which if complete can be used to expand any arbitrary single-particle molecular wavefunction, that is, an arbitrary single-particle function of the position vector. In practice, only a finite set of such orbitals is available to us, spanning only a subspace of the complete space. Hence, wavefunctions expanded using this finite set are described as being `exact' only within the subspace that they span.
 
-We will now introduce the spin orbitals $\{\phi_i(\mathbf{x})\}$, that is, the set of functions of the composite coordinate $\mathbf{x}$, which describes both the spin and spatial distribution of an electron. Given a set of $K$ spatial orbitals, we can construct $2K$ spin orbitals by taking the product with the orthonormal spin functions $\alpha(\omega)$ and $\beta(\omega)$. Whilst the Hamiltonian operator makes no reference to spin, it is a necessary component when constructing many-electron wavefunctions in order to correctly antisymmetrise the wavefunction with respect to fermion exchange. Constructing the antisymmetric many-electron wavefunction from a finite set of spin orbitals amounts to taking the appropriate linear combinations of symmetric products of $N$ spin orbitals known as Hatree products.
+We will now introduce the spin orbitals $\{\phi_i(\mathbf{x})\}$, that is, the set of functions of the composite coordinate $\mathbf{x}$, which describes both the spin and spatial distribution of an electron. Given a set of $K$ spatial orbitals, we can construct $2K$ spin orbitals by taking their product with the orthonormal spin functions $\alpha(\omega)$ and $\beta(\omega)$. Whilst the Hamiltonian operator makes no reference to spin, it is a necessary component when constructing many-electron wavefunctions in order to correctly antisymmetrise the wavefunction with respect to fermion exchange. Constructing the antisymmetric many-electron wavefunction from a finite set of spin orbitals amounts to taking the appropriate linear combinations of symmetric products of $N$ spin orbitals known as Hatree products.
 \begin{figure}[H]
 \centering
 \begin{gather*}
@@ -51,10 +55,10 @@ We will now introduce the spin orbitals $\{\phi_i(\mathbf{x})\}$, that is, the s
 \psi_{2,1}(\mathbf{x_2}, \mathbf{x_1}) = \phi_i(\mathbf{x_2}) \phi_j(\mathbf{x_1}) \\[1ex]
 \Psi_{1,2}(\mathbf{x_1}, \mathbf{x_2}) = \frac{1}{\sqrt{2}} \left[ \psi_{1,2}(\mathbf{x_1}, \mathbf{x_2}) - \psi_{2,1}(\mathbf{x_2}, \mathbf{x_1}) \right]
 \end{gather*}
-\caption{Symmetric Hartree products of spin orbitals $\phi_i$ and $\phi_j$ and antisymmetric linear combination of them.}
+\caption{Symmetric Hartree products $\psi_{1,2}(\mathbf{x_1}$ and $\mathbf{x_2})$, $\psi_{2,1}(\mathbf{x_2}, \mathbf{x_1})$, and their antisymmetric linear combination $\Psi_{1,2}(\mathbf{x_1}, \mathbf{x_2})$.}
 \end{figure}
 
-A general procedure for this is achieved by constructing a Slater determinant from the finite set of spin orbitals, where each row relates to the electron coordinate and each column corresponds to the particular spin orbital. Since exchange any two rows or columns of a determinant changes its sign, the following Slater determinant satisfies the Pauli principle.
+A general procedure for this is achieved by constructing a Slater determinant from the finite set of spin orbitals, where each row relates to the electron coordinate $\mathbf{x_n}$ and each column corresponds to a particular spin orbital $\phi_i$. 
 \begin{figure}[H]
 \centering
 \begin{equation*}
@@ -69,14 +73,24 @@ A general procedure for this is achieved by constructing a Slater determinant fr
 \end{equation*}
 \caption{Slater determinant representing an antisymmetrised $N$-electron wavefunction.}
 \end{figure}
+Since exchanging any two rows or columns of a determinant changes its sign, Slater determinants satisfy the Pauli principle by definition. Slater determinants constructed from orthonormal spin orbitals are themselves normalised and $N$ electron Slater determinants constructed from different orthonormal spin orbitals are orthogonal to one another \cite{Atilla1996}.
 
-Slater determinants constructed from orthonormal spin orbitals are themselves normalised. $N$ electron Slater determinants constructed from different orthonormal spin orbitals are orthogonal to one another \cite{Atilla1996}.
+By constructing Slater determinants and antisymmetrising the many-electron wavefunction to meet the requirements of the Pauli principle, we have incorporated exchange correlation, in that, the motion of two electrons with parallel spins is now correlated.
 
-By constructing Slater determinants, we have antisymmetrised the many-electron wavefunction to meet the requirements of the Pauli principle. In so doing, we have incorporated exchange correlation, in that, the motion of two electrons with parallel spins is now correlated.
+The Hartree-Fock approximation, yields a set of orthonormal spin orbitals, which when used to construct a single Slater determinant, gives the best variational approximation to the ground state of a system \cite{Atilla1996}. By treating electron-electron repulsion in an average way, the Hartree-Fock approximation allows us to iteratively solve the Hartree-Fock equation for spin orbitals until they become the same as the eigenfunctions of the Fock operator. This is known as the Self Consistent Field (SCF) method and is an elegant starting point for finding approximate solutions to the many-electron wavefunction.
 
-We will now introduce the Hartree-Fock approximation, which yields a set of orthonormal spin orbitals, which when used to construct a single Slater determinant, gives the best variational approximation to the ground state of a system \cite{Atilla1996}. By treating electron-electron repulsion in an average way, the Hartree-Fock approximation allows us to iteratively solve for spin orbitals until they become the same as the eigenfunctions of the Fock operator. This is known as the Self Consistent Field (SCF) method and is an elegant starting point for finding approximate solutions to the many-electron wavefunction.
+\begin{figure}[H]
+\centering
+\begin{equation*}
+\left[
+-\frac{1}{2}\nabla^2 - \sum_{A=1}^M \frac{Z_A}{r_{i_A}} + \nu^\text{HF}(i)
+\right]
+\phi_i(\mathbf x_i) = \varepsilon \phi_i(\mathbf x_i)
+\end{equation*}
+\caption{Hartree-Fock equation where $\nu_i$ is the mean-field potential.}
+\end{figure}
 
-For an $N$ electron system, and given a set of $2K$ Hartree-Fock spin orbitals, where $2K > N$, there exist many different single determinants. The Hartree-Fock groundstate being one of these. The remainder are known as excited determinants, recalling that they must all be orthogonal to one-another. By treating the Hartree-Fock ground state as a reference state, we can describe all possible excited states relative to the reference state, as single, double, \dots, N-tuple excited states.
+For an $N$ electron system, and given a set of $2K$ Hartree-Fock spin orbitals, where $2K > N$, there exist many different single Slater determinants. The Hartree-Fock groundstate being one of these. The remainder are excited Slater determinants, recalling that all of these must be orthogonal to one-another. By treating the Hartree-Fock ground state as a reference state, we can describe the excited states relative to the reference state, as single, double, \dots, N-tuple excited states \cite{Atilla1996}.
 
 \subsection{\label{second-quantisation}Second Quantisation}
 References: \cite{Helgaker2000}, \cite{Fetter1972}
@@ -125,19 +139,15 @@ Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the 
     \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0}
 \end{align*}
 In second quantisation, this exchange anti-symmetry requirement is accounted for by the anti-commutation relations of the creation and annhilation operators.
-\begin{equation}
-\begin{gathered}
+\begin{figure}[H]
+\begin{equation*}
     \{ \hat a_{j}, \hat a_{k} \} = 0 \qquad \qquad
-    % = \hat a_{j} \hat a_{k} + \hat a_{k} \hat a_{j}
-    %
     \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} = 0 \qquad
-    % = \hat a_{j}^\dagger \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j}^\dagger \\
-    %
     \{ \hat a_{j}, \hat a_{k}^{\dagger} \} = \delta_{jk} \hat{1}
-    % = \hat a_{j} \hat a_{k}^\dagger + \hat a_{k}^\dagger \hat a_{j}
-\end{gathered}
-\end{equation}
-That is, the phase factor required for the second quantised representation to be consistent with the first quantised representation is automatically kept track of by the anticommutation relations of the creation and annhilation operators \cite{Helgaker2000}.
+\end{equation*}
+\caption{Anti-commutation relations of fermionic creation and annhilation operators.}
+\end{figure}
+The phase factor required for the second quantised representation to be consistent with the first quantised representation is automatically kept track of by the anticommutation relations of the creation and annhilation operators \cite{Helgaker2000}.
 
 \subsection{Hamiltonian in Second Quantisation}
 The Hamiltonian in second quantisation is constructed from creation and annhilation operators as follows.
@@ -156,5 +166,5 @@ The two-body matrix element $h_{ijkl}$ corresponds to the repulsive interaction 
 h_{ijkl} = \int^\infty_{-\infty} \int^\infty_{-\infty} \psi^*_{i(x_1)} \psi^*_{j(x_2)} \left( \frac{1}{|x_1 - x_2|} \right) \psi_{k(x_2)} \psi_{l(x_1)} \,\, d^3 x_1 d^3 x_2
 \end{equation*}
 
-$h_\text{Nu}$ is a constant corresponding to the repulsive interaction between nuclei. These matrix elements are computed classically, allowing us to compute only the inherently quantum aspects of the problem on a quantum computer.
+$h_\text{Nu}$ is a constant corresponding to the repulsive interaction between nuclei. These matrix elements are computed classically, allowing us to simulate only the inherently quantum aspects of the problem on a quantum computer.
 
