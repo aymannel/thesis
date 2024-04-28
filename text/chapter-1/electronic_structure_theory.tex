@@ -43,7 +43,7 @@ Throughout the remainder of this text, we will concern ourselves only with the e
 \subsection{\label{many-electron-wavefunctions}Many-Electron Wavefunctions}
 References: \cite{Atilla1996}
 
-The many-electron wavefunction, which describes all fermions in given molecular system, must satisfy the Pauli principle. This is an independent postulate of quantum mechanics that requires the many-electron wavefunction to be antisymmetric with respect to the exchange of any two fermions. Hence, valid many-electron wavefunctions must be eigenfunctions of the Hamiltonian and satisfy the Pauli principle.
+The many-electron wavefunction, which describes all fermions in given molecular system, must satisfy the Pauli principle. This is an independent postulate of quantum mechanics that requires the many-electron wavefunction to be antisymmetric with respect to the exchange of any two fermions.
 
 A spatial molecular orbital is defined as a one-particle function of the position vector, spanning the whole molecule. The spatial orbitals form an orthonormal set $\{\psi_i(\mathbf{r})\}$, which if complete can be used to expand any arbitrary single-particle molecular wavefunction, that is, an arbitrary single-particle function of the position vector. In practice, only a finite set of such orbitals is available to us, spanning only a subspace of the complete space. Hence, wavefunctions expanded using this finite set are described as being `exact' only within the subspace that they span.
 
@@ -77,7 +77,7 @@ Since exchanging any two rows or columns of a determinant changes its sign, Slat
 
 By constructing Slater determinants and antisymmetrising the many-electron wavefunction to meet the requirements of the Pauli principle, we have incorporated exchange correlation, in that, the motion of two electrons with parallel spins is now correlated.
 
-The Hartree-Fock approximation, yields a set of orthonormal spin orbitals, which when used to construct a single Slater determinant, gives the best variational approximation to the ground state of a system \cite{Atilla1996}. By treating electron-electron repulsion in an average way, the Hartree-Fock approximation allows us to iteratively solve the Hartree-Fock equation for spin orbitals until they become the same as the eigenfunctions of the Fock operator. This is known as the Self Consistent Field (SCF) method and is an elegant starting point for finding approximate solutions to the many-electron wavefunction.
+The Hartree-Fock method yields a set of orthonormal spin orbitals, which when used to construct a single Slater determinant, gives the best variational approximation to the ground state of a system \cite{Atilla1996}. By treating electron-electron repulsion in an average way, the Hartree-Fock approximation allows us to iteratively solve the Hartree-Fock equation for spin orbitals until they become the same as the eigenfunctions of the Fock operator. This is known as the Self-Consistent Field (SCF) method and is an elegant starting point for finding approximate solutions to the many-electron wavefunction.
 
 \begin{figure}[H]
 \centering
@@ -87,7 +87,7 @@ The Hartree-Fock approximation, yields a set of orthonormal spin orbitals, which
 \right]
 \phi_i(\mathbf x_i) = \varepsilon \phi_i(\mathbf x_i)
 \end{equation*}
-\caption{Hartree-Fock equation where $\nu_i$ is the mean-field potential.}
+\caption{Hartree-Fock equation.}
 \end{figure}
 
 For an $N$ electron system, and given a set of $2K$ Hartree-Fock spin orbitals, where $2K > N$, there exist many different single Slater determinants. The Hartree-Fock groundstate being one of these. The remainder are excited Slater determinants, recalling that all of these must be orthogonal to one-another. By treating the Hartree-Fock ground state as a reference state, we can describe the excited states relative to the reference state, as single, double, \dots, N-tuple excited states \cite{Atilla1996}.
