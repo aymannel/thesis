@@ -1,11 +1,18 @@
 \section{Unitary Coupled Cluster}
 References: \cite{Anand2021}, \cite{McClean2016}, \cite{Chan2021}
 
+Whilst unitary coupled cluster theory was proposed in X, interest in its applications has been minimal due to the inability of classical computers to efficiently evaluate its equations. As suggested by Peruzzo et al \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum computer using quantum gates.
 
-The UCC ansatz is given by 
+\subsection{Coupled Cluster Theory}
+
+\subsection{Unitary Coupled Cluster Theory}
+
+Unitary coupled cluster theory allows us to represent an arbitrary state $\ket\psi$ using the following exponential ansatz.
 \begin{equation*}
-    U(\mathbf{\theta}) = e^{\hat T(\mathbf{\theta}) - \hat T^\dagger(\mathbf{\theta})}
+    \ket\psi = e^{\hat T(\mathbf{\theta}) - \hat T^\dagger(\mathbf{\theta})} \ket{\psi_0}
 \end{equation*}
+
+Where $\ket{\psi_0}$ is a single reference Slater determinant, usually the Hartree-Fock groundstate obtained via the self-consistent field method. The exponential operator $U(\theta) = e^{\hat T(\mathbf{\theta}) - \hat T^\dagger(\mathbf{\theta})}$ is unitary since its exponent $\hat T(\mathbf{\theta}) - \hat T^\dagger(\mathbf{\theta})$ is anti-Hermitian.
 
 The excitation operators are given by
 \begin{equation*}
@@ -14,15 +21,11 @@ The excitation operators are given by
 \sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j) + \dots
 \end{equation*}
 
-Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals.
+Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals. The resulting unitary operator $U(\theta)$ cannot be directly implemented on a quantum computer since the terms of the excitation operator do not commute. Instead, we must invoke the Trotter formula to approximate the unitary.
 
-Since $\hat T(\mathbf{\theta}) - \hat T^{\dagger}(\mathbf{\theta})$ is anti-Hermitian, it follows that $U(\theta)$ is a unitary operator.
-
-The resulting unitary operator $U(\theta)$ cannot be directly implemented on a quantum computer since the terms of the excitation operator do not commute. Instead, we must invoke the Trotter formula to approximate the unitary.
-
-\begin{equation}
+\begin{equation*}
     e^{A+B} = (e^A \, e^B)^\rho
-\end{equation}
+\end{equation*}
 
 Taking a single Trotter step $\rho=1$, we obtained the disentangled UCC
 \begin{equation}
@@ -97,3 +100,4 @@ Such that upon exponentiating, we obtain \textbf{unitary} operators.
     U_{pq}^{rs} = e^{\hat\kappa_{pq}^{rs}}
 \end{equation*}
 
+\subsection{UCCSD}
