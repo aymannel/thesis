@@ -29,8 +29,16 @@ Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unocc
 
 Taking a single Trotter step $\rho=1$, we obtained the disentangled UCC
 \begin{equation}
-    U_{t1}(\mathbf\theta)
+    U_{t1}(\mathbf\theta) = \prod_m e^{\theta_m (\tau_m - \tau_m^\dagger)}
 \end{equation}
+
+Where $m$ indexes all possible excitations. It has been shown in \cite{Evangelista2019} that the disentangled UCC can exactly parametrise any state.
+
+"In practice, the excitations are truncated to only include single and double excitations. This UCCSD ansatz has been popular in the VQE literature and is often the benchmark for more cost effective methods." \cite{Chan2021}.
+
+"Only UCCSD excitation operators which conserve spin were
+used for ansatz construction. Ansatze generated in this manner
+preserve the spin symmetry of the spin reference" \cite{Chan2021}
 
 ---
 
