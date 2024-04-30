@@ -1,47 +1,29 @@
-\section{Quantum Computation}
+\section{\label{quantum-computation}Quantum Computation}
 
 \subsection{Introduction to Qubits}
 
-In contrast to classical computation, where bits form the basis for encoding information, quantum computation makes use of quantum bits known as qubits. There are many physical implementations of qubits, however, in the theory of quantum computation, it suffices to think of them as purely mathematical objects.
+In contrast to classical computation, where bits form the basis for encoding information, quantum computation makes use of quantum bits (qubits). There are many physical implementations of qubits, however, for the purposes of this thesis, it will suffice to think of them as purely mathematical objects.
 
-The principal difference between the two, is that qubits can take values that are linear combinations of the computational basis. In quantum computing, the $\ket 0$ and $\ket 1$ states form the computational basis. They are orthonormal vectors in a two-dimensional complex Hilbert space $\mathbb{C}^2$. We can depict these computational basis states on a Bloch sphere. Note that the Bloch space does not represent the complex Hilbert space itself, but rather the Bloch space.
+Qubits can exist as superpositions of the computational basis: the $\ket 0$ and $\ket 1$ states. These states are orthonormal vectors in a two-dimensional complex Hilbert space $\mathbb{C}^2$. We can depict these states on a Bloch sphere as in figure \ref{zero-state}. Note that the Bloch space does not represent the complex Hilbert space itself.
+
+More generally, we can choose any pair of orthonormal states to form our computational basis. On the bloch sphere, this corresponds to any two vectors pointing in opposite directions. One such computational basis if formed by the $\ket + = \frac{1}{\sqrt{2}} (\ket 0 + \ket 1)$ and $\ket - = \frac{1}{\sqrt{2}} (\ket 0 - \ket 1)$ states.
+
 \begin{figure}[H]
 \centering
     \begin{minipage}{.4\textwidth}
       \centering
       \includegraphics[width=0.5\linewidth]{chapter-1/zero}
       \caption{$\ket 0$ basis state}
+      \label{zero-state}
     \end{minipage}%
-    \begin{minipage}{.4\textwidth}
-      \centering
-      \includegraphics[width=0.5\linewidth]{chapter-1/one}
-      \caption{$\ket 1$ basis state}
-    \end{minipage}
-\end{figure}
-
-More generally, we can choose any pair of orthonormal states to form our computational basis. On the bloch sphere, this corresponds to any two vectors pointing in opposite directions. One such computational basis is the $\ket +$/$\ket -$ basis.
-\begin{equation*}
-\begin{gathered}
-    \ket + = \frac{1}{\sqrt{2}} (\ket 0 + \ket 1) \qquad\qquad
-    \ket - = \frac{1}{\sqrt{2}} (\ket 0 - \ket 1)
-\end{gathered}
-\end{equation*}
-
-\begin{figure}[H]
-\centering
     \begin{minipage}{.4\textwidth}
       \centering
       \includegraphics[width=0.5\linewidth]{chapter-1/plus}
-      \caption{$\ket +$ state basis state}
-    \end{minipage}%
-    \begin{minipage}{.4\textwidth}
-      \centering
-      \includegraphics[width=0.5\linewidth]{chapter-1/minus}
-      \caption{$\ket -$ state basis state}
+      \caption{$\ket +$ basis state}
+      \label{plus-state}
     \end{minipage}
 \end{figure}
-
-More generally, any qubit $\ket\psi$ can be represented as complex linear combination of the chosen basis, provided that the qubit state vector is normalised.
+Any qubit $\ket\psi$ can be represented as complex linear combination of the chosen basis, provided that the qubit state vector is normalised.
 \begin{equation*}
 \begin{gathered}
     \ket \psi = \alpha\ket 0 + \beta\ket 1 \qquad
@@ -78,3 +60,5 @@ It follows then that any complex linear combination of the computational basis s
 \end{equation*}
 
 Whilst the Bloch sphere representation of a single qubit is incredibly useful, there is no easy generalisation of the Bloch sphere for multiple qubit states \cite{Nielsen2012}.
+
+\subsection{Quantum Gates}
