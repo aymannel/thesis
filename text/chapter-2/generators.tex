@@ -157,9 +157,31 @@ Can be decomposed into matrix products and tensor products of spiders.
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-2/B_def}{0.33}{
-        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes 
-        \frac{1}{\sqrt 2}
+        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
         \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-2/cnot}{0.10}{
+        \Bigg[
+        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
+        \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix} \Bigg]
+        %
+        \left[ \begin{pmatrix}
+            1 & 0 \\
+            0 & 0 \\
+            0 & 0 \\
+            0 & 1 \\
+        \end{pmatrix} \otimes
+        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right] =
+        %
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0
+        \end{pmatrix}}
 \end{figure}
 
 \begin{figure}[H]
