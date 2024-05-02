@@ -48,6 +48,16 @@
    \begin{varwidth}{\textwidth}I hereby certify that this is entirely\\my own work unless otherwise stated.\end{varwidth}}
 
 
+% Commands
+\newcommand{\includezxdiagram}[3]{%
+\begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=#2\textwidth]{#1}};
+    \node[anchor=west] at (image.east) {$\displaystyle = #3$};
+\end{tikzpicture}
+}
+
+
 % DECLARATIONS
 %
 % These macros are used to declare arguments needed for the

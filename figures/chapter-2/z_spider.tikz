@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (-1.25, 1) {};
+		\node [style=none] (1) at (-1.25, -1) {};
+		\node [style=none] (2) at (-1.25, -0.5) {};
+		\node [style=none] (3) at (-2, 0.25) {\small $n$};
+		\node [style=none] (4) at (-1.25, 0.5) {$\vdots$};
+		\node [style={z_phase}] (5) at (0, 0) {$\alpha$};
+		\node [style=none] (6) at (1.25, 1) {};
+		\node [style=none] (7) at (1.25, -1) {};
+		\node [style=none] (8) at (1.25, -0.5) {};
+		\node [style=none] (9) at (1.25, 0.5) {$\vdots$};
+		\node [style=none] (10) at (2, 0.25) {\small $m$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [in=30, out=180] (6.center) to (5);
+		\draw [in=180, out=0] (5) to (8.center);
+		\draw [in=180, out=-30] (5) to (7.center);
+		\draw [in=150, out=0] (0.center) to (5);
+		\draw [in=0, out=-180] (5) to (2.center);
+		\draw [in=0, out=-150] (5) to (1.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

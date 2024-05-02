@@ -1,0 +1,49 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (20) at (0, 0.25) {};
+		\node [style=none] (21) at (1, 0.25) {};
+		\node [style=none] (22) at (0, 1.75) {};
+		\node [style=none] (23) at (1, 1.75) {};
+		\node [style=none] (24) at (-0.5, 1.5) {};
+		\node [style=none] (25) at (-0.5, 1.5) {};
+		\node [style=none] (26) at (-0.5, 0.5) {};
+		\node [style=none] (27) at (0, 1.5) {};
+		\node [style=none] (28) at (0, 1.5) {};
+		\node [style=none] (29) at (0, 0.5) {};
+		\node [style=none] (30) at (1, 1.5) {};
+		\node [style=none] (31) at (1, 1.5) {};
+		\node [style=none] (32) at (1, 0.5) {};
+		\node [style=none] (33) at (1.75, 1.5) {};
+		\node [style=none] (34) at (1.75, 1.5) {};
+		\node [style=none] (35) at (1.75, 0.5) {};
+		\node [style=none] (36) at (0.5, 1) {\tiny $A$};
+		\node [style=none] (37) at (1, 1) {};
+		\node [style=none] (38) at (1, 1) {};
+		\node [style=none] (39) at (1.75, 1) {};
+		\node [style=none] (40) at (1.75, 1) {};
+		\node [style=none] (56) at (2.5, 1) {=};
+		\node [style={z_node}] (57) at (4, 1.5) {};
+		\node [style=none] (58) at (5, 1) {};
+		\node [style=none] (59) at (3.25, 1.5) {};
+		\node [style=none] (60) at (3.25, 1.5) {};
+		\node [style=none] (61) at (3.25, 0.5) {};
+		\node [style=none] (62) at (5, 1.5) {};
+		\node [style=none] (63) at (5, 0.5) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (21.center)
+			 to (20.center)
+			 to (22.center)
+			 to (23.center)
+			 to cycle;
+		\draw (34.center) to (31.center);
+		\draw (28.center) to (25.center);
+		\draw (26.center) to (29.center);
+		\draw (32.center) to (35.center);
+		\draw (40.center) to (38.center);
+		\draw (60.center) to (57);
+		\draw (57) to (62.center);
+		\draw [in=-60, out=-180] (58.center) to (57);
+		\draw (63.center) to (61.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

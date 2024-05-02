@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style={x_phase}] (0) at (0, 0) {$\pi$};
+		\node [style=none] (1) at (-1, 0) {};
+		\node [style=none] (2) at (-1, 0) {};
+		\node [style=none] (3) at (1, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (3.center) to (0);
+		\draw (0) to (2.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

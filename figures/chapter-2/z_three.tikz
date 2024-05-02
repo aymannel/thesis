@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style={z_phase}] (0) at (0, 0) {};
+		\node [style=none] (2) at (-0.75, 0.75) {};
+		\node [style=none] (3) at (-0.75, -0.75) {};
+		\node [style=none] (4) at (1, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [bend left] (2.center) to (0);
+		\draw [bend left] (0) to (3.center);
+		\draw (4.center) to (0);
+	\end{pgfonlayer}
+\end{tikzpicture}
