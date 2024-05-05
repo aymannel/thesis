@@ -1,6 +1,12 @@
 \section{Generators}
 
-Let us start by introducing two generators: the Z Spider and the X Spider. By sequentially or horizontally composing these generators, we can construct undirected multigraphs known as ZX diagrams. That is, graphs that allow multiple edges between vertices \cite{Wetering2020}. A ZX diagram is one level of abstraction above a quantum circuit. It represents the linear map between some input state and some output state.
+Let us start by introducing two generators: the \textit{Z Spider} (green) and the \textit{X Spider} (red). By sequentially or horizontally composing these generators, we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be deformed as seen fit, provided that the order of inputs and outputs is preserved.
+\begin{figure}[H]
+\centering
+    \centering
+    \includegraphics[width=0.8\textwidth]{chapter-2/connectivity}
+    \caption{Three equivalent ZX diagrams (\textit{only connectivity matters}).}
+\end{figure}
 
 Z Spiders are defined with respect to the $Z$ eigenbasis such that a Z Spider with any number of inputs and outputs has the following interpretation as a linear map. Note that in this text, we will interpret the flow of time from left to right.
 \begin{figure}[H]
@@ -53,7 +59,7 @@ Likewise, we have the $\ket +$ and $\ket -$ basis states from the corresponding 
 \end{minipage}
 \end{figure}
 
-Importantly, whilst we recover the correct states, we obtain the wrong scalar factor. For the remainder of this thesis, we will ignore global non-zero scalar factors. Hence, equal signs should be interpreted as `equal up to a global phase'.
+Whilst we recover the correct states, we obtain the wrong scalar factor. For the remainder of this thesis, we will ignore global non-zero scalar factors. Hence, equal signs should be interpreted as `equal up to a global phase'.
 
 Single qubit rotations in the $X$ basis are represented by a Z Spider with a single input and a single output, whilst single qubit rotations in the $X$ basis are represented by the corresponding $X$ spider.
 \begin{figure}[H]
@@ -73,18 +79,18 @@ Single qubit rotations in the $X$ basis are represented by a Z Spider with a sin
 \caption{Arbitrary single qubit rotations in the $Z$ and $X$ bases.}
 \end{figure}
 
-Recall single qubit rotations can be interpreted as rotations of the qubit state vector inside the Bloch sphere.
+Since all quantum gates must be unitary, single qubit gates can be viewed as rotations of the Bloch sphere about some axis.
 \begin{figure}[H]
 \centering
 \begin{minipage}{.4\textwidth}
     \centering
     \includegraphics[width=0.5\textwidth]{chapter-1/z_rotation}
-    \caption{lorum ipsum}
+    \caption{$Z$ rotation}
 \end{minipage}%
 \begin{minipage}{.4\textwidth}
     \centering
     \includegraphics[width=0.46\textwidth]{chapter-1/x_rotation}
-    \caption{lorum ipsum}
+    \caption{$X$ rotation}
 \end{minipage}
 \end{figure}
 
@@ -104,15 +110,6 @@ The Pauli $Z$ and Pauli $X$ matrices are obtained by setting $\alpha = \pi$.
 \end{figure}
 
 %%%
-
-\subsubsection{Only Connectivity Matters}
-\begin{figure}[H]
-\centering
-    \centering
-    \includegraphics[width=0.8\textwidth]{chapter-2/connectivity}
-    \caption{}
-\end{figure}
-
 
 \subsubsection{Composition}
 To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse of the ZX diagram as we have defined it.
