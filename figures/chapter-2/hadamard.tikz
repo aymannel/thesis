@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style={z_phase}] (4) at (6.25, 0) {$\frac{\pi}{2}$};
+		\node [style={z_phase}] (5) at (9.25, 0) {$\frac{\pi}{2}$};
+		\node [style={x_phase}] (6) at (7.75, 0) {$\frac{\pi}{2}$};
+		\node [style=none] (7) at (10.25, 0) {};
+		\node [style=none] (8) at (5.25, 0) {};
+		\node [style=none] (10) at (4.25, 0) {\small $e^{-i\frac{\pi}{4}}$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (8.center) to (4);
+		\draw (4) to (6);
+		\draw (6) to (5);
+		\draw (5) to (7.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

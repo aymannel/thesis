@@ -106,10 +106,16 @@ The Pauli $Z$ and Pauli $X$ matrices are obtained by setting $\alpha = \pi$.
 %%%
 
 \subsubsection{Only Connectivity Matters}
+\begin{figure}[H]
+\centering
+    \centering
+    \includegraphics[width=0.8\textwidth]{chapter-2/connectivity}
+    \caption{}
+\end{figure}
 
 
 \subsubsection{Composition}
-We can take the matrix product by sequentially composing spiders in a ZX diagram. Note that the order of operation for matrix multiplication is from right to left, the opposite of the ZX diagram as we have defined it.
+To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse of the ZX diagram as we have defined it.
 
 \begin{figure}[H]
     \centering
@@ -122,10 +128,10 @@ We can take the matrix product by sequentially composing spiders in a ZX diagram
         \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}}
 \end{figure}
 
-Alternatively, we could have chosen to compose the spider in parallel, resulting in the tensor product.
+Alternatively, we could have chosen to compose the spiders in parallel, resulting in the tensor product.
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-2/parallel}{0.11}{
+    \includezxdiagram{chapter-2/parallel}{0.105}{
         \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
         \begin{pmatrix}
             1 + e^{i\beta} & 1 - e^{i\beta} \\
@@ -133,15 +139,13 @@ Alternatively, we could have chosen to compose the spider in parallel, resulting
         \end{pmatrix}}
 \end{figure}
 
-For instance, the CNOT gate, which is defined as the following diagram
-...
-
-Can be decomposed into matrix products and tensor products of spiders.
+Let us now derive the CNOT gate, which in the ZX calculus, is represented by a Z spider (control qubit) and an X spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def}
 \end{figure}
 
+We can calculate matrix $A$, consisting of a single-input and two-output Z Spider ($4 \times 2$ matrix) and an empty wire (identity matrix), by taking the tensor product.
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-2/A_def}{0.33}{
@@ -154,12 +158,15 @@ Can be decomposed into matrix products and tensor products of spiders.
         \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}}
 \end{figure}
 
+Similarly, we calculate the matrix $B$ as follows.
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-2/B_def}{0.33}{
         \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
         \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
 \end{figure}
+
+Note that the order of the tensor product depends on the order of the input and output wires. We can then calculate the final matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows.
 
 \begin{figure}[H]
     \centering
@@ -184,6 +191,8 @@ Can be decomposed into matrix products and tensor products of spiders.
         \end{pmatrix}}
 \end{figure}
 
+In the ZX calculus, \textit{only connectivity matters}. That is, we can arbitrarily deform a ZX diagram provided that the order of input and output wires remains the same. For instance, the we could instead have used the matrices $C$ and $D$.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def2}
@@ -201,3 +210,34 @@ Can be decomposed into matrix products and tensor products of spiders.
 \end{minipage}
 \end{figure}
 
+All quantum gates must be unitary transformations. Therefore, up to a global phase, an arbitrary single qubit rotation $U$ can be viewed as a rotation of the Bloch sphere about some axis. We can decompose the unitary $U$ using Euler angles to represent the rotation as three successive rotations \cite{Wetering2020}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{chapter-2/unitary}
+    \caption{Arbitrary single-qubit rotation.}
+\end{figure}
+
+Recall that the Hadamard gate $H$ switches from the $\ket 0$/$\ket 1$ basis to the $\ket +$/$\ket -$ basis and back. That is, it corresponds to a rotation of the Bloch sphere by $\pi$ radians about the line bisecting the $X$ and $Z$ axes.
+
+\begin{figure}[H]
+\centering
+    \centering
+    \includegraphics[width=0.17\textwidth]{chapter-1/hadamard}
+    \caption{Visualisation of the Hadamard gate on the Bloch sphere.}
+\end{figure}
+
+By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. The Hadamard generator is therefore defined as follows.
+\begin{figure}[H]
+\centering
+    \centering
+    \includegraphics[width=0.36\textwidth]{chapter-2/hadamard}
+    \caption{Hadamard generator in the ZX calculus.}
+\end{figure}
+
+Not that there are many equivalent ways of decomposing the Hadamard gate using Euler angles. The rightmost representations need no scalar corrections.
+\begin{figure}[H]
+\centering
+    \centering
+    \includegraphics[width=1\textwidth]{chapter-2/hadamard_decomp}
+    \caption{Equivalent definitions of the Hadamard generator.}
+\end{figure}

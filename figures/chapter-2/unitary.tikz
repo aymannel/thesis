@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (-2, 0) {};
+		\node [style=none] (1) at (0, 0) {};
+		\node [style=box] (2) at (-1, 0) {};
+		\node [style=box] (3) at (-1, 0) {$U$};
+		\node [style={z_phase}] (4) at (3, 0) {$\alpha$};
+		\node [style={z_phase}] (5) at (6, 0) {$\gamma$};
+		\node [style={x_phase}] (6) at (4.5, 0) {$\beta$};
+		\node [style=none] (7) at (7, 0) {};
+		\node [style=none] (8) at (2, 0) {};
+		\node [style=none] (9) at (1, 0) {=};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0.center) to (3);
+		\draw (3) to (1.center);
+		\draw (8.center) to (4);
+		\draw (4) to (6);
+		\draw (6) to (5);
+		\draw (5) to (7.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

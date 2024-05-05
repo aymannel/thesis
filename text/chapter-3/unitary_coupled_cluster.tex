@@ -1,0 +1,111 @@
+\section{Unitary Coupled Cluster}
+References: \cite{Anand2021}, \cite{McClean2016}, \cite{Chan2021}
+
+Whilst unitary coupled cluster theory was proposed in X, interest in its applications has been minimal due to the inability of classical computers to efficiently evaluate its equations. As suggested by Peruzzo et al \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum computer using quantum gates.
+
+\subsection{Coupled Cluster Theory}
+
+\subsection{Unitary Coupled Cluster Theory}
+
+Unitary coupled cluster theory allows us to represent an arbitrary state $\ket\psi$ using the following exponential ansatz.
+\begin{equation*}
+    \ket\psi = e^{\hat T(\mathbf{\theta}) - \hat T^\dagger(\mathbf{\theta})} \ket{\psi_0}
+\end{equation*}
+
+Where $\ket{\psi_0}$ is a single reference Slater determinant, usually the Hartree-Fock groundstate obtained via the self-consistent field method. The exponential operator $U(\theta) = e^{\hat T(\mathbf{\theta}) - \hat T^\dagger(\mathbf{\theta})}$ is unitary since its exponent $\hat T(\mathbf{\theta}) - \hat T^\dagger(\mathbf{\theta})$ is anti-Hermitian.
+
+The excitation operators are given by
+\begin{equation*}
+\hat T(\mathbf{\theta}) - \hat T^{\dagger}(\mathbf{\theta}) =
+\sum_{i, a} \theta^a_i (a^\dagger_i a_a - a^\dagger_a a_i) + 
+\sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j) + \dots
+\end{equation*}
+
+Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals. The resulting unitary operator $U(\theta)$ cannot be directly implemented on a quantum computer since the terms of the excitation operator do not commute. Instead, we must invoke the Trotter formula to approximate the unitary.
+
+\begin{equation*}
+    e^{A+B} = (e^A \, e^B)^\rho
+\end{equation*}
+
+Taking a single Trotter step $\rho=1$, we obtained the disentangled UCC
+\begin{equation}
+    U_{t1}(\mathbf\theta) = \prod_m e^{\theta_m (\tau_m - \tau_m^\dagger)}
+\end{equation}
+
+Where $m$ indexes all possible excitations. It has been shown in \cite{Evangelista2019} that the disentangled UCC can exactly parametrise any state.
+
+"In practice, the excitations are truncated to only include single and double excitations. This UCCSD ansatz has been popular in the VQE literature and is often the benchmark for more cost effective methods." \cite{Chan2021}.
+
+"Only UCCSD excitation operators which conserve spin were
+used for ansatz construction. Ansatze generated in this manner
+preserve the spin symmetry of the spin reference" \cite{Chan2021}
+
+---
+
+In this chapter we introduce we introduce Unitary Coupled Cluster theory which will serve as the basis for the Variational Quantum Eigensolver algorithm introduced in chapter \ref{variational-quantum-eigensolver}. In particular, we are interested in developing the Unitary-Product State which will serve as a variational ansatz.
+
+% Despite advances in quantum computing hardware and software, many quantum algorithms require resources not yet available to us...
+
+% Original paper introducing VQE is McClean
+
+One notable advantage of the VQE algorithm is its ability to be run on any quantum architecture, moreover, we can leverage architecture requirements when designing the variational ansatz. \cite{McClean2016}.
+
+"Even in the event that some error correction is required to exceed current computational capabilities, this same robustness may translate to requiring minimal error cor- rection resources when compared with other algorithms." \cite{McClean2016}
+
+We begin by...
+
+
+%%%
+
+Within the traditional coupled-cluster framework, the ground electronic state is prepared by applying the CC operator to a reference state (usually Hartree-Fock).
+\begin{equation*}
+    \ket\psi = e^{\hat T} \ket{\phi_0}
+\end{equation*}
+
+Where $\hat T$ is the cluster excitation operator.
+
+Quantum gates, however, must be unitary operators, so instead, we work within the UCC framework.
+
+\begin{equation*}
+    \ket\psi = e^{\hat T} \ket{\phi_0}
+\end{equation*}
+
+Where $\hat T$ is now an \textbf{anti-Hermitian} operator, and $e^{\hat T}$ is unitary.
+
+In general, we can prepare exact electronic states by applying a sequence of $k$ parametrised unitary operators to our reference state.
+
+\begin{equation*}
+\begin{gathered}
+    \ket\psi = \prod_i^k U_i(\theta_i) \ket{\phi_0} \\
+    \text{Where $U_i(\theta_i)$ is a parametrised unitary operator}
+\end{gathered}
+\end{equation*}\smallskip
+
+The parameters $\theta_i$ are then optimised to find the ground state energy.
+
+General fermionic single and double excitation operators are defined as,
+\begin{equation*}
+    a_q^\dagger a_p \text{ and } a_r^\dagger a_s^\dagger a_q a_p
+\end{equation*}
+
+Exciting one electron from $p$ to $q$, and two electrons from $p, q$ to $r, s$ respectively.
+
+Taking a linear combination of these, we obtain \textbf{anti-Hermitian} fermionic single and double excitation operators.
+\begin{equation*}
+\begin{gathered}
+    \hat\kappa_p^q = a_q^\dagger a_p - a_p^\dagger a_q \\
+    %
+    \hat\kappa_{pq}^{rs} =
+    a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r
+\end{gathered}
+\end{equation*}\smallskip
+
+Such that upon exponentiating, we obtain \textbf{unitary} operators.
+
+\begin{equation*}
+    U^q_p = e^{\hat\kappa_p^q} \qquad
+    %
+    U_{pq}^{rs} = e^{\hat\kappa_{pq}^{rs}}
+\end{equation*}
+
+\subsection{UCCSD}
