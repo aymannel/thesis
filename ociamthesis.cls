@@ -50,11 +50,25 @@
 
 % Commands
 \newcommand{\includezxdiagram}[3]{%
+\begin{center}
 \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (image) at (0,0) {
         \includegraphics[width=#2\textwidth]{#1}};
     \node[anchor=west] at (image.east) {$\displaystyle = #3$};
 \end{tikzpicture}
+\end{center}
+}
+
+\newcommand{\includezxdiagramplus}[5]{%
+\begin{center}
+\begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {
+        \includegraphics[width=#2\textwidth]{#1}};
+    \node[anchor=west] (equation) at (image.east) {$\displaystyle = #3$};
+    \node[anchor=west,inner sep=0] at (equation.east) {
+        \includegraphics[width=#5\textwidth]{#4}};
+\end{tikzpicture}
+\end{center}
 }
 
 

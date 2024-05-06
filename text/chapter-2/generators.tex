@@ -8,7 +8,7 @@ Let us start by introducing two generators: the \textit{Z Spider} (green) and th
     \caption{Three equivalent ZX diagrams (\textit{only connectivity matters}).}
 \end{figure}
 
-Z Spiders are defined with respect to the $Z$ eigenbasis such that a Z Spider with any number of inputs and outputs has the following interpretation as a linear map. Note that in this text, we will interpret the flow of time from left to right.
+Z Spiders are defined with respect to the $Z$ eigenbasis such that a Z Spider with $n$ inputs and $m$ outputs has the following interpretation as a linear map. Note that in this text, we will interpret the flow of time from left to right.
 \begin{figure}[H]
 \centering
 \includezxdiagram{figures/chapter-2/z_spider}{0.21}{\,
@@ -25,18 +25,18 @@ Similarly, X Spiders, which are defined with respect to the $X$ eigenbasis, are 
 \caption{Interpretation of X Spider as a linear map.}
 \end{figure}
 
-We can recover the $\ket 0$ eigenstate with an X Spider that has a phase of zero, or the $\ket 1$ eigenstate with an X Spider that has a phase of $\pi$.
+We can recover the $\ket 0$ eigenstate using an X Spider that has a phase of zero, or the $\ket 1$ eigenstate using an X Spider that has a phase of $\pi$.
 \begin{figure}[H]
 \centering
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/zero_state}{0.17}{\,
+    \includezxdiagram{figures/chapter-2/zero_state}{0.15}{\,
         \ket + + \ket - = \sqrt{2} \ket 0}
     \caption{$\ket 0$ eigenstate}
 \end{minipage}%
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/one_state}{0.17}{\,
+    \includezxdiagram{figures/chapter-2/one_state}{0.16}{\,
     \ket + - \ket - = \sqrt{2} \ket 1}
     \caption{$\ket 1$ eigenstate}
 \end{minipage}
@@ -47,191 +47,144 @@ Likewise, we have the $\ket +$ and $\ket -$ basis states from the corresponding 
 \centering
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/plus_state}{0.17}{\,
+    \includezxdiagram{figures/chapter-2/plus_state}{0.15}{\,
         \ket 0 + \ket 1 = \sqrt{2} \ket +}
     \caption{$\ket +$ eigenstate}
 \end{minipage}%
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/minus_state}{0.17}{\,
+    \includezxdiagram{figures/chapter-2/minus_state}{0.16}{\,
     \ket 0 - \ket 1 = \sqrt{2} \ket -}
     \caption{$\ket -$ eigenstate}
 \end{minipage}
 \end{figure}
 
-Whilst we recover the correct states, we obtain the wrong scalar factor. For the remainder of this thesis, we will ignore global non-zero scalar factors. Hence, equal signs should be interpreted as `equal up to a global phase'.
+Whilst we obtain the correct states, we obtain the wrong scalar factor. For the remainder of this thesis, we will ignore global non-zero scalar factors. Hence, equal signs should be interpreted as `equal up to a global phase'.
 
-Single qubit rotations in the $X$ basis are represented by a Z Spider with a single input and a single output, whilst single qubit rotations in the $X$ basis are represented by the corresponding $X$ spider.
+Single qubit rotations in the $Z$ basis are represented by a Z Spider with a single input and a single output. Arbitrary rotations in the $X$ basis are represented by the corresponding $X$ spider. We can view these as rotations of the Bloch sphere.
+
 \begin{figure}[H]
 \centering
-\includezxdiagram{figures/chapter-2/z_rotation}{0.11}{
-    \ket{0} \bra{0} + e^{i\alpha} \ket{1} \bra{1} = 
-    \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}
-} \\[1ex]
-\includezxdiagram{figures/chapter-2/x_rotation}{0.11}{
-    \ket{+} \bra{+} + e^{i\alpha} \ket{-} \bra{-} = 
-    \frac{1}{2}
-    \begin{pmatrix}
-        1 + e^{i\alpha} & 1 - e^{i\alpha} \\
-        1 - e^{i\alpha} & 1 + e^{i\alpha}
-    \end{pmatrix}
-}
+    \includezxdiagramplus{figures/chapter-2/z_rotation}{0.11}{
+        \ket{0} \bra{0} + e^{i\alpha} \ket{1} \bra{1} = 
+    \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \rightarrow
+    }{chapter-1/z_rotation}{0.18}
+    %
+    \includezxdiagramplus{figures/chapter-2/x_rotation}{0.11}{
+        \ket{+} \bra{+} + e^{i\alpha} \ket{-} \bra{-} = 
+        \frac{1}{2}
+        \begin{pmatrix}
+            1 + e^{i\alpha} & 1 - e^{i\alpha} \\
+            1 - e^{i\alpha} & 1 + e^{i\alpha}
+        \end{pmatrix} \rightarrow
+    }{chapter-1/x_rotation}{0.17}
 \caption{Arbitrary single qubit rotations in the $Z$ and $X$ bases.}
 \end{figure}
 
-Since all quantum gates must be unitary, single qubit gates can be viewed as rotations of the Bloch sphere about some axis.
-\begin{figure}[H]
-\centering
-\begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=0.5\textwidth]{chapter-1/z_rotation}
-    \caption{$Z$ rotation}
-\end{minipage}%
-\begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=0.46\textwidth]{chapter-1/x_rotation}
-    \caption{$X$ rotation}
-\end{minipage}
-\end{figure}
-
-
-The Pauli $Z$ and Pauli $X$ matrices are obtained by setting $\alpha = \pi$.
+We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha = \pi$.
 \begin{figure}[H]
 \centering
 \includezxdiagram{figures/chapter-2/pauli_z}{0.11}{
     \ket{0} \bra{0} + e^{i\pi} \ket{1} \bra{1} = 
     \begin{pmatrix} 1 & \,\,0 \\ 0 & -1 \end{pmatrix}
-} \\[1ex]
+}
 \includezxdiagram{figures/chapter-2/pauli_x}{0.11}{
     \ket{+} \bra{+} + e^{i\pi} \ket{-} \bra{-} = 
     \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
 }
-\caption{Arbitrary single qubit rotations in the $Z$ and $X$ bases.}
+\caption{Pauli $Z$ and $X$ gates as ZX diagrams.}
 \end{figure}
 
 %%%
 
 \subsubsection{Composition}
-To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse of the ZX diagram as we have defined it.
+To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse as in the ZX diagram as we have defined it.
 
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-2/sequential}{0.27}{
-        \begin{pmatrix} 1 & 0 \\ 0 & e^{i\gamma} \end{pmatrix}
-        \begin{pmatrix}
-            1 + e^{i\beta} & 1 - e^{i\beta} \\
-            1 - e^{i\beta} & 1 + e^{i\beta}
-        \end{pmatrix}
-        \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}}
-\end{figure}
+\includezxdiagram{chapter-2/sequential}{0.27}{
+\begin{pmatrix} 1 & 0 \\ 0 & e^{i\gamma} \end{pmatrix}
+\begin{pmatrix}
+    1 + e^{i\beta} & 1 - e^{i\beta} \\
+    1 - e^{i\beta} & 1 + e^{i\beta}
+\end{pmatrix}
+\begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}}
 
 Alternatively, we could have chosen to compose the spiders in parallel, resulting in the tensor product.
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-2/parallel}{0.105}{
-        \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
-        \begin{pmatrix}
-            1 + e^{i\beta} & 1 - e^{i\beta} \\
-            1 - e^{i\beta} & 1 + e^{i\beta}
-        \end{pmatrix}}
-\end{figure}
+
+\includezxdiagram{chapter-2/parallel}{0.105}{
+\begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
+\begin{pmatrix}
+    1 + e^{i\beta} & 1 - e^{i\beta} \\
+    1 - e^{i\beta} & 1 + e^{i\beta}
+\end{pmatrix}}
 
 Let us now derive the CNOT gate, which in the ZX calculus, is represented by a Z spider (control qubit) and an X spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
-\begin{figure}[H]
-    \centering
+
+\begin{center}
     \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def}
-\end{figure}
+\end{center}
 
 We can calculate matrix $A$, consisting of a single-input and two-output Z Spider ($4 \times 2$ matrix) and an empty wire (identity matrix), by taking the tensor product.
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-2/A_def}{0.33}{
-        \begin{pmatrix}
-            1 & 0 \\
-            0 & 0 \\
-            0 & 0 \\
-            0 & 1 \\
-        \end{pmatrix} \otimes
-        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}}
-\end{figure}
 
-Similarly, we calculate the matrix $B$ as follows.
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-2/B_def}{0.33}{
-        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
-        \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
-\end{figure}
+\includezxdiagram{chapter-2/A_def}{0.33}{
+\begin{pmatrix}
+    1 & 0 \\
+    0 & 0 \\
+    0 & 0 \\
+    0 & 1
+\end{pmatrix} \otimes
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}}
+
+Similarly, to calculate the matrix $B$, we take the following tensor product.
+
+\includezxdiagram{chapter-2/B_def}{0.33}{
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
+\begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
 
 Note that the order of the tensor product depends on the order of the input and output wires. We can then calculate the final matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows.
 
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-2/cnot}{0.10}{
-        \Bigg[
-        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
-        \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix} \Bigg]
-        %
-        \left[ \begin{pmatrix}
-            1 & 0 \\
-            0 & 0 \\
-            0 & 0 \\
-            0 & 1 \\
-        \end{pmatrix} \otimes
-        \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right] =
-        %
-        \begin{pmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 0 & 1 \\
-        0 & 0 & 1 & 0
-        \end{pmatrix}}
-\end{figure}
+\includezxdiagram{chapter-2/cnot}{0.10}{
+\Bigg[
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
+\begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix} \Bigg]
+%
+\left[ \begin{pmatrix}
+    1 & 0 \\
+    0 & 0 \\
+    0 & 0 \\
+    0 & 1 \\
+\end{pmatrix} \otimes
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right] =
+%
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}}
 
-In the ZX calculus, \textit{only connectivity matters}. That is, we can arbitrarily deform a ZX diagram provided that the order of input and output wires remains the same. For instance, the we could instead have used the matrices $C$ and $D$.
+Since \textit{only connectivity matters}, we could have equivalently calculated the matrix of the CNOT gate by deforming the diagram as follows.
 
-\begin{figure}[H]
-    \centering
+\begin{center}
     \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def2}
-\end{figure}
+\end{center}
 
-\begin{figure}[H]
-\centering
-\begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=0.80\textwidth]{chapter-2/C_def}
-\end{minipage}%
-\begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=0.80\textwidth]{chapter-2/D_Def}
-\end{minipage}
-\end{figure}
-
-All quantum gates must be unitary transformations. Therefore, up to a global phase, an arbitrary single qubit rotation $U$ can be viewed as a rotation of the Bloch sphere about some axis. We can decompose the unitary $U$ using Euler angles to represent the rotation as three successive rotations \cite{Wetering2020}.
+All quantum gates are unitary transformations. Therefore, up to a global phase, an arbitrary single qubit rotation $U$ can be viewed as a rotation of the Bloch sphere about some axis. We can decompose the unitary $U$ using Euler angles to represent the rotation as three successive rotations \cite{Wetering2020}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{chapter-2/unitary}
     \caption{Arbitrary single-qubit rotation.}
 \end{figure}
 
-Recall that the Hadamard gate $H$ switches from the $\ket 0$/$\ket 1$ basis to the $\ket +$/$\ket -$ basis and back. That is, it corresponds to a rotation of the Bloch sphere by $\pi$ radians about the line bisecting the $X$ and $Z$ axes.
+Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere by $\pi$ radians about the line bisecting the $X$ and $Z$ axes. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. We define the Hadamard generator as follows.
 
 \begin{figure}[H]
-\centering
-    \centering
-    \includegraphics[width=0.17\textwidth]{chapter-1/hadamard}
-    \caption{Visualisation of the Hadamard gate on the Bloch sphere.}
-\end{figure}
-
-By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. The Hadamard generator is therefore defined as follows.
-\begin{figure}[H]
-\centering
-    \centering
-    \includegraphics[width=0.36\textwidth]{chapter-2/hadamard}
+    \includezxdiagramplus{figures/chapter-2/hadamard}{0.58}{
+    \frac{1}{\sqrt 2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \rightarrow
+    }{chapter-1/hadamard}{0.16}
     \caption{Hadamard generator in the ZX calculus.}
 \end{figure}
 
-Not that there are many equivalent ways of decomposing the Hadamard gate using Euler angles. The rightmost representations need no scalar corrections.
+There are many equivalent ways of decomposing the Hadamard gate using Euler angles. The rightmost representations need no scalar corrections.
 \begin{figure}[H]
 \centering
     \centering
