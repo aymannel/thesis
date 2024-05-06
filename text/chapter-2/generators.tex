@@ -97,7 +97,7 @@ We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha
 
 %%%
 
-\subsubsection{Composition}
+\subsection{Composition}
 To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse as in the ZX diagram as we have defined it.
 
 \includezxdiagram{chapter-2/sequential}{0.27}{
@@ -117,6 +117,7 @@ Alternatively, we could have chosen to compose the spiders in parallel, resultin
     1 - e^{i\beta} & 1 + e^{i\beta}
 \end{pmatrix}}
 
+\subsubsection{Deriving the CNOT Gate}
 Let us now derive the CNOT gate, which in the ZX calculus, is represented by a Z spider (control qubit) and an X spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 
 \begin{center}
@@ -175,10 +176,12 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
     \caption{Arbitrary single-qubit rotation.}
 \end{figure}
 
+\subsection{Hadamard Generator}
+
 Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere by $\pi$ radians about the line bisecting the $X$ and $Z$ axes. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. We define the Hadamard generator as follows.
 
 \begin{figure}[H]
-    \includezxdiagramplus{figures/chapter-2/hadamard}{0.58}{
+    \includezxdiagramplus{figures/chapter-2/hadamard}{0.56}{
     \frac{1}{\sqrt 2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \rightarrow
     }{chapter-1/hadamard}{0.16}
     \caption{Hadamard generator in the ZX calculus.}
@@ -191,3 +194,24 @@ There are many equivalent ways of decomposing the Hadamard gate using Euler angl
     \includegraphics[width=1\textwidth]{chapter-2/hadamard_decomp}
     \caption{Equivalent definitions of the Hadamard generator.}
 \end{figure}
+
+\subsection{Conjugate, Transpose and Adjoint}
+
+We can find the conjugate of a ZX diagram by simply negating the phases of all spiders in the diagram, $\alpha \rightarrow -\alpha, \beta \rightarrow -\beta, \dots$.
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{chapter-2/conjugate}
+\end{center}
+
+Intuitively, we can find the transpose of a ZX diagram by turning all inputs into outputs and all outputs into inputs.
+
+\begin{center}
+    \includegraphics[width=1\textwidth]{chapter-2/transpose}
+\end{center}
+
+It is then a simple matter to find the Hermitian adjoint of a ZX diagram by first finding its conjugate, then its transpose.
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{chapter-2/adjoint}
+\end{center}
+

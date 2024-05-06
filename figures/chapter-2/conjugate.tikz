@@ -9,17 +9,17 @@
 		\node [style=none] (6) at (4.75, 0) {};
 		\node [style=none] (7) at (0.5, 1) {};
 		\node [style=none] (8) at (0.5, 0) {};
-		\node [style={z_phase}] (9) at (11.25, 0) {$-\beta$};
-		\node [style={x_phase}] (10) at (11.25, 1) {$-\alpha$};
-		\node [style=hadamard] (11) at (10.25, 0) {};
-		\node [style={x_phase}] (12) at (9, 1) {$-\gamma$};
-		\node [style={z_phase}] (13) at (9, 0) {$-\delta$};
-		\node [style=none] (14) at (7.75, 1) {};
-		\node [style=none] (15) at (7.75, 0) {};
-		\node [style=none] (16) at (12.25, 1) {};
-		\node [style=none] (17) at (12.25, 0) {};
+		\node [style={z_phase}] (9) at (8.75, 0) {$-\beta$};
+		\node [style={x_phase}] (10) at (8.75, 1) {$-\alpha$};
+		\node [style=hadamard] (11) at (9.75, 0) {};
+		\node [style={x_phase}] (12) at (11, 1) {$-\gamma$};
+		\node [style={z_phase}] (13) at (11, 0) {$-\delta$};
+		\node [style=none] (14) at (12.25, 1) {};
+		\node [style=none] (15) at (12.25, 0) {};
+		\node [style=none] (16) at (7.75, 1) {};
+		\node [style=none] (17) at (7.75, 0) {};
 		\node [style=none] (18) at (6.25, 0.5) {$\rightarrow$};
-		\node [style=none] (19) at (6.25, 1.25) {\tiny adjoint};
+		\node [style=none] (19) at (6.25, 1.25) {\tiny conjugate};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (0) to (2);

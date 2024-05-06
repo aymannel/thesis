@@ -1,0 +1,47 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style={x_phase}] (0) at (0, 0) {$\gamma$};
+		\node [style={z_phase}] (1) at (0, 1) {$\beta$};
+		\node [style={x_phase}] (2) at (0, 2) {$\alpha$};
+		\node [style=hadamard] (3) at (1, 1) {};
+		\node [style={x_node}] (4) at (2, 2) {};
+		\node [style={z_node}] (5) at (2, 1) {};
+		\node [style={x_phase}] (6) at (3, 1) {$\phi$};
+		\node [style=none] (7) at (4, 2) {};
+		\node [style=none] (8) at (4, 1) {};
+		\node [style=none] (9) at (4, 0) {};
+		\node [style={z_phase}] (10) at (2, 0) {$\delta$};
+		\node [style={x_phase}] (11) at (6.25, 0) {$-\gamma$};
+		\node [style={z_phase}] (12) at (6.25, 1) {$-\beta$};
+		\node [style={x_phase}] (13) at (6.25, 2) {$-\alpha$};
+		\node [style=hadamard] (14) at (7.25, 1) {};
+		\node [style={x_node}] (15) at (8.25, 2) {};
+		\node [style={z_node}] (16) at (8.25, 1) {};
+		\node [style={x_phase}] (17) at (9.25, 1) {$-\phi$};
+		\node [style=none] (18) at (10.25, 2) {};
+		\node [style=none] (19) at (10.25, 1) {};
+		\node [style=none] (20) at (10.25, 0) {};
+		\node [style={z_phase}] (21) at (8.25, 0) {$-\delta$};
+		\node [style=none] (22) at (5, 1) {$\rightarrow$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (1) to (3);
+		\draw (3) to (5);
+		\draw (5) to (4);
+		\draw (4) to (2);
+		\draw (8.center) to (6);
+		\draw (6) to (5);
+		\draw (4) to (7.center);
+		\draw (0) to (10);
+		\draw (10) to (9.center);
+		\draw (12) to (14);
+		\draw (14) to (16);
+		\draw (16) to (15);
+		\draw (15) to (13);
+		\draw (19.center) to (17);
+		\draw (17) to (16);
+		\draw (15) to (18.center);
+		\draw (11) to (21);
+		\draw (21) to (20.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
