@@ -71,7 +71,6 @@
 \end{center}
 }
 
-
 % DECLARATIONS
 %
 % These macros are used to declare arguments needed for the

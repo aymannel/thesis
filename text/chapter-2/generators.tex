@@ -1,6 +1,6 @@
-\section{Generators}
+\section{Diagrams \& Generators}
 
-Let us start by introducing two generators: the \textit{Z Spider} (green) and the \textit{X Spider} (red). By sequentially or horizontally composing these generators, we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be deformed as seen fit, provided that the order of inputs and outputs is preserved.
+By sequentially or horizontally composing the generators known as \textit{Z Spiders} (green) and \textit{X Spiders} (red), we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be deformed as seen fit, provided that the order of inputs and outputs is preserved.
 \begin{figure}[H]
 \centering
     \centering
@@ -92,7 +92,7 @@ We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha
     \ket{+} \bra{+} + e^{i\pi} \ket{-} \bra{-} = 
     \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
 }
-\caption{Pauli $Z$ and $X$ gates as ZX diagrams.}
+\caption{Pauli $Z$ and $X$ gates in the ZX calculus.}
 \end{figure}
 
 %%%
@@ -118,7 +118,7 @@ Alternatively, we could have chosen to compose the spiders in parallel, resultin
 \end{pmatrix}}
 
 \subsubsection{Deriving the CNOT Gate}
-Let us now derive the CNOT gate, which in the ZX calculus, is represented by a Z spider (control qubit) and an X spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
+The CNOT gate in the ZX calculus is represented by a Z spider (control qubit) and an X spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 
 \begin{center}
     \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def}
@@ -141,7 +141,7 @@ Similarly, to calculate the matrix $B$, we take the following tensor product.
 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
 
-Note that the order of the tensor product depends on the order of the input and output wires. We can then calculate the final matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows.
+We can then calculate the CNOT matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows.
 
 \includezxdiagram{chapter-2/cnot}{0.10}{
 \Bigg[
@@ -154,7 +154,27 @@ Note that the order of the tensor product depends on the order of the input and 
     0 & 0 \\
     0 & 1 \\
 \end{pmatrix} \otimes
-\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right] =
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right] \simeq
+%
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}}
+
+Had we chosen to make the first qubit the target and the second qubit the control, we would have obtained the following.
+\includezxdiagram{chapter-2/cnot2}{0.10}{
+\Bigg[
+\frac{1}{\sqrt 2}
+\begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix} \otimes 
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\Bigg]
+%
+\left[
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes
+\begin{pmatrix} 1 & 0 \\ 0 & 0 \\ 0 & 0 \\ 0 & 1 \end{pmatrix}
+\right] \simeq
 %
 \begin{pmatrix}
 1 & 0 & 0 & 0 \\
@@ -169,6 +189,8 @@ Since \textit{only connectivity matters}, we could have equivalently calculated 
     \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def2}
 \end{center}
 
+\subsection{Hadamard Generator}
+
 All quantum gates are unitary transformations. Therefore, up to a global phase, an arbitrary single qubit rotation $U$ can be viewed as a rotation of the Bloch sphere about some axis. We can decompose the unitary $U$ using Euler angles to represent the rotation as three successive rotations \cite{Wetering2020}.
 \begin{figure}[H]
     \centering
@@ -176,9 +198,7 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
     \caption{Arbitrary single-qubit rotation.}
 \end{figure}
 
-\subsection{Hadamard Generator}
-
-Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere by $\pi$ radians about the line bisecting the $X$ and $Z$ axes. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. We define the Hadamard generator as follows.
+Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere by $\pi$ radians about the line bisecting the $X$ and $Z$ axes. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. We define the Hadamard generator below.
 
 \begin{figure}[H]
     \includezxdiagramplus{figures/chapter-2/hadamard}{0.56}{
@@ -187,7 +207,7 @@ Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\k
     \caption{Hadamard generator in the ZX calculus.}
 \end{figure}
 
-There are many equivalent ways of decomposing the Hadamard gate using Euler angles. The rightmost representations need no scalar corrections.
+There are many equivalent ways of decomposing the Hadamard gate using Euler angles. Note that the rightmost representations need no scalar corrections.
 \begin{figure}[H]
 \centering
     \centering
