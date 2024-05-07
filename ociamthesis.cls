@@ -50,13 +50,14 @@
 
 % Commands
 \newcommand{\includezxdiagram}[2]{%
+\vspace*{5pt}
 \begin{center}
 \includegraphics[width=#2\textwidth]{#1}
 \end{center}
 }
 
 \newcommand{\includezxdiagramtext}[3]{%
-\vspace*{0.4cm}
+\vspace*{5pt}
 \begin{center}
 \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=#2\textwidth]{#1}};
@@ -64,16 +65,14 @@
 \end{tikzpicture}
 \end{center}
 }
-
+ 
 \newcommand{\includezxdiagramtextplus}[5]{%
-\vspace*{0.4cm}
+\vspace*{5pt}
 \begin{center}
 \begin{tikzpicture}
-    \node[anchor=south west,inner sep=0] (image) at (0,0) {
-        \includegraphics[width=#2\textwidth]{#1}};
-    \node[anchor=west] (equation) at (image.east) {$\displaystyle = #3$};
-    \node[anchor=west,inner sep=0] at (equation.east) {
-        \includegraphics[width=#5\textwidth]{#4}};
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=#2\textwidth]{#1}};
+    \node[anchor=west] (equation) at (image.east) {$\displaystyle #3$};
+    \node[anchor=west,inner sep=0] at (equation.east) {\includegraphics[width=#5\textwidth]{#4}};
 \end{tikzpicture}
 \end{center}
 }

@@ -4,6 +4,7 @@ This section introduces the various rewrite rules that come equipped with the ZX
 
 \subsection{Spider Fusion}%
 \label{spider-fusion}
+
 The most fundamental rule of the ZX calculus is the \textit{spider fusion} rule \cite{Wetering2020}. It states that two spiders connected by one or more wires fuse if they are the same colour. It is the generalisation of adding the phases of successive rotations of the Bloch sphere. Since we interpret the phases $\alpha$ and $\beta$ as $e^{i\alpha}$ and $e^{i\beta}$, it follows that the phase $\alpha + \beta$ is modulo $2\pi$.
 
 \begin{figure}[H]
@@ -13,13 +14,17 @@ The most fundamental rule of the ZX calculus is the \textit{spider fusion} rule 
 \end{figure}
 
 We can use this rule to identify commutation relations. For instance, $Z$ rotations commute through CNOT controls and $X$ rotations commute through CNOT targets.
+
+% \vspace{5pt}
 \includezxdiagram{chapter-2/cnot_commutation}{0.9}
 
 %%%
 
 \subsection{Identity Removal}%
 \label{identity}
+
 The \textit{identity removal} rule states that any two-legged spider with no phase ($\alpha = 0$) is equivalent to an empty wire since a rotation by 0 radians is the same as no rotation.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{chapter-2/identity}
@@ -34,7 +39,9 @@ Combining this with the spider fusion rule (\ref{spider-fusion}), we see that tw
 
 \subsection{$\pi$ Copy Rule}%
 \label{pi-copy}
+
 The $\pi$ \textit{copy} rule concerns itself with the interactions of the Pauli $Z$ and $X$ gates with spiders. It states that when a Pauli $Z$ or Pauli $X$ gate is pushed through a spider of the opposite colour, it copies through the spider and flips its phase.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{chapter-2/pi_copy}
@@ -46,7 +53,9 @@ The $\pi$ \textit{copy} rule concerns itself with the interactions of the Pauli 
 
 \subsection{State Copy Rule}%
 \label{state-copy}
+
 A similar rule derived from the $\pi$ copy rule (\ref{pi-copy}), is the \textit{state copy} rule. It states that the $\ket 0$ state (phaseless $X$ spider) and the $\ket 1$ state ($X$ spider with phase $\pi$) interact with $Z$ spiders as follows. The same rule holds for the colour-flipped counterparts.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{chapter-2/state_copy}
@@ -58,6 +67,7 @@ A similar rule derived from the $\pi$ copy rule (\ref{pi-copy}), is the \textit{
 \subsection{Bialgebra Rule}%
 \label{bialgebra}
 Unlike the previous rules we have introduced, the \textit{bialgebra rule} takes some time to understand intuitively. It is nethertheless important in many derivations. We can represent the eigenstates of the $X$ and $Z$ operators by introducing the boolean variable $a \in \{0, 1\}$ as follows.
+
 \begin{center}
 \includezxdiagramtext{chapter-2/boolean_x}{0.085}{
 \ket 0 \text{ where $a = 0$ and }
@@ -68,6 +78,7 @@ Unlike the previous rules we have introduced, the \textit{bialgebra rule} takes 
 \end{center}
 
 Using the spider fusion rule (\ref{spider-fusion}), we are able to show that an $X$ spider with two inputs and one output behaves like the classical XOR gate when applied to the $\ket 0$ and $\ket 1$ states. Using the state copy rule (\ref{state-copy}), we are able to show that a $Z$ spider with one input and two outputs behaves like the classical COPY gate.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.77\textwidth]{chapter-2/xor_copy}
@@ -75,6 +86,7 @@ Using the spider fusion rule (\ref{spider-fusion}), we are able to show that an 
 \end{figure}
 
 Let us now consider the natural commutation relation of the classical XOR and COPY gates. It is clear that XORing two bits then copying them is the same as copying the same two bits, then XORing them. Using this relation as motivation, we define the \textit{bialgebra} rule as follows.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{chapter-2/bialgebra}
@@ -89,6 +101,7 @@ The bialgebra rule is then the quantum generalisation of the XOR-COPY commutatio
 \label{hopf}
 
 Finally, we have the Hopf rule, which states that we can remove the wires connecting an $X$ spider and a $Z$ spider when the number of connections between them is two. Like with the bialgebra rule (\ref{bialgebra}), we can take motivation from the behaviour of the classical XOR and COPY gates, since COPYing two bits then XORing them always yields 0.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{chapter-2/hopf}
