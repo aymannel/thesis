@@ -49,17 +49,24 @@
 
 
 % Commands
-\newcommand{\includezxdiagram}[3]{%
+\newcommand{\includezxdiagram}[2]{%
+\begin{center}
+\includegraphics[width=#2\textwidth]{#1}
+\end{center}
+}
+
+\newcommand{\includezxdiagramtext}[3]{%
+\vspace*{0.4cm}
 \begin{center}
 \begin{tikzpicture}
-    \node[anchor=south west,inner sep=0] (image) at (0,0) {
-        \includegraphics[width=#2\textwidth]{#1}};
+    \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=#2\textwidth]{#1}};
     \node[anchor=west] at (image.east) {$\displaystyle = #3$};
 \end{tikzpicture}
 \end{center}
 }
 
-\newcommand{\includezxdiagramplus}[5]{%
+\newcommand{\includezxdiagramtextplus}[5]{%
+\vspace*{0.4cm}
 \begin{center}
 \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (image) at (0,0) {

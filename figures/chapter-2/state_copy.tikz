@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style={x_phase}] (1) at (2.5, 1.25) {$\alpha$};
+		\node [style=none] (2) at (4, 2) {};
+		\node [style=none] (3) at (4, 0.5) {};
+		\node [style=none] (4) at (1.5, 0) {};
+		\node [style=none] (5) at (5, 1.25) {=};
+		\node [style={z_node}] (8) at (6.5, 2) {};
+		\node [style={z_node}] (9) at (6.75, 1) {};
+		\node [style=none] (10) at (7.5, 2) {};
+		\node [style=none] (11) at (7.75, 1) {};
+		\node [style={z_node}] (12) at (5.75, 0.25) {};
+		\node [style=none] (13) at (4.75, 0.25) {};
+		\node [style={z_node}] (14) at (1.25, 1.25) {};
+		\node [style={x_phase}] (15) at (12, 1.25) {$\alpha$};
+		\node [style=none] (16) at (13.5, 2) {};
+		\node [style=none] (17) at (13.5, 0.5) {};
+		\node [style=none] (18) at (11, 0) {};
+		\node [style=none] (19) at (14.5, 1.25) {=};
+		\node [style={z_phase}] (20) at (16.25, 2) {$\pi$};
+		\node [style={z_phase}] (21) at (16.5, 1) {$\pi$};
+		\node [style=none] (22) at (17.25, 2) {};
+		\node [style=none] (23) at (17.5, 1) {};
+		\node [style={z_phase}] (24) at (15.5, 0.25) {$\pi$};
+		\node [style=none] (25) at (14.5, 0.25) {};
+		\node [style={z_phase}] (26) at (10.75, 1.25) {$\pi$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (11.center) to (9);
+		\draw (10.center) to (8);
+		\draw (13.center) to (12);
+		\draw [bend left] (1) to (2.center);
+		\draw [bend right] (1) to (3.center);
+		\draw [bend right] (4.center) to (1);
+		\draw (14) to (1);
+		\draw (23.center) to (21);
+		\draw (22.center) to (20);
+		\draw (25.center) to (24);
+		\draw [bend left] (15) to (16.center);
+		\draw [bend right] (15) to (17.center);
+		\draw [bend right] (18.center) to (15);
+		\draw (26) to (15);
+	\end{pgfonlayer}
+\end{tikzpicture}

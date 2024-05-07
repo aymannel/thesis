@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style={x_phase}] (2) at (0, 0) {$a\pi$};
+		\node [style=none] (3) at (1, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (3.center) to (2);
+	\end{pgfonlayer}
+\end{tikzpicture}

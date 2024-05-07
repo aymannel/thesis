@@ -1,6 +1,6 @@
-\section{Diagrams \& Generators}
+\section{Generators}
 
-By sequentially or horizontally composing the generators known as \textit{Z Spiders} (green) and \textit{X Spiders} (red), we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be deformed as seen fit, provided that the order of inputs and outputs is preserved.
+By sequentially or horizontally composing the \textit{Z Spider} (green) and \textit{X Spider} (red) generators, we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be deformed as seen fit, provided that the order of inputs and outputs is preserved.
 \begin{figure}[H]
 \centering
     \centering
@@ -11,7 +11,7 @@ By sequentially or horizontally composing the generators known as \textit{Z Spid
 Z Spiders are defined with respect to the $Z$ eigenbasis such that a Z Spider with $n$ inputs and $m$ outputs has the following interpretation as a linear map. Note that in this text, we will interpret the flow of time from left to right.
 \begin{figure}[H]
 \centering
-\includezxdiagram{figures/chapter-2/z_spider}{0.21}{\,
+\includezxdiagramtext{figures/chapter-2/z_spider}{0.21}{\,
     \ket{0}^{\otimes m} \bra{0}^{\otimes n} + e^{i\alpha}
     \ket{1}^{\otimes m} \bra{1}^{\otimes n}}
 \caption{Interpretation of Z Spider as a linear map.}
@@ -19,7 +19,7 @@ Z Spiders are defined with respect to the $Z$ eigenbasis such that a Z Spider wi
 Similarly, X Spiders, which are defined with respect to the $X$ eigenbasis, are interpreted as the following linear map.
 \begin{figure}[H]
 \centering
-\includezxdiagram{figures/chapter-2/x_spider}{0.21}{\,
+\includezxdiagramtext{figures/chapter-2/x_spider}{0.21}{\,
     \ket{+}^{\otimes m} \bra{+}^{\otimes n} + e^{i\alpha}
     \ket{-}^{\otimes m} \bra{-}^{\otimes n}}
 \caption{Interpretation of X Spider as a linear map.}
@@ -30,13 +30,13 @@ We can recover the $\ket 0$ eigenstate using an X Spider that has a phase of zer
 \centering
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/zero_state}{0.15}{\,
+    \includezxdiagramtext{figures/chapter-2/zero_state}{0.15}{\,
         \ket + + \ket - = \sqrt{2} \ket 0}
     \caption{$\ket 0$ eigenstate}
 \end{minipage}%
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/one_state}{0.16}{\,
+    \includezxdiagramtext{figures/chapter-2/one_state}{0.16}{\,
     \ket + - \ket - = \sqrt{2} \ket 1}
     \caption{$\ket 1$ eigenstate}
 \end{minipage}
@@ -47,13 +47,13 @@ Likewise, we have the $\ket +$ and $\ket -$ basis states from the corresponding 
 \centering
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/plus_state}{0.15}{\,
+    \includezxdiagramtext{figures/chapter-2/plus_state}{0.15}{\,
         \ket 0 + \ket 1 = \sqrt{2} \ket +}
     \caption{$\ket +$ eigenstate}
 \end{minipage}%
 \begin{minipage}{.4\textwidth}
     \centering
-    \includezxdiagram{figures/chapter-2/minus_state}{0.16}{\,
+    \includezxdiagramtext{figures/chapter-2/minus_state}{0.16}{\,
     \ket 0 - \ket 1 = \sqrt{2} \ket -}
     \caption{$\ket -$ eigenstate}
 \end{minipage}
@@ -65,12 +65,12 @@ Single qubit rotations in the $Z$ basis are represented by a Z Spider with a sin
 
 \begin{figure}[H]
 \centering
-    \includezxdiagramplus{figures/chapter-2/z_rotation}{0.11}{
+    \includezxdiagramtextplus{figures/chapter-2/z_rotation}{0.11}{
         \ket{0} \bra{0} + e^{i\alpha} \ket{1} \bra{1} = 
     \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \rightarrow
     }{chapter-1/z_rotation}{0.18}
     %
-    \includezxdiagramplus{figures/chapter-2/x_rotation}{0.11}{
+    \includezxdiagramtextplus{figures/chapter-2/x_rotation}{0.11}{
         \ket{+} \bra{+} + e^{i\alpha} \ket{-} \bra{-} = 
         \frac{1}{2}
         \begin{pmatrix}
@@ -84,11 +84,11 @@ Single qubit rotations in the $Z$ basis are represented by a Z Spider with a sin
 We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha = \pi$.
 \begin{figure}[H]
 \centering
-\includezxdiagram{figures/chapter-2/pauli_z}{0.11}{
+\includezxdiagramtext{figures/chapter-2/pauli_z}{0.11}{
     \ket{0} \bra{0} + e^{i\pi} \ket{1} \bra{1} = 
     \begin{pmatrix} 1 & \,\,0 \\ 0 & -1 \end{pmatrix}
 }
-\includezxdiagram{figures/chapter-2/pauli_x}{0.11}{
+\includezxdiagramtext{figures/chapter-2/pauli_x}{0.11}{
     \ket{+} \bra{+} + e^{i\pi} \ket{-} \bra{-} = 
     \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
 }
@@ -100,7 +100,7 @@ We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha
 \subsection{Composition}
 To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse as in the ZX diagram as we have defined it.
 
-\includezxdiagram{chapter-2/sequential}{0.27}{
+\includezxdiagramtext{chapter-2/sequential}{0.27}{
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\gamma} \end{pmatrix}
 \begin{pmatrix}
     1 + e^{i\beta} & 1 - e^{i\beta} \\
@@ -110,23 +110,20 @@ To calculate the matrix of a ZX diagram consisting of sequentially composed spid
 
 Alternatively, we could have chosen to compose the spiders in parallel, resulting in the tensor product.
 
-\includezxdiagram{chapter-2/parallel}{0.105}{
+\includezxdiagramtext{chapter-2/parallel}{0.105}{
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
 \begin{pmatrix}
     1 + e^{i\beta} & 1 - e^{i\beta} \\
     1 - e^{i\beta} & 1 + e^{i\beta}
 \end{pmatrix}}
 
-\subsubsection{Deriving the CNOT Gate}
 The CNOT gate in the ZX calculus is represented by a Z spider (control qubit) and an X spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 
-\begin{center}
-    \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def}
-\end{center}
+\includezxdiagram{chapter-2/cnot_def}{0.65}
 
 We can calculate matrix $A$, consisting of a single-input and two-output Z Spider ($4 \times 2$ matrix) and an empty wire (identity matrix), by taking the tensor product.
 
-\includezxdiagram{chapter-2/A_def}{0.33}{
+\includezxdiagramtext{chapter-2/A_def}{0.33}{
 \begin{pmatrix}
     1 & 0 \\
     0 & 0 \\
@@ -137,13 +134,13 @@ We can calculate matrix $A$, consisting of a single-input and two-output Z Spide
 
 Similarly, to calculate the matrix $B$, we take the following tensor product.
 
-\includezxdiagram{chapter-2/B_def}{0.33}{
+\includezxdiagramtext{chapter-2/B_def}{0.33}{
 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
 
 We can then calculate the CNOT matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows.
 
-\includezxdiagram{chapter-2/cnot}{0.10}{
+\includezxdiagramtext{chapter-2/cnot}{0.10}{
 \Bigg[
 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix} \Bigg]
@@ -164,7 +161,7 @@ We can then calculate the CNOT matrix by taking the matrix product of matrix $A$
 \end{pmatrix}}
 
 Had we chosen to make the first qubit the target and the second qubit the control, we would have obtained the following.
-\includezxdiagram{chapter-2/cnot2}{0.10}{
+\includezxdiagramtext{chapter-2/cnot2}{0.10}{
 \Bigg[
 \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix} \otimes 
@@ -185,9 +182,8 @@ Had we chosen to make the first qubit the target and the second qubit the contro
 
 Since \textit{only connectivity matters}, we could have equivalently calculated the matrix of the CNOT gate by deforming the diagram as follows.
 
-\begin{center}
-    \includegraphics[width=0.65\textwidth]{chapter-2/cnot_def2}
-\end{center}
+\vspace{10pt}
+\includezxdiagram{chapter-2/cnot_def2}{0.65}
 
 \subsection{Hadamard Generator}
 
@@ -201,8 +197,8 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
 Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere by $\pi$ radians about the line bisecting the $X$ and $Z$ axes. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. We define the Hadamard generator below.
 
 \begin{figure}[H]
-    \includezxdiagramplus{figures/chapter-2/hadamard}{0.56}{
-    \frac{1}{\sqrt 2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \rightarrow
+    \includezxdiagramtextplus{figures/chapter-2/hadamard}{0.56}{
+    % \frac{1}{\sqrt 2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \rightarrow
     }{chapter-1/hadamard}{0.16}
     \caption{Hadamard generator in the ZX calculus.}
 \end{figure}
@@ -217,21 +213,15 @@ There are many equivalent ways of decomposing the Hadamard gate using Euler angl
 
 \subsection{Conjugate, Transpose and Adjoint}
 
-We can find the conjugate of a ZX diagram by simply negating the phases of all spiders in the diagram, $\alpha \rightarrow -\alpha, \beta \rightarrow -\beta, \dots$.
+We can find the conjugate of a ZX diagram by simply negating the phases of all spiders in the diagram, $\alpha \rightarrow -\alpha, \,\, \beta \rightarrow -\beta, \dots$.
 
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{chapter-2/conjugate}
-\end{center}
+\includezxdiagram{chapter-2/conjugate}{0.6}
 
-Intuitively, we can find the transpose of a ZX diagram by turning all inputs into outputs and all outputs into inputs.
+We can find the transpose of a ZX diagram by turning all of its inputs into outputs and all of its outputs into inputs.
 
-\begin{center}
-    \includegraphics[width=1\textwidth]{chapter-2/transpose}
-\end{center}
+\includezxdiagram{chapter-2/transpose}{1}
 
 It is then a simple matter to find the Hermitian adjoint of a ZX diagram by first finding its conjugate, then its transpose.
 
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{chapter-2/adjoint}
-\end{center}
+\includezxdiagram{chapter-2/adjoint}{0.6}
 
