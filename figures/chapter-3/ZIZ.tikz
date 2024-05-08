@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (0, 0) {};
+		\node [style=none] (1) at (0, 1) {};
+		\node [style=none] (2) at (0, 2) {};
+		\node [style={z_node}] (3) at (1, 2) {};
+		\node [style={x_node}] (10) at (2, 0.5) {};
+		\node [style={z_phase}] (11) at (2.75, 0.5) {$\theta$};
+		\node [style=none] (12) at (2.5, 0) {};
+		\node [style=none] (13) at (2.5, 1) {};
+		\node [style=none] (14) at (2.5, 2) {};
+		\node [style={z_node}] (16) at (1, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (2.center) to (3);
+		\draw (11) to (10);
+		\draw (16) to (0.center);
+		\draw (10) to (16);
+		\draw (10) to (3);
+		\draw (12.center) to (16);
+		\draw (14.center) to (3);
+		\draw (1.center) to (13.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

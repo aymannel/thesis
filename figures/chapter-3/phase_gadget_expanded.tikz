@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (0, 0) {};
+		\node [style=none] (1) at (0, 1) {};
+		\node [style=none] (2) at (0, 2) {};
+		\node [style={z_node}] (6) at (1, 2) {};
+		\node [style={x_node}] (8) at (1, 1) {};
+		\node [style={z_node}] (9) at (2, 1) {};
+		\node [style={x_node}] (10) at (2, 0) {};
+		\node [style={z_node}] (11) at (5, 2) {};
+		\node [style={x_node}] (12) at (5, 1) {};
+		\node [style={z_node}] (13) at (4, 1) {};
+		\node [style={x_node}] (14) at (4, 0) {};
+		\node [style={z_phase}] (15) at (3, 0) {$\theta$};
+		\node [style=none] (16) at (6, 0) {};
+		\node [style=none] (17) at (6, 1) {};
+		\node [style=none] (18) at (6, 2) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (6) to (8);
+		\draw (9) to (10);
+		\draw (11) to (12);
+		\draw (13) to (14);
+		\draw (2.center) to (6);
+		\draw (6) to (11);
+		\draw (11) to (18.center);
+		\draw (17.center) to (12);
+		\draw (12) to (13);
+		\draw (9) to (13);
+		\draw (8) to (9);
+		\draw (8) to (1.center);
+		\draw (0.center) to (10);
+		\draw (10) to (15);
+		\draw (15) to (14);
+		\draw (14) to (16.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
