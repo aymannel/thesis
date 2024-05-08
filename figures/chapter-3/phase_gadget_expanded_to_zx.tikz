@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (0, 0) {};
+		\node [style=none] (1) at (0, 1) {};
+		\node [style=none] (2) at (0, 2) {};
+		\node [style={z_node}] (3) at (1, 2) {};
+		\node [style={x_node}] (4) at (1, 1) {};
+		\node [style={z_node}] (5) at (2, 1) {};
+		\node [style={x_node}] (6) at (2, 0) {};
+		\node [style={z_node}] (7) at (5, 2) {};
+		\node [style={x_node}] (8) at (5, 1) {};
+		\node [style={z_node}] (9) at (4, 1) {};
+		\node [style={x_node}] (10) at (4, 0) {};
+		\node [style={z_phase}] (11) at (3, 0) {$\theta$};
+		\node [style=none] (12) at (6, 0) {};
+		\node [style=none] (13) at (6, 1) {};
+		\node [style=none] (14) at (6, 2) {};
+		\node [style=none] (15) at (8, 0) {};
+		\node [style=none] (16) at (8, 1) {};
+		\node [style=none] (17) at (8, 2) {};
+		\node [style=none] (18) at (11, 0) {};
+		\node [style=none] (19) at (11, 1) {};
+		\node [style=none] (20) at (11, 2) {};
+		\node [style={z_node}] (21) at (9.5, 0) {};
+		\node [style={z_node}] (22) at (9.5, 1) {};
+		\node [style={z_node}] (23) at (9.5, 2) {};
+		\node [style={z_phase}] (24) at (11, 0.5) {$\theta$};
+		\node [style={x_node}] (25) at (10.25, 0.5) {};
+		\node [style=none] (26) at (7, 1) {};
+		\node [style=none] (27) at (7, 1) {=};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (3) to (4);
+		\draw (5) to (6);
+		\draw (7) to (8);
+		\draw (9) to (10);
+		\draw (2.center) to (3);
+		\draw (3) to (7);
+		\draw (7) to (14.center);
+		\draw (13.center) to (8);
+		\draw (8) to (9);
+		\draw (5) to (9);
+		\draw (4) to (5);
+		\draw (4) to (1.center);
+		\draw (0.center) to (6);
+		\draw (6) to (11);
+		\draw (11) to (10);
+		\draw (10) to (12.center);
+		\draw (23) to (17.center);
+		\draw (16.center) to (22);
+		\draw (22) to (19.center);
+		\draw (18.center) to (21);
+		\draw (21) to (15.center);
+		\draw (20.center) to (23);
+		\draw (25) to (21);
+		\draw (22) to (25);
+		\draw (25) to (23);
+		\draw (25) to (24);
+	\end{pgfonlayer}
+\end{tikzpicture}

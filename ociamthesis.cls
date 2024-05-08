@@ -83,7 +83,7 @@
 \begin{tikzpicture}
     \node[anchor=south west,inner sep=0pt] (zx1) at (0,0) {\includegraphics[width=#2\textwidth]{#1}};
     \node[anchor=west] (eq1) at (zx1.east) {$\displaystyle #3$};
-    \node[anchor=west,inner sep=0pt] (zx2) at ([xshift=0.3cm] eq1.east) {\includegraphics[width=#5\textwidth]{#4}};
+    \node[anchor=west,inner sep=0pt] (zx2) at ([xshift=0.5cm] eq1.east) {\includegraphics[width=#5\textwidth]{#4}};
     \node[anchor=west] at (zx2.east) {$\displaystyle #6$};
 \end{tikzpicture}
 \end{center}
