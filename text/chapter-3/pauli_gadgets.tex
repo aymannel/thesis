@@ -1,5 +1,49 @@
 \section{Pauli Gadgets}
 
+Pauli gadgets are defined as the one parameter unitary groups of Pauli strings consisting of all four Pauli matrices, $P \in \{I, Z, X, Y\}$. They are essentially phase gadgets associated with an additional change of basis.
+
+\includezxdiagramtext{chapter-3/pauli_gadget}{0.65}{
+\text{exp} \left( i \frac{\theta}{2}
+Y \otimes Z \otimes X \right)}
+
+Whilst phase gadgets alone cannot change the distribution of the observed state, Pauli gadgets, which are associated with a change of basis, can. We will later see how Pauli gadgets form the building blocks in ansätze used for quantum chemical simulations. Similarly to phase gadgets, Pauli gadgets come equipped with a set of rules describing their interactions with other gadgets and quantum gates.
+
+%%%
+
+\subsection{Pauli Gadget Identity Rule}%
+\label{pauli-gadget-identity}
+
+Pauli gadgets with an angle $\theta = 0$, and matching legs, can be shown to be equivalent to identity using the phase gadget identity rule (\ref{phase-gadget-identity}), and the subsequent cancellation of the change of basis layers.
+
+\includezxdiagram{chapter-3/pauli_gadget_identity}{0.7}
+
+%%%
+
+\subsection{Pauli Gadget Fusion Rule}%
+\label{pauli-gadget-fusion}
+
+Likewise, any two adjacent Pauli gadgets with matching legs fuse and their phases add. This is achieved by cancelling adjacent change of basis layers and using the phase gadget fusion rule (\ref{phase-gadget-fusion}).
+
+\includezxdiagram{chapter-3/pauli_gadget_fusion}{0.7}
+
+%%%
+
+\subsection{Pauli Gadget Commutation Rule}%
+\label{pauli-gadget-commutation}
+
+Any two adjacent Pauli gadgets with no mismatching legs can be shown to commute. This is achieved by cancelling adjacent change of basis layers, and using the spider fusion rule (fuse then unfuse the legs \ref{spider-fusion}).
+
+\includezxdiagram{chapter-3/pauli_gadget_commutation}{0.7}
+
+%%%
+
+\subsection{Single-Legged Pauli Gadgets}%
+\label{pauli-gadget-single-leg}
+
+Finally, we can show that single-legged Pauli gadgets are equivalent to a rotation in the corresponding basis using the single-legged phase gadget rule (\ref{phase-gadget-single-leg}) and applying the corresponding change of basis.
+\includezxdiagram{chapter-3/pauli_gadget_single_leg}{0.55}
+
+
 \begin{equation*}
 \begin{gathered}
     C \in \text{Clifford} \qquad P \in \text{Pauli} \\

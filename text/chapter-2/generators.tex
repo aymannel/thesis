@@ -209,23 +209,18 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
     \caption{Arbitrary single-qubit rotation.}
 \end{figure}
 
-Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $Z$ and $X$ axes. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain the Hadamard gate up to a global phase of $e^{-i\frac{\pi}{4}}$. We define the Hadamard generator below.
+Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $Z$ and $X$ axes.
+
+There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain H up to a global phase of $\text{exp}(-i\pi/4)$. See Appendix \ref{hadamard} for other definitions.
 
 \begin{figure}[H]
 \includezxdiagramtext{figures/chapter-2/hadamard}{0.56}{
     \frac{1}{\sqrt 2}
     \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
-\caption{Hadamard generator in the ZX calculus.}
+\caption{Definition of the Hadamard generator.}
 \end{figure}
 
-There are many equivalent ways of decomposing the Hadamard gate using Euler angles. Note that the rightmost representations need no scalar corrections.
-
-\begin{figure}[H]
-\centering
-    \centering
-    \includegraphics[width=1\textwidth]{chapter-2/hadamard_decomp}
-    \caption{Equivalent definitions of the Hadamard generator.}
-\end{figure}
+%%%
 
 \subsection{Conjugate, Transpose and Adjoint}
 
