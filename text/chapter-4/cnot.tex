@@ -1,1 +1,19 @@
-\section{CNOT Commutations}
+\section{CNOT Commutation}
+
+When a CNOT gate is \textit{pushed} through a Pauli gadget, it modifies the gadget's legs. That is, the resulting gadget is defined by a new Pauli string. We have encountered when using the bialgebra rule (\ref{bialgebra}) to construct phase gadgets \ref{phase-gadget-proof}.
+
+\includezxdiagram{chapter-4/phase_gadget_decomposition}{0.7}
+
+Above, we have inserted two adjacent CNOTs (self-inverse), then pushed one of them through the phase gadget. We can say that a CNOT gate `commutes' through a $\text{exp} [i\frac{\theta}{2} (Z \otimes Z)]$ gadget to get a $\text{exp} [i\frac{\theta}{2} (I \otimes Z)]$ gadget.
+
+\includezxdiagram{chapter-4/CNOT_ZZ_IZ}{0.8}
+
+The ZX calculus can be used to identify how CNOT gates commute through any Pauli gadget. Note that the following examples are not exhaustive -- there are 16 possible permutations with repetition of $\{I, X, Y, Z\}$ taken two at a time.)
+
+\includezxdiagram{chapter-4/CNOT_examples}{0.9}
+
+In practice, it may be tedious to use the bialgebra and other rules to identify each commutation relation. There exists, however, a simple trick for identifying these relations. The CNOT gate belongs to the Clifford group $C$. That is, the set of transformations that normalise the Pauli group. For instance, conjugating the Pauli $X$ gate with the Hadamard $H$ (where $H \in C$), yields the $Z$ gate.
+\begin{equation*}
+    Z = HXH
+\end{equation*}
+Recall that Pauli gadgets are defined as one parameter unitary groups of a given Pauli string $P$, where $P \in \{I, Z, X, Y\}^{\otimes n}$. It can be shown, through the relevant Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string (see Appendix \ref{conjugation}).

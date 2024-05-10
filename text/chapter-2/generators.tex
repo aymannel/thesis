@@ -7,6 +7,7 @@ By sequentially or horizontally composing the \textit{Z Spider} (green) and \tex
     \centering
     \includegraphics[width=0.8\textwidth]{chapter-2/connectivity}
     \caption{Three equivalent ZX diagrams (\textit{only connectivity matters}).}
+    \label{only-connectivity-matters}
 \end{figure}
 
 Z Spiders are defined with respect to the $Z$ eigenbasis such that a Z Spider with $n$ inputs and $m$ outputs has the following interpretation as a linear map. Note that in this text, we will interpret the flow of time from left to right.
@@ -174,6 +175,11 @@ We can then calculate the CNOT matrix by taking the matrix product of matrix $A$
     \end{pmatrix}
 }
 
+Since \textit{only connectivity matters} (\ref{only-connectivity-matters}), we could have equivalently calculated the matrix of the CNOT gate by deforming the diagram as follows.
+
+\vspace{10pt}
+\includezxdiagram{chapter-2/cnot_def2}{0.65}
+
 Had we chosen to make the first qubit the target and the second qubit the control, we would have obtained the following.
 \includezxdiagramtext{chapter-2/cnot2}{0.10}{
 \Bigg[
@@ -189,15 +195,12 @@ Had we chosen to make the first qubit the target and the second qubit the contro
 %
 \begin{pmatrix}
 1 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1 \\
-0 & 0 & 1 & 0
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
 \end{pmatrix}}
 
-Since \textit{only connectivity matters}, we could have equivalently calculated the matrix of the CNOT gate by deforming the diagram as follows.
-
-\vspace{10pt}
-\includezxdiagram{chapter-2/cnot_def2}{0.65}
+%%%
 
 \subsection{Hadamard Generator}
 
@@ -211,7 +214,7 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
 
 Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $Z$ and $X$ axes.
 
-There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain H up to a global phase of $\text{exp}(-i\pi/4)$. See Appendix \ref{hadamard} for other definitions.
+There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain H up to a global phase of $\text{exp}(-i\pi/4)$. See Appendix \ref{appendix-hadamard} for other definitions.
 
 \begin{figure}[H]
 \includezxdiagramtext{figures/chapter-2/hadamard}{0.56}{

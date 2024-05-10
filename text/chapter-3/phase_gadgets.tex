@@ -39,7 +39,8 @@ By deforming \textit{d} our phase gadget in quantum circuit notation and using t
 
 It is then a simple matter of recursively applying this proof to phase gadgets in quantum circuit notation to generalise to arbitrary arity.
 
-\includezxdiagram{chapter-3/phase_gadget_proof2}{0.9}
+\includezxdiagram{chapter-3/phase_gadget_proof2}{0.9}%
+\label{phase-gadget-proof}
 
 Not only is this representation intuitively self-transpose, but it comes equipped with various rules describing its interaction with other phase gadgets and quantum gates.
 
@@ -57,7 +58,7 @@ Phase gadgets with an angle $\theta = 0$ can be shown to be equivalent to identi
 \subsection{Phase Gadget Fusion Rule}%
 \label{phase-gadget-fusion}
 
-Any two adjacent phase gadgets formed from the same Pauli string fuse and their phases add. This is achieved using the spider fusion rule (\ref{spider-fusion}) and the bialgebra rule (\ref{bialgebra}). See Appendix  \ref{phase_gadget_fusion_steps} for the intermediate steps marked (*).
+Any two adjacent phase gadgets formed from the same Pauli string fuse and their phases add. This is achieved using the spider fusion rule (\ref{spider-fusion}) and the bialgebra rule (\ref{bialgebra}). See Appendix  \ref{appendix-phase-gadget-fusion} for the intermediate steps marked (*).
 
 \includezxdiagram{chapter-3/phase_gadget_fusion}{0.58}
 
@@ -75,9 +76,9 @@ Any two adjacent phase gadgets commute, as can be shown using the spider fusion 
 \subsection{Single-Legged Phase Gadgets}%
 \label{phase-gadget-single-leg}
 
-We can show that a single-legged phase gadget is equivalent to a $Z$ rotation using the bialgebra (\ref{bialgebra}), spider fusion (\ref{spider-fusion}), state copy (\ref{state-copy}) and identity (\ref{identity}) rules.
+Single-legged phase gadgets are equivalent to $Z$ rotations. See the proof in Appendix \ref{appendix-phase-gadget-single-leg}.
 
-\includezxdiagram{chapter-3/phase_gadget_single_leg}{0.85}
+\includezxdiagram{chapter-3/phase_gadget_single_leg}{0.6}
 
 %%%
 
