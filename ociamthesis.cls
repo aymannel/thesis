@@ -48,7 +48,46 @@
    \begin{varwidth}{\textwidth}I hereby certify that this is entirely\\my own work unless otherwise stated.\end{varwidth}}
 
 
+% Code Blocks
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Define colors
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{NavyBlue}{rgb}{0.0,0.0,0.5}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+
+% Define code block style
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codepurple},
+    keywordstyle=\color{NavyBlue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+}
+
+\lstset{style=mystyle}
+
 % Commands
+\newcommand{\includejupyter}[3]{%
+    \includezxdiagram{#1}{1}
+    \vspace*{5pt}
+    \hspace*{1cm}
+    \includegraphics[width=#3\textwidth]{#2}
+}
+
 \newcommand{\includezxdiagram}[2]{%
 \vspace*{5pt}
 \begin{center}
@@ -85,6 +124,17 @@
     \node[anchor=west] (eq1) at (zx1.east) {$\displaystyle #3$};
     \node[anchor=west,inner sep=0pt] (zx2) at ([xshift=0.5cm] eq1.east) {\includegraphics[width=#5\textwidth]{#4}};
     \node[anchor=west] at (zx2.east) {$\displaystyle #6$};
+\end{tikzpicture}
+\end{center}
+}
+
+\newcommand{\includethreediagrams}[6]{%
+% \vspace*{2pt}
+\begin{center}
+\begin{tikzpicture}
+    \node at (0,0) {\includegraphics[height=#2]{#1}};
+    \node at (5,0) {\includegraphics[height=#4]{#3}};
+    \node at (10,0) {\includegraphics[height=#6]{#5}};
 \end{tikzpicture}
 \end{center}
 }

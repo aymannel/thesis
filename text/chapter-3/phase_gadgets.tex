@@ -19,12 +19,12 @@ There is therefore a one-to-one correspondence between Hermitian operators and o
 
 Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of the $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They correspond to quantum circuits made up of a $Z$ rotation wedged between two CNOT layers.
 
-\includezxdiagramtext{chapter-3/phase_gadget_expanded}{0.33}
+\includezxdiagramtext{chapter-3/phase_gadget_expanded}{0.28}
 {\text{exp} \left( i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
 
 The first CNOT layer can be thought of as computing the parity of the input state by entangling the qubits. The $Z$ rotation then rotates the entangled state by $e^{i\theta/2}$ or $e^{-i\theta/2}$, depending on the parity of the state, and the final CNOT layer uncomputes the parity. Phase gadgets necessarily correspond to diagonal unitary matrices in the $Z$ basis since they apply a global phase to a given state without changing the distribution of the observed state \cite{Yeung2020}. This diagonal action suggests that a symmetric ZX diagram exists for phase gadgets, as is indeed the case.
 
-\includezxdiagramtext{chapter-3/phase_gadget_expanded_to_zx}{0.6}
+\includezxdiagramtext{chapter-3/phase_gadget_expanded_to_zx}{0.5}
 {\text{exp} \left( i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
 
 % \includeZxEqZxEq
@@ -35,11 +35,11 @@ The first CNOT layer can be thought of as computing the parity of the input stat
 
 By deforming \textit{d} our phase gadget in quantum circuit notation and using the identity \textit{id} (\ref{identity}), spider fusion \textit{f} (\ref{spider-fusion}) and bialgebra \textit{ba} (\ref{bialgebra}) rules, we are able to show the correspondence with its form in the ZX calculus.
 
-\includezxdiagram{chapter-3/phase_gadget_proof}{0.85}
+\includezxdiagram{chapter-3/phase_gadget_proof}{0.75}
 
 It is then a simple matter of recursively applying this proof to phase gadgets in quantum circuit notation to generalise to arbitrary arity.
 
-\includezxdiagram{chapter-3/phase_gadget_proof2}{0.9}%
+\includezxdiagram{chapter-3/phase_gadget_proof2}{0.8}%
 \label{phase-gadget-proof}
 
 Not only is this representation intuitively self-transpose, but it comes equipped with various rules describing its interaction with other phase gadgets and quantum gates.
@@ -51,7 +51,7 @@ Not only is this representation intuitively self-transpose, but it comes equippe
 
 Phase gadgets with an angle $\theta = 0$ can be shown to be equivalent to identity using the state copy (\ref{state-copy}), spider fusion (\ref{spider-fusion}) and identity removal (\ref{identity}) rules.
 
-\includezxdiagram{chapter-3/phase_gadget_identity}{0.9}
+\includezxdiagram{chapter-3/phase_gadget_identity}{0.8}
 
 %%%
 
@@ -60,7 +60,7 @@ Phase gadgets with an angle $\theta = 0$ can be shown to be equivalent to identi
 
 Any two adjacent phase gadgets formed from the same Pauli string fuse and their phases add. This is achieved using the spider fusion rule (\ref{spider-fusion}) and the bialgebra rule (\ref{bialgebra}). See Appendix  \ref{appendix-phase-gadget-fusion} for the intermediate steps marked (*).
 
-\includezxdiagram{chapter-3/phase_gadget_fusion}{0.58}
+\includezxdiagram{chapter-3/phase_gadget_fusion}{0.5}
 
 %%%
 
@@ -69,16 +69,16 @@ Any two adjacent phase gadgets formed from the same Pauli string fuse and their 
 
 Any two adjacent phase gadgets commute, as can be shown using the spider fusion rule \ref{spider-fusion} (fuse then unfuse the legs \ref{spider-fusion}).
 
-\includezxdiagram{chapter-3/phase_gadget_commutation}{0.65}
+\includezxdiagram{chapter-3/phase_gadget_commutation}{0.55}
 
 %%%
 
 \subsection{Single-Legged Phase Gadgets}%
 \label{phase-gadget-single-leg}
 
-Single-legged phase gadgets are equivalent to $Z$ rotations. See the proof in Appendix \ref{appendix-phase-gadget-single-leg}.
+Single-legged phase gadgets are equivalent to $Z$ rotations (see Appendix \ref{appendix-phase-gadget-single-leg}).
 
-\includezxdiagram{chapter-3/phase_gadget_single_leg}{0.6}
+\includezxdiagram{chapter-3/phase_gadget_single_leg}{0.5}
 
 %%%
 
@@ -87,6 +87,6 @@ Single-legged phase gadgets are equivalent to $Z$ rotations. See the proof in Ap
 
 There are many equivalent ways of decomposing a phase gadget into quantum circuit notation using the bialgebra rule (\ref{bialgebra}). More generally, we can show that it is possible to decompose a phase gadget such that it his a circuit depth of $\log_2(n)$ instead of $n$, where $n$ is the number of qubits.
 
-\includezxdiagram{chapter-3/phase_gadget_decomposition}{1}
+\includezxdiagram{chapter-3/phase_gadget_decomposition}{0.85}
 
 Clearly, it is then advantageous to manipulate circuits of phase gadgets using the ZX calculus, and to extract the corresponding quantum circuit only after the ZX diagram has been optimised.

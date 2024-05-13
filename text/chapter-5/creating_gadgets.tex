@@ -1,1 +1,24 @@
-\section{Creating Gadgets}
+\section{Creating Gadgets and Circuits}
+
+In this section, we will introduce the \lstinline{Gadget} class, which we will use to represent Pauli gadgets. Upon instantiating a \lstinline{Gadget()} object, we must provide the Pauli string that defines the gadget, and its phase.
+
+\includejupyter{chapter-5/creating_gadgets}{chapter-5/YZX}{0.27}
+
+By setting the \lstinline{as_gadget} option to \lstinline{False}, we can view the expanded gadget.
+
+\includejupyter{chapter-5/creating_gadgets2}{chapter-5/YZX_expanded}{0.45}
+
+We can construct a circuit of Pauli gadgets using the \lstinline{GadgetCircuit} class. The underlying data structure for this class is an ordered list of \lstinline{Gadget} objects.
+
+\includejupyter{chapter-5/creating_circuits}{chapter-5/circuit}{0.4}
+
+The \lstinline{GadgetCircuit} class also takes standard quantum gates as inputs, where the \lstinline{stack} parameter stacks the individual gates in the circuit for a better representation.
+
+% \begin{code}
+%     circuit = GadgetCircuit([CX(0, 1), CZ(1, 2), X(0)])
+%     circuit.draw(stack=True)
+% \end{code}
+
+\includezxdiagram{chapter-5/circuit2}{0.18}
+
+The \lstinline{GadgetCircuit} class allows us to conjugate \lstinline{Gadget} objects with a variety of Clifford gates. For instance, let us create a circuit consisting a single Pauli gadget and conjugate it with the CNOT gate.

@@ -1,19 +1,29 @@
 \section{CNOT Commutation}
 
-When a CNOT gate is \textit{pushed} through a Pauli gadget, it modifies the gadget's legs. That is, the resulting gadget is defined by a new Pauli string. We have encountered when using the bialgebra rule (\ref{bialgebra}) to construct phase gadgets \ref{phase-gadget-proof}.
+When a CNOT gate is \textit{pushed} through a Pauli gadget, it modifies its legs. That is, the resulting gadget is defined by a new Pauli string. We have already encountered this when decomposing phase gadgets (\ref{phase-gadget-proof}) using the bialgebra rule (\ref{bialgebra}).
 
-\includezxdiagram{chapter-4/phase_gadget_decomposition}{0.7}
+\includezxdiagram{chapter-4/phase_gadget_decomposition}{0.6}
 
-Above, we have inserted two adjacent CNOTs (self-inverse), then pushed one of them through the phase gadget. We can say that a CNOT gate `commutes' through a $\text{exp} [i\frac{\theta}{2} (Z \otimes Z)]$ gadget to get a $\text{exp} [i\frac{\theta}{2} (I \otimes Z)]$ gadget.
+Above, we have inserted two adjacent CNOTs (self-inverse), then pushed one of them through the phase gadget. We can say that a CNOT gate `commutes' through a $\text{exp} [i\frac{\theta}{2} (Z \otimes Z)]$ gadget yielding a $\text{exp} [i\frac{\theta}{2} (I \otimes Z)]$ gadget.
 
-\includezxdiagram{chapter-4/CNOT_ZZ_IZ}{0.8}
+\includezxdiagram{chapter-4/CNOT_ZZ_IZ}{0.7}
 
-The ZX calculus can be used to identify how CNOT gates commute through any Pauli gadget. Note that the following examples are not exhaustive -- there are 16 possible permutations with repetition of $\{I, X, Y, Z\}$ taken two at a time.)
+The ZX calculus can be used to identify how CNOT gates commute through any Pauli gadget. Note that the following examples are not exhaustive -- there are 16 possible permutations with repetition of $\{I, X, Y, Z\}$ taken two at a time.
 
-\includezxdiagram{chapter-4/CNOT_examples}{0.9}
+\includezxdiagram{chapter-4/CNOT_examples}{0.8}
 
 In practice, it may be tedious to use the bialgebra and other rules to identify each commutation relation. There exists, however, a simple trick for identifying these relations. The CNOT gate belongs to the Clifford group $C$. That is, the set of transformations that normalise the Pauli group. For instance, conjugating the Pauli $X$ gate with the Hadamard $H$ (where $H \in C$), yields the $Z$ gate.
 \begin{equation*}
     Z = HXH
 \end{equation*}
-Recall that Pauli gadgets are defined as one parameter unitary groups of a given Pauli string $P$, where $P \in \{I, Z, X, Y\}^{\otimes n}$. It can be shown, through the relevant Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string (see Appendix \ref{conjugation}).
+Recall that Pauli gadgets are defined as the one parameter unitary groups of a given Pauli string $P$, where $P \in \{I, Z, X, Y\}^{\otimes n}$. It can be shown, through the relevant Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string (see Appendix \ref{conjugation}). In other words, if we can determine the behaviour of a pair of Paulis with the CNOT gate, we can know the behaviour of the corresponding gadget.
+
+Let us first derive the phase gadget decomposition commutation relation (\ref{phase-gadget-proof}). We first express two Pauli $Z$ gates as $Z$ rotations. We then push the bottom Pauli through the CNOT target (red $X$ spider) using the $\pi$ copy rule (\ref{pi-copy}). We can then push the top Pauli through the CNOT control using the spider fusion rule (\ref{spider-fusion}) to cancel one of the copied Pauli $Z$ gates obtaining the same relation as before.
+
+\includezxdiagram{chapter-4/commutation_trick}{0.7}
+
+Up to a global phase of $-i$ (CHECK), the Pauli Y gate can be expressed as a Pauli X gate followed by a Pauli Z gate. We will use this to identify how the CNOT gate interacts with a $\text{exp} [i\frac{\theta}{2} (X \otimes Y)]$ gadget.
+
+\includezxdiagram{chapter-4/commutation_trick_YX}{1}
+
+Using this method, we are able to derive all CNOT commutation relations (see Appendix \ref{cnot_commutations} for the complete set of CNOT commutation relations).
