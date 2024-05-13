@@ -1,0 +1,18 @@
+\section{Creating Gadgets and Circuits}
+
+In this section, we will introduce the \lstinline{Gadget} class, which we will use to represent Pauli gadgets. We must provide the \lstinline{Gadget()} object with a Pauli string and a phase.
+
+\includejupyter{chapter-5/gadget}{chapter-5/gadget_zx}{0.28}
+
+By setting the \lstinline{as_gadget} option to \lstinline{False}, we can view the expanded gadget.
+
+\includejupyter{chapter-5/expanded}{chapter-5/expanded_zx}{0.5}
+
+We can construct a circuit of Pauli gadgets using the \lstinline{GadgetCircuit} class. The underlying data structure for this class is simply an ordered list.
+
+\includejupyter{chapter-5/circuit}{chapter-5/circuit_zx}{0.42}
+
+The \lstinline{GadgetCircuit} class can also take standard quantum gates, where the \lstinline{stack} parameter stacks the individual gates in the circuit for a better representation.
+
+\includejupyter{chapter-5/stacked}{chapter-5/stacked_zx}{0.3}
+

@@ -1,28 +1,27 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (14) at (4.75, 0) {$\Bigg)$};
-		\node [style=none] (15) at (0.5, 0) {$\Bigg($};
-		\node [style=none] (24) at (5.75, 0) {};
-		\node [style=none] (25) at (5.75, 2) {=};
-		\node [style=none] (26) at (11, 0) {$\Bigg)$};
-		\node [style=none] (27) at (6.75, 0) {$\Bigg($};
-		\node [style={z_node}] (30) at (2, 2) {};
-		\node [style=none] (31) at (1, 2) {};
-		\node [style={x_node}] (32) at (3.25, 2) {};
-		\node [style=none] (33) at (4.25, 2) {};
-		\node [style={z_node}] (34) at (8.25, 2) {};
-		\node [style=none] (35) at (7.25, 2) {};
-		\node [style={x_node}] (36) at (9.5, 2) {};
-		\node [style=none] (37) at (10.5, 2) {};
-		\node [style=none] (38) at (5.75, 0) {=};
-		\node [style={z_phase}] (39) at (1.75, 0) {\tiny COPY};
-		\node [style=none] (40) at (0.75, 0) {};
-		\node [style={x_phase}] (41) at (3.5, 0) {\tiny XOR};
-		\node [style=none] (42) at (4.5, 0) {};
-		\node [style={z_phase}] (43) at (8, 0) {\tiny COPY};
-		\node [style=none] (44) at (7, 0) {};
-		\node [style={x_phase}] (45) at (9.75, 0) {\tiny XOR};
+		\node [style=none] (14) at (4.25, 0) {$\Bigg)$};
+		\node [style=none] (15) at (0, 0) {$\Bigg($};
+		\node [style=none] (24) at (5.5, 0) {};
+		\node [style={z_node}] (30) at (-2.75, 0) {};
+		\node [style=none] (31) at (-3.75, 0) {};
+		\node [style={x_node}] (32) at (-1.5, 0) {};
+		\node [style=none] (33) at (-0.5, 0) {};
+		\node [style={z_node}] (34) at (7.5, 0) {};
+		\node [style=none] (35) at (6.5, 0) {};
+		\node [style={x_node}] (36) at (8.75, 0) {};
+		\node [style=none] (37) at (9.75, 0) {};
+		\node [style=none] (38) at (5.5, 0) {=};
+		\node [style={z_phase}] (39) at (1.25, 0) {\tiny COPY};
+		\node [style=none] (40) at (0.25, 0) {};
+		\node [style={x_phase}] (41) at (3, 0) {\tiny XOR};
+		\node [style=none] (42) at (4, 0) {};
+		\node [style=none] (43) at (14.75, 0) {$\Bigg)$};
+		\node [style=none] (44) at (10.5, 0) {$\Bigg($};
+		\node [style={z_phase}] (45) at (11.75, 0) {\tiny COPY};
 		\node [style=none] (46) at (10.75, 0) {};
+		\node [style={x_phase}] (47) at (13.5, 0) {\tiny XOR};
+		\node [style=none] (48) at (14.5, 0) {};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (30) to (31.center);
@@ -35,7 +34,7 @@
 		\draw (41) to (42.center);
 		\draw [bend left=45, looseness=1.25] (41) to (39);
 		\draw [bend right=45, looseness=1.25] (41) to (39);
-		\draw (43) to (44.center);
 		\draw (45) to (46.center);
+		\draw (47) to (48.center);
 	\end{pgfonlayer}
 \end{tikzpicture}

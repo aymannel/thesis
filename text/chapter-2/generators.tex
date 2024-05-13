@@ -1,6 +1,6 @@
 \section{Generators}
 
-By sequentially or horizontally composing the \textit{Z Spider} (green) and \textit{X Spider} (red) generators, we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be deformed as seen fit, provided that the order of inputs and outputs is preserved.
+By sequentially or horizontally composing the \textit{Z Spider} (green) and \textit{X Spider} (red) generators, we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be arbitrarily deformed, provided that the order of inputs and outputs is preserved.
 
 \begin{figure}[H]
 \centering
@@ -10,27 +10,27 @@ By sequentially or horizontally composing the \textit{Z Spider} (green) and \tex
     \label{only-connectivity-matters}
 \end{figure}
 
-Z Spiders are defined with respect to the $Z$ eigenbasis such that a Z Spider with $n$ inputs and $m$ outputs has the following interpretation as a linear map. Note that in this text, we will interpret the flow of time from left to right.
+Z Spiders (green) are defined with respect to the $Z$ eigenbasis ($\ket 0$ and $\ket 1$) such that a Z Spider with $n$ inputs and $m$ outputs represents the following linear map.
 
 \begin{figure}[H]
 \centering
 \includezxdiagramtext{figures/chapter-2/z_spider}{0.21}{\,
     \ket{0}^{\otimes m} \bra{0}^{\otimes n} + e^{i\alpha}
     \ket{1}^{\otimes m} \bra{1}^{\otimes n}}
-\caption{Interpretation of Z Spider as a linear map.}
+\caption{Interpretation of a Z Spider as a linear map.}
 \end{figure}
 
-Similarly, X Spiders, which are defined with respect to the $X$ eigenbasis, are interpreted as the following linear map.
+$X$ Spiders (red), are defined with respect to the $X$ eigenbasis ($\ket +$ and $\ket -$).
 
 \begin{figure}[H]
 \centering
 \includezxdiagramtext{figures/chapter-2/x_spider}{0.21}{\,
     \ket{+}^{\otimes m} \bra{+}^{\otimes n} + e^{i\alpha}
     \ket{-}^{\otimes m} \bra{-}^{\otimes n}}
-\caption{Interpretation of X Spider as a linear map.}
+\caption{Interpretation of an X Spider as a linear map.}
 \end{figure}
 
-We can recover the $\ket 0$ eigenstate using an X Spider that has a phase of zero, or the $\ket 1$ eigenstate using an X Spider that has a phase of $\pi$.
+We can represent the $Z$ eigenstates ($\ket 0$ and $\ket 1$) using an $X$ spider, or the $X$ eigenstates ($\ket +$ and $\ket -$) using a $Z$ spider, with a phase of either $0$ or $\pi$.
 
 \begin{figure}[H]
 \centering
@@ -48,8 +48,6 @@ We can recover the $\ket 0$ eigenstate using an X Spider that has a phase of zer
 \end{minipage}
 \end{figure}
 
-Likewise, we have the $\ket +$ and $\ket -$ basis states from the corresponding Z Spider
-
 \begin{figure}[H]
 \centering
 \begin{minipage}{.4\textwidth}
@@ -66,12 +64,8 @@ Likewise, we have the $\ket +$ and $\ket -$ basis states from the corresponding 
 \end{minipage}
 \end{figure}
 
-Whilst we obtain the correct states, we obtain the wrong scalar factor. For the remainder of this thesis, we will ignore global non-zero scalar factors. Hence, equal signs should be interpreted as `equal up to a global phase'.
-
 Single qubit rotations in the $Z$ basis are represented by a Z Spider with a single input and a single output. Arbitrary rotations in the $X$ basis are represented by the corresponding $X$ spider. We can view these as rotations of the Bloch sphere.
 
-\begin{figure}[H]
-\centering
 \includezxdiagramtextplus{figures/chapter-2/z_rotation}{0.11}{
     \ket{0} \bra{0} + e^{i\alpha}
     \ket{1} \bra{1} = 
@@ -79,7 +73,7 @@ Single qubit rotations in the $Z$ basis are represented by a Z Spider with a sin
     \rightarrow
 }
 {chapter-1/z_rotation}{0.18}
-%
+
 \includezxdiagramtextplus{figures/chapter-2/x_rotation}{0.11}{
     \ket{+} \bra{+} +
     e^{i\alpha} \ket{-} \bra{-} = 
@@ -90,8 +84,6 @@ Single qubit rotations in the $Z$ basis are represented by a Z Spider with a sin
     \rightarrow
 }
 {chapter-1/x_rotation}{0.17}
-\caption{Arbitrary single qubit rotations in the $Z$ and $X$ bases.}
-\end{figure}
 
 We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha = \pi$.
 
@@ -225,17 +217,17 @@ There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler 
 
 %%%
 
-\subsection{Conjugate, Transpose and Adjoint}
+% \subsection{Conjugate, Transpose and Adjoint}
 
-We can find the transpose of a ZX diagram by turning all of its inputs into outputs and all of its outputs into inputs whilst preserving the order of their wires.
+% We can find the transpose of a ZX diagram by turning all of its inputs into outputs and all of its outputs into inputs whilst preserving the order of their wires.
 
-\includezxdiagram{chapter-2/transpose}{1}
+% \includezxdiagram{chapter-2/transpose}{1}
 
-We can find the conjugate of a ZX diagram by simply negating the phases of all spiders in the diagram, $\alpha \rightarrow -\alpha, \,\, \beta \rightarrow -\beta, \dots$.
+% We can find the conjugate of a ZX diagram by simply negating the phases of all spiders in the diagram, $\alpha \rightarrow -\alpha, \,\, \beta \rightarrow -\beta, \dots$.
 
-\includezxdiagram{chapter-2/conjugate}{0.6}
+% \includezxdiagram{chapter-2/conjugate}{0.6}
 
-It is then a simple matter to find the Hermitian adjoint of a ZX diagram by first finding its conjugate, then its transpose.
+% It is then a simple matter to find the Hermitian adjoint of a ZX diagram by first finding its conjugate, then its transpose.
 
-\includezxdiagram{chapter-2/adjoint}{0.6}
+% \includezxdiagram{chapter-2/adjoint}{0.6}
 

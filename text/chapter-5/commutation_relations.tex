@@ -1,1 +1,21 @@
-\section{Commutation Relations}
+\section{Manipulating Circuits}
+
+The \lstinline{GadgetCircuit} class comes equipped with the \lstinline{apply()} method that allows us to insert a cancelling gate pair into the circuit, hence the \lstinline{apply()} method \textit{does not} modify the matrix corresponding to the circuit. The first parameter specifies the quantum gate that we want to apply, whilst the \lstinline{start} and \lstinline{end} parameters allow us specify the positions to insert at. 
+
+\includejupyter{chapter-5/apply1}{chapter-5/apply1_zx}{0.4}
+
+If we choose not to specify the \lstinline{start} and \lstinline{end} parameters, one gate is inserted at the start, and the other, at end of the circuit. The \lstinline{GadgetCircuit} class then handles the relevant CNOT-gadget commutation relations, yielding the expected gadget.
+
+\includejupyter{chapter-5/apply2}{chapter-5/apply2_zx}{0.4}
+
+Alternatively, we could have chosen to apply a controlled-Z rotation gate to the circuit as follows.
+
+\includejupyter{chapter-5/apply_cz}{chapter-5/apply_cz_zx}{0.45}
+
+We can use the \lstinline{GadgetCircuit} class to manipulate circuits consisting of multiple gadgets simultaneously. Consider the following circuit in which we have instantiated a paired double excitation operator as a \lstinline{GadgetCircuit} object.
+
+\includejupyter{chapter-5/double1}{chapter-5/double1_zx}{0.8}
+
+Then by applying three pairs of CNOTs to all the gadgets in the circuit, we obtain the following equivalent circuit.
+
+\includejupyter{chapter-5/double2}{chapter-5/double2_zx}{0.84}
