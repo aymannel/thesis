@@ -10,30 +10,25 @@ Whilst phase gadgets alone cannot change the distribution of the observed state,
 
 %%%
 
-\subsection{Pauli Gadget Identity Rule}%
-\label{pauli-gadget-identity}
+\subsection{Rules for Pauli Gadgets}%
 
-Pauli gadgets with an angle $\theta = 0$, and matching legs, can be shown to be equivalent to identity using the phase gadget identity rule (\ref{phase-gadget-identity}), and the subsequent cancellation of the change of basis layers.
+Adjacent Pauli gadgets with \textit{matching legs} fuse and their phases add (cancel adjacent change of basis layers, then fuse phase gadgets \ref{phase-gadget-fusion}). Adjacent Pauli gadgets with \textit{no mismatching legs} commut (cancel adjacent change of basis layers, then use the spider fusion rule \ref{spider-fusion}).
 
-\includezxdiagram{chapter-3/pauli_gadget_identity}{0.6}
-
-%%%
-
-\subsection{Pauli Gadget Fusion Rule}%
-\label{pauli-gadget-fusion}
-
-Likewise, any two adjacent Pauli gadgets with matching legs fuse and their phases add. This is achieved by cancelling adjacent change of basis layers and using the phase gadget fusion rule (\ref{phase-gadget-fusion}).
-
-\includezxdiagram{chapter-3/pauli_gadget_fusion}{0.6}
-
-%%%
-
-\subsection{Pauli Gadget Commutation Rule}%
-\label{pauli-gadget-commutation}
-
-Any two adjacent Pauli gadgets with no mismatching legs can be shown to commute. This is achieved by cancelling adjacent change of basis layers, and using the spider fusion rule (fuse then unfuse the legs \ref{spider-fusion}).
-
-\includezxdiagram{chapter-3/pauli_gadget_commutation}{0.6}
+\begin{figure}[H]
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includezxdiagram{chapter-3/pauli_gadget_fusion}{1}
+        \caption{Fusion Rule}
+        \label{pauli-gadget-fusion}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includezxdiagram{chapter-3/pauli_gadget_commutation}{0.9}
+        \caption{Commutation Rule}
+        \label{pauli-gadget-commutation}
+    \end{minipage}
+\end{figure}
 
 %%%
 
