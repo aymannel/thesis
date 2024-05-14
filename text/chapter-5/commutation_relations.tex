@@ -1,23 +1,21 @@
 \section{Manipulating Circuits}
 
-The \lstinline{GadgetCircuit} class comes equipped with the \lstinline{apply()} method that allows us to insert a cancelling gate pair into the circuit, hence the \lstinline{apply()} method \textit{does not} modify the matrix corresponding to the circuit. The first parameter specifies the quantum gate that we want to apply, whilst the \lstinline{start} and \lstinline{end} parameters allow us specify the positions to insert at. 
+The \lstinline{GadgetCircuit} class comes equipped with the \lstinline{apply()} method that allows us to insert a quantum gate, and its Hermitian conjugate, into the circuit. This operation preserves the matrix corresponding to a given cricuit. The method takes the quantum gate to apply as its first parameter, whilst the \lstinline{start} and \lstinline{end} parameters designate the insertion positions.
 
 \includejupyter{chapter-5/apply1}{chapter-5/apply1_zx}{0.4}
 
-If we choose not to specify the \lstinline{start} and \lstinline{end} parameters, one gate is inserted at the start, and the other, at end of the circuit. The \lstinline{GadgetCircuit} class then handles the relevant CNOT-gadget commutation relations, yielding the expected gadget.
+If no specific positions are specified, the insertion defaults to placing one quantum gate at the start, and its Hermitian conjugate at the end, of the circuit. The \lstinline{GadgetCircuit} class then manages the relevant commutation relations, ensuring the expected gadget outcome. Hence, we below, we observe the gadget that results upon pushing a CNOT gate through the \lstinline{Gadget("YZ", phase=1/2)} object.
 
 \includejupyter{chapter-5/apply2}{chapter-5/apply2_zx}{0.4}
 
-WE COULD HAVE CHOSEN AN XXX GADGET, or indeed any other gadet. This functionality is built of top of Stim's stabiliser circuit / clifford tableau functionality applied to a Pauli string. [insert short explanation about clifford tableau]. Alternatively, we could have chosen any other clifford (CZ, ZPlus, etc) to form the clifford tableau.
+We could have chosen any Pauli gadget by simply instantiating the relevant \lstinline{Gadget()} object. Alternatively, we could have chosen to insert any Hermitian conjugate pair of gates. The commutation logic implements Stim's \lstinline{Tableau} class to identify the behaviour of a Pauli string with a given Clifford or Pauli gate.
 
 \includejupyter{chapter-5/apply_cz}{chapter-5/apply_cz_zx}{0.45}
 
-We can use the \lstinline{GadgetCircuit} class to manipulate circuits consisting of multiple gadgets simultaneously. Consider the following circuit in which we have instantiated a paired double excitation operator as a \lstinline{GadgetCircuit} object.
-
-GIVE EXAMPLES
+We can also use the \lstinline{GadgetCircuit} class to manipulate circuits consisting of multiple gadgets simultaneously. In the following circuit, we have instantiate a paired double excitation operator as a \lstinline{GadgetCircuit} object.
 
 \includejupyter{chapter-5/double1}{chapter-5/double1_zx}{0.8}
 
-Then by applying three pairs of CNOTs to all the gadgets in the circuit, we obtain the following equivalent circuit.
+Then, by conjugating the circuit with CNOTs, each with a different target qubit, we observe the following quantum circuit.
 
 \includejupyter{chapter-5/double2}{chapter-5/double2_zx}{0.84}

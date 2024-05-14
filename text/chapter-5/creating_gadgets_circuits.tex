@@ -1,10 +1,10 @@
 \section{Creating Gadgets and Circuits}
 
-In this section, we will introduce the \lstinline{Gadget} class, which we will use to represent Pauli gadgets. We must provide the \lstinline{Gadget()} object with a Pauli string and a phase.
+In this section, we will introduce the \lstinline{Gadget} class, which we use to represent Pauli gadgets. We provide a Pauli string and a phase to instantiate a \lstinline{Gadget()} object.
 
 \includejupyter{chapter-5/gadget}{chapter-5/gadget_zx}{0.28}
 
-By setting the \lstinline{as_gadget} option to \lstinline{False}, we can view the expanded gadget.
+By setting the \lstinline{as_gadget} option to \lstinline{False}, we can view the gadget in its expanded form, that is, in quantum circuit notation.
 
 \includejupyter{chapter-5/expanded}{chapter-5/expanded_zx}{0.5}
 
@@ -12,7 +12,9 @@ We can construct a circuit of Pauli gadgets using the \lstinline{GadgetCircuit} 
 
 \includejupyter{chapter-5/circuit}{chapter-5/circuit_zx}{0.42}
 
-The \lstinline{GadgetCircuit} class can also take standard quantum gates, where the \lstinline{stack} parameter stacks the individual gates in the circuit for a better representation.
+ZxFermion also implements standard quantum gates via the \lstinline{CX}, \lstinline{CZ}, \lstinline{X}, \lstinline{Z}, \lstinline{XPlus}, \lstinline{XMinus}, \lstinline{ZPlus} and \lstinline{ZMinus} classes. As we will see in the next section, we have implemented the logic describing the interaction of Pauli gadgets with these gates.
 
-\includejupyter{chapter-5/stacked}{chapter-5/stacked_zx}{0.3}
+% The \lstinline{GadgetCircuit} class can also take standard quantum gates, where the \lstinline{stack} parameter stacks the individual gates in the circuit for a better representation.
+
+% \includejupyter{chapter-5/stacked}{chapter-5/stacked_zx}{0.3}
 
