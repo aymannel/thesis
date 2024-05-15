@@ -1,0 +1,9 @@
+\chapter{ZxFermion Software}
+
+ZxFermion (visit \href{https://github.com/aymannel/zxfermion}{github.com/aymannel/zxfermion} for documentation) is a Python package that I wrote for the manipulation and visualisation of circuits of Pauli gadgets. It is built on top of the PyZX \lstinline{BaseGraph} API \cite{Kissinger2020} and Stim \cite{Gidney2021}. The motivation for building this package came from the need for a user-friendly tool to explore research ideas related to circuits of Pauli gadgets.
+
+Whilst there are existing software solutions like PauliOpt, which focus on circuit simplification using architecture-aware synthesis algorithms \cite{Gogioso2023}, ZxFermion provides a more acccessible alternative, as well as offering tools for studying the interaction of Pauli gadgets with Clifford and Pauli gates using Stim's \lstinline{Tableau} class.
+
+ZxFermion is designed to integrate with Jupyter notebook environments, enabling users to visualise interactive ZX diagrams directly in the output cell. The package has also undergone thorough testing, ensuring its reliability and ease of use.
+
+All of the proofs so far derived can be replicated using ZxFermion, showcasing a noteworthy acceleration in research pace. We anticipate that both chemists and computer scientists exploring quantum computing within the VQE framework will find this software tool advantageous.

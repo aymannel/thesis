@@ -10,14 +10,16 @@ If no specific positions are specified, the insertion defaults to placing one qu
 
 We could have chosen any Pauli gadget by simply instantiating the relevant \lstinline{Gadget()} object. Alternatively, we could have chosen to insert any Hermitian conjugate pair of gates. The commutation logic implements Stim's \lstinline{Tableau} class to identify the behaviour of a Pauli string with a given Clifford or Pauli gate.
 
-\includejupyter{chapter-5/apply_cz}{chapter-5/apply_cz_zx}{0.45}
+\includejupyter{chapter-5/apply_cz}{chapter-5/apply_cz_zx}{0.4}
 
-The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing multiple gadgets simultaneously. In the example below, we instantiate a single excitation operator as a \lstinline{GadgetCircuit} object.
+The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing multiple gadgets simultaneously. Below, we instantiate the parametrised exponential of the single excitation operator, $a^\dagger_0 a_1 - a^\dagger_1 a_0$, in terms of quantum gates.
 
-\includejupyter{chapter-5/single1}{chapter-5/single1_zx}{0.49}
+\includejupyter{chapter-5/single1}{chapter-5/single1_zx}{0.45}
 
-Conjugating the circuit with CNOTs reveals Pauli gadgets that represent a controlled rotation in the $Y$ basis. We have therefore demonstrated using ZxFermion the result outlined in Yordanov \textit{et al} \cite{Yordanov2020}.
+Conjugating the circuit with CNOTs reveals two Pauli gadgets, that combined, represent a controlled rotation in the $Y$ basis. We have therefore faithfully replicated the result outlined in Yordanov \textit{et al} \cite{Yordanov2020}.
 
-\includejupyter{chapter-5/single2}{chapter-5/single2_zx}{0.63}
+\includejupyter{chapter-5/single2}{chapter-5/single2_zx}{0.58}
+
+GIVE SOME MORE EXAMPLES IN COMPACT FORM INCLUDING CONJUGATING BY XPLUS ETC
 
 Although ZxFermion may seem simple at first glance, it comprises over four thousand lines of code. We consider it a significant achievement that with just a few lines of code, a user can now faithfully replicate derivations that took us many hours.

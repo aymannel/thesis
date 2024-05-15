@@ -15,8 +15,8 @@
 		\node [style=none] (12) at (8, 0) {};
 		\node [style=none] (13) at (8, 1) {};
 		\node [style=none] (14) at (8, 2) {};
-		\node [style={x_phase}] (28) at (1, 2) {$\frac{\pi}{2}$};
-		\node [style={x_phase}] (29) at (7, 2) {$\frac{3\pi}{2}$};
+		\node [style={x_phase}] (28) at (1, 2) {$+$};
+		\node [style={x_phase}] (29) at (7, 2) {$-$};
 		\node [style=none] (30) at (9, 0) {};
 		\node [style=none] (31) at (9, 1) {};
 		\node [style=none] (32) at (9, 2) {};
@@ -32,9 +32,9 @@
 		\node [style=none] (42) at (8.5, 1) {=};
 		\node [style=hadamard] (43) at (1, 0) {};
 		\node [style=hadamard] (44) at (7, 0) {};
-		\node [style={x_phase}] (45) at (12, 2) {$\frac{3\pi}{2}$};
+		\node [style={x_phase}] (45) at (12, 2) {$-$};
 		\node [style=hadamard] (46) at (12, 0) {};
-		\node [style={x_phase}] (47) at (10, 2) {$\frac{\pi}{2}$};
+		\node [style={x_phase}] (47) at (10, 2) {$+$};
 		\node [style=hadamard] (48) at (10, 0) {};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}

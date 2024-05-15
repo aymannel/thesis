@@ -36,7 +36,7 @@ Combining this with the spider fusion rule (\ref{spider-fusion}), we see that tw
 
 \subsection{State Copy and $\pi$ Copy Rules}%
 
-We can represent the $Z$ and $X$ eigenstates setting the phases of $Z$ or $X$ spiders by some boolean variable $a$ (0 or 1) multiplied by $\pi$ \cite{Wetering2020}. 
+We can depict the $Z$ and $X$ eigenstates by assigning a phase to a $Z$ or an $X$ spider, respectively, through a Boolean variable $a$ (0 or 1) multiplied by $\pi$ \cite{Wetering2020}.
 
 \includezxdiagramtext{chapter-2/boolean_x}{0.075}{
 \ket 0 \text{ where $a = 0$ and }
@@ -46,7 +46,7 @@ We can represent the $Z$ and $X$ eigenstates setting the phases of $Z$ or $X$ sp
 \ket + \text{ where $a = 0$ and }
 \ket - \text{ where $a = 1$}}
 
-The $\pi$ \textit{copy} rule states that when a Pauli $Z$ or Pauli $X$ gate is pushed through a spider of the opposite colour, it is copied on all other legs and flips the spider's phase. The \textit{state copy} rule is a similar rule that applies to the $Z$ and $X$ eigenstates.
+The $\pi$ \textit{copy} rule states that when a Pauli $Z$ or Pauli $X$ gate is pushed through a spider of the opposite colour, it is copied on all other legs and negates the spider's phase. A similar \textit{state copy} rule applies to the $Z$ and $X$ eigenstates.
 
 \begin{figure}[H]
     \centering
@@ -64,7 +64,9 @@ Using the spider fusion rule (\ref{spider-fusion}), we can show that a spider wi
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{chapter-2/xor_copy}
-    \caption{$X$ spider as a XOR gate (left) and $Z$ spider as a COPY gate (right).}
+    \caption{XOR gate (left) and COPY gate (right) with respect to the $Z$ eigenstates.}
+    \label{xor}
+    \label{copy}
 \end{figure}
 
 Hence, using the natural commutation relation of the classical XOR and COPY gates, we define the \textit{bialgebra} rule. We encourage the reader to verify this relation.

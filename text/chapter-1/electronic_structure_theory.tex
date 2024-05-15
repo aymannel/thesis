@@ -123,8 +123,6 @@ Taking the excitation of an electron from spin orbital 0 to spin orbital 1 as an
     a_1^\dagger \, a_0 \ket{0 \dots 01} = \ket{0 \dots 10}
 \end{equation*}
 
-\mccorrect{show ladder operators acting on opposite states}
-
 Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital.
 \begin{align*}
     a_j^\dagger \ket{f_{n-1} \dots
@@ -155,11 +153,10 @@ The Hamiltonian in second quantisation is constructed from creation and annhilat
     \frac{1}{2} \sum_{ijkl} h_{ijkl} a^\dagger_i a^\dagger_j a_k a_l +
     h_\text{Nu}
 \end{equation*}
-Where the one-body matrix element $h_{ij}$ corresponds to the kinetic energy of an electron and its interaction energy with the nuclei.
+Where the one-body matrix element $h_{ij}$ corresponds to the kinetic energy of an electron and its interaction energy with the nuclei, and the two-body matrix element $h_{ijkl}$ corresponds to the repulsive interaction between electrons $i$ and $j$.
 \begin{equation*}
 h_{ij} = \int^\infty_{-\infty} \psi^*_{i(x_1)} \left( - \frac{1}{2} \nabla^2 + \hat V_{(x_1)} \right) \psi_{j(x_1)} \,\, d^3 x_1 \\
 \end{equation*}
-The two-body matrix element $h_{ijkl}$ corresponds to the repulsive interaction between electrons $i$ and $j$.
 \begin{equation*}
 h_{ijkl} = \int^\infty_{-\infty} \int^\infty_{-\infty} \psi^*_{i(x_1)} \psi^*_{j(x_2)} \left( \frac{1}{|x_1 - x_2|} \right) \psi_{k(x_2)} \psi_{l(x_1)} \,\, d^3 x_1 d^3 x_2
 \end{equation*}

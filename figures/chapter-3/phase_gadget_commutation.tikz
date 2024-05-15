@@ -1,35 +1,35 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
 		\node [style=none] (0) at (0, 0) {};
-		\node [style=none] (1) at (0, 1) {};
-		\node [style=none] (2) at (0, 2) {};
+		\node [style=none] (1) at (0, 1.25) {};
+		\node [style=none] (2) at (0, 2.5) {};
 		\node [style=none] (3) at (5, 0) {};
-		\node [style=none] (4) at (5, 1) {};
-		\node [style=none] (5) at (5, 2) {};
+		\node [style=none] (4) at (5, 1.25) {};
+		\node [style=none] (5) at (5, 2.5) {};
 		\node [style={z_phase}] (6) at (2.5, 0.5) {$\theta$};
-		\node [style={z_node}] (7) at (1, 1) {};
+		\node [style={z_node}] (7) at (1, 1.25) {};
 		\node [style={x_node}] (8) at (1.75, 0.5) {};
 		\node [style={z_node}] (9) at (1, 0) {};
-		\node [style={z_phase}] (10) at (4.75, 1.5) {$\phi$};
-		\node [style={z_node}] (11) at (3.25, 2) {};
-		\node [style={x_node}] (12) at (4, 1.5) {};
-		\node [style={z_node}] (13) at (3.25, 1) {};
+		\node [style={z_phase}] (10) at (4.75, 1.75) {$\phi$};
+		\node [style={z_node}] (11) at (3.25, 2.5) {};
+		\node [style={x_node}] (12) at (4, 1.75) {};
+		\node [style={z_node}] (13) at (3.25, 1.25) {};
 		\node [style=none] (14) at (11.5, 0) {};
-		\node [style=none] (15) at (11.5, 1) {};
-		\node [style=none] (16) at (11.5, 2) {};
+		\node [style=none] (15) at (11.5, 1.25) {};
+		\node [style=none] (16) at (11.5, 2.5) {};
 		\node [style=none] (17) at (6.5, 0) {};
-		\node [style=none] (18) at (6.5, 1) {};
-		\node [style=none] (19) at (6.5, 2) {};
+		\node [style=none] (18) at (6.5, 1.25) {};
+		\node [style=none] (19) at (6.5, 2.5) {};
 		\node [style={z_phase}] (20) at (11.25, 0.5) {$\theta$};
-		\node [style={z_node}] (21) at (9.75, 1) {};
+		\node [style={z_node}] (21) at (9.75, 1.25) {};
 		\node [style={x_node}] (22) at (10.5, 0.5) {};
 		\node [style={z_node}] (23) at (9.75, 0) {};
-		\node [style={z_phase}] (24) at (9, 1.5) {$\phi$};
-		\node [style={z_node}] (25) at (7.5, 2) {};
-		\node [style={x_node}] (26) at (8.25, 1.5) {};
-		\node [style={z_node}] (27) at (7.5, 1) {};
-		\node [style=none] (28) at (5.75, 1) {};
-		\node [style=none] (29) at (5.75, 1) {=};
+		\node [style={z_phase}] (24) at (9, 1.75) {$\phi$};
+		\node [style={z_node}] (25) at (7.5, 2.5) {};
+		\node [style={x_node}] (26) at (8.25, 1.75) {};
+		\node [style={z_node}] (27) at (7.5, 1.25) {};
+		\node [style=none] (28) at (5.75, 1.25) {};
+		\node [style=none] (29) at (5.75, 1.25) {=};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (6) to (8);
