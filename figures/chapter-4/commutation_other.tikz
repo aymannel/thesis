@@ -1,0 +1,75 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (7, 0) {};
+		\node [style=none] (1) at (7, 1) {};
+		\node [style=none] (4) at (12.25, 0) {};
+		\node [style=none] (5) at (12.25, 1) {};
+		\node [style=none] (6) at (0.75, 0) {};
+		\node [style=none] (7) at (0.75, 1) {};
+		\node [style=none] (8) at (5.5, 0) {};
+		\node [style=none] (9) at (5.5, 1) {};
+		\node [style={z_phase}] (10) at (4.25, 0.5) {$\theta$};
+		\node [style={z_node}] (11) at (3, 0) {};
+		\node [style={x_node}] (12) at (3.5, 0.5) {};
+		\node [style={z_node}] (13) at (3, 1) {};
+		\node [style=none] (14) at (6.25, 1) {=};
+		\node [style=none] (15) at (7.5, 2.5) {};
+		\node [style=none] (16) at (10.75, 2.5) {};
+		\node [style=none] (17) at (7.5, -0.5) {};
+		\node [style=none] (18) at (10.75, -0.5) {};
+		\node [style=none] (19) at (2.25, 2.5) {};
+		\node [style=none] (20) at (5, 2.5) {};
+		\node [style=none] (21) at (2.25, -0.5) {};
+		\node [style=none] (22) at (5, -0.5) {};
+		\node [style={z_phase}] (25) at (10, 0.5) {$\theta$};
+		\node [style={z_node}] (26) at (8.75, 0) {};
+		\node [style={x_node}] (27) at (9.25, 0.5) {};
+		\node [style=none] (28) at (0.75, 2) {};
+		\node [style=none] (29) at (5.5, 2) {};
+		\node [style={z_node}] (30) at (3, 2) {};
+		\node [style=none] (31) at (7, 2) {};
+		\node [style=none] (32) at (12.25, 2) {};
+		\node [style={z_node}] (33) at (8.75, 2) {};
+		\node [style=hadamard] (34) at (1.5, 1) {};
+		\node [style=hadamard] (35) at (11.5, 1) {};
+		\node [style=hadamard] (36) at (8, 1) {};
+		\node [style={z_node}] (37) at (8.75, 1) {};
+		\node [style=hadamard] (38) at (9.5, 1) {};
+		\node [style=none] (39) at (10.25, -1.25) {\small $\Phi'(\theta)$};
+		\node [style=none] (40) at (4.5, -1.25) {\small $\Phi(\theta)$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (10) to (12);
+		\draw (12) to (11);
+		\draw (13) to (9.center);
+		\draw (11) to (8.center);
+		\draw (13) to (12);
+		\draw [style={black_dashed}] (16.center) to (18.center);
+		\draw [style={black_dashed}, in=360, out=180] (18.center) to (17.center);
+		\draw [style={black_dashed}] (17.center) to (15.center);
+		\draw [style={black_dashed}] (15.center) to (16.center);
+		\draw [style={black_dashed}] (20.center) to (22.center);
+		\draw [style={black_dashed}, in=360, out=180] (22.center) to (21.center);
+		\draw [style={black_dashed}] (21.center) to (19.center);
+		\draw [style={black_dashed}] (19.center) to (20.center);
+		\draw (25) to (27);
+		\draw (27) to (26);
+		\draw (30) to (28.center);
+		\draw (30) to (29.center);
+		\draw (33) to (31.center);
+		\draw (33) to (32.center);
+		\draw (30) to (12);
+		\draw (33) to (27);
+		\draw (26) to (0.center);
+		\draw (7.center) to (34);
+		\draw (34) to (13);
+		\draw (6.center) to (11);
+		\draw (5.center) to (35);
+		\draw (38) to (37);
+		\draw (37) to (36);
+		\draw (36) to (1.center);
+		\draw (38) to (35);
+		\draw (27) to (37);
+		\draw (4.center) to (26);
+	\end{pgfonlayer}
+\end{tikzpicture}
