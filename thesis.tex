@@ -29,6 +29,11 @@
 % \mccorrect{blah}  % word corrections
 % \begin{mccorrection} ... \end{mccorrection}  % paragraph corrections
 
+% To make text superscripts shortcuts
+	\renewcommand{\th}{\textsuperscript{th}}
+	\newcommand{\nd}{\textsuperscript{nd}}
+	\renewcommand{\st}{\textsuperscript{st}}
+	\newcommand{\rd}{\textsuperscript{rd}}
 
 %%% Caption spacing
 \setlength{\belowcaptionskip}{-8pt}
@@ -118,12 +123,13 @@ Pour ma mère et mon père. \\
 \include{text/chapter-3/pauli_gadgets}
 \include{text/chapter-3/commutation_relations}
 
-% EXCITATION OPERATORS
-\include{text/chapter-4/introduction}
-
 % CONTROLLED ROTATIONS
+\include{text/chapter-4/introduction}
+\include{text/chapter-4/singly_controlled_rotations}
+\include{text/chapter-4/higher_order_controlled_rotations}
+
+% EXCITATION OPERATORS
 \include{text/chapter-5/introduction}
-\include{text/chapter-5/controlled_rotations}
 
 % ZX FERMION SOFTWARE
 \include{text/chapter-6/introduction}

@@ -1,0 +1,57 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (44) at (4.5, 2) {};
+		\node [style=none] (45) at (4.5, 2) {};
+		\node [style=none] (46) at (4.5, 1) {};
+		\node [style=none] (47) at (4.5, 0) {};
+		\node [style={z_node}] (52) at (5.5, 0) {};
+		\node [style={z_node}] (53) at (9, 0) {};
+		\node [style={x_node}] (54) at (5.5, 2) {};
+		\node [style={x_node}] (55) at (9, 2) {};
+		\node [style=none] (56) at (12.5, 2) {};
+		\node [style=none] (57) at (12.5, 2) {};
+		\node [style=none] (58) at (12.5, 1) {};
+		\node [style=none] (59) at (12.5, 0) {};
+		\node [style=none] (60) at (3.5, 1) {=};
+		\node [style=box] (62) at (7.25, 2) {$R_Z(-\frac{\theta}{2})$};
+		\node [style=black] (63) at (7.25, 1) {};
+		\node [style=box] (64) at (10.75, 2) {$R_Z(\frac{\theta}{2})$};
+		\node [style=black] (65) at (10.75, 1) {};
+		\node [style=box] (66) at (1.25, 2) {$R_Z(\theta)$};
+		\node [style=black] (67) at (1.25, 0) {};
+		\node [style=black] (68) at (1.25, 1) {};
+		\node [style=none] (69) at (0, 2) {};
+		\node [style=none] (70) at (0, 2) {};
+		\node [style=none] (71) at (0, 1) {};
+		\node [style=none] (72) at (0, 0) {};
+		\node [style=none] (76) at (2.5, 2) {};
+		\node [style=none] (77) at (2.5, 2) {};
+		\node [style=none] (78) at (2.5, 1) {};
+		\node [style=none] (79) at (2.5, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (55) to (53);
+		\draw (52) to (54);
+		\draw (54) to (45.center);
+		\draw (47.center) to (52);
+		\draw (52) to (53);
+		\draw (59.center) to (53);
+		\draw (63) to (62);
+		\draw (54) to (62);
+		\draw (62) to (55);
+		\draw (65) to (64);
+		\draw (64) to (57.center);
+		\draw (58.center) to (65);
+		\draw (65) to (63);
+		\draw (63) to (46.center);
+		\draw (55) to (64);
+		\draw (67) to (68);
+		\draw (68) to (66);
+		\draw (77.center) to (66);
+		\draw (66) to (70.center);
+		\draw (71.center) to (68);
+		\draw (68) to (78.center);
+		\draw (79.center) to (67);
+		\draw (72.center) to (67);
+	\end{pgfonlayer}
+\end{tikzpicture}

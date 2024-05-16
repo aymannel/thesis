@@ -1,0 +1,65 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (5, 2.5) {};
+		\node [style=none] (1) at (5, 2.5) {};
+		\node [style=none] (2) at (5, 1) {};
+		\node [style=none] (3) at (5, -0.25) {};
+		\node [style={z_node}] (4) at (6, -0.25) {};
+		\node [style={z_node}] (5) at (9.25, -0.25) {};
+		\node [style={x_node}] (6) at (6, 2.5) {};
+		\node [style={x_node}] (7) at (9.25, 2.5) {};
+		\node [style=none] (8) at (12.5, 2.5) {};
+		\node [style=none] (9) at (12.5, 2.5) {};
+		\node [style=none] (10) at (12.5, 1) {};
+		\node [style=none] (11) at (12.5, -0.25) {};
+		\node [style=none] (12) at (4, 1) {=};
+		\node [style=box] (17) at (1.75, 2) {$R_Z(\theta)$};
+		\node [style=black] (18) at (1.75, 0) {};
+		\node [style=black] (19) at (1.75, 1) {};
+		\node [style=none] (20) at (0.5, 2) {};
+		\node [style=none] (21) at (0.5, 2) {};
+		\node [style=none] (22) at (0.5, 1) {};
+		\node [style=none] (23) at (0.5, 0) {};
+		\node [style=none] (24) at (3, 2) {};
+		\node [style=none] (25) at (3, 2) {};
+		\node [style=none] (26) at (3, 1) {};
+		\node [style=none] (27) at (3, 0) {};
+		\node [style={z_node}] (30) at (7, 2.5) {};
+		\node [style={z_phase}] (31) at (8.25, 1.75) {$\frac{\theta}{2}$};
+		\node [style={z_phase}] (32) at (7, 1) {$-\frac{\theta}{2}$};
+		\node [style={x_node}] (35) at (7.5, 1.75) {};
+		\node [style={z_node}] (36) at (10.25, 2.5) {};
+		\node [style={z_phase}] (37) at (11.75, 1.75) {$-\frac{\theta}{2}$};
+		\node [style={z_phase}] (38) at (10.25, 1) {$\frac{\theta}{2}$};
+		\node [style={x_node}] (39) at (10.75, 1.75) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (7) to (5);
+		\draw (4) to (6);
+		\draw (6) to (1.center);
+		\draw (3.center) to (4);
+		\draw (4) to (5);
+		\draw (11.center) to (5);
+		\draw (18) to (19);
+		\draw (19) to (17);
+		\draw (25.center) to (17);
+		\draw (17) to (21.center);
+		\draw (22.center) to (19);
+		\draw (19) to (26.center);
+		\draw (27.center) to (18);
+		\draw (23.center) to (18);
+		\draw (30) to (35);
+		\draw (35) to (31);
+		\draw (35) to (32);
+		\draw (7) to (30);
+		\draw (30) to (6);
+		\draw (2.center) to (32);
+		\draw (36) to (39);
+		\draw (39) to (37);
+		\draw (39) to (38);
+		\draw (7) to (36);
+		\draw (36) to (9.center);
+		\draw (10.center) to (38);
+		\draw (38) to (32);
+	\end{pgfonlayer}
+\end{tikzpicture}

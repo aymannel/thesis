@@ -1,0 +1,17 @@
+\section{Higher Order Controlled-Rotations}
+
+We can implement higher order controlled rotations by nesting singly-controlled rotations in CNOT gates as in Yordanov \textit{et al} \cite{Yordanov2020}. For instance, we implement a doubly-controlled $Z$ rotation as follows.
+
+\includezxdiagram{chapter-4/CCRZ}{0.5}
+
+By representing the singly-controlled $Z$ rotations in phase gadget form, we have the following.
+
+\includezxdiagram{chapter-4/CCRZ_zx}{0.5}
+
+By decomposing each singly-controlled rotation into quantum circuit notation, we get the following. By carefully choosing how we decompose the singly controlled rotations, we can cancel one pair of CNOT$_{1, 0}$ gates.
+
+\includezxdiagram{chapter-4/CCRZ_zx2}{1}
+
+Using the commutation relations derived in Section \ref{commutation-relations}, we can express the doubly-controlled rotation as the following phase polynomial.
+
+\includezxdiagram{chapter-4/CCRZ_polynomial}{0.5}
