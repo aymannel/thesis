@@ -1,15 +1,15 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (0) at (0.5, 0) {};
-		\node [style=none] (1) at (0.5, 1) {};
-		\node [style={z_node}] (2) at (1.5, 1) {};
-		\node [style={x_node}] (3) at (1.5, 0) {};
-		\node [style={z_phase}] (4) at (2.5, 0) {$-\frac{\theta}{2}$};
-		\node [style={z_node}] (5) at (3.5, 1) {};
-		\node [style={x_node}] (6) at (3.5, 0) {};
-		\node [style={z_phase}] (7) at (4.5, 0) {$\frac{\theta}{2}$};
-		\node [style=none] (8) at (5.5, 0) {};
-		\node [style=none] (9) at (5.5, 1) {};
+		\node [style=none] (0) at (5.5, 0) {};
+		\node [style=none] (1) at (5.5, 1) {};
+		\node [style={z_node}] (2) at (4.5, 1) {};
+		\node [style={x_node}] (3) at (4.5, 0) {};
+		\node [style={z_phase}] (4) at (3.5, 0) {$-\frac{\theta}{2}$};
+		\node [style={z_node}] (5) at (2.5, 1) {};
+		\node [style={x_node}] (6) at (2.5, 0) {};
+		\node [style={z_phase}] (7) at (1.5, 0) {$\frac{\theta}{2}$};
+		\node [style=none] (8) at (0.5, 0) {};
+		\node [style=none] (9) at (0.5, 1) {};
 		\node [style=box] (10) at (-2.75, 0) {$R_Z(\theta)$};
 		\node [style=black] (11) at (-2.75, 1) {};
 		\node [style=none] (12) at (-0.5, 0.5) {=};

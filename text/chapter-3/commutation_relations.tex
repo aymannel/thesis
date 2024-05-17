@@ -3,7 +3,7 @@
 
 In this section we will develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as what happens to a Pauli gadget when a Clifford is pushed through it.
 
-The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string by a member of the Clifford group $C^\dagger P \, C$ is closed in the set of Pauli strings, $\{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits the Clifford gate acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields some other Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ i\frac{\theta}{2} Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
+The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string by a member of the Clifford group $C^\dagger P \, C$ is closed in the set of Pauli strings, $P \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits the Clifford gate acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields some other Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
 
 \includezxdiagram{chapter-3/decomp}{0.55}
 
