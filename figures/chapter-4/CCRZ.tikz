@@ -1,50 +1,51 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (44) at (4.5, 2) {};
-		\node [style=none] (45) at (4.5, 2) {};
-		\node [style=none] (46) at (4.5, 1) {};
-		\node [style=none] (47) at (4.5, 0) {};
-		\node [style={z_node}] (52) at (5.5, 0) {};
-		\node [style={z_node}] (53) at (9, 0) {};
-		\node [style={x_node}] (54) at (5.5, 2) {};
-		\node [style={x_node}] (55) at (9, 2) {};
-		\node [style=none] (56) at (12.5, 2) {};
-		\node [style=none] (57) at (12.5, 2) {};
-		\node [style=none] (58) at (12.5, 1) {};
-		\node [style=none] (59) at (12.5, 0) {};
 		\node [style=none] (60) at (3.5, 1) {=};
-		\node [style=box] (62) at (7.25, 2) {$R_Z(-\frac{\theta}{2})$};
-		\node [style=black] (63) at (7.25, 1) {};
-		\node [style=box] (64) at (10.75, 2) {$R_Z(\frac{\theta}{2})$};
-		\node [style=black] (65) at (10.75, 1) {};
-		\node [style=box] (66) at (1.25, 2) {$R_Z(\theta)$};
-		\node [style=black] (67) at (1.25, 0) {};
+		\node [style=box] (66) at (1.25, 0) {$R_Z(\theta)$};
+		\node [style=black] (67) at (1.25, 2) {};
 		\node [style=black] (68) at (1.25, 1) {};
-		\node [style=none] (69) at (0, 2) {};
-		\node [style=none] (70) at (0, 2) {};
+		\node [style=none] (69) at (0, 0) {};
+		\node [style=none] (70) at (0, 0) {};
 		\node [style=none] (71) at (0, 1) {};
-		\node [style=none] (72) at (0, 0) {};
-		\node [style=none] (76) at (2.5, 2) {};
-		\node [style=none] (77) at (2.5, 2) {};
+		\node [style=none] (72) at (0, 2) {};
+		\node [style=none] (76) at (2.5, 0) {};
+		\node [style=none] (77) at (2.5, 0) {};
 		\node [style=none] (78) at (2.5, 1) {};
-		\node [style=none] (79) at (2.5, 0) {};
+		\node [style=none] (79) at (2.5, 2) {};
+		\node [style=none] (83) at (4.5, 2) {};
+		\node [style={z_node}] (84) at (9.5, 2) {};
+		\node [style={z_node}] (85) at (14.75, 2) {};
+		\node [style={x_node}] (86) at (9.5, 0) {};
+		\node [style={x_node}] (87) at (14.75, 0) {};
+		\node [style=none] (88) at (15.75, 0) {};
+		\node [style=none] (89) at (15.75, 0) {};
+		\node [style=none] (90) at (15.75, 1) {};
+		\node [style=none] (91) at (15.75, 2) {};
+		\node [style={z_node}] (94) at (10.5, 1) {};
+		\node [style={x_node}] (95) at (10.5, 0) {};
+		\node [style={z_phase}] (96) at (11.5, 0) {$\frac{\theta}{4}$};
+		\node [style={z_node}] (97) at (12.5, 1) {};
+		\node [style={x_node}] (98) at (12.5, 0) {};
+		\node [style={z_phase}] (99) at (13.5, 0) {$-\frac{\theta}{4}$};
+		\node [style={z_node}] (100) at (8.5, 1) {};
+		\node [style={x_node}] (101) at (8.5, 0) {};
+		\node [style={z_phase}] (102) at (7.5, 0) {$-\frac{\theta}{4}$};
+		\node [style={z_node}] (103) at (6.5, 1) {};
+		\node [style={x_node}] (104) at (6.5, 0) {};
+		\node [style={z_phase}] (105) at (5.5, 0) {$\frac{\theta}{4}$};
+		\node [style=none] (106) at (4.5, 0) {};
+		\node [style=none] (107) at (4.5, 0) {};
+		\node [style=none] (108) at (4.5, 1) {};
+		\node [style=none] (109) at (4.75, 1.5) {};
+		\node [style=none] (110) at (9, 1.5) {};
+		\node [style=none] (111) at (4.75, -0.75) {};
+		\node [style=none] (112) at (9, -0.75) {};
+		\node [style=none] (113) at (10, 1.5) {};
+		\node [style=none] (114) at (14.25, 1.5) {};
+		\node [style=none] (115) at (10, -0.75) {};
+		\node [style=none] (116) at (14.25, -0.75) {};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
-		\draw (55) to (53);
-		\draw (52) to (54);
-		\draw (54) to (45.center);
-		\draw (47.center) to (52);
-		\draw (52) to (53);
-		\draw (59.center) to (53);
-		\draw (63) to (62);
-		\draw (54) to (62);
-		\draw (62) to (55);
-		\draw (65) to (64);
-		\draw (64) to (57.center);
-		\draw (58.center) to (65);
-		\draw (65) to (63);
-		\draw (63) to (46.center);
-		\draw (55) to (64);
 		\draw (67) to (68);
 		\draw (68) to (66);
 		\draw (77.center) to (66);
@@ -53,5 +54,40 @@
 		\draw (68) to (78.center);
 		\draw (79.center) to (67);
 		\draw (72.center) to (67);
+		\draw (87) to (85);
+		\draw (84) to (86);
+		\draw (83.center) to (84);
+		\draw (84) to (85);
+		\draw (91.center) to (85);
+		\draw (94) to (95);
+		\draw (97) to (98);
+		\draw (96) to (95);
+		\draw (100) to (101);
+		\draw (103) to (104);
+		\draw (100) to (103);
+		\draw (105) to (104);
+		\draw (104) to (102);
+		\draw (102) to (101);
+		\draw (108.center) to (103);
+		\draw (86) to (101);
+		\draw (107.center) to (105);
+		\draw (89.center) to (87);
+		\draw (99) to (98);
+		\draw (94) to (100);
+		\draw (86) to (95);
+		\draw (94) to (97);
+		\draw (97) to (90.center);
+		\draw (98) to (96);
+		\draw (87) to (99);
+		\draw [style={black_dashed}] (109.center)
+			 to (110.center)
+			 to (112.center)
+			 to (111.center)
+			 to cycle;
+		\draw [style={black_dashed}] (113.center)
+			 to (114.center)
+			 to (116.center)
+			 to (115.center)
+			 to cycle;
 	\end{pgfonlayer}
 \end{tikzpicture}

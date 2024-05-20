@@ -1,0 +1,85 @@
+\section{One Body Excitation Operators}%
+\label{one-body-excitation-operators}
+
+Recall that a single fermionic excitation, from spin orbital $p$ to spin orbital $q$, can be expressed as $a^\dagger_q a_p$ in second quantisation.
+
+By taking a linear combination of the excitation and de-excitations acting on qubits $p$ and $q$, we obtain the following anti-Hermitian fermionic one-body excitation operator.
+\begin{equation*}
+    \hat{\kappa}^q_p = a_q^\dagger a_p - a^\dagger_p a_q
+\end{equation*}
+Then, recalling the Jordan-Wigner transformation for the creation and annhilation operators,
+\begin{equation*}
+    \hat a_j^\dagger =
+    \frac{1}{2} (X - iY) \otimes Z^\rightarrow_{j-1} \qquad
+    \hat a_j =
+    \frac{1}{2} (X + iY) \otimes Z^\rightarrow_{j-1}
+\end{equation*}
+We can show that the anti-Hermitian fermionic one-body excitation operator can be expressed in terms of quantum gates as follows.
+\begin{equation*}
+    F_p^q = \frac{i}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \\
+\end{equation*}
+By multiplying by $\theta$ and exponentiating, we obtain the corresponding unitary \textit{exponential one-body excitation operator}.
+\begin{equation*}
+    U^q_p (\theta) =
+    \text{exp} \left( i
+    \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right)
+\end{equation*}
+From here onwards, we will simply refer to the unitary exponential one-body excitation operator as the \textit{one-body excitation operator}.
+
+We can express this one-body excitation operator as the following commuting exponential terms.
+\begin{equation*}
+\begin{gathered}
+    U^q_p (\theta) =
+    \text{exp} \left( i
+    \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right) \\[1.5ex]
+    %
+    U^q_p (\theta) =
+    \left( \text{exp} \left[
+    i \frac{\theta}{2} Y_p X_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+    %
+    \left( \text{exp} \left[ -
+    i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+\end{gathered}
+\end{equation*}
+
+The first exponential term can be implemented by the following quantum circuit.
+
+\includezxdiagramtext{chapter-5/one_body1}{0.5}{
+\left( \text{exp} \left[
+i \frac{\theta}{2} Y_p X_q
+\prod_{k=p+1}^{q-1} Z_k \right] \right)}
+
+The second exponential term can be implemented by the following circuit.
+
+\includezxdiagramtext{chapter-5/one_body2}{0.5}{
+\left( \text{exp} \left[ -
+i \frac{\theta}{2} X_p Y_q
+\prod_{k=p+1}^{q-1} Z_k \right] \right)}
+
+The left CNOT ladder can be thought of as calculating the parity of the fermionic state, whilst the right CNOT ladder construction uncomputes the parity.
+
+By sequentially composing (\ref{composition}) these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator between qubits $p$ and $q$. Expressing this operator as two Pauli gadgets, we obtain the following.
+
+\includezxdiagramtext{chapter-5/one_body3}{0.5}{
+\text{exp} \left( i
+\frac{\theta}{2} (Y_p X_q - X_p Y_q)
+\prod_{k=p+1}^{q-1} Z_k \right)}
+
+\subsection{Excitation Operators as Controlled Rotations}
+
+In this section, we will extend the work done by Yordanov \textit{et al} \cite{Yordanov2020}, looking at how excitation operators can be expressed in terms of a controlled rotation. To the knowledge of the author, this work has not yet been done in the ZX calculus. Let us take $U^1_0(\theta)$, $p = 0$ and $q = 1$, as a minimal example.
+
+\includezxdiagram{chapter-5/minimal}{0.9}
+
+By inserting two adjacent $\text{CNOT}_{0, 1}$ gates and using the CNOT commutation rules derived in Chapter \ref{pauli-gadgets}, we are able to show that the one-body excitation operator can be expressed in terms of a singly-controlled rotation rotation in the $Y$ basis.
+
+\includezxdiagram{chapter-5/minimal_proof}{1}
+
+Had we instead chosen to insert $\text{CNOT}_{1, 0}$ gates, we would have obtained the following controlled rotation, with the control on qubit 1.
+
+\includezxdiagram{chapter-5/minimal2}{0.6}
+
+Let us now look at the general case. Yordanov \textit{et al} \cite{Yordanov2020} show that a one-body excitation operator can be expressed as a controlled rotation in the $Y$ basis by conjugating with the following Cliffords. See Appendix \ref{appendix-one-body-general} for the intermediate steps.
+
+\includezxdiagram{chapter-5/one_body_general}{1}
+

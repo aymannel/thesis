@@ -1,0 +1,113 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (12) at (-0.25, 2) {};
+		\node [style={z_node}] (13) at (5, 2) {};
+		\node [style={z_node}] (14) at (10.25, 2) {};
+		\node [style={x_node}] (15) at (5, 0) {};
+		\node [style={x_node}] (16) at (10.25, 0) {};
+		\node [style=none] (17) at (11.25, 0) {};
+		\node [style=none] (18) at (11.25, 0) {};
+		\node [style=none] (19) at (11.25, 1) {};
+		\node [style=none] (20) at (11.25, 2) {};
+		\node [style={z_node}] (21) at (6, 1) {};
+		\node [style={x_node}] (22) at (6, 0) {};
+		\node [style={z_phase}] (23) at (7.25, 0) {$\frac{\theta}{4}$};
+		\node [style={z_node}] (24) at (8.25, 1) {};
+		\node [style={x_node}] (25) at (8.25, 0) {};
+		\node [style={z_phase}] (26) at (9.25, 0) {$-\frac{\theta}{4}$};
+		\node [style={z_node}] (27) at (4, 1) {};
+		\node [style={x_node}] (28) at (4, 0) {};
+		\node [style={z_phase}] (29) at (2.75, 0) {$-\frac{\theta}{4}$};
+		\node [style={z_node}] (30) at (1.75, 1) {};
+		\node [style={x_node}] (31) at (1.75, 0) {};
+		\node [style={z_phase}] (32) at (0.75, 0) {$\frac{\theta}{4}$};
+		\node [style=none] (33) at (-0.25, 0) {};
+		\node [style=none] (34) at (-0.25, 0) {};
+		\node [style=none] (35) at (-0.25, 1) {};
+		\node [style=none] (36) at (12.75, 2) {};
+		\node [style={z_node}] (37) at (16.75, 2) {};
+		\node [style={z_node}] (38) at (20.75, 2) {};
+		\node [style={x_node}] (39) at (16.75, 0) {};
+		\node [style={x_node}] (40) at (20.75, 0) {};
+		\node [style=none] (41) at (21.75, 0) {};
+		\node [style=none] (42) at (21.75, 0) {};
+		\node [style=none] (43) at (21.75, 1) {};
+		\node [style=none] (44) at (21.75, 2) {};
+		\node [style={z_phase}] (47) at (17.75, 0) {$\frac{\theta}{4}$};
+		\node [style={z_node}] (48) at (18.75, 1) {};
+		\node [style={x_node}] (49) at (18.75, 0) {};
+		\node [style={z_phase}] (50) at (19.75, 0) {$-\frac{\theta}{4}$};
+		\node [style={z_phase}] (53) at (15.75, 0) {$-\frac{\theta}{4}$};
+		\node [style={z_node}] (54) at (14.75, 1) {};
+		\node [style={x_node}] (55) at (14.75, 0) {};
+		\node [style={z_phase}] (56) at (13.75, 0) {$\frac{\theta}{4}$};
+		\node [style=none] (57) at (12.75, 0) {};
+		\node [style=none] (58) at (12.75, 0) {};
+		\node [style=none] (59) at (12.75, 1) {};
+		\node [style=none] (60) at (12, 1) {=};
+		\node [style=none] (61) at (3.5, 1.5) {};
+		\node [style=none] (62) at (6.5, 1.5) {};
+		\node [style=none] (63) at (3.5, -0.5) {};
+		\node [style=none] (64) at (6.5, -0.5) {};
+		\node [style=none] (65) at (4.5, -0.5) {};
+		\node [style=none] (66) at (5.5, -0.5) {};
+		\node [style=none] (67) at (4.5, 1.5) {};
+		\node [style=none] (68) at (5.5, 1.5) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (16) to (14);
+		\draw (13) to (15);
+		\draw (12.center) to (13);
+		\draw (13) to (14);
+		\draw (20.center) to (14);
+		\draw (21) to (22);
+		\draw (24) to (25);
+		\draw (23) to (22);
+		\draw (27) to (28);
+		\draw (30) to (31);
+		\draw (27) to (30);
+		\draw (32) to (31);
+		\draw (31) to (29);
+		\draw (29) to (28);
+		\draw (35.center) to (30);
+		\draw (15) to (28);
+		\draw (34.center) to (32);
+		\draw (18.center) to (16);
+		\draw (26) to (25);
+		\draw (21) to (27);
+		\draw (15) to (22);
+		\draw (21) to (24);
+		\draw (24) to (19.center);
+		\draw (25) to (23);
+		\draw (16) to (26);
+		\draw (40) to (38);
+		\draw (37) to (39);
+		\draw (36.center) to (37);
+		\draw (37) to (38);
+		\draw (44.center) to (38);
+		\draw (48) to (49);
+		\draw (54) to (55);
+		\draw (56) to (55);
+		\draw (55) to (53);
+		\draw (59.center) to (54);
+		\draw (58.center) to (56);
+		\draw (42.center) to (40);
+		\draw (50) to (49);
+		\draw (48) to (43.center);
+		\draw (49) to (47);
+		\draw (40) to (50);
+		\draw (48) to (54);
+		\draw (53) to (39);
+		\draw (39) to (47);
+		\draw [style={black_dashed}] (65.center)
+			 to (63.center)
+			 to (61.center)
+			 to (67.center)
+			 to cycle;
+		\draw [style={black_dashed}] (62.center)
+			 to (64.center)
+			 to (66.center)
+			 to (68.center)
+			 to cycle;
+	\end{pgfonlayer}
+\end{tikzpicture}

@@ -1,17 +1,26 @@
 \section{Higher Order Controlled-Rotations}
 
-We can implement higher order controlled rotations by nesting singly-controlled rotations in CNOT gates as in Yordanov \textit{et al} \cite{Yordanov2020}. For instance, we implement a doubly-controlled $Z$ rotation as follows.
+We can implement higher order controlled rotations by nesting singly-controlled rotations in CNOT gates as in Yordanov \textit{et al} \cite{Yordanov2020}. For instance, we implement a doubly-controlled $Z$ rotation using the singly-controlled rotations highlighted.
 
-\includezxdiagram{chapter-4/CCRZ}{0.6}
+\includezxdiagram{chapter-4/CCRZ}{0.7}
 
-By representing the singly-controlled $Z$ rotations in phase gadget form, we have the following.
+By carefully choosing the form of the singly-controlled rotations, we can cancel the highlighted $\text{CNOT}_{1, 2}$ gates, further reducing circuit depth.
 
-\includezxdiagram{chapter-4/CCRZ_zx}{0.6}
+\includezxdiagram{chapter-4/CCRZ2}{0.9}
 
-By decomposing each singly-controlled rotation into quantum circuit notation, we get the following. By carefully choosing how we decompose the singly controlled rotations, we can cancel one pair of CNOT$_{1, 0}$ gates.
+For the purposes of this thesis, we are interested in the phase polynomial that results by eliminating all CNOT gates in the circuit. Expressing all $Z$ rotations as single-legged phase gadgets, then, using the commutation relations derived in Section \ref{commutation-relations} and the fact that the CNOT gate is self-inverse, we can express the doubly-controled rotation in terms of phase gadgets alone.
 
-\includezxdiagram{chapter-4/CCRZ_zx2}{1}
+\includezxdiagram{chapter-4/CCRZ_proof2}{1}
 
-Using the commutation relations derived in Section \ref{commutation-relations}, we can express the doubly-controlled rotation as the following phase polynomial.
+Eliminating the final two CNOT gates yields the following phase polynomial.
 
-\includezxdiagram{chapter-4/CCRZ_polynomial}{0.5}
+\includezxdiagram{chapter-4/CCRZ_proof3}{0.77}
+
+Recalling the phase gadget commutation rule, we observe that the phase polynomial that results consists only of commuting phase gadgets. Hence there are many possibly decompositions into quantum circuit notation.
+
+By recursively applying the method of nesting controlled rotations, we can build controlled rotation of arbitrary arity. Hence, as with the doubly-controlled rotation, we can express a triply-controlled rotation by nesting two doubly-controlled rotations as follows.
+
+\includezxdiagram{chapter-4/CCCRZ}{1}
+
+Using the same rules as before, we can show that a triply-controlled rotation corresponds to the following phase polynomial of commuting phase gadgets.
+\includezxdiagram{chapter-4/CCCRZ_zx}{0.8}
