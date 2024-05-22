@@ -38,7 +38,7 @@ Phase gadgets with an angle $\theta = 0$ can be shown to be equivalent to identi
 
 Any two adjacent phase gadgets formed from the same Pauli string fuse and their phases add. This is achieved using the spider fusion rule (\ref{spider-fusion}) and the bialgebra rule (\ref{bialgebra}). See Appendix  \ref{appendix-phase-gadget-fusion} for the intermediate steps marked (*).
 
-\includezxdiagram{chapter-3/phase_gadget_fusion}{0.5}
+\includezxdiagram{chapter-3/phase_gadget_fusion}{0.55}
 
 %%%
 
@@ -52,15 +52,24 @@ We can show that adjacent phase gadgets commute using spider fusion (\ref{spider
 %%%
 
 \subsubsection{Phase Gadget Decomposition}%
-\label{phase-gadget-decomposition}
 
-SHOW THE DIFFERENT WAYS OF DECOMPOSING A PHASE GADGET AS EITHER UP OR DOWN.
+There are many equivalent ways of decomposing a phase gadget into quantum circuit notation. Using the bialgebra rule (\ref{bialgebra}), we can show that a two-legged phase gadget can be decomposed in the following two ways.
 
-There are many equivalent ways of decomposing a phase gadget into quantum circuit notation using the bialgebra rule (\ref{bialgebra}). More generally, we can show that it is possible to decompose a phase gadget such that it his a circuit depth of $\log_2(n)$ instead of $n$, where $n$ is the number of qubits.
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/phase_gadget_decomposition1}{0.7}
+    \caption{Phase gadget decomposition result.}
+    \label{phase-gadget-decomposition}
+\end{figure}
+
+By recursively applying this decomposition, we can show that it is possible to decompose a phase gadget such that it has a circuit depth of $\log_2(n)$ instead of $n$, where $n$ is the number of qubits.
 
 \includezxdiagram{chapter-3/phase_gadget_decomposition}{1}
 
-Phase gadgets can be thought of as the many-qubit generalisation of $Z$ rotations \cite{Yeung2020}. To show this, let us consider a single-legged phase gadget. Using the bialgebra (\ref{bialgebra}), spider fusion (\ref{spider-fusion}), state copy (\ref{state-copy}) and identity (\ref{identity}) rules, we can demonstrate its equivalence to a $Z$ rotation.
+Let us now consider a single-legged phase gadget. Using the bialgebra (\ref{bialgebra}), spider fusion (\ref{spider-fusion}), state copy (\ref{state-copy}) and identity (\ref{identity}) rules, we can demonstrate its correspondence to a rotation in the $Z$ basis.
 
 \label{phase-gadget-single-leg}
 \includezxdiagram{chapter-3/phase_gadget_single_leg_steps}{0.75}
+
+Phase gadgets can, therefore, be thought of as the many-qubit generalisation of a rotation in the $Z$ basis \cite{Yeung2020}. 
+

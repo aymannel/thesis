@@ -1,6 +1,6 @@
 \section{Pauli Gadgets}
 
-Pauli gadgets are defined as the one parameter unitary groups of Pauli strings consisting of all four Pauli matrices, $P \in \{I, Z, X, Y\}^{\otimes n}$ \cite{Yeung2020}. They are essentially phase gadgets with an additional change of basis.
+Pauli gadgets are defined as the one parameter unitary groups of Pauli strings consisting of all four Pauli matrices, $P \in \{I, Z, X, Y\}^{\otimes n}$ \cite{Yeung2020}. They are phase gadgets associated with a change of basis.
 
 \includezxdiagramtext{chapter-3/pauli_gadget}{0.6}{
 \text{exp} \left( i \frac{\theta}{2}
@@ -8,12 +8,12 @@ Y \otimes Z \otimes X \right)}
 
 Whilst phase gadgets alone cannot change the distribution of the observed state, Pauli gadgets are able to do so \cite{Yeung2020}. In chapter \ref{excitation-operators} we will see how Pauli gadgets form the building blocks in ansätze used for quantum chemical simulations.
 
-Pauli gadgets come equipped with a similar set of rules to phase gadgets that describe their interactions with other gadgets. For instance, adjacent Pauli gadgets with \textit{matching legs} fuse and their phases add modulo $2\pi$.
+Pauli gadgets come equipped with a similar set of rules to phase gadgets that describe their interactions with other gadgets. For instance, adjacent Pauli gadgets with \textit{matching legs} fuse, and their phases add modulo $2\pi$.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-3/pauli_gadget_fusion}{0.6}
-    \caption{Pauli gadget fusion rule}
+    \caption{Pauli gadget fusion rule.}
     \label{pauli-gadget-fusion}
 \end{figure}
 
@@ -22,7 +22,7 @@ Similar to the phase gadget commutation rule (\ref{phase-gadget-commutation}), w
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-3/pauli_gadget_commutation}{0.7}
-    \caption{Pauli gadget commutation rule}
+    \caption{Pauli gadget commutation rule.}
     \label{pauli-gadget-commutation}
 \end{figure}
 

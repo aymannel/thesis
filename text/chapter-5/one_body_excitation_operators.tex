@@ -56,30 +56,28 @@ The second exponential term can be implemented by the following circuit.
 i \frac{\theta}{2} X_p Y_q
 \prod_{k=p+1}^{q-1} Z_k \right] \right)}
 
-The left CNOT ladder can be thought of as calculating the parity of the fermionic state, whilst the right CNOT ladder construction uncomputes the parity.
-
-By sequentially composing (\ref{composition}) these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator between qubits $p$ and $q$. Expressing this operator as two Pauli gadgets, we obtain the following.
+The left CNOT ladder can be thought of as calculating the parity of the fermionic state, whilst the right CNOT ladder construction uncomputes the parity. A phase of $\theta$ is then applied depending on the parity of the state. By sequentially composing (\ref{composition}) these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator between qubits $p$ and $q$. Expressing this operator as two Pauli gadgets, we obtain the following.
 
 \includezxdiagramtext{chapter-5/one_body3}{0.5}{
 \text{exp} \left( i
 \frac{\theta}{2} (Y_p X_q - X_p Y_q)
 \prod_{k=p+1}^{q-1} Z_k \right)}
 
-\subsection{Excitation Operators as Controlled Rotations}
+\subsection{One-Body Excitation Operators as Controlled Rotations}
 
-In this section, we will extend the work done by Yordanov \textit{et al} \cite{Yordanov2020}, looking at how excitation operators can be expressed in terms of a controlled rotation. To the knowledge of the author, this work has not yet been done in the ZX calculus. Let us take $U^1_0(\theta)$, $p = 0$ and $q = 1$, as a minimal example.
+In this section, we will extend the work done by Yordanov \textit{et al} \cite{Yordanov2020}, looking at how excitation operators can be expressed in terms of a controlled rotation. To the knowledge of the author, this work has not yet been done in the ZX calculus. Taking $U^1_0(\theta)$, $p = 0$ and $q = 1$ as an example, we have the following.
 
 \includezxdiagram{chapter-5/minimal}{0.9}
 
-By inserting two adjacent $\text{CNOT}_{0, 1}$ gates and using the CNOT commutation rules derived in Chapter \ref{pauli-gadgets}, we are able to show that the one-body excitation operator can be expressed in terms of a singly-controlled rotation rotation in the $Y$ basis.
+By inserting two adjacent $\text{CNOT}_{0, 1}$ gates (self-inverse) into the circuit and using the CNOT commutation rules derived in Chapter \ref{pauli-gadgets}, we are able to show that the one-body excitation operator can be expressed in terms of a singly-controlled rotation rotation in the $Y$ basis.
 
 \includezxdiagram{chapter-5/minimal_proof}{1}
 
-Had we instead chosen to insert $\text{CNOT}_{1, 0}$ gates, we would have obtained the following controlled rotation, with the control on qubit 1.
+Had we instead chosen to insert two $\text{CNOT}_{1, 0}$ gates, we would have obtained the following controlled rotation, with the control on qubit 1.
 
 \includezxdiagram{chapter-5/minimal2}{0.6}
 
-Let us now look at the general case. Yordanov \textit{et al} \cite{Yordanov2020} show that a one-body excitation operator can be expressed as a controlled rotation in the $Y$ basis by conjugating with the following Cliffords. See Appendix \ref{appendix-one-body-general} for the intermediate steps.
+Let us now look at the general case. Yordanov \textit{et al} \cite{Yordanov2020} show that a one-body excitation operator can be expressed as a controlled rotation in the $Y$ basis. See Appendix \ref{appendix-one-body-general} for the intermediate steps.
 
 \includezxdiagram{chapter-5/one_body_general}{1}
 

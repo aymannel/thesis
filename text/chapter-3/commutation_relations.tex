@@ -1,9 +1,9 @@
 \section{Commutation Relations}%
 \label{commutation-relations}
 
-In this section we will develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as what happens to a Pauli gadget when a Clifford is pushed through it.
+In this section we will develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as `what happens to a Pauli gadget when a Clifford is pushed through it'.
 
-The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string by a member of the Clifford group $C^\dagger P \, C$ is closed in the set of Pauli strings, $P \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits the Clifford gate acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields some other Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
+The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string $P$ by a member of the Clifford group $C$ is closed in the set of Pauli strings, $C^\dagger P \, C \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Clifford acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
 
 \includezxdiagram{chapter-3/decomp}{0.55}
 
@@ -43,7 +43,7 @@ The Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ 
 
 Similarly, we can derive the 16 commutation relations of the CZ (controlled-Z) gate using the same method. Consider, for instance, the following example.
 
-\includezxdiagram{chapter-3/commutation_cz}{1}
+\includezxdiagram{chapter-3/commutation_cz}{0.9}
 
 \subsection{Pauli Commutation Relations}
 
@@ -51,4 +51,6 @@ The Pauli matrices commute through Pauli strings by applying a global phase but 
 
 \includezxdiagram{chapter-3/commutation_paulis}{1}
 
-As pointed out by Richie Yeung, a more efficient method for identifying these commutation relations is instead to construct a Clifford tableau as in Winderl \textit{et al} \cite{Yeung2023}. At the time, we were unaware of Clifford tableaus, however, using this method we were able to derive all 16 commutation relations (Appendix \ref{cnot_commutations}), demonstrating its efficacy. In Chapter \ref{zxfermion}, we choose to implement these commutation relations in our software package ZxFermion using Stim's (Clifford) \lstinline{Tableau} class.
+\subsection{Clifford Tableaus}
+
+As pointed out by Richie Yeung, a more efficient method of identifying such commutation relations is instead to construct a Clifford tableau as in Winderl \textit{et al} \cite{Yeung2023}. At the time, we were unaware of Clifford tableaus, however, using this method we were able to derive all 16 commutation relations (Appendix \ref{cnot_commutations}), demonstrating its efficacy. In Chapter \ref{zxfermion}, we choose to implement these commutation relations in our software package ZxFermion using Stim's (Clifford) \lstinline{Tableau} class.
