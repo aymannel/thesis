@@ -36,9 +36,9 @@
 		\node [style=none] (72) at (17, 0) {};
 		\node [style=none] (73) at (17, 1) {};
 		\node [style=none] (74) at (17, 2) {};
-		\node [style={z_phase}] (75) at (16.5, 0.5) {$\theta$};
+		\node [style={z_phase}] (75) at (16.25, 0.5) {$\theta$};
 		\node [style={z_node}] (76) at (14.75, 1) {};
-		\node [style={x_node}] (77) at (15.75, 0.5) {};
+		\node [style={x_node}] (77) at (15.5, 0.5) {};
 		\node [style={z_node}] (78) at (14.75, 0) {};
 		\node [style={z_node}] (79) at (14.75, 2) {};
 		\node [style=none] (80) at (12.25, 1) {=};

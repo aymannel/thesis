@@ -8,13 +8,9 @@ By carefully choosing the form of the singly-controlled rotations, we can cancel
 
 \includezxdiagram{chapter-4/CCRZ2}{0.9}
 
-For the purposes of this thesis, we are interested in the phase polynomial that results by eliminating all CNOT gates in the circuit. Expressing all $Z$ rotations as single-legged phase gadgets, then, using the commutation relations derived in Section \ref{commutation-relations} and the fact that the CNOT gate is self-inverse, we can express the doubly-controled rotation in terms of phase gadgets alone.
+For the purposes of this thesis, we are interested in the phase polynomial that results by eliminating all CNOT gates in the circuit. We can obtain the correct phase polynomial by first expressing all $Z$ rotations as phase gadgets, then commuting all the CNOT gates to one side of circuit, using the fact that they are self-inverse.
 
-\includezxdiagram{chapter-4/CCRZ_proof2}{1}
-
-Eliminating the final two CNOT gates yields the following phase polynomial.
-
-\includezxdiagram{chapter-4/CCRZ_proof3}{0.77}
+\includezxdiagram{chapter-4/CCRZ_proof2}{0.9}
 
 Recalling the phase gadget commutation rule, we observe that the phase polynomial that results consists only of commuting phase gadgets. Hence there are many possibly decompositions into quantum circuit notation.
 

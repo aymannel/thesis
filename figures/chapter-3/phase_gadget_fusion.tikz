@@ -6,14 +6,14 @@
 		\node [style=none] (3) at (1.5, 0) {};
 		\node [style=none] (4) at (1.5, 1) {};
 		\node [style=none] (5) at (1.5, 2) {};
-		\node [style={z_phase}] (6) at (-1.25, 0.5) {$\theta$};
+		\node [style={z_phase}] (6) at (-1.5, 0.5) {$\theta$};
 		\node [style={z_node}] (7) at (-3, 1) {};
-		\node [style={x_node}] (8) at (-2, 0.5) {};
+		\node [style={x_node}] (8) at (-2.25, 0.5) {};
 		\node [style={z_node}] (9) at (-3, 0) {};
 		\node [style={z_node}] (11) at (-3, 2) {};
-		\node [style={z_phase}] (30) at (1.5, 0.5) {$\phi$};
+		\node [style={z_phase}] (30) at (1.25, 0.5) {$\phi$};
 		\node [style={z_node}] (31) at (-0.25, 1) {};
-		\node [style={x_node}] (32) at (0.75, 0.5) {};
+		\node [style={x_node}] (32) at (0.5, 0.5) {};
 		\node [style={z_node}] (33) at (-0.25, 0) {};
 		\node [style={z_node}] (34) at (-0.25, 2) {};
 		\node [style=none] (92) at (3, 0) {};
@@ -25,10 +25,9 @@
 		\node [style={z_node}] (98) at (4.25, 0) {};
 		\node [style={z_node}] (99) at (4.25, 1) {};
 		\node [style={z_node}] (100) at (4.25, 2) {};
-		\node [style={z_phase}] (101) at (6.5, 0.5) {$\theta + \phi$};
-		\node [style={x_node}] (104) at (5.25, 0.5) {};
+		\node [style={z_phase}] (101) at (6.25, 0.5) {$\theta + \phi$};
+		\node [style={x_node}] (104) at (5, 0.5) {};
 		\node [style=none] (105) at (2.25, 1) {=};
-		\node [style=none] (106) at (2.25, 1.5) {\tiny *};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (6) to (8);
