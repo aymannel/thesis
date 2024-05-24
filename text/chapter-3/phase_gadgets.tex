@@ -1,15 +1,15 @@
 \section{Phase Gadgets}
-Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of the $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They correspond to quantum circuits made of a $Z$ rotation sandwiched between two ladders of CNOT gates.
+Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of the $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They can be naively implemented as a $Z$ rotation sandwiched between two ladders of CNOT gates.
 
 \includezxdiagramtext{chapter-3/phase_gadget_expanded}{0.28}
 {\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
 
-Phase gadgets necessarily correspond to unitary maps which are diagonal in the $Z$ computational basis \cite{Cowtan2020}, since they apply a global phase without changing the distribution of the observed state \cite{Yeung2020}. As described by Kissinger and van de Wetering \cite{Kissinger2019}, phase gadgets have a symmetric representation in the ZX calculus.
+Phase gadgets necessarily correspond to unitary maps which are diagonal in the $Z$ computational basis \cite{Cowtan2020}, since they apply a global phase without changing the distribution of the observed state \cite{Yeung2020}. As in Kissinger and van de Wetering \cite{Kissinger2019}, phase gadgets have the following natural representation in the ZX calculus.
 
 \includezxdiagramtext{chapter-3/phase_gadget_expanded_to_zx}{0.5}
 {\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
 
-Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on the parity \cite{Yeung2020}.
+Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on the state's parity \cite{Yeung2020}.
 
 By deforming \textit{d} our phase gadget in quantum circuit notation and using the identity \textit{id} (\ref{identity}), spider fusion \textit{f} (\ref{spider-fusion}) and bialgebra \textit{ba} (\ref{bialgebra}) rules, we are able to show the correspondence with its form in the ZX calculus.
 
