@@ -3,7 +3,7 @@
 
 In this section we will develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as `what happens to a Pauli gadget when a Clifford is pushed through it'.
 
-The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string $P$ by a member of the Clifford group $C$ is closed in the set of Pauli strings, $C^\dagger P \, C \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Clifford acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
+The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string $P$ by a member of the Clifford group $C$ is closed in the set of Pauli strings, $C^\dagger P \, C \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Clifford acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
 
 \includezxdiagram{chapter-3/decomp}{0.55}
 
@@ -29,11 +29,11 @@ The CNOT gate acts on two qubits ($n = 2$), therefore, we can form 16 Pauli gadg
 
 Whilst it is possible to derive each of these commutation relations using the Pauli gadget directly, it can be shown, through the Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string. Diagrammatically, this corresponds to pushing Pauli gates through some Clifford gate.
 
-Let us illustrate the $\text{exp} \left[ i\frac{\theta}{2} Z \otimes Z \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ i\frac{\theta}{2} I \otimes Z \right]$ commutation relation diagrammatically using the $Z \otimes Z$ Pauli string. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
+Let us illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} I \otimes Z \right]$ commutation relation diagrammatically using the $Z \otimes Z$ Pauli string. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
 
 \includezxdiagram{chapter-3/commutation_trick}{0.6}
 
-The Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate, up to a global phase of $-i$ (CHECK). Below, we use this to illustrate the $\text{exp} \left[ i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ i\frac{\theta}{2} Y \otimes I \right]$ commutation relation.
+The Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate, up to a global phase of $-i$ (CHECK). Below, we use this to illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{1}
 

@@ -2,12 +2,12 @@
 Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of the $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They correspond to quantum circuits made of a $Z$ rotation sandwiched between two ladders of CNOT gates.
 
 \includezxdiagramtext{chapter-3/phase_gadget_expanded}{0.28}
-{\text{exp} \left( i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
+{\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
 
-Phase gadgets necessarily correspond to diagonal unitary matrices in the $Z$ basis, since they apply a global phase to a given state without changing the distribution of the observed state \cite{Yeung2020}. This diagonal action suggests that a symmetric ZX diagram exists for phase gadgets, as is indeed the case.
+Phase gadgets necessarily correspond to unitary maps which are diagonal in the $Z$ computational basis \cite{Cowtan2020}, since they apply a global phase without changing the distribution of the observed state \cite{Yeung2020}. As described by Kissinger and van de Wetering \cite{Kissinger2019}, phase gadgets have a symmetric representation in the ZX calculus.
 
 \includezxdiagramtext{chapter-3/phase_gadget_expanded_to_zx}{0.5}
-{\text{exp} \left( i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
+{\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
 
 Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on the parity \cite{Yeung2020}.
 
@@ -53,16 +53,16 @@ Adjacent phase gadgets commute using the spider fusion rule (\ref{spider-fusion}
 
 \subsubsection{Phase Gadget Decomposition}%
 
-There are many equivalent ways of decomposing a phase gadget into quantum circuit notation. Using the bialgebra rule (\ref{bialgebra}), we can show that a two-legged phase gadget can be decomposed in the following two ways.
+There are many ways of decomposing a phase gadget into quantum circuit notation. Using the bialgebra rule (\ref{bialgebra}), we can show that a two-legged phase gadget can be decomposed in the following two ways.
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-3/phase_gadget_decomposition1}{0.65}
+    \includezxdiagram{chapter-3/phase_gadget_decomposition1}{0.6}
     \caption{Phase gadget decomposition result.}
     \label{phase-gadget-decomposition}
 \end{figure}
 
-By recursively applying this decomposition, we can show that it is possible to decompose a phase gadget such that it has a circuit depth of $\log_2(n)$ instead of $n$, where $n$ is the number of qubits.
+By recursively applying this decomposition result, we can show that it is possible to decompose a phase gadget such that it has a circuit depth of $\log_2(n)$ instead of $n$, where $n$ is the number of qubits.
 
 \includezxdiagram{chapter-3/phase_gadget_decomposition}{1}
 
