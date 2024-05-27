@@ -38,6 +38,8 @@
 		\node [style={z_phase}] (49) at (14, 0) {$\beta$};
 		\node [style={x_phase}] (50) at (11.75, 1.5) {$\gamma$};
 		\node [style=none] (51) at (10, 1) {=};
+		\node [style=none] (52) at (4, 1.5) {\tiny (d)};
+		\node [style=none] (53) at (10, 1.5) {\tiny (d)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw [bend left] (6) to (8);

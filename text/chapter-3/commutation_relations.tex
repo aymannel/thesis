@@ -1,17 +1,24 @@
-\section{Commutation Relations}%
-\label{commutation-relations}
+\section{Gadget Commutation Relations}%
+\label{gadget-commutation-relations}
 
-\subsection{Pauli Gadget Commutation Relations}%
-\label{pauli-gadget-commutation-relations}
-
-A pair of Pauli gadgets, $\Phi_1(\theta)$ and $\Phi_2(\theta)$, commute $[\Phi_1(\theta), \, \Phi_2(\theta)] = 0$ when their Hamiltonians commute \cite{Yeung2020}. That is, when the Pauli strings defining the one parameter unitary groups commute, the corresponding Pauli gadgets must also commute. Diagrammatically, this is equivalent to saying that a pair of Pauli gadgets commute when they \textit{mismatch on an even number of legs} \cite{Yeung2020}. First, let us consider the three possible mismatching pairs of of a Pauli gadget.
+A pair of Pauli gadgets, $\Phi_1(\theta)$ and $\Phi_2(\theta)$, commute $[\Phi_1(\theta), \, \Phi_2(\theta)] = 0$ when their Hamiltonians commute \cite{Yeung2020}. That is, when a pair of Pauli strings commute, their corresponding Pauli gadgets must also commute. Diagrammatically, we have that a pair of Pauli gadgets commute when they \textit{mismatch on an even number of legs} \cite{Yeung2020}. First, let us consider the three possible mismatching pairs of Pauli gadget legs.
 
 \includezxdiagram{chapter-3/mismatches}{1}
 
-Using the bialgebra rule (\ref{bialgebra}) and Hadamard commutation rule (\ref{hadamard-copy}), 
-
+Starting with the mismatching $Z$, $X$ pair and using the bialgebra (\ref{bialgebra}) and Hadamard commutation (\ref{hadamard-commutation}) rules, we can show that commuting the legs of the gadgets introduces a Hadamard between the Pauli gadget bodies \cite{Yeung2020}.
 
 \includezxdiagram{chapter-3/mismatch_proof}{1}
+
+Similarly, for the $X$, $Y$ and $Y$, $Z$ mismatching pairs, we have the following.
+
+\includezxdiagram{chapter-3/mismatch_proof2}{0.7}
+
+Therefore, when there is an even number of mismatching legs between two Pauli gadgets, the wires between them can be removed using the Hopf rule (\ref{hopf}).
+
+\includezxdiagram{chapter-3/mismatch_proof3}{0.8}
+
+\section{Clifford Commutation Relations}%
+\label{commutation-relations}
 
 In this section we will develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as `what happens to a Pauli gadget when a Clifford is pushed through it'.
 
@@ -45,7 +52,7 @@ Let us illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \right]
 
 \includezxdiagram{chapter-3/commutation_trick}{0.6}
 
-The Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate, up to a global phase of $-i$ (CHECK). Below, we use this to illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation.
+The Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate, up to a global phase of $-i$. Below, we use this to illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{1}
 

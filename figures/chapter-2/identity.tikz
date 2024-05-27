@@ -10,6 +10,8 @@
 		\node [style=none] (7) at (12, 0) {};
 		\node [style=none] (8) at (9, 0) {};
 		\node [style=none] (9) at (8, 0) {$=$};
+		\node [style=none] (10) at (4, 0.5) {\tiny (id)};
+		\node [style=none] (11) at (8, 0.5) {\tiny (id)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (2.center) to (0);

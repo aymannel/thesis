@@ -42,6 +42,8 @@
 		\node [style={z_node}] (78) at (14.75, 0) {};
 		\node [style={z_node}] (79) at (14.75, 2) {};
 		\node [style=none] (80) at (12.25, 1) {=};
+		\node [style=none] (81) at (12.25, 1.5) {\tiny (g)};
+		\node [style=none] (82) at (6.75, 1.5) {\tiny (g)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (10) to (3);

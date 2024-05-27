@@ -80,7 +80,13 @@
 
 \lstset{style=mystyle}
 
-% Commands
+% ENVIRONMENTS
+\newenvironment{notation}[1]{%
+  \hangindent=10pt 
+  \textbf{Notation} -- \textit{#1}%
+}
+
+% COMMANDS
 \newcommand{\includejupyter}[3]{%
     \includezxdiagram{#1}{1}
     \vspace*{5pt}

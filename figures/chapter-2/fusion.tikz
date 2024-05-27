@@ -32,6 +32,8 @@
 		\node [style=none] (33) at (15.25, 0.5) {};
 		\node [style=none] (34) at (15.25, -0.5) {};
 		\node [style=none] (35) at (11.75, -0.5) {=};
+		\node [style=none] (36) at (2.75, 0.25) {\tiny (f)};
+		\node [style=none] (37) at (11.75, 0) {\tiny (f)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw [in=210, out=0] (3.center) to (0);

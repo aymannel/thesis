@@ -34,6 +34,7 @@
 		\node [style=none] (46) at (-5.5, -0.5) {};
 		\node [style={x_node}] (47) at (-7.5, 0) {};
 		\node [style=none] (48) at (-8.5, -0.5) {};
+		\node [style=none] (49) at (1, 0.5) {\tiny (ba)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (13) to (7.center);

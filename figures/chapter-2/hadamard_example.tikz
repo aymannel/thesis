@@ -1,0 +1,30 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (13) at (5.25, 0) {};
+		\node [style=none] (15) at (3, 0) {=};
+		\node [style={z_phase}] (16) at (4.25, 0) {$\alpha$};
+		\node [style=none] (17) at (2, 0) {};
+		\node [style=hadamard] (19) at (1, 0) {};
+		\node [style={x_phase}] (20) at (0, 0) {$\alpha$};
+		\node [style=none] (22) at (11, 0) {=};
+		\node [style=none] (24) at (10, 0) {};
+		\node [style=hadamard] (25) at (9, 0) {};
+		\node [style={x_phase}] (26) at (8, 0) {$\beta$};
+		\node [style=none] (27) at (7, 0) {};
+		\node [style=none] (28) at (12, 0) {};
+		\node [style=hadamard] (29) at (13, 0) {};
+		\node [style={z_phase}] (30) at (14, 0) {$\beta$};
+		\node [style=none] (31) at (15, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (16) to (13.center);
+		\draw (17.center) to (19);
+		\draw (19) to (20);
+		\draw (24.center) to (25);
+		\draw (25) to (26);
+		\draw (27.center) to (26);
+		\draw (28.center) to (29);
+		\draw (29) to (30);
+		\draw (31.center) to (30);
+	\end{pgfonlayer}
+\end{tikzpicture}

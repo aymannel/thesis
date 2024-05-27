@@ -1,6 +1,6 @@
 \section{Generators}
 
-By sequentially or horizontally composing the \textit{Z Spider} (green) and \textit{X Spider} (red) generators, we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be arbitrarily deformed, provided that the order of inputs and outputs is preserved.
+By sequentially or horizontally composing the \textit{Z Spider} (green) and \textit{X Spider} (red) generators, we can construct undirected multigraphs known as ZX diagrams \cite{Wetering2020}. That is, graphs that allow multiple edges between vertices. Since \textit{only connectivity matters} in the ZX calculus, a valid ZX diagram can be arbitrarily deformed (\textit{d}), provided that the order of inputs and outputs is preserved.
 
 \begin{figure}[H]
 \centering
@@ -9,6 +9,8 @@ By sequentially or horizontally composing the \textit{Z Spider} (green) and \tex
     \caption{Three equivalent ZX diagrams (\textit{only connectivity matters}).}
     \label{only-connectivity-matters}
 \end{figure}
+
+\notation{We interpret the flow of time left to right. Hence, the wires on the left refer to inputs and the wires on the right refer to outputs.}
 
 Z Spiders (green) are defined with respect to the $Z$ eigenbasis ($\ket 0$ and $\ket 1$) such that a Z Spider with $n$ inputs and $m$ outputs represents the following linear map.
 
@@ -207,16 +209,15 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
     \caption{Arbitrary single-qubit rotation.}
 \end{figure}
 
-Recall that the Hadamard gate $H$ switches between the $\ket 0$/$\ket 1$ and $\ket +$/$\ket -$ bases. That is, it corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $Z$ and $X$ axes.
+The Hadamard gate $H$ corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $X$ and $Z$ axes. Up to a global phase of $\text{exp} \left(-i \frac{\pi}{4} \right)$, it can be decomposed using Euler angles by choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$. 
 
-There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles. By choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$, we obtain H up to a global phase of $\text{exp}(-i\pi/4)$. See Appendix \ref{appendix-hadamard} for other definitions.
+\includezxdiagramtext{figures/chapter-2/hadamard}{0.53}{
+\frac{1}{\sqrt 2}
+\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
 
-\begin{figure}[H]
-\includezxdiagramtext{figures/chapter-2/hadamard}{0.56}{
-    \frac{1}{\sqrt 2}
-    \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
-\caption{Definition of the Hadamard generator.}
-\end{figure}
+There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles (see Appendix \ref{appendix-hadamard}). Diagrammatically, applying Hadamard generators to all of the legs of a given spider changes the colour of the spider.
+
+\includezxdiagram{chapter-2/colour_changing}{0.45}
 
 %%%
 

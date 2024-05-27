@@ -22,7 +22,7 @@
 		\node [style={z_node}] (19) at (6, 2) {};
 		\node [style={z_node}] (20) at (6.5, 1.5) {};
 		\node [style=none] (22) at (3.75, 1) {=};
-		\node [style=none] (23) at (3.75, 1.5) {\tiny c};
+		\node [style=none] (23) at (3.75, 1.5) {\tiny (c)};
 		\node [style={z_node}] (24) at (6.5, 0.5) {};
 		\node [style={z_node}] (25) at (6.5, -0.5) {};
 		\node [style=none] (26) at (9, 0) {};
@@ -35,7 +35,7 @@
 		\node [style={z_node}] (33) at (10.5, 1) {};
 		\node [style={z_node}] (34) at (10.5, 2) {};
 		\node [style=none] (36) at (8.25, 1) {=};
-		\node [style=none] (37) at (8.25, 1.5) {\tiny f};
+		\node [style=none] (37) at (8.25, 1.5) {\tiny (f)};
 		\node [style=none] (38) at (13.5, 0) {};
 		\node [style=none] (39) at (13.5, 1) {};
 		\node [style=none] (40) at (13.5, 2) {};
@@ -43,7 +43,7 @@
 		\node [style=none] (42) at (16.5, 1) {};
 		\node [style=none] (43) at (16.5, 2) {};
 		\node [style=none] (47) at (12.75, 1) {=};
-		\node [style=none] (48) at (12.75, 1.5) {\tiny id};
+		\node [style=none] (48) at (12.75, 1.5) {\tiny (id)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (8) to (2.center);
