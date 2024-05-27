@@ -1,10 +1,14 @@
-\chapter{Phase Polynomials}%
+\section{Phase Polynomials}%
 \label{phase-polynomials}
 
 Recalling that phase gadgets are diagonal in the computational $Z$ basis, we call a set of Pauli gadgets diagonal when it consists only of phase gadgets \cite{Cowtan2020}. Such sets of phase gadgets are known as \textit{phase polynomials} and are themselves diagonal in the computational $Z$ basis \cite{Cowtan2019}. Phase polynomial synthesis then refers to finding a quantum circuit that optimally implements some phase polynomial. There are several well-known phase polynomial synthesis algorithms \cite{Amy2013}, \cite{Amy2014}, \cite{Nam2018}, \cite{Maslov2018}.
 
 As in Cowtan \textit{et al} \cite{Cowtan2020}, a set of Pauli gadgets $S$ can be simultaneously diagonalised by a Clifford subcircuit $C$ when all of the Pauli gadgets in the set commute. That is, by conjugating a set of commuting Pauli gadgets, we can re-express the circuit as some phase polynomial that can later be synthesised in some optimal way.
 
-\includezxdiagram{phase_polynomials/phase_polynomial}{0.9}
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/phase_polynomial}{0.9}
+    \caption{Diagonalisation of a pair of commuting Pauli gadgets by $C$.}
+\end{figure}
 
-As we will see in Chapter \ref{excitation-operators}, the excitation operators used in the DISCO-VQE algorithm consist of commuting sets of Pauli gadgets. Therefore, there exists some Clifford subcircuit $C$ that diagonalise these excitation operators. As stated in Cowtan \textit{et al} \cite{Cowtan2020}, whilst diagonalisation may incur gate overhead, in practice, the reduction in circuit depth arising from synthesising the resulting phase polynomial more than makes up for the overhead.
+As we will see in Chapter \ref{excitation-operators}, the excitation operators used in VQE algoriths consist of commuting sets of Pauli gadgets. Therefore, the quantum circuits implementing such excitation operators can be diagonalised with some Clifford subcircuit $C$. As stated in Cowtan \textit{et al} \cite{Cowtan2020}, whilst diagonalisation may incur gate overhead, in practice, the reduction in circuit depth arising from synthesising the resulting phase polynomial usually more than makes up for the overhead.
