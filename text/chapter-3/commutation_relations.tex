@@ -5,11 +5,11 @@ A pair of Pauli gadgets commute when their Hamiltonians commute \cite{Yeung2020}
 
 \includezxdiagram{chapter-3/mismatches}{1}
 
-Starting with the mismatching $Z$ \& $X$ pair and using the bialgebra (\ref{bialgebra}) and Hadamard commutation (\ref{hadamard-commutation}) rules, we can show that commuting the legs introduces a Hadamard between the Pauli gadget bodies \cite{Yeung2020}.
+Starting with the mismatching $Z$/$X$ pair and using the bialgebra (\ref{bialgebra}), Hadamard commutation (\ref{hadamard-commutation}) and spider fusion (\ref{spider-fusion}) rules, we can show that commuting the legs introduces a Hadamard between the Pauli gadget bodies \cite{Yeung2020}.
 
 \includezxdiagram{chapter-3/mismatch_proof}{1}
 
-Similarly, for the $X$ \& $Y$ and $Y$ \& $Z$ mismatching pairs, we have the following.
+Similarly, for the $X$/$Y$ and $Y$/$Z$ mismatching pairs, we have the following.
 
 \includezxdiagram{chapter-3/mismatch_proof2}{0.7}
 
@@ -26,7 +26,7 @@ The Clifford group is the set of transformations that normalise the Pauli group.
 
 \includezxdiagram{chapter-3/decomp}{0.55}
 
-Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we can define \textit{commutation relation} more formally as $\Phi(\theta) C = C \, \Phi'(\theta)$.
+Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we define Clifford \textit{commutation relation} as $\Phi(\theta) C = C \, \Phi'(\theta)$.
 
 \includezxdiagram{chapter-3/commutation}{0.55}
 
@@ -46,13 +46,13 @@ The CNOT gate acts on two qubits ($n = 2$), therefore, we can form 16 Pauli gadg
     \caption{Two examples of the CNOT gate interacting with Pauli gadgets.}
 \end{figure}
 
-Whilst it is possible to derive each of these commutation relations using the Pauli gadget directly, it can be shown, through the Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string. Diagrammatically, this corresponds to pushing Pauli gates through some Clifford gate.
+Whilst it is possible to derive each of these commutation relations using the Pauli gadget directly, it can be shown, through the Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string. Hence, identifying how the Pauli gates interact with some Clifford gate tells us how the corresponding Pauli gadget behaves.
 
 Let us illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} I \otimes Z \right]$ commutation relation diagrammatically using the $Z \otimes Z$ Pauli string. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
 
 \includezxdiagram{chapter-3/commutation_trick}{0.6}
 
-The Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate, up to a global phase of $-i$. Below, we use this to illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation.
+Since the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (up to a global phase of $-i$) we can identify the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{1}
 
@@ -72,4 +72,4 @@ The Pauli matrices commute through Pauli strings by applying a global phase but 
 
 \subsection{Clifford Tableaus}
 
-As pointed out by Richie Yeung, a more efficient method of identifying such commutation relations is instead to construct a Clifford tableau as in Winderl \textit{et al} \cite{Yeung2023}. At the time, we were unaware of Clifford tableaus, however, using this method we were able to derive all 16 commutation relations (Appendix \ref{cnot_commutations}), demonstrating its efficacy. In Chapter \ref{zxfermion}, we choose to implement these commutation relations in our software package ZxFermion using Stim's (Clifford) \lstinline{Tableau} class.
+Late during the preparation of this thesis, Richie Yeung pointed out that a more efficient method of identifying such commutation relations is instead to construct a Clifford tableau as in Winderl \textit{et al} \cite{Yeung2023}. Nevertheless, the diagrammatic method introduced in this chapter allowed us to derive all 16 CNOT commutation relations (Appendix \ref{cnot_commutations}). In Chapter \ref{zxfermion}, we choose to implement these commutation relations in our software package ZxFermion using Stim's (Clifford) \lstinline{Tableau} class.

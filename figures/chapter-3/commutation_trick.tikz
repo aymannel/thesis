@@ -26,8 +26,8 @@
 		\node [style={z_phase}] (67) at (11.75, 0.75) {$\pi$};
 		\node [style=none] (78) at (14.25, 0.75) {=};
 		\node [style=none] (79) at (9.25, 0.75) {=};
-		\node [style=none] (80) at (9.25, 1.25) {\tiny c};
-		\node [style=none] (81) at (14.25, 1.25) {\tiny f};
+		\node [style=none] (80) at (9.25, 1.25) {\tiny (c)};
+		\node [style=none] (81) at (14.25, 1.25) {\tiny (f)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (9) to (8);

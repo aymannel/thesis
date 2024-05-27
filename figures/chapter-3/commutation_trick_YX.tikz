@@ -36,11 +36,11 @@
 		\node [style=none] (46) at (19.5, 0.75) {=};
 		\node [style=none] (47) at (14, 0.75) {=};
 		\node [style=none] (48) at (8.5, 0.75) {=};
-		\node [style=none] (49) at (8.5, 1.25) {\tiny c};
-		\node [style=none] (50) at (14, 1.25) {\tiny f};
+		\node [style=none] (49) at (8.5, 1.25) {\tiny (c)};
+		\node [style=none] (50) at (14, 1.25) {\tiny (f)};
 		\node [style={x_phase}] (51) at (10.25, 1.5) {$\pi$};
 		\node [style={x_phase}] (52) at (12.25, 0) {$\pi$};
-		\node [style=none] (53) at (19.5, 1.25) {\tiny f};
+		\node [style=none] (53) at (19.5, 1.25) {\tiny (f)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (1) to (0);
