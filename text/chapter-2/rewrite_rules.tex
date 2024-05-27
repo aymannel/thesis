@@ -1,7 +1,7 @@
 \section{Rewrite Rules}%
 \label{rewrite-rules}
 
-In this section, we will introduce the set of rules that transforms the ZX calculus from simply notation into a language \cite{Wetering2020}.
+% In this section, we will introduce the set of rules that transforms the ZX calculus from simply notation into a language \cite{Wetering2020}.
 
 \notation{We will refer to the rules by some shorthand notation above equal signs. Note that this could refer to applying the rule in either direction.}
 
@@ -15,7 +15,7 @@ The most fundamental rule of the ZX calculus is the \textit{spider fusion rule} 
     \label{spider-fusion}
 \end{figure}
 
-It is the generalisation of adding the phases of successive rotations of the Bloch sphere. We can use this rule to identify commutation relations such as $Z$ rotations commuting through CNOT controls, and $X$ rotations, through CNOT targets.
+It is the generalisation of adding the phases of successive rotations of the Bloch sphere. We can use this rule to show that $Z$ rotations commute through CNOT controls, and that $X$ rotations commute through CNOT targets.
 
 % \vspace{5pt}
 \includezxdiagram{chapter-2/cnot_commutation}{0.8}
@@ -65,7 +65,7 @@ The $\pi$ \textit{copy rule} (\textit{c}) states that when a Pauli $Z$ or Pauli 
 
 \subsection{Hadamard Rules}
 
-The Hadamard gate is both unitary and Hermitian. Therefore, we define the \textit{Hadamard self-inverse rule} (\textit{hi}).
+Using that the Hadamard gate is both unitary and Hermitian, we define the \textit{Hadamard self-inverse rule} (\textit{hi}).
 
 \begin{figure}[H]
     \centering
@@ -74,7 +74,7 @@ The Hadamard gate is both unitary and Hermitian. Therefore, we define the \texti
     \label{hadamard-self-inverse}
 \end{figure}
 
-Recalling that the Hadamard generator changes the colour of a spider and is self-inverse, we define the \textit{Hadamard commutation rule} (\textit{hi}).
+Recalling that the Hadamard generator changes the colour of a spider and is self-inverse, we define the \textit{Hadamard commutation rule} (\textit{hc}).
 
 \begin{figure}[H]
     \centering
@@ -97,7 +97,7 @@ Using the spider fusion rule (\ref{spider-fusion}), we can show that a spider wi
     \label{copy}
 \end{figure}
 
-Hence, using the natural commutation relation of the classical XOR and COPY gates, we define the \textit{bialgebra rule} (\textit{ba}). We encourage the reader to verify this relation.
+Using the natural commutation relation of the classical XOR and COPY gates, we define the \textit{bialgebra rule} (\textit{ba}). We encourage the reader to verify this relation.
 
 \begin{figure}[H]
     \centering

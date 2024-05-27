@@ -1,19 +1,19 @@
 \section{Gadget Commutation Relations}%
 \label{gadget-commutation-relations}
 
-A pair of Pauli gadgets, $\Phi_1(\theta)$ and $\Phi_2(\theta)$, commute $[\Phi_1(\theta), \, \Phi_2(\theta)] = 0$ when their Hamiltonians commute \cite{Yeung2020}. That is, when a pair of Pauli strings commute, their corresponding Pauli gadgets must also commute. Diagrammatically, we have that a pair of Pauli gadgets commute when they \textit{mismatch on an even number of legs} \cite{Yeung2020}. First, let us consider the three possible mismatching pairs of Pauli gadget legs.
+A pair of Pauli gadgets commute when their Hamiltonians commute \cite{Yeung2020}. That is, a pair of Pauli gadgets commute when the Pauli strings that they are defined by also commute. Diagrammatically, we have that a pair of Pauli gadgets commute when they \textit{mismatch on an even number of legs} \cite{Yeung2020}. Let us demonstrate this by first considering the three possible mismatching pairs of Pauli gadget legs.
 
 \includezxdiagram{chapter-3/mismatches}{1}
 
-Starting with the mismatching $Z$, $X$ pair and using the bialgebra (\ref{bialgebra}) and Hadamard commutation (\ref{hadamard-commutation}) rules, we can show that commuting the legs of the gadgets introduces a Hadamard between the Pauli gadget bodies \cite{Yeung2020}.
+Starting with the mismatching $Z$ \& $X$ pair and using the bialgebra (\ref{bialgebra}) and Hadamard commutation (\ref{hadamard-commutation}) rules, we can show that commuting the legs introduces a Hadamard between the Pauli gadget bodies \cite{Yeung2020}.
 
 \includezxdiagram{chapter-3/mismatch_proof}{1}
 
-Similarly, for the $X$, $Y$ and $Y$, $Z$ mismatching pairs, we have the following.
+Similarly, for the $X$ \& $Y$ and $Y$ \& $Z$ mismatching pairs, we have the following.
 
 \includezxdiagram{chapter-3/mismatch_proof2}{0.7}
 
-Therefore, when there is an even number of mismatching legs between two Pauli gadgets, the wires between them can be removed using the Hopf rule (\ref{hopf}).
+Therefore, we can show that two Pauli gadgets with an even number of mismatching legs commute by first commuting all of their legs, then using the Hopf rule (\ref{hopf}) to remove the wires between them.
 
 \includezxdiagram{chapter-3/mismatch_proof3}{0.8}
 

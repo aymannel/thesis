@@ -1,5 +1,5 @@
 \section{Phase Gadgets}
-Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of the $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They can be naively implemented as a $Z$ rotation sandwiched between two ladders of CNOT gates.
+Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of only the Pauli $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They can be naively implemented as a $Z$ rotation sandwiched between two ladders of CNOT gates.
 
 \includezxdiagramtext{chapter-3/phase_gadget_expanded}{0.28}
 {\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
@@ -7,12 +7,13 @@ Phase gadgets are defined as the one parameter unitary groups of Pauli strings c
 Phase gadgets correspond to unitary maps which are diagonal in the $Z$ computational basis \cite{Cowtan2020}. Consequently, they apply a global phase to a state without changing the distribution of the observed state \cite{Yeung2020}. Phase gadgets have the following representation in the ZX calculus.
 
 \includezxdiagramtext{chapter-3/phase_gadget}{0.18}{
-\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right) = 
-\begin{pmatrix}
-    \theta_{12} & \dots & \theta_{13} \\
-    \vdots & \ddots & \vdots \\
-    \theta_{12} & \dots & \theta_{13}
-\end{pmatrix}}
+\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)
+% = \begin{pmatrix}
+%     \theta_{12} & \dots & \theta_{13} \\
+%     \vdots & \ddots & \vdots \\
+%     \theta_{12} & \dots & \theta_{13}
+% \end{pmatrix}
+}
 
 Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on the state's parity \cite{Yeung2020}.
 
@@ -50,7 +51,7 @@ Any two adjacent phase gadgets formed from the same Pauli string fuse and their 
 \subsubsection{Phase Gadget Commutation}%
 \label{phase-gadget-commutation}
 
-Any two phase gadgets can be shown to commute using the spider fusion rule (\ref{spider-fusion}).
+Phase gadgets can be shown to commute using the spider fusion rule (\ref{spider-fusion}).
 
 \includezxdiagram{chapter-3/phase_gadget_commutation}{0.6}
 

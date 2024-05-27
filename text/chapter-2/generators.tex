@@ -12,7 +12,7 @@ By sequentially or horizontally composing the \textit{Z Spider} (green) and \tex
 
 \notation{We interpret the flow of time left to right. Hence, the wires on the left refer to inputs and the wires on the right refer to outputs.}
 
-Z Spiders (green) are defined with respect to the $Z$ eigenbasis ($\ket 0$ and $\ket 1$) such that a Z Spider with $n$ inputs and $m$ outputs represents the following linear map.
+$Z$ Spiders (green) are defined with respect to the $Z$ eigenbasis, $\ket 0$ and $\ket 1$, such that a $Z$ Spider with $n$ inputs and $m$ outputs represents the following linear map.
 
 \begin{figure}[H]
 \centering
@@ -22,7 +22,7 @@ Z Spiders (green) are defined with respect to the $Z$ eigenbasis ($\ket 0$ and $
 \caption{Interpretation of a Z Spider as a linear map.}
 \end{figure}
 
-$X$ Spiders (red), are defined with respect to the $X$ eigenbasis ($\ket +$ and $\ket -$).
+$X$ Spiders (red), are defined with respect to the $X$ eigenbasis, $\ket +$ and $\ket -$.
 
 \begin{figure}[H]
 \centering
@@ -32,7 +32,7 @@ $X$ Spiders (red), are defined with respect to the $X$ eigenbasis ($\ket +$ and 
 \caption{Interpretation of an X Spider as a linear map.}
 \end{figure}
 
-We can represent the $Z$ eigenstates, $\ket 0$ and $\ket 1$, using an $X$ spider with a phase of either $0$ or $\pi$.
+We can represent the $Z$ eigenstates using an $X$ spider with a phase of $0$ or $\pi$.
 
 \begin{figure}[H]
 \centering
@@ -50,7 +50,7 @@ We can represent the $Z$ eigenstates, $\ket 0$ and $\ket 1$, using an $X$ spider
 \end{minipage}
 \end{figure}
 
-Similarly, we can represent the $X$ eigenstates, $\ket +$ and $\ket -$, using the corresponding $Z$ spiders.
+Similarly, we represent the $X$ eigenstates using the corresponding $Z$ spiders.
 
 \begin{figure}[H]
 \centering
@@ -68,7 +68,7 @@ Similarly, we can represent the $X$ eigenstates, $\ket +$ and $\ket -$, using th
 \end{minipage}
 \end{figure}
 
-Single qubit rotations in the $Z$ basis are represented by a Z Spider with a single input and a single output. Arbitrary rotations in the $X$ basis are represented by the corresponding $X$ spider. We can view these as rotations of the Bloch sphere.
+Single qubit rotations in the $Z$ basis are represented by a $Z$ Spider with a single input and a single output. Arbitrary rotations in the $X$ basis are represented by the corresponding $X$ spider. We can view these as rotations of the Bloch sphere.
 
 \includezxdiagramtextplus{figures/chapter-2/z_rotation}{0.11}{
     \ket{0} \bra{0} + e^{i\alpha}
@@ -109,7 +109,7 @@ We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha
 \subsection{Composition}%
 \label{composition}
 
-To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse as in the ZX diagram as we have defined it.
+To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse of how we have defined it for ZX diagrams.
 
 \includezxdiagramtext{chapter-2/sequential}{0.27}{
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\gamma} \end{pmatrix}
@@ -128,11 +128,11 @@ Alternatively, we could have chosen to compose the spiders in parallel, resultin
     1 - e^{i\beta} & 1 + e^{i\beta}
 \end{pmatrix}}
 
-The CNOT gate in the ZX calculus is represented by a Z spider (control qubit) and an X spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
+The CNOT gate in the ZX calculus is represented by a $Z$ spider (control qubit) and an $X$ spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 
 \includezxdiagram{chapter-2/cnot_def}{0.65}
 
-We can calculate matrix $A$, consisting of a single-input and two-output Z Spider ($4 \times 2$ matrix) and an empty wire (identity matrix), by taking the tensor product.
+We can calculate matrix $A$, consisting of a single-input and two-output $Z$ Spider ($4 \times 2$ matrix) and an empty wire (identity matrix), by taking the tensor product.
 
 \includezxdiagramtext{chapter-2/A_def}{0.33}{
 \begin{pmatrix}
@@ -215,7 +215,7 @@ The Hadamard gate $H$ corresponds to a rotation of the Bloch sphere $\pi$ radian
 \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
 
-There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles (see Appendix \ref{appendix-hadamard}). Diagrammatically, applying Hadamard generators to all of the legs of a given spider changes the colour of the spider.
+There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles (see Appendix \ref{appendix-hadamard}). The Hadamard gate switches between the $Z$ and $X$ bases. Hence, diagrammatically, applying Hadamard generators to all of the legs of a spider changes the colour of the spider.
 
 \includezxdiagram{chapter-2/colour_changing}{0.45}
 

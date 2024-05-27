@@ -1,12 +1,12 @@
 \section{\label{vqe}Variational Quantum Eigensolver}
 
-Parametrised quantum circuits are similar to classical neural networks in concept, but by definition of must have the same number of inputs and outputs. This requirement stems from the fact that all quantum gates must be unitary, and thus, an $n$ qubit quantum neural network represents a $2^n \times 2^n$ unitary map \cite{Yeung2020}.
+Parametrised quantum circuits are similar to classical neural networks in concept, but by definition of must have the same number of inputs and outputs. This requirement stems from the fact that all quantum gates must be unitary, where an $n$ qubit quantum neural network represents a $2^n \times 2^n$ unitary map \cite{Yeung2020}.
 
 The Variational Quantum Eigensolver (VQE) algorithm is a particular class of variational quantum algorithms that is used to estimate the ground state energy of molecular quantum systems. It consists of a quantum subroutine, a parametrised quantum circuit that implements some UCC ansatz representing a fermionic wavefunction, and a classical subroutine that classically optimises the UCC ansatz until it converges to the best approximation of the true ground state.
 
-The input state for the parametrised quantum circuit is the reference state that the UCC operator $U(\bm\theta)$ acts on, and is encoded as a pure quantum state $\ket{\psi_0}$ in the case of the single Slater determinant Hartree-Fock state. The output of the parametrised quantum circuit is an entangled state representing the UCC ansatz. That is, the the UCC ansatz $\ket{\psi(\bm\theta)}$ represents some linear combination of vectors in the Fock space, approximating the correlation present in the true ground state.
+The input state for the parametrised quantum circuit is the reference state that the UCC operator $U(\bm\theta)$ acts on, and in the case of the single Slater determinant Hartree-Fock state, is encoded as a pure quantum state $\ket{\psi_0}$. The output of the parametrised quantum circuit is an entangled state representing the UCC ansatz. That is, the the UCC ansatz $\ket{\psi(\bm\theta)}$ represents some linear combination of vectors in the Fock space, approximating the correlation present in the true ground state.
 
-Upon measuring the output of the parametrised quantum circuit, it collapses into a single vector in the Fock space with a probability defined by that vector's weight in the UCC ansatz. The quantum subroutine then computes the energy expectation value of the UCC ansatz using a quantum circuit consisting of the parametrised quantum circuit and  the Hamiltonian for the system.
+Upon measuring the output of the parametrised quantum circuit, it collapses into a single vector in the Fock space with a probability defined by that vector's weight in the UCC ansatz. The quantum subroutine computes the energy expectation value of the UCC ansatz using a quantum circuit consisting of the parametrised quantum circuit and  the Hamiltonian for the system.
 
 \includezxdiagram{chapter-1/expectation}{0.7}
 \begin{equation*}
