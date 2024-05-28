@@ -1,42 +1,21 @@
 \section{Singly Controlled-Rotations}
 
-In this section we will diagrammatically derive a singly-controlled rotation. A controlled rotation with respect to the $Z$ eigenbasis applies a rotation to the target qubit if the control qubit is in the $\ket 1$ state, and applies no rotation, if the control qubit is in the $\ket 0$ state.
+Starting with the singly-controlled $Z$ rotation gate CR$_Z$, we will see that it can be expressed as a combination of phase gadgets, since it corresponds to a diagonal matrix in the computational $Z$ basis \cite{Yeung2020}.
 
-Let us start by considering the behaviour of the CNOT gate with the $Z$ eigenstates. Using the state copy (\ref{state-copy}), we can show when the control qubit is $\ket 0$, we obtain identity, whilst when $\ket 1$ we obtain the Pauli $X$ gate.
+\includezxdiagram{chapter-4/CRZ1}{0.7}
 
-\includezxdiagram{chapter-4/cnot_zero_one}{1}
+The CR$_Z$ gate applies a rotation to the target qubit if the control qubit is in the $\ket 1$ state, and applies no rotation, if the control qubit is in the $\ket 0$ state. This behaviour generalises to superpositions of states. Using the spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we obtain the CR$_Z$ gate in quantum circuit notation as follows.
 
-Next, using the $\pi$ copy rule (\ref{pi-copy}), we can show that conjugating a $Z$ rotation by Pauli $X$ gates, negates the phase of the rotation, $\alpha \rightarrow -\alpha$.
+\includezxdiagram{chapter-4/CRZ2}{0.72}
 
-\includezxdiagram{chapter-4/phase_flip}{0.7}
-
-Combining these, we can construct a singly controlled rotation in the $Z$ basis, where the black node corresponds to the control.
-
-\includezxdiagram{chapter-4/CRZ}{0.45}
-
-We can easily verify this by observing its interaction with the $Z$ eigenstates.
+To verify that this circuit does indeed correspond to a controlled rotation in the $Z$ basis, let us observe what happens when the control qubit is $\ket 0$. Using the spider fusion (\ref{spider-fusion}), state copy (\ref{state-copy}) and identity (\ref{identity}) rules, we see that,
 
 \includezxdiagram{chapter-4/CRZ_zero}{1}
 
+As expected, fusing the $Z$ rotations in the resulting diagram yields identity. Conversely, when the control qubit is $\ket 1$, we obtain a $Z$ rotation by $\theta$.
+
 \includezxdiagram{chapter-4/CRZ_one}{1}
 
-The resulting diagrams either fuse to give identity or the Pauli $X$ gate, as expected.
-
-\includezxdiagram{chapter-4/CRZ_fuse}{0.85}
-
-Using the bialgebra rule (\ref{bialgebra}), we can identify this structure as a two-legged phase gadget and a $Z$ rotation, both of which commute with one another.
-
-\includezxdiagram{chapter-4/CRZ_zx}{0.8}
-
-Using that the $Z$ rotation commutes through the phase gadget (\ref{spider-fusion}), and the phase gadget decomposition result (\ref{phase-gadget-decomposition}) , we obtain four equivalent diagrams. 
+Using that the $Z$ rotation commutes through the phase gadget (\ref{spider-fusion}), and the phase gadget decomposition result (\ref{phase-gadget-decomposition}), we can decompose the CR$_Z$ gate into four equivalent quantum circuits.
 
 \includezxdiagram{chapter-4/CRZ_decomp}{1}
-
-Deriving singly-controlled rotations in the $X$ and $Y$ bases amounts to conjugating the target qubit by the correct gates.
-
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-4/CRX_CRY}{0.75}
-    \caption{Singly-controlled $X$ (left) and $Y$ (right) rotations.}
-\end{figure}
-

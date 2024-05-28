@@ -1,6 +1,6 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (99) at (18.5, 1) {\tiny id};
+		\node [style=none] (99) at (18.75, 1) {\tiny (id)};
 		\node [style=none] (61) at (0, 0) {};
 		\node [style={x_node}] (62) at (0, 1) {};
 		\node [style={z_node}] (63) at (2, 1) {};
@@ -17,7 +17,7 @@
 		\node [style=none] (77) at (11.25, 0) {};
 		\node [style=none] (78) at (11.25, 1) {};
 		\node [style=none] (79) at (5.75, 0.5) {=};
-		\node [style=none] (80) at (5.75, 1) {\tiny c,  f};
+		\node [style=none] (80) at (5.75, 1) {\tiny (c,  f)};
 		\node [style={x_node}] (81) at (9.5, 1) {};
 		\node [style=none] (82) at (17.75, 0) {};
 		\node [style={x_node}] (83) at (16.75, 0) {};
@@ -27,15 +27,15 @@
 		\node [style=none] (87) at (13, 0) {};
 		\node [style=none] (88) at (17.75, 1) {};
 		\node [style=none] (89) at (12.25, 0.5) {=};
-		\node [style=none] (90) at (12.25, 1) {\tiny c,  f};
+		\node [style=none] (90) at (12.25, 1) {\tiny (c,  f)};
 		\node [style={x_node}] (91) at (16.75, 1) {};
-		\node [style=none] (92) at (22.25, 0) {};
-		\node [style={z_phase}] (93) at (21.25, 0) {$-\frac{\theta}{2}$};
-		\node [style={z_phase}] (94) at (20, 0) {$\frac{\theta}{2}$};
-		\node [style=none] (95) at (19.25, 0) {};
-		\node [style=none] (96) at (22.25, 1) {};
-		\node [style={x_node}] (97) at (21.5, 1) {};
-		\node [style=none] (98) at (18.5, 0.5) {=};
+		\node [style=none] (92) at (22.5, 0) {};
+		\node [style={z_phase}] (93) at (21.5, 0) {$-\frac{\theta}{2}$};
+		\node [style={z_phase}] (94) at (20.25, 0) {$\frac{\theta}{2}$};
+		\node [style=none] (95) at (19.5, 0) {};
+		\node [style=none] (96) at (22.5, 1) {};
+		\node [style={x_node}] (97) at (21.75, 1) {};
+		\node [style=none] (98) at (18.75, 0.5) {=};
 		\node [style={z_phase}] (100) at (1, 0) {$\frac{\theta}{2}$};
 		\node [style={z_phase}] (101) at (7.25, 0) {$\frac{\theta}{2}$};
 		\node [style={z_phase}] (102) at (9.5, 0) {$-\frac{\theta}{2}$};
