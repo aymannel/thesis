@@ -4,24 +4,23 @@ We can implement higher order controlled rotations by nesting singly-controlled 
 
 \includezxdiagram{chapter-4/CCRZ1}{0.65}
 
-We can minimise circuit depth when finding a specific implementation of the CCR$_Z$ gate by carefully choosing the specific circuit decomposition of the CR$_Z$ gates, as in the figure on the left, then using the fact that the CNOT gate is self-inverse to cancel the $\text{CNOT}_{1, 2}$ gates highlighted in the figure on the right \cite{Yordanov2020}.
+We can minimise the depth of the circuit implementing the CCR$_Z$ gate by choosing specific decompositions of the CR$_Z$ gate such that one pair of $\text{CNOT}_{1, 2}$ are adjacent and cancel one-another (see diagram on the right) \cite{Yordanov2020}.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-4/CCRZ2}{1}
-    \caption{CR$_Z$ circuit decomposition (left). Cancelling CNOT gates (right).}
+    \caption{CCR$_Z$ circuit decomposition (left). Cancelling CNOT gate pair (right).}
 \end{figure}
 
-For the purposes of this thesis, we are interested in the form of controlled rotations in terms of phase gadgets. By commuting the CNOT gates in the circuit above and cancelling the relevant CNOT gates, we obtain the following phase polynomial.
+For the purposes of this thesis, we are interested in the form of controlled rotations in terms of Pauli gadgets. By expressing all $Z$ rotations as phase gadgets (\ref{phase-gadget-single-leg}) and commuting all CNOT gates through them such that the CNOT gates cancel, we obtain a phase polynomial consisting of four phase gadgets.
 
 \includezxdiagram{chapter-4/CCRZ3}{0.9}
 
-In Chapter \ref{excitation-operators}, we will use this result to show that excitation operators used to construct UCC ansätze can be expressed in terms of controlled rotations. Using the phase gadget commutation rule (\ref{phase-gadget-commutation}), we can order the phase gadgets in the phase polynomial as we see fit.
-
-We can build controlled rotations to arbitrary arity by recursively applying the method of nesting controled rotations described above. Hence, as with the doubly-controlled rotation, we can express a triply-controlled rotation by nesting two doubly-controlled rotations as follows.
+We can build controlled rotations to arbitrary arity by recursively applying the method of nesting controled rotations described above. Hence, as with the doubly-controlled rotation, we can construct triply-controlled rotations by nesting doubly-controlled rotations. Below is one specific implementation of a triply-controlled $Z$ rotation, with the largest number of adjacent CNOT gates.
 
 \includezxdiagram{chapter-4/CCCRZ}{1}
 
-Using the same rules as before, we can show that a triply-controlled rotation corresponds to the following phase polynomial of commuting phase gadgets.
+Using the same rules as before, we can show that a triply-controlled $Z$ rotation corresponds to a phase polynomial consisting of eight commuting phase gadgets.
+
 \includezxdiagram{chapter-4/CCCRZ_zx}{0.8}
 

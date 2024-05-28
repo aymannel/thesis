@@ -35,7 +35,7 @@
 		\node [style=hadamard] (194) at (9.5, -0.75) {};
 		\node [style=none] (195) at (4.75, -0.75) {=};
 		\node [style=none] (196) at (7.5, 0.25) {$\Updownarrow$};
-		\node [style=none] (197) at (2, 0.25) {$\Updownarrow$};
+		\node [style=none] (197) at (2, 0.25) {\small $\Updownarrow$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (141) to (140);
