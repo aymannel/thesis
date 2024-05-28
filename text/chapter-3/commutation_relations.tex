@@ -20,31 +20,25 @@ Therefore, we can show that two Pauli gadgets with an even number of mismatching
 \subsection{Clifford Commutation Relations}%
 \label{clifford-commutation-relations}
 
-We will now develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as `what happens when a Clifford gate is pushed through a Pauli gadget'.
+We will now develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with members of the Clifford group. Diagrammatically, we interpret this as `what happens when a Clifford gate is pushed through a Pauli gadget'.
 
-The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string $P$ by a member of the Clifford group $C$ is closed in the set of Pauli strings, $C^\dagger P \, C \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Pauli string acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
+By definition, conjugating a Pauli string by a member of the Clifford group, $C^\dagger P \, C$, is closed in the set of Pauli strings, $\{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Pauli string acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$.
 
-\includezxdiagram{chapter-3/decomp}{0.55}
+We can interpret the conjugation of \textit{phase gadgets} by CNOT gates diagrammatically as the phase gadget decomposition ($\ref{phase-gadget-decomposition}$) result (see figure on the left). Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we can define \textit{commutation relation} as $\Phi(\theta) C = C \, \Phi'(\theta)$ (see figure on the right).
 
-Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we define Clifford \textit{commutation relation} as $\Phi(\theta) C = C \, \Phi'(\theta)$.
+\includezxdiagram{chapter-3/commutation}{1}
 
-\includezxdiagram{chapter-3/commutation}{0.55}
-
-Since the CNOT gate acts on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings, $\{I, X, Y, Z\}^{\otimes 2}$. In other words, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT gate. Similarly, there are 16 commutation relations describing the interaction of Pauli gadgets with the CZ gate.
-
-Whilst it is possible to derive each of these commutation relations directly, it can be shown, through the Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string. Hence, identifying how a Pauli string interacts with Clifford gates tells us how the corresponding Pauli gadget behaves.
+Since the CNOT gate acts on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings $\{I, X, Y, Z\}^{\otimes 2}$. Consequently, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT gate. Similarly, there are 16 commutation relations describing the interaction of Pauli gadgets with the CZ gate.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-3/CNOT_examples}{0.9}
-    \caption{Example CNOT and CZ commutation relations. See Appendix \ref{commutation-relations}.}
+    \caption{Example commutation relations. See Appendix \ref{commutation-relations} for the complete set.}
 \end{figure}
 
-Let us illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} I \otimes Z \right]$ commutation relation diagrammatically using the $Z \otimes Z$ Pauli string. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
+Whilst it is possible to derive each of these commutation relations directly, it can be shown, through the relevant Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the corresponding conjugated Pauli string. In other words, identifying how a Pauli string interacts with Clifford gates tells us how the corresponding Pauli gadget behaves.
 
-\includezxdiagram{chapter-3/commutation_trick}{0.6}
-
-Recall that, up to a global phase of $-i$, the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (see \ref{pauli-Y}). Therefore, we can derive the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation by identifying how the $Y \otimes X$ Pauli string interacts with the CNOT$_{0, 1}$ gate.
+Recall that up to a global phase of $-i$, the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (\ref{pauli-Y}). We can, therefore, derive how the $\text{CNOT}_{0, 1}$ gate commutes through the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right]$ Pauli gadget by identifying how the CNOT$_{0, 1}$ gate interacts with the $Y \otimes X$ Pauli string.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{1}
 

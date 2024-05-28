@@ -1,41 +1,78 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (0) at (7, 0) {};
-		\node [style=none] (1) at (7, 1) {};
-		\node [style={x_node}] (2) at (11.25, 0) {};
-		\node [style={z_node}] (3) at (11.25, 1) {};
-		\node [style=none] (4) at (12, 0) {};
-		\node [style=none] (5) at (12, 1) {};
-		\node [style=none] (6) at (0.5, 0) {};
-		\node [style=none] (7) at (0.5, 1) {};
-		\node [style=none] (8) at (5.5, 0) {};
-		\node [style=none] (9) at (5.5, 1) {};
-		\node [style={z_phase}] (10) at (4, 0.5) {$\theta$};
-		\node [style={z_node}] (11) at (2.75, 0) {};
-		\node [style={x_node}] (12) at (3.25, 0.5) {};
-		\node [style={z_node}] (13) at (2.75, 1) {};
-		\node [style=none] (14) at (6.25, 1) {=};
-		\node [style=none] (15) at (7.75, 2.5) {};
-		\node [style=none] (16) at (10.5, 2.5) {};
-		\node [style=none] (17) at (7.75, -0.5) {};
-		\node [style=none] (18) at (10.5, -0.5) {};
-		\node [style=none] (19) at (2, 2.5) {};
-		\node [style=none] (20) at (4.75, 2.5) {};
-		\node [style=none] (21) at (2, -0.5) {};
-		\node [style=none] (22) at (4.75, -0.5) {};
-		\node [style=none] (23) at (10, -1.25) {\small $\Phi'(\theta)$};
-		\node [style=none] (24) at (4.25, -1.25) {\small $\Phi(\theta)$};
-		\node [style={z_phase}] (25) at (9.75, 0.5) {$\theta$};
-		\node [style={z_node}] (26) at (8.5, 0) {};
-		\node [style={x_node}] (27) at (9, 0.5) {};
-		\node [style=none] (28) at (0.5, 2) {};
-		\node [style=none] (29) at (5.5, 2) {};
-		\node [style={z_node}] (30) at (2.75, 2) {};
-		\node [style=none] (31) at (7, 2) {};
-		\node [style=none] (32) at (12, 2) {};
-		\node [style={z_node}] (33) at (8.25, 2) {};
-		\node [style={x_node}] (34) at (1.25, 0) {};
-		\node [style={z_node}] (35) at (1.25, 1) {};
+		\node [style=none] (0) at (18, 0) {};
+		\node [style=none] (1) at (18, 1) {};
+		\node [style={x_node}] (2) at (22, 0) {};
+		\node [style={z_node}] (3) at (22, 1) {};
+		\node [style=none] (4) at (22.5, 0) {};
+		\node [style=none] (5) at (22.5, 1) {};
+		\node [style=none] (6) at (12, 0) {};
+		\node [style=none] (7) at (12, 1) {};
+		\node [style=none] (8) at (16.5, 0) {};
+		\node [style=none] (9) at (16.5, 1) {};
+		\node [style={z_phase}] (10) at (15.25, 0.5) {$\theta$};
+		\node [style={z_node}] (11) at (14, 0) {};
+		\node [style={x_node}] (12) at (14.5, 0.5) {};
+		\node [style={z_node}] (13) at (14, 1) {};
+		\node [style=none] (14) at (17.25, 1) {=};
+		\node [style=none] (15) at (18.5, 2.5) {};
+		\node [style=none] (16) at (21.25, 2.5) {};
+		\node [style=none] (17) at (18.5, -0.5) {};
+		\node [style=none] (18) at (21.25, -0.5) {};
+		\node [style=none] (19) at (13.25, 2.5) {};
+		\node [style=none] (20) at (16, 2.5) {};
+		\node [style=none] (21) at (13.25, -0.5) {};
+		\node [style=none] (22) at (16, -0.5) {};
+		\node [style=none] (23) at (20.75, -1.25) {\small $\Phi'(\theta)$};
+		\node [style=none] (24) at (15.5, -1.25) {\small $\Phi(\theta)$};
+		\node [style={z_phase}] (25) at (20.5, 0.5) {$\theta$};
+		\node [style={z_node}] (26) at (19.25, 0) {};
+		\node [style={x_node}] (27) at (19.75, 0.5) {};
+		\node [style=none] (28) at (12, 2) {};
+		\node [style=none] (29) at (16.5, 2) {};
+		\node [style={z_node}] (30) at (14, 2) {};
+		\node [style=none] (31) at (18, 2) {};
+		\node [style=none] (32) at (22.5, 2) {};
+		\node [style={z_node}] (33) at (19, 2) {};
+		\node [style={x_node}] (34) at (12.5, 0) {};
+		\node [style={z_node}] (35) at (12.5, 1) {};
+		\node [style=none] (36) at (5.25, 0) {};
+		\node [style=none] (37) at (5.25, 1) {};
+		\node [style={x_node}] (38) at (5.75, 0) {};
+		\node [style={x_node}] (39) at (10, 0) {};
+		\node [style={z_node}] (40) at (10, 1) {};
+		\node [style={z_node}] (41) at (5.75, 1) {};
+		\node [style=none] (42) at (10.5, 0) {};
+		\node [style=none] (43) at (10.5, 1) {};
+		\node [style=none] (44) at (0, 0) {};
+		\node [style=none] (45) at (0, 1) {};
+		\node [style=none] (46) at (3.75, 0) {};
+		\node [style=none] (47) at (3.75, 1) {};
+		\node [style={z_phase}] (48) at (2.5, 0.5) {$\theta$};
+		\node [style={z_node}] (49) at (1.25, 0) {};
+		\node [style={x_node}] (50) at (1.75, 0.5) {};
+		\node [style={z_node}] (51) at (1.25, 1) {};
+		\node [style=none] (52) at (4.5, 1) {=};
+		\node [style=none] (53) at (6.5, 2.5) {};
+		\node [style=none] (54) at (9.25, 2.5) {};
+		\node [style=none] (55) at (6.5, -0.5) {};
+		\node [style=none] (56) at (9.25, -0.5) {};
+		\node [style=none] (57) at (0.5, 2.5) {};
+		\node [style=none] (58) at (3.25, 2.5) {};
+		\node [style=none] (59) at (0.5, -0.5) {};
+		\node [style=none] (60) at (3.25, -0.5) {};
+		\node [style=none] (61) at (8.75, -1.25) {\small $\Phi'(\theta)$};
+		\node [style=none] (62) at (2.75, -1.25) {\small $\Phi(\theta)$};
+		\node [style={z_phase}] (63) at (8.5, 0.5) {$\theta$};
+		\node [style={z_node}] (64) at (7.25, 0) {};
+		\node [style={x_node}] (65) at (7.75, 0.5) {};
+		\node [style=none] (66) at (0, 2) {};
+		\node [style=none] (67) at (3.75, 2) {};
+		\node [style={z_node}] (68) at (1.25, 2) {};
+		\node [style=none] (69) at (5.25, 2) {};
+		\node [style=none] (70) at (10.5, 2) {};
+		\node [style={z_node}] (71) at (7, 2) {};
+		\node [style=none] (72) at (11.25, 1) {$\Leftrightarrow$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (2) to (3);
@@ -70,5 +107,39 @@
 		\draw (6.center) to (34);
 		\draw (1.center) to (3);
 		\draw (26) to (0.center);
+		\draw (41) to (38);
+		\draw (39) to (40);
+		\draw (36.center) to (38);
+		\draw (42.center) to (39);
+		\draw (43.center) to (40);
+		\draw (41) to (37.center);
+		\draw (48) to (50);
+		\draw (50) to (49);
+		\draw (51) to (45.center);
+		\draw (51) to (47.center);
+		\draw (44.center) to (49);
+		\draw (49) to (46.center);
+		\draw (51) to (50);
+		\draw [style={black_dashed}] (54.center)
+			 to (56.center)
+			 to [in=360, out=180] (55.center)
+			 to (53.center)
+			 to cycle;
+		\draw [style={black_dashed}] (58.center)
+			 to (60.center)
+			 to [in=360, out=180] (59.center)
+			 to (57.center)
+			 to cycle;
+		\draw (63) to (65);
+		\draw (65) to (64);
+		\draw [in=360, out=180] (40) to (41);
+		\draw (38) to (64);
+		\draw (64) to (39);
+		\draw (68) to (66.center);
+		\draw (68) to (67.center);
+		\draw (71) to (69.center);
+		\draw (71) to (70.center);
+		\draw (68) to (50);
+		\draw (71) to (65);
 	\end{pgfonlayer}
 \end{tikzpicture}
