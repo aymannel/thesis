@@ -1,11 +1,11 @@
-\section{Gadget Commutation Relations}%
-\label{gadget-commutation-relations}
+\section{Commutation Relations}%
+\label{commutation-relations}
 
 A pair of Pauli gadgets commute when their Hamiltonians commute \cite{Yeung2020}. That is, a pair of Pauli gadgets commute when the Pauli strings that they are defined by also commute. Diagrammatically, we have that a pair of Pauli gadgets commute when they \textit{mismatch on an even number of legs} \cite{Yeung2020}. Let us demonstrate this by first considering the three possible mismatching pairs of Pauli gadget legs.
 
 \includezxdiagram{chapter-3/mismatches}{1}
 
-Starting with the mismatching $Z$/$X$ pair and using the bialgebra (\ref{bialgebra}), Hadamard commutation (\ref{hadamard-commutation}) and spider fusion (\ref{spider-fusion}) rules, we can show that commuting the legs introduces a Hadamard between the Pauli gadget bodies \cite{Yeung2020}.
+Starting with the mismatching $Z$/$X$ pair and using the bialgebra (\ref{bialgebra}), Hadamard commutation (\ref{hadamard-commutation}) and spider fusion (\ref{spider-fusion}) rules, we can show that commuting the gadgets' legs introduces a Hadamard between the bodies of the gadgets. \cite{Yeung2020}.
 
 \includezxdiagram{chapter-3/mismatch_proof}{1}
 
@@ -17,12 +17,12 @@ Therefore, we can show that two Pauli gadgets with an even number of mismatching
 
 \includezxdiagram{chapter-3/mismatch_proof3}{0.8}
 
-\section{Clifford Commutation Relations}%
-\label{commutation-relations}
+\subsection{Clifford Commutation Relations}%
+\label{clifford-commutation-relations}
 
-In this section we will develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as `what happens to a Pauli gadget when a Clifford is pushed through it'.
+We will now develop a set of \textit{commutation relations} describing the interaction of Pauli gadgets with the Clifford gates. Diagrammatically, we interpret this as `what happens when a Clifford gate is pushed through a Pauli gadget'.
 
-The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string $P$ by a member of the Clifford group $C$ is closed in the set of Pauli strings, $C^\dagger P \, C \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Clifford acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
+The Clifford group is the set of transformations that normalise the Pauli group. Therefore, conjugating a Pauli string $P$ by a member of the Clifford group $C$ is closed in the set of Pauli strings, $C^\dagger P \, C \in \{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Pauli string acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$. For instance, when $C = \text{CNOT}_{1, 2}$ and $\Phi(\theta) = \text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \otimes Z \right]$, we can interpret the conjugation diagrammatically as the phase gadget decomposition result ($\ref{phase-gadget-decomposition}$).
 
 \includezxdiagram{chapter-3/decomp}{0.55}
 
@@ -30,41 +30,29 @@ Recalling that the members of the Clifford group are unitary transformations, $C
 
 \includezxdiagram{chapter-3/commutation}{0.55}
 
-The CNOT gate is just one of many gates for which we can derive commutation relations. For example, consider the following Hadamard commutation relation.
-
-\includezxdiagram{chapter-3/commutation_hadamard}{0.55}
-
-%%%
-
-\subsection{CNOT Commutation Relations}
-
-The CNOT gate acts on two qubits ($n = 2$), therefore, we can form 16 Pauli gadgets from Pauli strings of the set of Pauli matrices, $\{I, X, Y, Z\}$ taken two at a time, with repetition. In other words, there are 16 unique commutation relations to derive to fully describe the interaction between the CNOT gate and Pauli gadgets.
+Since the CNOT gate acts on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings, $\{I, X, Y, Z\}^{\otimes 2}$. In other words, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT gate. Similarly, there are 16 commutation relations describing the interaction of Pauli gadgets with the CZ gate. Whilst it is possible to derive each of these commutation relations directly, it can be shown, through the Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string. Hence, identifying how a Pauli string interacts with Clifford gates tells us how the corresponding Pauli gadget behaves.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-3/CNOT_examples}{0.9}
-    \caption{Two examples of the CNOT gate interacting with Pauli gadgets.}
+    \caption{Example CNOT and CZ commutation relations. See Appendix \ref{commutation-relations}.}
 \end{figure}
-
-Whilst it is possible to derive each of these commutation relations using the Pauli gadget directly, it can be shown, through the Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the conjugated Pauli string. Hence, identifying how the Pauli gates interact with some Clifford gate tells us how the corresponding Pauli gadget behaves.
 
 Let us illustrate the $\text{exp} \left[ - i\frac{\theta}{2} Z \otimes Z \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} I \otimes Z \right]$ commutation relation diagrammatically using the $Z \otimes Z$ Pauli string. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
 
 \includezxdiagram{chapter-3/commutation_trick}{0.6}
 
-Since the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (up to a global phase of $-i$) we can identify the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation.
+Recall that, up to a global phase of $-i$, the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (see \ref{pauli-Y}). Therefore, we can derive the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right] \text{CNOT}_{0, 1} = \text{CNOT}_{0, 1} \,\, \text{exp} \left[ - i\frac{\theta}{2} Y \otimes I \right]$ commutation relation by identifying how the $Y \otimes X$ Pauli string interacts with the CNOT$_{0, 1}$ gate.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{1}
 
-%%%
+Similarly, identifying the single-qubit Clifford commutation relations amounts to identifying how the single-qubit Cliffords interact with the corresponding Pauli gates. For instance, since commuting a Hadamard gate through the Pauli $Z$ gate yields the Pauli $X$ gate and \textit{vice verse}, we have that.
 
-\subsection{CZ Commutation Relations}
-
-Similarly, we can derive the 16 commutation relations of the CZ (controlled-Z) gate using the same method. Consider, for instance, the following example.
-
-\includezxdiagram{chapter-3/commutation_cz}{0.9}
+\includezxdiagram{chapter-3/xplus_commutation}{1}
 
 \subsection{Pauli Commutation Relations}
+
+We can identify how 
 
 The Pauli matrices commute through Pauli strings by applying a global phase but leaving the Pauli string unchanged. Due to the one-to-one correspondence between Pauli strings and their corresponding Pauli gadget, we can show that the Paulis commute through Pauli gadgets by modifying their phase.
 
