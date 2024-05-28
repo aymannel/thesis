@@ -24,7 +24,7 @@ We will now develop a set of \textit{commutation relations} describing the inter
 
 By definition, conjugating a Pauli string by a member of the Clifford group, $C^\dagger P \, C$, is closed in the set of Pauli strings, $\{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Pauli string acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$.
 
-We can interpret the conjugation of \textit{phase gadgets} by CNOT gates diagrammatically as the phase gadget decomposition ($\ref{phase-gadget-decomposition}$) result (see figure on the left). Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we can define \textit{commutation relation} as $\Phi(\theta) C = C \, \Phi'(\theta)$ (see figure on the right).
+We can interpret the conjugation of \textit{phase gadgets} by CNOT gates diagrammatically as the phase gadget decomposition result (see diagram on the left). Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we can define \textit{commutation relation} as $\Phi(\theta) C = C \, \Phi'(\theta)$ (see diagram on the right).
 
 \includezxdiagram{chapter-3/commutation}{1}
 
@@ -38,15 +38,17 @@ Since the CNOT gate acts on two qubits ($n=2$), we can form 16 unique Pauli gadg
 
 Whilst it is possible to derive each of these commutation relations directly, it can be shown, through the relevant Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the corresponding conjugated Pauli string. In other words, identifying how a Pauli string interacts with Clifford gates tells us how the corresponding Pauli gadget behaves.
 
-Recall that up to a global phase of $-i$, the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (\ref{pauli-Y}). We can, therefore, derive how the $\text{CNOT}_{0, 1}$ gate commutes through the $\text{exp} \left[ - i\frac{\theta}{2} Y \otimes X \right]$ Pauli gadget by identifying how the CNOT$_{0, 1}$ gate interacts with the $Y \otimes X$ Pauli string.
+Let us illustrate this with an example. Using the $Z \otimes Z$ Pauli string, we show that the $\text{CNOT}_{0, 1}$ gate commutes through the $\text{exp} \left[ - i\frac{\theta}{2} \left( Z \otimes Z \right) \right]$ gadget to give the $\text{exp} \left[ - i\frac{\theta}{2} \left( I \otimes Z \right) \right]$ gadget. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
+
+\includezxdiagram{chapter-3/commutation_trick}{0.68}
+
+Recall that up to a global phase of $-i$, the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (\ref{pauli-Y}). We can, therefore, derive how the $\text{CNOT}_{0, 1}$ gate interacts with the $\text{exp} \left[ - i\frac{\theta}{2} \left(Y \otimes X \right) \right]$ Pauli gadget by identifying how the CNOT$_{0, 1}$ gate interacts with the $Y \otimes X$ Pauli string.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{1}
 
-Similarly, identifying how single-qubit Clifford gates interact with Pauli gadgets amounts to identifying how they interact with the corresponding Pauli gates. Since commuting a Hadamard gate through the Pauli $Z$ gate yields the Pauli $X$ gate, we have that commuting a Hadamard gate through a $Z$ leg yields an $X$ leg.
+Similarly, identifying how single-qubit Clifford gates interact with Pauli gadgets amounts to identifying how they interact with the Pauli gates. Importantly, if the phase of the Pauli gate is flipped, we must also flip the phase of the corresponding Pauli gadget.
 
-Importantly, when a phase is introduced upon interaction with a Clifford gate, we have that the same phase is applied to the corresponding Pauli gadget. For instance, commuting the $R_X \brac{\pi}{2}$ gate through a $Y$ leg flips the gadget's phase.
-
-\includezxdiagram{chapter-3/single_qubit_clifford}{0.95}
+\includezxdiagram{chapter-3/single_qubit_clifford}{0.55}
 
 % \subsection{Pauli Commutation Relations}
 
