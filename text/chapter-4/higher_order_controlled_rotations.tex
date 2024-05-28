@@ -4,7 +4,7 @@ We can implement higher order controlled rotations by nesting singly-controlled 
 
 \includezxdiagram{chapter-4/CCRZ1}{0.65}
 
-We can minimise the depth of the circuit implementing the CCR$_Z$ gate by choosing specific decompositions of the CR$_Z$ gate such that one pair of $\text{CNOT}_{1, 2}$ are adjacent and cancel one-another (see diagram on the right) \cite{Yordanov2020}.
+We can minimise the depth of the circuit implementing the CCR$_Z$ gate by choosing specific decompositions of the CR$_Z$ gate (see diagram on the left) such that one pair of $\text{CNOT}_{1, 2}$ are adjacent and cancel one-another (see diagram on the right).
 
 \begin{figure}[H]
     \centering
@@ -12,9 +12,9 @@ We can minimise the depth of the circuit implementing the CCR$_Z$ gate by choosi
     \caption{CCR$_Z$ circuit decomposition (left). Cancelling CNOT gate pair (right).}
 \end{figure}
 
-For the purposes of this thesis, we are interested in the form of controlled rotations in terms of Pauli gadgets. By expressing all $Z$ rotations as phase gadgets (\ref{phase-gadget-single-leg}) and commuting all CNOT gates through them such that the CNOT gates cancel, we obtain a phase polynomial consisting of four phase gadgets.
+However, for the purposes of this thesis, we are interested in the form of controlled rotations in terms of Pauli gadgets. By expressing all $Z$ rotations as phase gadgets (\ref{phase-gadget-single-leg}) and commuting all CNOT gates through them such that the CNOT gates cancel, we obtain a phase polynomial consisting of four commuting phase gadgets.
 
-\includezxdiagram{chapter-4/CCRZ3}{0.9}
+\includezxdiagram{chapter-4/CCRZ3}{0.55}
 
 We can build controlled rotations to arbitrary arity by recursively applying the method of nesting controled rotations described above. Hence, as with the doubly-controlled rotation, we can construct triply-controlled rotations by nesting doubly-controlled rotations. Below is one specific implementation of a triply-controlled $Z$ rotation, with the largest number of adjacent CNOT gates.
 
