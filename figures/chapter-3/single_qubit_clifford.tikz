@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (56) at (-6.25, -1.75) {};
+		\node [style={z_node}] (57) at (-6.25, 0) {};
+		\node [style={z_phase}] (59) at (-5.25, -2) {$\theta$};
+		\node [style={x_node}] (60) at (-5.25, -1) {};
+		\node [style=none] (61) at (-4.75, 0) {};
+		\node [style=none] (62) at (-9, 0) {};
+		\node [style=none] (63) at (-6.5, -1.5) {$\vdots$};
+		\node [style=none] (64) at (7.75, 0) {$\Leftrightarrow$};
+		\node [style={x_phase}] (75) at (-7, 0) {$+$};
+		\node [style={x_phase}] (76) at (-5.5, 0) {$-$};
+		\node [style={z_phase}] (78) at (0.25, 0) {$\pi$};
+		\node [style=none] (81) at (2.25, 0) {};
+		\node [style=none] (82) at (-2.75, 0) {};
+		\node [style={x_phase}] (85) at (-0.75, 0) {$+$};
+		\node [style={x_phase}] (86) at (1.25, 0) {$-$};
+		\node [style={x_phase}] (87) at (-8.25, 0) {$+$};
+		\node [style={x_phase}] (88) at (-2, 0) {$+$};
+		\node [style=none] (104) at (3, 0.5) {\tiny (f,  c)};
+		\node [style=none] (105) at (3, 0) {=};
+		\node [style={x_phase}] (122) at (6, 0) {$+$};
+		\node [style=none] (123) at (6.75, 0) {};
+		\node [style=none] (124) at (3.75, 0) {};
+		\node [style={z_phase}] (125) at (4.75, 0) {$-\pi$};
+		\node [style=none] (126) at (9.75, -1.75) {};
+		\node [style={z_node}] (127) at (9.75, 0) {};
+		\node [style={z_phase}] (128) at (10.75, -2) {$-\theta$};
+		\node [style={x_node}] (129) at (10.75, -1) {};
+		\node [style=none] (130) at (11.75, 0) {};
+		\node [style=none] (131) at (8.75, 0) {};
+		\node [style=none] (132) at (9.5, -1.5) {$\vdots$};
+		\node [style={x_phase}] (135) at (11, 0) {$+$};
+		\node [style=none] (137) at (-3.75, 0) {$\Leftrightarrow$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (60) to (59);
+		\draw (56.center) to (60);
+		\draw (57) to (60);
+		\draw (61.center) to (76);
+		\draw (76) to (57);
+		\draw (57) to (75);
+		\draw (81.center) to (86);
+		\draw (86) to (78);
+		\draw (78) to (85);
+		\draw (62.center) to (87);
+		\draw (87) to (75);
+		\draw (82.center) to (88);
+		\draw (88) to (85);
+		\draw (122) to (125);
+		\draw (125) to (124.center);
+		\draw (122) to (123.center);
+		\draw (129) to (128);
+		\draw (126.center) to (129);
+		\draw (127) to (129);
+		\draw (130.center) to (135);
+		\draw (135) to (127);
+		\draw (127) to (131.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
