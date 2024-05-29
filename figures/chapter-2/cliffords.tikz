@@ -1,0 +1,50 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (12) at (4, 0) {};
+		\node [style=none] (13) at (2.5, 0) {};
+		\node [style={z_phase}] (14) at (3.25, 0) {$\frac{\pi}{2}$};
+		\node [style=none] (15) at (2, 0) {=};
+		\node [style=none] (16) at (1.5, 0) {};
+		\node [style=none] (17) at (0, 0) {};
+		\node [style={z_phase}] (18) at (0.75, 0) {$+$};
+		\node [style=none] (19) at (9.25, 0) {};
+		\node [style=none] (20) at (7.75, 0) {};
+		\node [style={z_phase}] (21) at (8.5, 0) {$\frac{3\pi}{2}$};
+		\node [style=none] (22) at (7.25, 0) {=};
+		\node [style=none] (23) at (6.75, 0) {};
+		\node [style=none] (24) at (5.25, 0) {};
+		\node [style={z_phase}] (25) at (6, 0) {$-$};
+		\node [style=none] (26) at (14.5, 0) {};
+		\node [style=none] (27) at (13, 0) {};
+		\node [style={x_phase}] (28) at (13.75, 0) {$\frac{\pi}{2}$};
+		\node [style=none] (29) at (12.5, 0) {=};
+		\node [style=none] (30) at (12, 0) {};
+		\node [style=none] (31) at (10.5, 0) {};
+		\node [style={x_phase}] (32) at (11.25, 0) {$+$};
+		\node [style=none] (33) at (19.75, 0) {};
+		\node [style=none] (34) at (18.25, 0) {};
+		\node [style={x_phase}] (35) at (19, 0) {$\frac{3\pi}{2}$};
+		\node [style=none] (36) at (17.75, 0) {=};
+		\node [style=none] (37) at (17.25, 0) {};
+		\node [style=none] (38) at (15.75, 0) {};
+		\node [style={x_phase}] (39) at (16.5, 0) {$-$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (13.center) to (14);
+		\draw (14) to (12.center);
+		\draw (17.center) to (18);
+		\draw (18) to (16.center);
+		\draw (20.center) to (21);
+		\draw (21) to (19.center);
+		\draw (24.center) to (25);
+		\draw (25) to (23.center);
+		\draw (27.center) to (28);
+		\draw (28) to (26.center);
+		\draw (31.center) to (32);
+		\draw (32) to (30.center);
+		\draw (34.center) to (35);
+		\draw (35) to (33.center);
+		\draw (38.center) to (39);
+		\draw (39) to (37.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

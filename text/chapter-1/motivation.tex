@@ -1,9 +1,9 @@
 \section{Context \& Motivation}%
 \label{context-motivation}
 
-The Variational Quantum Eigensolver (VQE) is a promising hybrid quantum-classical algorithm for achieving quantum advantage on NISQ devices \cite{Cerezo2020}. Developed in 2014 by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014}, the VQE algorithm divides the problem of estimating the ground-state energy of a molecule into two parts -- computing the energy of a state on a quantum device, then classically optimising the state until it converges to a good approximation of the true ground state. One advantage of the VQE algorithm is its ability to adapt to different hardware requirements \cite{McClean2016}.
+The Variational Quantum Eigensolver (VQE) is a promising hybrid quantum-classical algorithm for achieving quantum advantage on NISQ devices \cite{Cerezo2020}. Developed in 2014 by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014}, the VQE algorithm divides the problem of estimating the ground-state energy of a molecule into two parts -- computing the energy of some fermionic state on a quantum device, then classically optimising the quantum circuit representing the state until it converges to a good approximation of the true ground state.
 
-VQE algorithms implement fermionic states on quantum devices via the Unitary Coupled Cluster (UCC) method \cite{Taube2006}. By preparing quantum states as a sequence of unitary excitation operations acting on some reference state, we define the UCC ansatz \cite{Burton2023}, allowing us to parametrically explore the Hilbert space of possible quantum states \cite{McClean2016}.
+VQE algorithms implement fermionic states on quantum devices via the Unitary Coupled Cluster (UCC) ansatz \cite{Taube2006}. By preparing quantum states as a sequence of unitary excitation operations acting on some reference state, we define the UCC ansatz \cite{Burton2023}, allowing us to parametrically explore the Hilbert space of possible quantum states \cite{McClean2016}.
 
 The Discretely and Continuously Optimized Variational Quantum Eigensolver (DISCO-VQE) is a specific type of VQE developed by Burton \textit{et al}. \cite{Burton2023}. This algorithm generates multiple distinct UCC ansätze, each yielding the same energy expectation value. This means that different sequences of unitary excitation operators are employed to rotate the reference state to a state approximating the true ground state. The identical energy expectation values of these states suggests that they equivalently capture the correlation present in the ground state, and that it may be possible to demonstrate the equivalence between these UCC ansätze through algebraic manipulation.
 
@@ -13,7 +13,6 @@ This led us to the work of Yordanov \textit{et al} \cite{Yordanov2020}, which sh
 
 In addition to our research goals, this thesis aims to introduce the ZX calculus in the context of quantum chemistry. While quantum chemistry is anticipated to be a principal application of quantum computing, it remains an area with limited engagement among Master's level researchers in Chemistry. Therefore, we hope that this thesis, along with the tools developed herein, will help lower the barrier to entry for future Master's students interested in quantum computing. By providing a solid foundation and practical insights, we aim to facilitate a smoother transition and foster greater interest in this rapidly developing field.
 
-To summarise our research objectives,
 \begin{enumerate}[itemsep=-5pt]
 \item Use the ZX calculus to gain insights into the structure of UCC ansätze and the nature of correlations in molecular quantum systems.
 \item Utilise these insights to rationalise the different outputs of VQE algorithms that yield the same energy.

@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (0, 0) {};
+		\node [style=none] (1) at (2.5, 0) {};
+		\node [style=box] (2) at (1.25, 0) {$R_Y(\theta)$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (1.center) to (2);
+		\draw (2) to (0.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

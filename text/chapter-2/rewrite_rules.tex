@@ -61,6 +61,10 @@ The $\pi$ \textit{copy rule} (\textit{c}) states that when a Pauli $Z$ or Pauli 
     \label{pi-copy}
 \end{figure}
 
+Using the $\pi$ copy, spider fusion (\ref{spider-fusion}) and identity (\ref{identity}) rules, we show that conjugating a rotation by Pauli gates in the opposite basis negates the phase.
+
+\includezxdiagram{chapter-2/phase_flip}{0.95}
+
 %%%
 
 \subsection{Hadamard Rules}
@@ -128,20 +132,35 @@ Recall that the CNOT gate is both unitary and Hermitian, and therefore, self-inv
 \newpage
 \section{Clifford Conjugation}
 
-In this section we will develop several results later used in this thesis.
-- Pauli Y gate
-- conjugation by XPlus and XMinus
-- conjugation by hadamards
-- refer to zxfermion
+The ZX calculus is a diagrammatic language that makes use of the complementary observables in the $Z$ and $X$ bases. Since both of these bases are Hermitian, we can arbitrarily deform their wires as we see fit. For instance, it is easy to show that the Pauli $Z$ gate ($Z$ spider with phase $\pi$) is Hermitian, $Z = Z^\dagger$, by finding its transpose (converting its inputs into outputs and \textit{vice verse}), then taking its complex conjugate (negating its phase $\pi \rightarrow -\pi = \pi$).
 
-Next, using the $\pi$ copy rule (\ref{pi-copy}), we can show that conjugating a $Z$ rotation by Pauli $X$ gates, negates the phase of the rotation, $\alpha \rightarrow -\alpha$.
+\includezxdiagram{chapter-2/hermitian}{0.55}
 
-\includezxdiagram{chapter-4/phase_flip}{0.7}
+The $Y$ basis, unlike the $Z$ and $X$ bases, is \textit{not Hermitian}. Therefore, converting the inputs of a $Y$ \textit{Spider} into outputs and \textit{vice verse} does \textit{not} yield its transpose. Instead, we define rotations in the $Y$ basis by conjugating $Z$ and $X$ spiders \cite{Yeung2020}.
 
 \begin{figure}[H]
     \centering
-    Pauli Y gate
-    \caption{Pauli Y gate.}
+    \includezxdiagram{chapter-2/Y_rotation}{0.7}
+    \caption{Definition of an arbitrary rotation in the $Y$ basis.}
     \label{pauli-Y}
+\end{figure}
+
+Where the single-qubit Clifford gates, $R_Z \brac{\pi}{2}$, $R_Z \brac{3\pi}{2}$, $R_X \brac{\pi}{2}$ and $R_X \brac{\pi}{2}$, are represented respectively in the ZX calculus as follows.
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-2/cliffords}{1}
+    \caption{Definition of the single-qubit Clifford gates.}
+    \label{clifford-definitions}
+\end{figure}
+
+
+Using the fact that the Clifford gates are unitary $C^{-1} = C^\dagger$, we expand our definition of the $Y$ rotation to obtain the following commutation relations \cite{Yeung2020}.
+
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-2/Y_rotation2}{0.95}
+    \caption{Single-qubit Clifford commutation relations.}
 \end{figure}
 
