@@ -4,12 +4,12 @@ We can implement higher order controlled rotations by nesting singly-controlled 
 
 \includezxdiagram{chapter-4/CCRZ1}{0.65}
 
-We can minimise the depth of the circuit implementing the CCR$_Z$ gate by choosing specific decompositions of the CR$_Z$ gate (see diagram on the left) such that one pair of $\text{CNOT}_{1, 2}$ are adjacent and cancel one-another (see diagram on the right).
+We can minimise the depth of the circuit implementing the CCR$_Z(\theta)$ gate by choosing specific decompositions of the CR$_Z(\theta)$ gate (see diagram on the left) such that one pair of $\text{CNOT}_{1, 2}$ are adjacent and cancel one-another (see right diagram).
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-4/CCRZ2}{1}
-    \caption{CCR$_Z$ circuit decomposition (left). Cancelling CNOT gate pair (right).}
+    \caption{CCR$_Z(\theta)$ circuit decomposition (left). Cancelling CNOT gate pair (right).}
 \end{figure}
 
 However, for the purposes of this thesis, we are interested in the form of controlled rotations in terms of Pauli gadgets. By expressing all $Z$ rotations as phase gadgets (\ref{phase-gadget-single-leg}) and commuting all CNOT gates through them such that the CNOT gates cancel, we obtain a phase polynomial consisting of four commuting phase gadgets.
@@ -22,5 +22,20 @@ We can build controlled rotations to arbitrary arity by recursively applying the
 
 Using the same rules as before, we can show that a triply-controlled $Z$ rotation corresponds to a phase polynomial consisting of eight commuting phase gadgets.
 
-\includezxdiagram{chapter-4/CCCRZ_zx}{0.8}
+\includezxdiagram{chapter-4/CCCRZ_zx}{1}
 
+\subsection{Controlled Rotations in Different Bases}
+
+By conjugating the target qubit with the required Clifford gates (\ref{clifford-conjugation}), we obtain a controlled rotation in the desired basis. For instance, consider the following.
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-4/CCRX}{0.7}
+    \caption{CCR$_X(\theta)$ gate obtained by conjugating the CCR$_Z(\theta)$ gate.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-4/CCCRY}{1}
+    \caption{CCCR$_Y(\theta)$ gate obtained by conjugating the CCCR$_Z(\theta)$ gate.}
+\end{figure}

@@ -1,12 +1,10 @@
 \section{Pauli Gadgets}
 
-Pauli gadgets are defined as the one parameter unitary groups of Pauli strings consisting of all four Pauli matrices, $P \in \{I, X, Y, Z\}^{\otimes n}$ \cite{Yeung2020}. They are phase gadgets associated with a change of basis.
+Pauli gadgets are defined as the one parameter unitary groups of Pauli strings in the set $\{I, X, Y, Z\}^{\otimes n}$. By performing a Clifford conjugation (\ref{clifford-conjugation}) on the legs of a phase gadget, we obtain the corresponding Pauli gadget. That is, Pauli gadgets are phase gadgets associated with a change of basis. Hence, whilst phase gadgets alone cannot alter the distribution of the observed state, Pauli gadgets can \cite{Yeung2020}. 
 
 \includezxdiagramtext{chapter-3/pauli_gadget}{0.6}{
 \text{exp} \left( - i \frac{\theta}{2}
 Y \otimes Z \otimes X \right)}
-
-Whilst phase gadgets alone cannot change the distribution of the observed state, Pauli gadgets are able to do so \cite{Yeung2020}. In chapter \ref{excitation-operators} we will see how Pauli gadgets form the building blocks in ansätze used for quantum chemical simulations.
 
 Pauli gadgets come equipped with a similar set of rules to phase gadgets that describe their interactions with other gadgets. For instance, adjacent Pauli gadgets with \textit{matching legs} fuse, and their phases add modulo $2\pi$.
 

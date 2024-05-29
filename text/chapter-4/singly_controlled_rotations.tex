@@ -1,10 +1,10 @@
 \section{Singly Controlled-Rotations}
 
-Starting with the singly-controlled $Z$ rotation gate CR$_Z$, we will see that it can be expressed as a combination of phase gadgets, since it corresponds to a diagonal matrix in the computational $Z$ basis \cite{Yeung2020}.
+Starting with the singly-controlled $Z$ rotation gate CR$_Z(\theta)$, we will see that it can be expressed as a combination of phase gadgets, since it corresponds to a diagonal matrix in the computational $Z$ basis \cite{Yeung2020}.
 
 \includezxdiagram{chapter-4/CRZ1}{0.68}
 
-The CR$_Z$ gate applies a rotation to the target qubit if the control qubit is in the $\ket 1$ state, and applies no rotation, if the control qubit is in the $\ket 0$ state. This behaviour generalises to superpositions of states. Using the spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we obtain the CR$_Z$ gate in quantum circuit notation as follows.
+The CR$_Z(\theta)$ gate applies a rotation to the target qubit if the control qubit is in the $\ket 1$ state, and applies no rotation, if the control qubit is in the $\ket 0$ state. This behaviour generalises to superpositions of states. Using the spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we obtain the CR$_Z$ gate in quantum circuit notation as follows.
 
 \includezxdiagram{chapter-4/CRZ2}{0.72}
 
@@ -16,6 +16,6 @@ As expected, fusing the $Z$ rotations in the resulting diagram yields identity. 
 
 \includezxdiagram{chapter-4/CRZ_one}{1}
 
-Using that the $Z$ rotation commutes through the phase gadget (\ref{spider-fusion}), and the phase gadget decomposition result (\ref{phase-gadget-decomposition}), we can decompose the CR$_Z$ gate into four equivalent quantum circuits.
+Using the the phase gadget fusion rule (\ref{phase-gadget-fusion}) and the phase gadget decomposition result (\ref{phase-gadget-decomposition}), we can decompose the CR$_Z(\theta)$ gate into four equivalent circuits.
 
 \includezxdiagram{chapter-4/CRZ_decomp}{0.98}
