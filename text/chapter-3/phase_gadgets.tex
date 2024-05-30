@@ -6,7 +6,7 @@ Phase gadgets are defined as the one parameter unitary groups of Pauli strings c
 
 Phase gadgets correspond to unitary maps which are diagonal in the $Z$ computational basis \cite{Cowtan2020}. Consequently, they apply a global phase to a state without changing the distribution of the observed state \cite{Yeung2020}. Phase gadgets have the following representation in the ZX calculus.
 
-\includezxdiagramtext{chapter-3/phase_gadget}{0.18}{
+\includezxdiagramtext{chapter-3/phase_gadget}{0.17}{
 \text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)
 % = \begin{pmatrix}
 %     \theta_{12} & \dots & \theta_{13} \\
@@ -15,9 +15,7 @@ Phase gadgets correspond to unitary maps which are diagonal in the $Z$ computati
 % \end{pmatrix}
 }
 
-Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on the state's parity \cite{Yeung2020}.
-
-By deforming the phase gadget in quantum circuit notation and using the identity (\ref{identity}), spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we are able to show the correspondence with its form in the ZX calculus -- \textit{phase gadget result} (\textit{g}).
+Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on the state's parity \cite{Yeung2020}. By deforming the phase gadget in quantum circuit notation and using the identity (\ref{identity}), spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we are able to show the correspondence with its form in the ZX calculus -- \textit{phase gadget result} (\textit{g}).
 
 \begin{figure}[H]
     \centering
