@@ -1,0 +1,74 @@
+\section{Implementing Excitation Operators}
+
+Recall from Section \ref{unitary-coupled-cluster-ansatz} that the UCC ansatz $\ket{\psi(\bm\theta)}$ can be efficiently implemented on a quantum computer \cite{Peruzzo2014} and is given by the following equation.
+\begin{equation*}
+    \ket{\psi(\bm\theta)} = U(\bm\theta) \ket{\psi_0} =
+    e^{\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)} \ket{\psi_0}
+\end{equation*}
+In the \textit{Singles--Doubles} formulation, the (UCCSD) ansatz follows from the trunacted operator which contains only single and double excitations.
+\begin{equation*}
+\hat T(\bm{\theta}) - \hat T^{\dagger}(\bm{\theta}) =
+\sum_{i, a} \theta^a_i (a^\dagger_i a_a - a^\dagger_a a_i) + 
+\sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j)
+\end{equation*}
+Then, after invoking the Trotter formula to approximate the unitary $U(\bm\theta)$ with one time step, and choosing a finite sequence of $k$ parametrised unitary operators, we obtain the $k$-UCCSD ansatz, expressed as a product of unitary operators.
+\begin{equation*}
+    U(\bm\theta) = \prod_{m=1}^k U_m(\theta_m) \qquad
+    U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
+\end{equation*}
+Taking $U_m(\theta_m)$ to be a single excitation operator acting on qubits $p$ and $q$, and applying the Jordan-Wigner transform \cite{Seeley2020}, we obtain the \textit{unitary one-body excitation operator} in terms of quantum gates.
+\begin{equation*}
+    U^q_p (\theta) =
+    \text{exp} \left( i
+    \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right)
+\end{equation*}
+Similarly, the double excitation operator, acting on qubits $p$, $q$, $r$ and $s$ yields the \textit{unitary two-body excitation operator} in terms of quantum gates.
+\begin{align*}
+    U^{rs}_{pq} (\theta) &= \text{exp} \left( i \frac{\theta}{8} (
+    X_p X_q Y_s X_r +
+    Y_p X_q Y_s Y_r +
+    X_p Y_q Y_s Y_r +
+    X_p X_q X_s Y_r - \right. \\
+    &\left. \hspace{1cm} 
+    Y_p X_q X_s X_r -
+    X_p Y_q X_s X_r -
+    Y_p Y_q Y_s X_r -
+    Y_p Y_q X_s Y_r )
+    \prod_{k=p+1}^{q-1} Z_k
+    \prod_{l=r+1}^{s-1} Z_l
+    \right)
+\end{align*}
+
+We will simply refer to these unitary excitation operators as the one-body and two-body excitation operators. The one-body excitation operator can be expressed as the following product of commuting exponential terms.
+\begin{equation*}
+    U^q_p (\theta) =
+    \left( \text{exp} \left[
+    i \frac{\theta}{2} Y_p X_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+    \left( \text{exp} \left[ -
+    i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+\end{equation*}
+
+The first exponential term can be naively implemented on a quantum computer as the following quantum circuit.
+
+\includezxdiagramtext{chapter-5/one_body1}{0.45}{
+\left( \text{exp} \left[
+i \frac{\theta}{2} Y_p X_q
+\prod_{k=p+1}^{q-1} Z_k \right] \right)}
+
+And the second exponential term, as the following quantum circuit.
+
+\includezxdiagramtext{chapter-5/one_body2}{0.45}{
+\left( \text{exp} \left[ -
+i \frac{\theta}{2} X_p Y_q
+\prod_{k=p+1}^{q-1} Z_k \right] \right)}
+
+By sequentially composing these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator acting on qubits $p$ and $q$.
+
+\includezxdiagram{chapter-5/one_body4}{0.8}
+
+The two-body excitation operator can similarly be factorised into eight commuting exponential terms and implemented as a much larger quantum circuit.
+
+\includezxdiagram{chapter-5/full_two_body}{1}
+
+The CNOT ladder constructions observed in these quantum circuits compute the parity of the spin orbitals in the fermionic state, ensuring the correct phase is applied and accounting for the fermionic antisymmetry imposed by the Pauli principle. Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. Given that the poor fidelity of today's quantum (NISQ) devices results in accumulating errors as circuit depth increases, we are interested in optimising these excitation operators to minimise errors introduced by noisy quantum gates.
+

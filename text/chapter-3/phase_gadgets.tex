@@ -19,7 +19,12 @@ Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\
 
 By deforming the phase gadget in quantum circuit notation and using the identity (\ref{identity}), spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we are able to show the correspondence with its form in the ZX calculus -- \textit{phase gadget result} (\textit{g}).
 
-\includezxdiagram{chapter-3/phase_gadget_proof}{0.75}
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/phase_gadget_proof}{0.75}
+    \caption{Phase gadget result.}
+    \label{phase-gadget-result}
+\end{figure}
 
 It is then a simple matter of recursively applying this result to phase gadgets in quantum circuit notation to generalise to arbitrary arity.
 
@@ -70,7 +75,13 @@ Using the bialgebra rule (\ref{bialgebra}), we can show that a two-legged phase 
 
 By recursively applying this decomposition result, we can show that it is possible to decompose a phase gadget such that it has a circuit depth of $2\log_2(n)$, in the balanced tree representation, instead of $2(n-1)$ in the CNOT ladder decomposition, where $n$ is the number of qubits \cite{Cowtan2019}.
 
-\includezxdiagram{chapter-3/phase_gadget_decomposition}{1}
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/phase_gadget_decomposition}{1}
+    \caption{Balanced tree phase gadget decomposition.}
+    \label{balanced-tree}
+\end{figure}
+
 
 Phase gadgets can be thought of as the many-qubit generalisation of a rotation in the $Z$ basis \cite{Yeung2020}. For instance, using the bialgebra (\ref{bialgebra}), spider fusion (\ref{spider-fusion}), state copy (\ref{state-copy}) and identity (\ref{identity}) rules, we can demonstrate the correspondence between single-legged phase gadgets and $Z$ rotations.
 
