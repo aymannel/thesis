@@ -1,23 +1,23 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style={z_phase}] (0) at (7, 2) {$\frac{\theta}{4}$};
+		\node [style={z_phase}] (0) at (7, 2) {$\frac{\theta}{8}$};
 		\node [style={x_node}] (1) at (6, 2) {};
 		\node [style={z_node}] (2) at (1.75, 4) {};
-		\node [style={z_phase}] (3) at (3.5, 2) {$\frac{\theta}{4}$};
+		\node [style={z_phase}] (3) at (3.5, 2) {$\frac{\theta}{8}$};
 		\node [style={x_node}] (4) at (2.5, 2) {};
 		\node [style={x_phase}] (5) at (1, 4) {$+$};
-		\node [style={z_phase}] (6) at (14, 2) {$-\frac{\theta}{4}$};
+		\node [style={z_phase}] (6) at (14, 2) {$-\frac{\theta}{8}$};
 		\node [style={x_node}] (7) at (13, 2) {};
-		\node [style={z_phase}] (8) at (10.5, 2) {$-\frac{\theta}{4}$};
+		\node [style={z_phase}] (8) at (10.5, 2) {$-\frac{\theta}{8}$};
 		\node [style={x_node}] (9) at (9.5, 2) {};
-		\node [style={z_phase}] (10) at (24.5, 2) {$-\frac{\theta}{4}$};
+		\node [style={z_phase}] (10) at (24.5, 2) {$-\frac{\theta}{8}$};
 		\node [style={x_node}] (11) at (23.5, 2) {};
 		\node [style={z_node}] (12) at (26.25, 4) {};
-		\node [style={z_phase}] (13) at (28, 2) {$-\frac{\theta}{4}$};
+		\node [style={z_phase}] (13) at (28, 2) {$-\frac{\theta}{8}$};
 		\node [style={x_node}] (14) at (27, 2) {};
-		\node [style={z_phase}] (15) at (17.5, 2) {$\frac{\theta}{4}$};
+		\node [style={z_phase}] (15) at (17.5, 2) {$\frac{\theta}{8}$};
 		\node [style={x_node}] (16) at (16.5, 2) {};
-		\node [style={z_phase}] (17) at (21, 2) {$\frac{\theta}{4}$};
+		\node [style={z_phase}] (17) at (21, 2) {$\frac{\theta}{8}$};
 		\node [style={x_node}] (18) at (20, 2) {};
 		\node [style=none] (19) at (28, 4) {};
 		\node [style=none] (20) at (28, 3) {};
@@ -120,6 +120,11 @@
 		\node [style={z_node}] (117) at (22.75, 0) {};
 		\node [style={x_phase}] (118) at (22, 0) {$+$};
 		\node [style={x_phase}] (119) at (23.5, 0) {$-$};
+		\node [style=none] (120) at (-0.5, 2.25) {$\vdots$};
+		\node [style=none] (121) at (-0.5, 0) {$s$};
+		\node [style=none] (122) at (-0.5, 1) {$r$};
+		\node [style=none] (123) at (-0.5, 3) {$q$};
+		\node [style=none] (124) at (-0.5, 4) {$p$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (1) to (0);
