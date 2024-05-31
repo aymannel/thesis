@@ -18,15 +18,15 @@
 		\node [style=none] (18) at (4.75, -1.75) {=};
 		\node [style=none] (19) at (5.5, -1.75) {};
 		\node [style=none] (20) at (8, -1.75) {};
-		\node [style=box] (21) at (6.75, -1.75) {$R_Y(\theta)$};
+		\node [style=box] (21) at (6.75, -1.75) {$R_Y(-\theta)$};
 		\node [style={x_phase}] (22) at (3, -1.75) {$+$};
 		\node [style={x_phase}] (23) at (1, -1.75) {$-$};
-		\node [style={z_phase}] (24) at (2, -1.75) {$-\theta$};
+		\node [style={z_phase}] (24) at (2, -1.75) {$\theta$};
 		\node [style=none] (25) at (0, -1.75) {};
 		\node [style=none] (26) at (4, -1.75) {};
 		\node [style={z_phase}] (27) at (12.5, -1.75) {$-$};
 		\node [style={z_phase}] (28) at (10.5, -1.75) {$+$};
-		\node [style={x_phase}] (29) at (11.5, -1.75) {$-\theta$};
+		\node [style={x_phase}] (29) at (11.5, -1.75) {$\theta$};
 		\node [style=none] (30) at (9.5, -1.75) {};
 		\node [style=none] (31) at (13.5, -1.75) {};
 		\node [style=none] (32) at (8.75, -1.75) {=};

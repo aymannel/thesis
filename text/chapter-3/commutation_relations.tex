@@ -24,11 +24,11 @@ We will now develop a set of \textit{commutation relations} describing the inter
 
 By definition, conjugating a Pauli string by a member of the Clifford group, $C^\dagger P \, C$, is closed in the set of Pauli strings, $\{I, X, Y, Z\}^{\otimes n}$, where $n$ is the number of qubits that the Pauli string acts on. Similarly, conjugating a Pauli gadget $\Phi(\theta)$ by a member of the Clifford group always yields another Pauli gadget $\Phi'(\theta) = C^\dagger \Phi(\theta) C$.
 
-We can interpret the conjugation of \textit{phase gadgets} by CNOT gates diagrammatically as the phase gadget decomposition result (see diagram on the left). Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we can define \textit{commutation relation} as $\Phi(\theta) C = C \, \Phi'(\theta)$ (see diagram on the right).
+Taking $C = \text{CNOT}_{1, 2}$, we can interpret the conjugation of a \textit{phase gadget} diagrammatically (diagram on left) as the phase gadget decomposition result (\ref{phase-gadget-decomposition}). Recalling that the members of the Clifford group are unitary transformations, $C^{-1} = C^\dagger$, we define \textit{commutation relation} as $\Phi(\theta) C = C \, \Phi'(\theta)$ (diagram on right).
 
 \includezxdiagram{chapter-3/commutation}{1}
 
-Since the CNOT and CZ gates acts on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings $\{I, X, Y, Z\}^{\otimes 2}$. Consequently, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT and CZ gates.
+Since the CNOT and CZ gates act on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings $\{I, X, Y, Z\}^{\otimes 2}$. Consequently, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT and CZ gates.
 
 \begin{figure}[H]
     \centering
