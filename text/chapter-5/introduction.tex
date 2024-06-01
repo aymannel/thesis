@@ -1,12 +1,12 @@
 \chapter{Excitation Operators}%
 \label{excitation-operators}
 
-In this chapter, we will use the theory that we have developed in Chapter \ref{pauli-gadgets} on Pauli gadgets and their commutation relations, and in Chapter \ref{controlled-rotations} on controlled rotations, to study the excitation operators used to construct UCC ansätze.
+In this chapter, we will discuss how the excitation operators used to construct UCC ansätze can be implemented on a quantum computer. We will then use the ZX calculus to represent these excitation operators as Pauli gadgets (Section \ref{pauli-gadgets-section}) and discuss a number of circuit optimisation strategies in the context of the DISCO-VQE algorithm introduced in Burton \textit{et al} \cite{Burton2023}. Namely, we will demonstrate how these excitation operators can be expressed in terms of controlled rotations (Chapter \ref{controlled-rotations}), as well as discuss their representation as phase polynomials (Section \ref{phase-polynomials}) following diagonalisation by some Clifford subcircuit. 
 
-\includezxdiagram{chapter-5/ucc}{0.7}
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/ucc}{0.7}
+    \caption{Example UCC ansatz approximating some fermionic ground state.}
+\end{figure}
 
-\begin{itemize}[itemsep=-5pt]
-    \item "Circuit optimisation is typically carried out by pattern replacement: recognising a subcircuit of specific form and replacing it with an equivalent" \cite{Cowtan2019}
-    \item "In principle, local rewriting of gate sequences is sufficient for any circuit optimisation3. However, in practice, good results often require manipulation of large-scale structures in the quantum circuit. Phase gadgets are one such macroscopic structure that is easy to identify within circuits, easy to synthesise back into a circuit, and have a useful algebra of interactions with one another." \cite{Cowtan2019}
-    \item "Further, in the balanced tree form more of the CX gates are “exposed” to the rest of the circuit, and could potentially be eliminated by a later optimisation pass" \cite{Cowtan2019}
-\end{itemize}
+As stated in Cowtan \textit{et al}, circuit optimisation amounts to pattern replacement, that is, recognising a subcircuit of a specific form and replacing it with an equivalent circuit that uses fewer quantum resources. Hence, by identifying the macroscopic structures representing these excitation operators, we facilitate the manipulation of large-scale structures in the quantum circuit, as well as identify the means by which they interact with one another.
