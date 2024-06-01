@@ -30,11 +30,11 @@ Taking $C = \text{CNOT}_{1, 2}$, we can interpret the conjugation of a \textit{p
 
 Since the CNOT and CZ gates act on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings $\{I, X, Y, Z\}^{\otimes 2}$. Consequently, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT and CZ gates.
 
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-3/CNOT_examples}{0.9}
-    \caption{Example commutation relations. See Figures \ref{cnot-commutations} and \ref{cz-commutations} for more.}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includezxdiagram{chapter-3/CNOT_examples}{0.9}
+%     \caption{Example commutation relations. See Figures \ref{cnot-commutations} and \ref{cz-commutations} for more.}
+% \end{figure}
 
 Whilst it is possible to derive each of these commutation relations directly, it can be shown, through the relevant Taylor expansion, that conjugating a Pauli gadget is equivalent to finding the one parameter unitary group of the corresponding conjugated Pauli string. In other words, identifying how a Pauli string interacts with Clifford gates tells us how the corresponding Pauli gadget behaves.
 
@@ -53,18 +53,44 @@ Similarly, identifying how single-qubit Clifford gates interact with Pauli gadge
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-3/cnot_commutations}{0.9}
-    \caption{CNOT commutation relations.}
+    \caption{CNOT commutation relations excluding repetitions.}
     \label{cnot-commutations}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-3/cz_commutations}{0.9}
-    \caption{CZ commutation relations.}
+    \caption{CZ commutation relations excluding repetitions.}
     \label{cz-commutations}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/pauli_commutations}{0.9}
+    \caption{Pauli commutation relations.}
+    \label{pauli-commutations}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/clifford_z_commutations}{0.9}
+    \caption{Clifford $Z$ commutation relations.}
+    \label{clifford-z-commutations}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/clifford_x_commutations}{0.9}
+    \caption{Clifford $X$ commutation relations.}
+    \label{clifford-x-commutations}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-3/clifford_h_commutations}{0.9}
+    \caption{Hadamard commutation relations.}
+    \label{clifford-h-commutations}
+\end{figure}
 
 % \subsection{Pauli Commutation Relations}
 
