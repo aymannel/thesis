@@ -1,14 +1,55 @@
 \section{\label{vqe}Variational Quantum Eigensolver}
 
-The Variational Quantum Eigensolver (VQE) algorithm is a particular class of variational quantum algorithm that is used to estimate the ground state energy of molecular quantum systems. It consists of a quantum subroutine, a parametrised quantum circuit that implements some UCC ansatz representing a fermionic wavefunction, and a classical subroutine that classically optimises the UCC ansatz until it converges to the best approximation of the true ground state.
+In this chapter, we introduce the \textit{Variational Quantum Eigensolver (VQE)} algorithm, a particular class of variational quantum algorithms used to estimate the ground state energy of molecular systems. The research contained in this thesis is done within this framework, hence as well as providing an overview of the VQE algorithm, we will introduce the \textit{Unitary Coupled Cluster (UCC) ansatz} used to represent fermionic wavefunctions on quantum devices.
 
-Parametrised quantum circuits are similar to classical neural networks in concept, but by definition of must have the same number of inputs and outputs. This requirement stems from the fact that all quantum gates must be unitary, where an $n$ qubit quantum neural network represents a $2^n \times 2^n$ unitary map \cite{Yeung2020}.
+The VQE algorithm consists of a quantum subroutine, a \textit{Parametrised Quantum Circuit (PQC)}, that implements some UCC ansatz, and a classical subroutine that classically optimises the UCC ansatz until it converges to the best approximation of the true ground state. PQCs are similar to classical neural networks in concept, but by definition, correspond to $2^n \times 2^n$ unitary maps, where $n$ is the number of qubits, and hence have the same number of inputs as outputs \cite{Yeung2020}.
 
-The input state for the parametrised quantum circuit is the reference state that the UCC operator $U(\bm\theta)$ acts on, and in the case of the single Slater determinant Hartree-Fock state, is encoded as a pure quantum state $\ket{\psi_0}$. The output of the parametrised quantum circuit is an entangled state representing the UCC ansatz. That is, the the UCC ansatz $\ket{\psi(\bm\theta)}$ represents some linear combination of vectors in the Fock space, approximating the correlation present in the true ground state.
+The input state for the PQC is the reference state that the UCC operator $U(\bm\theta)$ acts on, which in the case of the single Slater determinant Hartree-Fock state, is encoded as a pure quantum state $\ket{\psi_0}$. The output of the PQC is then an entangled state, that is, some linear combination of vectors in the Fock space, that captures the correlation present in true ground state of the molecular system of interest.
 
-Upon measuring the output of the parametrised quantum circuit, it collapses into a single vector in the Fock space with a probability defined by that vector's weight in the UCC ansatz. The quantum subroutine computes the energy expectation value of the UCC ansatz using a quantum circuit consisting of the parametrised quantum circuit and  the Hamiltonian for the system.
+Upon measuring the PQC output state, it collapses into a single vector in the Fock space, with a probability defined by that vector's weight in the UCC ansatz. The quantum subroutine computes the energy expectation value of the UCC ansatz via a quantum circuit consisting of the PQC and the Hamiltonian for the system.
 
 \includezxdiagram{chapter-1/expectation}{0.7}
 \begin{equation*}
     E(\bm\theta) = \bra{0} U^\dagger(\bm\theta) H U(\bm\theta) \ket{0} 
 \end{equation*}
+
+For the purposes of this thesis, we are interested in a variant of the VQE algorithm developed by Burton \textit{et al} \cite{Burton2023} known as the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)}. We implement a fermionic state on a quantum device as a sequence of quantum gates representing unitary excitation operators that act on some reference state. The DISCO-VQE algorithm then finds approximate solutions to the fermionic ground state by both (\textit{discretely}) optimising the sequence of fermionic excitation operators, chosen from a finite operator pool, and (\textit{continuously}) optimising their parameters. This allows us to parametrically explore the Hilbert space of possible quantum states until we find a good approximation of the true fermionic ground state \cite{Taube2006}. By doing so, the DISCO-VQE algorithm discovers accurate representations of the fermionic UCC wavefunction using a minimal number of parameters \cite{Burton2023}.
+
+
+%%%
+
+\subsection{Unitary Coupled Cluster Ansatz}%
+\label{unitary-coupled-cluster-ansatz}
+
+As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates, whose implementation we refer to as the UCC ansatz $\ket{\psi(\bm\theta)}$. In other words, the UCC ansatz corresponds to some unitary excitation operator $U(\bm\theta)$ that acts on a reference state, usually a single reference Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method.
+\begin{equation*}
+    \ket{\psi(\bm\theta)} = U(\bm\theta) \ket{\psi_0} =
+    e^{\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)} \ket{\psi_0}
+\end{equation*}
+
+The operator $\hat T(\bm\theta)$ is a linear combination of fermionic excitation operators, parametrised by coupled cluster amplitudes $\bm\theta$. The exponential of the anti-Hermitian linear combination, $\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)$, is therefore, by definition, unitary. 
+\begin{equation*}
+\hat T(\bm{\theta}) - \hat T^{\dagger}(\bm{\theta}) =
+\sum_{i, a} \theta^a_i (a^\dagger_i a_a - a^\dagger_a a_i) + 
+\sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j) + \dots
+\end{equation*}
+
+Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals. The resulting unitary operator $U(\bm\theta)$ cannot be directly implemented on a quantum computer since the terms of the excitation operator do not commute. Instead, we must invoke the Trotter formula to approximate the unitary. Taking a single Trotter step $\rho=1$, since our focus is on the NISQ setting \cite{Cowtan2020}, we define the UCC ansatz as the following product of $k$ parametrised unitary operators.
+\begin{equation*}
+    \ket{\psi(\bm\theta)} = \prod_{m=1}^k U_m(\theta_m) \ket{\psi_0} \qquad
+    U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
+\end{equation*}
+Where $m$ indexes all possible excitations and $\tau_m - \tau_m^\dagger$ corresponds to anti-Hermitian fermionic excitation operators in second quantisation. For the remainder of this thesis, we will refer to fermionic excitation operators $U_m(\theta_m)$ as the the exponentials of these anti-Hermitian operators. As these fermionic excitation operators derive from second-quantised operators, they preserve the fermionic anti-symmetry and particle number of the reference state. The operators are then mapped to quantum gates before being implemented as a PQC (the UCC ansatz) on a quantum device. It has been shown by Evangelista \textit{et al} \cite{Evangelista2019} that the UCC ansatz can exactly parametrise any state.
+
+Within the DISCO-VQE framework, we consider only generalised \textit{single} (one-body) and \textit{double } (two-body) fermionic excitation (operators), which as shown by Evangelista \textit{et al} \cite{Evangelista2019} can be shown to achieve universality provided that we combine enough suitably-ordered one-body and two-body excitation operators. In other words, using only one-body and two-body excitation operators, we can represent any vector in the Hilbert space \cite{Burton2023}.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+    \hat T(\bm{\theta}) - \hat T^{\dagger}(\bm{\theta}) =
+    \sum_{i, a} \theta^a_i (a^\dagger_i a_a - a^\dagger_a a_i) + 
+    \sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j)
+    \end{equation*}
+    \caption{Anti-Hermitian operator $\hat T(\bm{\theta})$ truncated to }
+\end{figure}
