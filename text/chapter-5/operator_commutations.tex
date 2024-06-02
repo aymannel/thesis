@@ -1,12 +1,13 @@
 \section{Commuting Excitation Operators}%
 \label{operator-commutations}
 
-We define \textit{trivially commuting} excitation operators as operators that act on a disjoint set of qubits, and \textit{non-trivially commuting} excitation operators as operators which act on the same qubits, yet commute.
+The DISCO-VQE algorithm generates multiple UCC ansätze, each yielding the same energy expectation value, but corresponding to a unique sequence of excitation operators. The identical energy expectation values of these UCC ansätze implies that they equivalently capture the correlation present in the molecular system of interest, suggesting that it may be possible to demonstrate an equivalence between them through algebraic manipulation. Motivated by this result, in this section we use the commutation rules developed in Section \ref{commutation-relations} to identify which excitation operators in the DISCO-VQE operator pool commute, and which do not.
+
+We define \textit{trivially commuting} excitation operators as commuting operators that act on a disjoint set of qubits, and \textit{non-trivially commuting} excitation operators as commuting operators which act on an intersecting set of qubits. By expressing the excitation operators in the DISCO-VQE operator pool in terms of Pauli gadgets and using the commutation relations developed in Section \ref{commutation-relations}, we were able to identify several previously unknown non-trivially commuting pairs of excitation operators. We hope that by using these commutation relations, we might be able to demonstrate an equivalence between some of the outputs of the DISCO-VQE algorithm. Unfortunately, we did not have sufficient time to attempt this, but leave it to future researchers to attempt. In the following graph, A -- F represents one-body excitation operators and G -- L represent two-body excitation operators, with lines drawn between commuting pairs.
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-5/non_trivial}{0.4}
-    \caption{Non-trivially commuting excitation operators, $[U_1, U_2] = 0$.}
+    \includezxdiagram{chapter-5/commutation_graph}{0.37}
+    \caption{Graph identifying commuting operators used in the DISCO-VQE algorithm.}
 \end{figure}
 
-By expressing the excitation operators used to construct the UCC ansatz in the DISCO-VQE algorithm \cite{Burton2023}, and the Pauli gadget commutation rules developed in Section \ref{commutation-relations}, we were able to identify several non-trivial commuting pairs of excitation operators.

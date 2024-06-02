@@ -1,12 +1,12 @@
 \section{Excitation Operators as Pauli Gadgets}
 
-Using the phase gadget result (\ref{phase-gadget-result}), we can show that the one-body excitation operator corresponds to two commuting Pauli gadgets.
+Using the phase gadget result (\ref{phase-gadget-result}), we can show that the quantum circuit implementing a one-body excitation operator corresponds to two commuting Pauli gadgets the ZX calculus.
 
 \includezxdiagram{chapter-5/one_body3}{0.45}
 
-One immediate advantage of representing the one-body excitation operator in this form is that we can easily show that these Pauli gadgets do indeed commute by recognising that they have two mismatching pairs of legs (\ref{commutation-relations}).
+One immediate advantage of representing the one-body excitation operator in this form is that we can easily show that these Pauli gadgets do indeed commute by recognising that they have two mismatching pairs of legs (see Section \ref{commutation-relations}).
 
-Another advantage is that it is immediately apparent that we can resynthesise the quantum circuit using the balanced tree decomposition result (\ref{balanced-tree}), yielding a circuit depth of $2\text{log}_2(n)$ rather than $2(n-1)$.
+Another advantage is that, from this intermediate form, we can resynthesise the quantum circuit using the balanced tree decomposition result (\ref{balanced-tree}), yielding a circuit depth of $2\text{log}_2(n)$ rather than $2(n-1)$.
 
 \begin{figure}[H]
     \centering
@@ -14,8 +14,6 @@ Another advantage is that it is immediately apparent that we can resynthesise th
     \caption{Balanced tree decomposition of a one-body excitation operator.}
 \end{figure}
 
-Similarly, we can show that the two-body excitation operator corresponds to eight Pauli gadgets, each of which can be shown to commute with every other gadget using the the rules described in Section \ref{commutation-relations}.
+Similarly, we can show that the two-body excitation operator corresponds to eight commuting Pauli gadgets, each of which can be optimally resynthesised using the balanced tree decomposition result (\ref{balanced-tree}).
 
 \includezxdiagram{chapter-5/two_body1}{1}
-
-Using the balanced tree decomposition result (\ref{balanced-tree}), we can similarly reduce the circuit depth of the two-body excitation operator to $2\text{log}_2(n)$.
