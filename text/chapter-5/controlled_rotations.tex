@@ -1,26 +1,43 @@
 \section{Excitations as Controlled Rotations}%
 \label{operator-controlled-rotations}
 
-In this section, we will extend the work done by Yordanov \textit{et al} \cite{Yordanov2020}, looking at how excitation operators can be expressed in terms of controlled rotations. To the knowledge of the author, this work has not yet been done in the ZX calculus. Taking $U^1_0(\theta)$, $p = 0$ and $q = 1$ as an example, we have the following.
+We began this research with the goal of identifying a generalised structure for the excitation operators used in the DISCO-VQE algorithm, in the ZX calculus. We anticipated that by doing so, we might discover novel ways of optimising UCC ansätze by developing a representation for these excitation operators that is independent of specific architectural constraints, as well as identifying rules describing their interactions with one-another.
 
-\includezxdiagram{chapter-5/minimal}{0.9}
+This led us to the work done by Yordanov \textit{et al} \cite{Yordanov2020} and Kornell \textit{et al} \cite{Kornell2023}, which show that it is possible to reveal an underlying controlled rotation within each excitation operator by conjugating it with some subcircuit $S$. Hence, in this chapter, we will replicate the results of Yordanov and Kornell in the ZX calculus using the results that we developed in previous chapters.
 
-By inserting two adjacent $\text{CNOT}_{0, 1}$ gates (self-inverse) into the circuit and using the CNOT commutation rules derived in Chapter \ref{pauli-gadgets}, we are able to show that the one-body excitation operator can be expressed in terms of a singly-controlled rotation rotation in the $Y$ basis.
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/controlled_rotation}{0.75}
+    \caption{Revealling the controlled rotation CR$(\theta)$ from the excitation operator $U(\theta)$.}
+\end{figure}
+
+Since there exist several efficient implementations of controlled rotations, rewriting the UCC ansatz in terms of controlled rotations, then substituting with a more efficient implementation, we can drastically reduce the circuit depth.
+
+We begin by demonstrating the result in Yordanov \textit{et al} by using a minimal one-body excitation operator, implemented by the following quantum circuit.
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/minimal}{0.9}
+    \caption{Quantum circuit (left) and in Pauli gadget form (right).}
+\end{figure}
+
+We can show that by inserting two adjacent $\text{CNOT}_{0, 1}$ gates (self-inverse) into the circuit and using the CNOT commutation rules derived in Chapter \ref{pauli-gadgets}, the one-body excitation operator can be expressed in terms of a singly-controlled $Y$ rotation.
 
 \includezxdiagram{chapter-5/minimal_proof}{1}
 
 Had we instead chosen to insert two $\text{CNOT}_{1, 0}$ gates, we would have obtained the following controlled rotation, with the control on qubit 1.
 
-\includezxdiagram{chapter-5/minimal2}{0.6}
+\includezxdiagram{chapter-5/minimal2}{0.57}
 
-Let us now look at the general case. Yordanov \textit{et al} \cite{Yordanov2020} show that a one-body excitation operator can be expressed as a controlled rotation in the $Y$ basis. See Appendix \ref{appendix-one-body-general} for the intermediate steps.
+Let us now look at the general case, where the one-body excitation operator between qubits $p$ and $q$. We begin by eliminating the $Z$ legs responsible for calculating the parity of the fermionic state, then, by expressing the single-legged Pauli gadget as a single-qubit rotation in the $Y$ basis and fusing it with the adjacent Pauli gadget, we obtain the following controlled $Y$ rotation.
 
-\includezxdiagram{chapter-5/one_body_general}{1}
+\includezxdiagram{chapter-5/one_body_general_proof}{1}
 
-Using the commutation relations derived in Chapter \ref{pauli-gadgets}, we can see that by conjugating the circuit with CNOT gates we obtain the following phase polynomial.
+\newpage
+Now let us consider the two-body excitation operator acting on qubits $p$, $q$, $r$ and $s$. By conjugating the circuit with three CNOT gates as well as two Pauli $X$ gates, we obtain the following.
 
 \includezxdiagram{chapter-5/two_body_proof}{1}
 
-By cancelling adjacent change of basis gates, we can show that a two-body excitation operator corresponds to a triply-controlled rotation in the $Y$ basis (recalling the result for triply controlled rotations in Chapter \ref{controlled-rotations}), as in Yordanov \textit{et al}.
+Then, by cancelling adjacent Clifford gates, we obtain the a phase polynomial conjugated by Cliffords. Recognising this result as the triply-controlled rotation derived in Chapter \ref{controlled-rotations}, we have demonstrated the result in Yordanov \textit{et al}.
 
 \includezxdiagram{chapter-5/two_body2}{1}
