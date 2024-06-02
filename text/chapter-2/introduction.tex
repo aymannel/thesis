@@ -1,9 +1,10 @@
 \chapter{ZX Calculus}%
 \label{zx-calculus}
 
-In this chapter, we will introduce the ZX calculus, a diagrammatic language for reasoning about quantum processes first introduced by Coecke \textit{et al} \cite{Coecke2011}. We will introduce the basic generators of the ZX calculus as well as the relevant rewrite rules.
+In this chapter, we will introduce the ZX calculus, a diagrammatic language for reasoning about quantum processes first introduced by Coecke \textit{et al} \cite{Coecke2011}. We will introduce its basic generators as well as the relevant rewrite rules.
 
-This thesis uses the scalar-free ZX calculus. That is, the derivations in this thesis are correct up to some global non-zero scalar factor. All equal signs should, therefore, be interpreted as `equal up to a global phase'. This is done for convenience, in a similar way to how quantum chemists sometimes work with unnormalised wavefunctions. Recalling that the matrix representing our quantum circuit $M$ is proportional to some unitary, $M^{-1} = M^\dagger$, we can efficiently compute the scalar factor by composing a given ZX diagram with its adjoint and simplifying it until it reduces to identity \cite{Wetering2020}.
+This thesis uses the scalar-free ZX calculus. That is, the derivations in this thesis are correct up to some global non-zero scalar factor. All equal signs should, therefore, be interpreted as `equal up to a global phase'. This is done for convenience, in a similar way to how we sometimes work with unnormalised wavefunctions. Recalling that the matrix representing our quantum circuit $M$ is proportional to some unitary, $M^{-1} = M^\dagger$, we can efficiently compute the scalar factor by composing a given ZX diagram with its adjoint and simplifying it until it reduces to identity \cite{Wetering2020}.
 
-Note that all of the definitions in this chapter also hold for their colour-swapped counterparts, which we have chosen to omit for brevity.
+\hangindent=10pt 
+\textbf{Remark} -- \textit{All of the definitions in this chapter also hold for their colour-swapped counterparts, which we have chosen to omit for brevity.}
 

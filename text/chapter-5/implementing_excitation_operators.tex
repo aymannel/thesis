@@ -1,45 +1,76 @@
 \section{Implementing Excitation Operators}
 
-Recall from Section \ref{unitary-coupled-cluster-ansatz} that the UCC ansatz $\ket{\psi(\bm\theta)}$ can be efficiently implemented on a quantum computer \cite{Peruzzo2014} and is given by the following equation.
-\begin{equation*}
-    \ket{\psi(\bm\theta)} = U(\bm\theta) \ket{\psi_0} =
-    e^{\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)} \ket{\psi_0}
-\end{equation*}
-In the \textit{Singles--Doubles} formulation, the (UCCSD) ansatz follows from the trunacted operator which contains only single and double excitations.
-\begin{equation*}
-\hat T(\bm{\theta}) - \hat T^{\dagger}(\bm{\theta}) =
-\sum_{i, a} \theta^a_i (a^\dagger_i a_a - a^\dagger_a a_i) + 
-\sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j)
-\end{equation*}
-Then, after invoking the Trotter formula to approximate the unitary $U(\bm\theta)$ with one time step, and choosing a finite sequence of $k$ parametrised unitary operators, we obtain the $k$-UCCSD ansatz, expressed as a product of unitary operators.
-\begin{equation*}
-    U(\bm\theta) = \prod_{m=1}^k U_m(\theta_m) \qquad
-    U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
-\end{equation*}
-Taking $U_m(\theta_m)$ to be a single excitation operator acting on qubits $p$ and $q$, and applying the Jordan-Wigner transform \cite{Seeley2020}, we obtain the \textit{unitary one-body excitation operator} in terms of quantum gates.
-\begin{equation*}
-    U^q_p (\theta) =
-    \text{exp} \left( i
-    \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right)
-\end{equation*}
-Similarly, the double excitation operator, acting on qubits $p$, $q$, $r$ and $s$ yields the \textit{unitary two-body excitation operator} in terms of quantum gates.
-\begin{align*}
-    U^{rs}_{pq} (\theta) &= \text{exp} \left( i \frac{\theta}{8} (
-    X_p X_q Y_s X_r +
-    Y_p X_q Y_s Y_r +
-    X_p Y_q Y_s Y_r +
-    X_p X_q X_s Y_r - \right. \\
-    &\left. \hspace{1cm} 
-    Y_p X_q X_s X_r -
-    X_p Y_q X_s X_r -
-    Y_p Y_q Y_s X_r -
-    Y_p Y_q X_s Y_r )
-    \prod_{k=p+1}^{q-1} Z_k
-    \prod_{l=r+1}^{s-1} Z_l
-    \right)
-\end{align*}
+In Section \ref{unitary-coupled-cluster-ansatz}, we showed that any fermionic state can be represented by a finite sequence of $k$ parametrised one-body and two-body excitation operators acting on a single-Slater determinant reference state. Hence, after invoking the Trotter formula using one time step, we obtain the UCC ansatz.
 
-We will simply refer to these unitary excitation operators as the one-body and two-body excitation operators. The one-body excitation operator can be expressed as the following product of commuting exponential terms.
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+        U(\bm\theta) = \prod_{m=1}^k U_m(\theta_m) \qquad
+        U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
+    \end{equation*}
+    \caption{UCC ansatz (sequence of $k$ one-body and two-body excitation operators).}
+\end{figure}
+
+In order to implement the fermionic excitation operators $U_m(\theta_m)$ on a quantum computer, we must first represent the second-quantised creation and annhilation operators in terms of quantum gates. For a one-particle system, we do this by taking the following linear combinations of the Pauli gates.
+
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+        \hat a^\dagger = \ket 1 \bra 0 = \frac{1}{2} (X - iY) \qquad\qquad
+        \hat a = \ket 0 \bra 1 = \frac{1}{2} (X + iY) 
+    \end{equation*}
+    \caption{Jordan-Wigner transformation for a one-particle system.}
+\end{figure}
+
+Recalling that the creation and annhilation operators must preserve the fermionic anti-symmetry imposed by the Pauli principle, we modify this mapping to account for the parity of the spin orbitals preceding the target spin orbital $j$ when dealing with many-particle systems. We do this by introducing a string of Pauli $Z$ operators to compute the parity of the spin orbitals preceding spin orbital $j$.
+
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+        \hat a_j^+ = \frac{1}{2} (X - iY) \bigotimes_{k=1}^{j-1} Z_k \qquad\quad
+        \hat a_j = \frac{1}{2} (X + iY) \bigotimes_{k=1}^{j-1} Z_k
+    \end{equation*}
+    \caption{Jordan-Wigner transformation for a many-particle system.}
+\end{figure}
+
+This mapping is known as the Jordan-Wigner transformation \cite{Seeley2020} and has the advantage of preserving a direct mapping between fermionic states in the occupation number representation and the qubit state vector. In other words, each qubit in our quantum circuit now encodes the occupation number of each spin orbital in our fermionic state $\ket{f_{n-1} \dots f_{0}} \,\,\rightarrow\,\, \ket{q_{n-1} \dots q_{0}}$.
+
+Let us take the unitary operator $U^q_p(\theta)$ to be a one-body excitation operator derived from the anti-Hermitian second-quantised operator $a_q^\dagger a_p - a_p^\dagger a_q$ and acting on qubits $p$ and $q$. After applying the Jordan-Wigner transformation to the second-quantised operator and exponentiating it, we obtain the following one-body excitation operator in terms of the Pauli matrices.
+
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+        U^q_p (\theta) =
+        \text{exp} \left( i
+        \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right)
+    \end{equation*}
+    \caption{One-body excitaiton operator expressed in terms of the Pauli matrices.}
+\end{figure}
+
+By applying the Jordan-Wigner transformation to the two-body excitation operator $U^{rs}_{pq}(\theta)$, derived from the second-quantised operator $a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r$, we obtain the following two-body excitation operator in terms of the Pauli matrices.
+
+\begin{figure}[H]
+    \centering
+    \begin{align*}
+        U^{rs}_{pq} (\theta) &= \text{exp} \left( i \frac{\theta}{8} (
+        X_p X_q Y_s X_r +
+        Y_p X_q Y_s Y_r +
+        X_p Y_q Y_s Y_r +
+        X_p X_q X_s Y_r - \right. \\
+        &\left. \hspace{1cm} 
+        Y_p X_q X_s X_r -
+        X_p Y_q X_s X_r -
+        Y_p Y_q Y_s X_r -
+        Y_p Y_q X_s Y_r )
+        \prod_{k=p+1}^{q-1} Z_k
+        \prod_{l=r+1}^{s-1} Z_l
+        \right)
+    \end{align*}
+    \caption{Two-body excitation operator expressed in terms of the Pauli matrices.}
+\end{figure}
+
+Now that we have expressed the one-body and two-body excitation operators in terms of quantum gates, we will discuss their specific implementation on a quantum computer. Starting with the one-body excitation operator, we can show that it can be expressed as the following product of commuting exponential terms.
+
 \begin{equation*}
     U^q_p (\theta) =
     \left( \text{exp} \left[
@@ -48,7 +79,7 @@ We will simply refer to these unitary excitation operators as the one-body and t
     i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
 \end{equation*}
 
-The first exponential term can be naively implemented on a quantum computer as the following quantum circuit.
+The first exponential term is implemented by the following quantum circuit.
 
 \includezxdiagramtext{chapter-5/one_body1}{0.45}{
 \left( \text{exp} \left[
@@ -66,9 +97,11 @@ By sequentially composing these circuits, that is, taking their matrix product, 
 
 \includezxdiagram{chapter-5/one_body4}{0.8}
 
-The two-body excitation operator can similarly be factorised into eight commuting exponential terms and implemented as a much larger quantum circuit.
+The CNOT ladder constructions arise from the exponentiating the string of Pauli $Z$ gates, and serve to compute the parity of the spin orbitals between $p$ and $q$, ensuring that the correct phase is applied to the fermionic state, and therefore accounting for the fermionic anti-symmetry imposed by the Pauli principle.
+
+The two-body excitation operator can similarly be factorised into eight commuting exponential terms, and implemented as a much larger quantum circuit.
 
 \includezxdiagram{chapter-5/full_two_body}{1}
 
-The CNOT ladder constructions observed in these quantum circuits compute the parity of the spin orbitals in the fermionic state, ensuring the correct phase is applied and accounting for the fermionic antisymmetry imposed by the Pauli principle. Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. Given that the poor fidelity of today's quantum (NISQ) devices results in accumulating errors as circuit depth increases, we are interested in optimising these excitation operators to minimise errors introduced by noisy quantum gates.
+Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. The poor fidelity of today's quantum (NISQ) devices results in accumulating errors as circuit depth increases. Consequently, we are interested in optimising these excitation operators to minimise errors introduced by noisy quantum gates.
 
