@@ -17,14 +17,14 @@ The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits co
 
 \includejupyter{chapter-6/single1}{chapter-6/single1_zx}{0.45}
 
-It is then a simple matter of conjugating with CNOT gates to faithfully replicate the derivation revealing a singly-controlled $Y$ rotation as shown in Section \ref{operator-controlled-rotations}.
+It is then simply a matter of conjugating with CNOT gates to replicate the derivation revealing a singly-controlled $Y$ rotation, as shown in Section \ref{operator-controlled-rotations}.
 
 \includejupyter{chapter-6/single2}{chapter-6/single2_zx}{0.58}
 
-We can replicate the derivation revealing a singly-controlled $Y$ rotation from a one-body excitation operator acting on qubits $p=0$ and $q=4$. We begin by instantiating the one-body excitation operator as follows.
+We can replicate the derivation revealing a singly-controlled $Y$ rotation from a one-body excitation operator between spin orbitals $p=0$ and $q=4$. We begin by instantiating the one-body excitation operator as follows.
 
-\includejupyter{chapter-6/single3a}{chapter-6/single3a_zx}{0.45}
+\includejupyter{chapter-6/single3a}{chapter-6/single3a_zx}{0.47}
 
-Then, with the following lines of code, we eliminate the $Z$ legs responsible for calculating the parity of the fermionic state, and reveal the two Pauli gadgets that together correspond to a singly-controlled rotation in the $Y$ basis, exactly as shown in Section \ref{operator-controlled-rotations}.
+Then, with the following lines of code, we eliminate the $Z$ legs responsible for calculating the parity of the fermionic state, and reveal the two Pauli gadgets, that together, correspond to a singly-controlled $Y$ rotation, as shown in Section \ref{operator-controlled-rotations}.
 
 \includejupyter{chapter-6/single3b}{chapter-6/single3b_zx}{0.84}
