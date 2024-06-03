@@ -1,15 +1,15 @@
 \section{Manipulating Circuits}%
 \label{manipulating-circuits}
 
-The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing Pauli gadgets via the \lstinline{apply()} method. This method takes a quantum gate object as its input and inserts it along with its adjoint, into the circuit. The \lstinline{start} and \lstinline{end} parameters allow us to specify the insertion positions. For instance, below, we prepend two adjacent CNOT gates to the $\text{exp} \left[ - i\frac{1}{4} \left(Y \otimes Z \right) \right]$ gadget.
+The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing Pauli gadgets via the \lstinline{apply()} method. This method takes a quantum gate object as its input and inserts it, along with its adjoint, into the circuit. The \lstinline{start} and \lstinline{end} parameters allow us to specify the insertion positions.
 
 \includejupyter{chapter-6/apply1}{chapter-6/apply1_zx}{0.4}
 
-If no insertion positions are specified, the specified quantum gate, and its adjoint, are added at the start and end of the circuit respectively. The \lstinline{apply()} method then applies the relevant commutation relations (see Section \ref{clifford-commutation-relations}) as required.
+If no insertion positions are specified, the specified quantum gate and its adjoint are inserted at the start and at the end of the circuit respectively. The relevant commutation relations developed in Section \ref{clifford-commutation-relations} are then applied as required.
 
 \includejupyter{chapter-6/apply2}{chapter-6/apply2_zx}{0.4}
 
-We could have chosen to insert any of the previously mentioned quantum gates. The commutation logic is then implemented using Stim's \lstinline{Tableau} class, ensuring that the correct transformation is applied. Below we conjugate with the CZ gate.
+The \lstinline{apply()} method is not limited to CNOT gates -- we could have instead chosen any of the quantum gates mentioned in the previous section. The commutation logic uses Stim's \lstinline{Tableau} class to construct the required Clifford tableau ensuring that the correct transformation is applied. Below we conjugate with the CZ gate.
 
 \includejupyter{chapter-6/apply_cz}{chapter-6/apply_cz_zx}{0.4}
 
