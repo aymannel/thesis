@@ -1,20 +1,29 @@
 \section{Creating Gadgets and Circuits}
 
-In this section, we will introduce the \lstinline{Gadget} class, which we use to represent Pauli gadgets. We provide a Pauli string and a phase to instantiate a \lstinline{Gadget()} object.
+We begin by introducing the \lstinline{Gadget} class, which we use to represent Pauli gadgets. The \lstinline{Gadget} class takes a Pauli string and a phase as inputs. For instance, we instantiate the $\text{exp} \left[ - i\frac{1}{4} \left(Y \otimes Z \otimes X \right) \right]$ gadget as follows.
 
-\includejupyter{chapter-6/gadget}{chapter-6/gadget_zx}{0.28}
+\includejupyter{chapter-6/gadget}{chapter-6/gadget_zx}{0.3}
 
-By setting the \lstinline{as_gadget} option to \lstinline{False}, we can view the gadget in its expanded form, that is, in quantum circuit notation.
+By setting \lstinline{as_gadget=False}, we expand the gadget in quantum circuit notation.
 
-\includejupyter{chapter-6/expanded}{chapter-6/expanded_zx}{0.5}
+\includejupyter{chapter-6/expanded}{chapter-6/expanded_zx}{0.55}
 
-We can construct a circuit of Pauli gadgets using the \lstinline{GadgetCircuit} class. The underlying data structure for this class is simply an ordered list.
+We can construct a circuit of Pauli gadgets using the \lstinline{GadgetCircuit} class, providing it with an ordered list of \lstinline{Gadget()} objects. For instance, we implement a one-body excitation operator below, as discussed in Chapter \ref{excitation-operators}.
 
-\includejupyter{chapter-6/circuit}{chapter-6/circuit_zx}{0.42}
+\includejupyter{chapter-6/circuit}{chapter-6/circuit_zx}{0.45}
 
-ZxFermion also implements standard quantum gates via the \lstinline{CX}, \lstinline{CZ}, \lstinline{X}, \lstinline{Z}, \lstinline{XPlus}, \lstinline{XMinus}, \lstinline{ZPlus} and \lstinline{ZMinus} classes. As we will see in the next section, we have implemented the logic describing the interaction of Pauli gadgets with these gates.
+We will now introduce the classes implementing the standard quantum gates. As we will see in Section \ref{manipulating-circuits}, ZxFermion encodes the logic describing the interaction of the these gates with Pauli gadgets, allowing us to replicate the results in Chapter \ref{excitation-operators}. The CNOT and CZ gates are implemented by the \lstinline{CX} and \lstinline{CZ} classes respectively. We can specify the control and target qubits using the \lstinline{control} and \lstinline{target} parameters. When not specified, these parameters default to \lstinline{control=0} and \lstinline{target=1}.
 
-% The \lstinline{GadgetCircuit} class can also take standard quantum gates, where the \lstinline{stack} parameter stacks the individual gates in the circuit for a better representation.
+\includejupyter{chapter-6/cx_cz}{chapter-6/cx_cz_zx}{0.3}
 
-% \includejupyter{chapter-6/stacked}{chapter-6/stacked_zx}{0.3}
+The Pauli $Z$ and Pauli $X$ gates are implemented by the \lstinline{Z} and \lstinline{X} classes respectively. We specify the target qubit using the \lstinline{qubit} parameter (defaults to \lstinline{qubit=0}). 
 
+\includejupyter{chapter-6/paulis}{chapter-6/paulis_zx}{0.28}
+
+Similarly, the single-qubit Clifford gates are implemented by the \lstinline{ZPlus}, \lstinline{ZMinus}, \lstinline{XPlus} and \lstinline{XMinus} classes. Below we implement the $Y \otimes Y$ Pauli string (Section \ref{clifford-conjugation}).
+
+\includejupyter{chapter-6/cliffords}{chapter-6/cliffords_zx}{0.28}
+
+Finally, we have the Hadamard gate, which is implemented by the \lstinline{H} class.
+
+\includejupyter{chapter-6/hadamard}{chapter-6/hadamard_zx}{0.16}
