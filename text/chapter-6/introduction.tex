@@ -1,10 +1,14 @@
 \chapter{ZxFermion Software}%
 \label{zxfermion}
 
-ZxFermion (visit \href{https://github.com/aymannel/zxfermion}{github.com/aymannel/zxfermion} for documentation) is a Python package that I wrote for the manipulation and visualisation of circuits of Pauli gadgets. It is built on top of the PyZX \lstinline{BaseGraph} API \cite{Kissinger2020} and Stim \cite{Gidney2021}. The motivation for building this package came from the need for an accessible tool to explore research ideas related to circuits of Pauli gadgets.
+Visit \textbf{\href{https://github.com/aymannel/zxfermion}{github.com/aymannel/zxfermion} }for the complete documentation.
 
-Whilst there are existing software solutions like PauliOpt, which focus on circuit simplification using architecture-aware synthesis algorithms \cite{Gogioso2023}, ZxFermion provides a more acccessible alternative, as well as offering tools for studying the interaction of Pauli gadgets with Clifford and Pauli gates using Stim's \lstinline{Tableau} class.
+Motivated by the need for an accessible tool to explore research ideas related to circuits of Pauli gadgets, we built the ZxFermion Python package for the visualisation and manipulation of circuits of Pauli gadgets. It is built on top of the PyZX \lstinline{BaseGraph} API \cite{Kissinger2020} and the Stim \lstinline{Tableau} class \cite{Gidney2021}.
 
-ZxFermion is designed to integrate with Jupyter notebook environments, enabling users to visualise interactive ZX diagrams directly in the output cell. The package has also undergone thorough testing, ensuring its reliability and ease of use.
+ZxFermion provides classes to represent Pauli gadgets and common quantum gates (CNOT, CZ, \textit{etc.}) as well as encoding the commutation relations developed in Section \ref{clifford-commutation-relations}. It is designed to integrate with Jupyter notebook environments, enabling users to generate interactive ZX diagrams directly in the output cell. Thereby, ZxFermion provides us with an accessible tool for the studying the interaction of Pauli gadgets, as required when studying quantum chemistry in the context of VQE algorithms.
 
-All of the proofs so far derived can be replicated using ZxFermion, showcasing a noteworthy acceleration in research pace. We anticipate that both chemists and computer scientists exploring quantum computing within the VQE framework will find this software tool advantageous.
+Using ZxFermion, we were able to replicate all of the commutations relations described in Section \ref{commutation-relations} and Section \ref{clifford-commutation-relations} as well as the proofs discussed in Chapter \ref{excitation-operators}, showcasing a noteworthy acceleration in research pace and we anticipate that both chemists and computer scientists exploring quantum computing within the VQE framework will find this software tool advantageous.
+
+\hangindent=10pt 
+\textbf{Remark} -- \textit{The ZxFermion package has also undergone thorough testing, ensuring its reliability and ease of use.}
+

@@ -22,14 +22,14 @@
 		\node [style={z_node}] (22) at (2, 2.5) {};
 		\node [style={z_node}] (23) at (2, 1) {};
 		\node [style={z_node}] (24) at (2, 0) {};
-		\node [style={z_phase}] (25) at (4, 1.75) {$\theta$};
+		\node [style={z_phase}] (25) at (4, 1.75) {$-\theta$};
 		\node [style={x_node}] (26) at (3, 1.75) {};
 		\node [style=none] (27) at (2, 2) {$\vdots$};
 		\node [style={z_node}] (28) at (7, 3.5) {};
 		\node [style={z_node}] (29) at (7, 2.5) {};
 		\node [style={z_node}] (30) at (7, 1) {};
 		\node [style={z_node}] (31) at (7, 0) {};
-		\node [style={z_phase}] (32) at (9, 1.75) {$-\theta$};
+		\node [style={z_phase}] (32) at (9, 1.75) {$\theta$};
 		\node [style={x_node}] (33) at (8, 1.75) {};
 		\node [style=none] (34) at (7, 2) {$\vdots$};
 		\node [style=none] (35) at (9.5, 1) {};

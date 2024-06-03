@@ -23,7 +23,7 @@
 		\node [style=none] (24) at (4.5, 2) {$\vdots$};
 		\node [style=none] (25) at (8.5, 2) {$\vdots$};
 		\node [style=none] (26) at (0.5, 2) {$\vdots$};
-		\node [style={z_phase}] (27) at (6.5, 0) {$\theta$};
+		\node [style={z_phase}] (27) at (6.5, 0) {$-\theta$};
 		\node [style=none] (28) at (1, 0) {$q$};
 		\node [style=none] (29) at (0.5, 1) {$q-1$};
 		\node [style=none] (30) at (0.5, 2.5) {$p+1$};
@@ -50,7 +50,7 @@
 		\node [style={x_phase}] (55) at (20.5, 0) {$-$};
 		\node [style=none] (56) at (14.5, 2) {$\vdots$};
 		\node [style=none] (57) at (18.5, 2) {$\vdots$};
-		\node [style={z_phase}] (59) at (16.5, 0) {$-\theta$};
+		\node [style={z_phase}] (59) at (16.5, 0) {$\theta$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (1.center) to (0);

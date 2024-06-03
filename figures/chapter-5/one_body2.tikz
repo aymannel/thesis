@@ -27,7 +27,7 @@
 		\node [style=none] (24) at (3, 2) {$\vdots$};
 		\node [style=none] (25) at (7, 2) {$\vdots$};
 		\node [style=none] (26) at (-1, 2) {$\vdots$};
-		\node [style={z_phase}] (27) at (5, 0) {$-\theta$};
+		\node [style={z_phase}] (27) at (5, 0) {$\theta$};
 		\node [style=none] (28) at (-0.5, 0) {$q$};
 		\node [style=none] (29) at (-1, 1) {$q-1$};
 		\node [style=none] (30) at (-1, 2.5) {$p+1$};
