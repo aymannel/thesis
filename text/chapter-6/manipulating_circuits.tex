@@ -1,27 +1,23 @@
 \section{Manipulating Circuits}%
 \label{manipulating-circuits}
 
-The \lstinline{GadgetCircuit} class comes equipped with the \lstinline{apply()} method that allows us to insert a quantum gate, and its Hermitian conjugate, into the circuit. This operation preserves the matrix corresponding to a given cricuit. The method takes the quantum gate to apply as its first parameter, whilst the \lstinline{start} and \lstinline{end} parameters designate the insertion positions.
+The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing Pauli gadgets via the \lstinline{apply()} method. This method takes a quantum gate object as its input and inserts it along with its adjoint, into the circuit. The \lstinline{start} and \lstinline{end} parameters allow us to specify the insertion positions. For instance, below, we prepend two adjacent CNOT gates to the $\text{exp} \left[ - i\frac{1}{4} \left(Y \otimes Z \right) \right]$ gadget.
 
 \includejupyter{chapter-6/apply1}{chapter-6/apply1_zx}{0.4}
 
-If no specific positions are specified, the insertion defaults to placing one quantum gate at the start, and its Hermitian conjugate at the end, of the circuit. The \lstinline{GadgetCircuit} class then manages the relevant commutation relations, ensuring the expected gadget outcome. Hence, we below, we observe the gadget that results upon pushing a CNOT gate through the \lstinline{Gadget("YZ", phase=1/2)} object.
+If no insertion positions are specified, the specified quantum gate, and its adjoint, are added at the start and end of the circuit respectively. The \lstinline{apply()} method then applies the relevant commutation relations (see Section \ref{clifford-commutation-relations}) as required.
 
 \includejupyter{chapter-6/apply2}{chapter-6/apply2_zx}{0.4}
 
-We could have chosen any Pauli gadget by simply instantiating the relevant \lstinline{Gadget()} object. Alternatively, we could have chosen to insert any Hermitian conjugate pair of gates. The commutation logic implements Stim's \lstinline{Tableau} class to identify the behaviour of a Pauli string with a given Clifford or Pauli gate.
+We could have chosen to insert any of the previously mentioned quantum gates. The commutation logic is then implemented using Stim's \lstinline{Tableau} class, ensuring that the correct transformation is applied. Below we conjugate with the CZ gate.
 
 \includejupyter{chapter-6/apply_cz}{chapter-6/apply_cz_zx}{0.4}
 
-The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing multiple gadgets simultaneously. Below, we instantiate the parametrised exponential of the single excitation operator, $a^\dagger_0 a_1 - a^\dagger_1 a_0$, in terms of quantum gates.
+The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing multiple gadgets simultaneously. Below, we instantiate the minimal one-body excitation operator discussed in Figure \ref{minimal-one-body}.
 
 \includejupyter{chapter-6/single1}{chapter-6/single1_zx}{0.45}
 
-Conjugating the circuit with CNOTs reveals two Pauli gadgets, that combined, represent a controlled rotation in the $Y$ basis. We have therefore faithfully replicated the result outlined in Yordanov \textit{et al} \cite{Yordanov2020}.
+It is then a simple matter of conjugating with CNOT gates to faithfully replicate the derivation revealing a singly-controlled $Y$ rotation as shown in Section \ref{operator-controlled-rotations}.
 
 \includejupyter{chapter-6/single2}{chapter-6/single2_zx}{0.58}
-
-We consider it a significant achievement that with just a few lines of code, a user can now faithfully replicate derivations that took us many hours.
-
-GIVE SOME MORE EXAMPLES IN COMPACT FORM INCLUDING CONJUGATING BY XPLUS ETC
 
