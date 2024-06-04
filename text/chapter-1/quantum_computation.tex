@@ -135,7 +135,7 @@ The most fundamental multi-qubit gate is the two-qubit CNOT gate, which is used 
     \ket{10} \rightarrow \ket {11} \qquad
     \ket{11} \rightarrow \ket {10}
 \end{equation*}
-In this way the CNOT gate is the quantum generalisation of the classical XOR gate. We define the two matrices corresponding to the CNOT gates, with the control and target qubits interchanged, as follows.
+In this way the CNOT gate is the quantum generalisation of the classical XOR gate. We define the two matrices corresponding to the two CNOT gates, with the first qubit being the control and the second qubit being the target, and \textit{vice versa}.
 
 \begin{figure}[H]
     \centering
@@ -159,7 +159,8 @@ In this way the CNOT gate is the quantum generalisation of the classical XOR gat
     \caption{Matrix definitions of the CNOT gate.}
 \end{figure}
 
-The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, the CNOT gate acts on $\ket{+0}$ as follows.
+The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, starting with the $\ket{+0}$ state, and letting the first qubit be the control qubit ($\ket +$), we have the following.
+\smallskip
 \begin{equation*}
     \text{CNOT} \ket{+ \, 0} = \frac{\ket{00} + \ket{11}}{\sqrt 2}
 \end{equation*}
