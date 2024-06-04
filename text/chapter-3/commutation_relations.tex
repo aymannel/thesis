@@ -40,15 +40,15 @@ Whilst it is possible to derive each of these commutation relations directly, it
 
 Let us illustrate this with an example. Using the $Z \otimes Z$ Pauli string, we show that the $\text{CNOT}_{0, 1}$ gate commutes through the $\text{exp} \left[ - i\frac{\theta}{2} \left( Z \otimes Z \right) \right]$ gadget to give the $\text{exp} \left[ - i\frac{\theta}{2} \left( I \otimes Z \right) \right]$ gadget. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
 
-\includezxdiagram{chapter-3/commutation_trick}{0.68}
+\includezxdiagram{chapter-3/commutation_trick}{0.62}
 
 Recall that up to a global phase of $-i$, the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (\ref{pauli-Y}). We can, therefore, derive how the $\text{CNOT}_{0, 1}$ gate interacts with the $\text{exp} \left[ - i\frac{\theta}{2} \left(Y \otimes X \right) \right]$ Pauli gadget by identifying how the CNOT$_{0, 1}$ gate interacts with the $Y \otimes X$ Pauli string.
 
-\includezxdiagram{chapter-3/commutation_trick_YX}{1}
+\includezxdiagram{chapter-3/commutation_trick_YX}{0.95}
 
 Similarly, identifying how single-qubit Clifford gates interact with Pauli gadgets amounts to identifying how they interact with the Pauli gates. Importantly, if the phase of the Pauli gate is flipped, we must also flip the phase of the corresponding Pauli gadget.
 
-\includezxdiagram{chapter-3/single_qubit_clifford}{0.55}
+\includezxdiagram{chapter-3/single_qubit_clifford}{0.5}
 
 \begin{figure}[H]
     \centering

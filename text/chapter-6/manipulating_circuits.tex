@@ -21,10 +21,19 @@ It is then simply a matter of conjugating with CNOT gates to replicate the deriv
 
 \includejupyter{chapter-6/single2}{chapter-6/single2_zx}{0.58}
 
-We can replicate the derivation revealing a singly-controlled $Y$ rotation from a one-body excitation operator between spin orbitals $p=0$ and $q=4$. We begin by instantiating the one-body excitation operator as follows.
+We can replicate the derivation that reveals a singly-controlled $Y$ rotation from a one-body excitation operator shown in Section \ref{operator-controlled-rotations}. We begin by instantiating the \lstinline{GadgetCircuit()} object with the following lines of code.
 
 \includejupyter{chapter-6/single3a}{chapter-6/single3a_zx}{0.47}
 
-Then, with the following lines of code, we eliminate the $Z$ legs responsible for calculating the parity of the fermionic state, and reveal the two Pauli gadgets, that together, correspond to a singly-controlled $Y$ rotation, as shown in Section \ref{operator-controlled-rotations}.
+Then, using the following lines of code, we eliminate the $Z$ legs responsible for calculating the parity of the fermionic state, and reveal the two Pauli gadgets, that together, correspond to a singly-controlled $Y$ rotation.
 
 \includejupyter{chapter-6/single3b}{chapter-6/single3b_zx}{0.84}
+
+Similarly, we can replicate the corresponding derivation for the two-body excitation operator. We begin by instantiating the \lstinline{GadgetCircuit()} object as follows.
+
+\includejupyter{chapter-6/double1}{chapter-6/double1_zx}{0.84}
+
+Then, using the following lines of code, we diagonalise the diagram, revealing the eight Pauli gadgets that togther constitute the triply-controlled $Y$ rotation.
+
+\includejupyter{chapter-6/double2}{chapter-6/double2_zx}{0.84}
+
