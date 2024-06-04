@@ -102,6 +102,7 @@ The Hadamard gate interconverts between the $Z$ and $X$ bases and maps $\ket 0 \
     \includezxdiagramtext{chapter-1/hadamard}{0.15}{
     \frac{1}{\sqrt 2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
     \caption{Bloch sphere representation of the Hadamard gate.}
+    \label{hadamard-definition}
 \end{figure}
 
 Since the Pauli gates and the Hadamard gate each correspond to unitary and Hermitian matrices, it follows that they are also self-inverse. Consequently, successively applying any of these gates is equivalent to applying the identity matrix $I$.
@@ -124,11 +125,13 @@ The R$_Z(\theta)$ and R$_X(\theta)$ rotation gates correspond to rotations of th
         \end{pmatrix}}
     \end{minipage}
     \caption{Bloch sphere representations of arbitrary $Z$ and $X$ rotations.}
+    \label{z-rotation-definition}
+    \label{x-rotation-definition}
 \end{figure}
 
 \subsection{Multiple-Qubit Gates}
 
-The most fundamental multi-qubit gate is the two-qubit CNOT gate, which is used to entangle two qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. Taking $\alpha$ to be the control qubit, and $\beta$ to be the target qubit, we define the CNOT gate as the gate that maps $\ket\alpha\otimes\ket\beta \rightarrow \ket\alpha\otimes\ket{\alpha\oplus\beta}$. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The same CNOT gate acts on the two-qubit basis states (Figure \ref{two-qubit-states}) as follows.
+The most fundamental multi-qubit gate is the two-qubit CNOT gate, which is used to entangle two qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. Taking the first qubit ($\alpha$) to be the control, and the second qubit ($\beta$) to be the target, we define the CNOT gate as the gate that maps $\ket\alpha\otimes\ket\beta \rightarrow \ket\alpha\otimes\ket{\alpha\oplus\beta}$. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The same CNOT gate acts on the two-qubit basis states (Figure \ref{two-qubit-states}) as follows.
 \begin{equation*}
     \ket{00} \rightarrow \ket {00} \qquad
     \ket{01} \rightarrow \ket {01} \qquad
@@ -157,6 +160,7 @@ In this way the CNOT gate is the quantum generalisation of the classical XOR gat
         \end{pmatrix}
     \end{equation*}
     \caption{Matrix definitions of the CNOT gate.}
+    \label{cnot-definition}
 \end{figure}
 
 The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, starting with the $\ket{+0}$ state, and letting the first qubit be the control qubit ($\ket +$), we have the following.

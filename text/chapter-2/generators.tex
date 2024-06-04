@@ -68,7 +68,7 @@ Similarly, we represent the $X$ eigenstates using the corresponding $Z$ spiders.
 \end{minipage}
 \end{figure}
 
-Single qubit rotations in the $Z$ basis are represented by a $Z$ Spider with a single input and a single output. Arbitrary rotations in the $X$ basis are represented by the corresponding $X$ spider. We can view these as rotations of the Bloch sphere.
+Arbitrary single-qubit rotations (\ref{z-rotation-definition}) in the $Z$ basis are represented by a $Z$ Spider with a single input and a single output. Similarly, we have that the corresponding rotation in the $X$ basis is represented by an $X$ spider. We can view these as rotations of the Bloch sphere.
 
 \includezxdiagramtextplus{figures/chapter-2/z_rotation}{0.11}{
     \ket{0} \bra{0} + e^{i\alpha}
@@ -89,7 +89,7 @@ Single qubit rotations in the $Z$ basis are represented by a $Z$ Spider with a s
 }
 {chapter-1/x_rotation}{0.17}
 
-We can recover the Pauli $Z$ and Pauli $X$ matrices by setting the angle $\alpha = \pi$.
+We can recover the Pauli $Z$ and Pauli $X$ matrices (\ref{pauli-matrices}) by setting $\alpha = \pi$.
 
 \begin{figure}[H]
 \centering
@@ -119,7 +119,7 @@ To calculate the matrix of a ZX diagram consisting of sequentially composed spid
 \end{pmatrix}
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}}
 
-Alternatively, we could have chosen to compose the spiders in parallel, resulting in the tensor product.
+Alternatively, we could have chosen to compose the spiders in parallel, corresponding to the tensor product.
 
 \includezxdiagramtext{chapter-2/parallel}{0.105}{
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
@@ -128,7 +128,7 @@ Alternatively, we could have chosen to compose the spiders in parallel, resultin
     1 - e^{i\beta} & 1 + e^{i\beta}
 \end{pmatrix}}
 
-The CNOT gate in the ZX calculus is represented by a $Z$ spider (control qubit) and an $X$ spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
+The CNOT gate (\ref{cnot-definition}) in the ZX calculus is represented by a $Z$ spider (control qubit) and an $X$ spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 
 \includezxdiagram{chapter-2/cnot_def}{0.65}
 
@@ -209,9 +209,9 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
     \caption{Arbitrary single-qubit rotation.}
 \end{figure}
 
-The Hadamard gate $H$ corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $X$ and $Z$ axes. Up to a global phase of $\text{exp} \left(-i \frac{\pi}{4} \right)$, it can be decomposed using Euler angles by choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$. 
+The Hadamard gate $H$ (\ref{hadamard-definition}) corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $X$ and $Z$ axes. Up to a global phase of $\text{exp} \left(-i \frac{\pi}{4} \right)$, it can be decomposed into three successive rotations, choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$. 
 
-\includezxdiagramtext{figures/chapter-2/hadamard}{0.53}{
+\includezxdiagramtext{figures/chapter-2/hadamard}{0.48}{
 \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
 
