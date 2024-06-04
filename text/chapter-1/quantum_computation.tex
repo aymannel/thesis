@@ -115,12 +115,29 @@ The R$_Z(\theta)$ and R$_X(\theta)$ rotation gates correspond to rotations of th
     \caption{Arbitrary rotations in the $Z$ and $X$ bases by $\theta$ radians.}
 \end{figure}
 
-So far we have only considered single-qubit quantum gates. We will now introduce the two-qubit CNOT gate, which we use to entangle multiple qubits. The CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff.} the control qubit is in the $\ket 1$ state. In this way the CNOT gate is the quantum generalisation of the classical XOR gate. Consider a two-qubit state vector of the form $\ket{\alpha\beta} = \ket \alpha \otimes \ket \beta$. We define CNOT$_{\alpha, \beta}$ as the CNOT gate that takes $\alpha$ to be the control qubit and $\beta$ to be the target qubit as CNOT$_{\alpha, \beta}$.
-
-\begin{gather*}
+We will now introduce the two-qubit CNOT gate, which is used to entangle two qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. We define CNOT as the gate that takes $\alpha$ to be the control qubit and $\beta$ to be the target qubit, and acts on the $\ket\alpha\otimes\ket\beta$ state to give the $\ket\alpha\otimes\ket{\alpha\oplus\beta}$ state. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The CNOT gate acts on the two-qubit basis states as follows.
+\begin{equation*}
     \ket{00} \rightarrow \ket {00} \qquad
     \ket{01} \rightarrow \ket {01} \qquad
     \ket{10} \rightarrow \ket {11} \qquad
     \ket{11} \rightarrow \ket {10}
-\end{gather*}
-The rightmost 
+\end{equation*}
+In this way the CNOT gate is the quantum generalisation of the classical XOR gate. Since the CNOT must be unitary, it has two outputs instead of one, such that $\text{CNOT}^{-1}$ is well-defined. We define the matrices corresponding to the CNOT gates, with the control and target qubits interchanged, as follows.
+\begin{equation*}
+\text{CNOT}^{c=0}_{t=1} =
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0
+    \end{pmatrix} \qquad
+    %
+    \text{CNOT}^{c=1}_{t=0} =
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0
+    \end{pmatrix}
+\end{equation*}\smallskip
+The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, the CNOT gate actions on the $\ket{+0}$ state to give the $\frac{1}{\sqrt 2} (\ket{00} + \ket{11})$ Bell state.
