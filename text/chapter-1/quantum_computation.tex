@@ -1,7 +1,7 @@
 \section{Fundamentals of Quantum Computation}%
 \label{quantum-computation}
 
-Gate-based quantum computation provides means by which to represent exponentially scaling fermionic wavefunctions using polynomially scaling quantum resources. The fundamental idea that permits this is the ability of quantum computers to encode and manipulate superpositions of states. In this section, we will give an introduction to qubits, multiple-qubit states and the elementary quantum gates.
+The fundamental idea permitting gate-based quantum computation to represrent exponentially scaling fermionic wavefunctions using polynomially scaling quantum resources is its ability to encode and manipulate superpositions of states. In this section, we will provide an introduction to qubits and basic quantum gates.
 
 \subsection{Introduction to Qubits}
 
@@ -19,13 +19,13 @@ Classical computation encodes information using binary strings formed from the c
         \includezxdiagramtext{chapter-1/one}{0.35}{
         \begin{pmatrix} 0 \\ 1 \end{pmatrix}}
     \end{minipage}
-    \caption{$Z$ eigenbasis.}
+    \caption{Computational $Z$ basis states.}
     \label{z-eigenstates}
 \end{figure}
 
 An arbitrary qubit state $\ket\psi$ can be described as a complex linear combination of the computational basis states $\ket\psi = \alpha\ket 0 + \beta\ket 1$ provided that the qubit state is normalised, $|\alpha|^2 + |\beta|^2 = 1$. In other words we require two complex numbers ($\alpha$ and $\beta$), or four real numbers, to describe an arbitrary qubit state. Since only the relative phase between the basis states is directly measureable, there is a redundancy in this description that allows us to represent an arbitrary qubit state using only three real numbers.
 
-By taking advantage of this redundancy, we obtain a three-dimensional representation of an arbitrary qubit state, known as the Bloch sphere. Note that opposite points on the Bloch sphere correspond to mutually orthonal states (see the $Z$ eigenbasis in Figure \ref{z-eigenstates}). We could have equivalently chosen any pair of orthonormal states to form the computational basis. For instance, we define the $X$ eigenstates as follows.
+By taking advantage of this redundancy, we can derive a three-dimensional representation of an arbitrary qubit state, known as the Bloch sphere. Note that opposite points on the Bloch sphere correspond to mutually orthonal states (see the $Z$ eigenbasis in Figure \ref{z-eigenstates}). We could have equivalently chosen any pair of orthonormal states to form the computational basis. For instance, we define the $X$ eigenstates as follows.
 
 \begin{figure}[H]
     \centering
@@ -39,7 +39,7 @@ By taking advantage of this redundancy, we obtain a three-dimensional representa
         \includezxdiagramtext{chapter-1/minus}{0.4}{
         \frac{\ket 0 - \ket 1}{\sqrt 2}}
     \end{minipage}
-    \caption{$X$ eigenbasis.}
+    \caption{Computational $X$ basis states.}
     \label{x-eigenstates}
 \end{figure}
 
@@ -77,33 +77,34 @@ Quantum gates, by definition, correspond to unitary transformations, $U^{-1} = U
         Y = \begin{pmatrix} 0 & -i \\ i & \,\,\,\,0\end{pmatrix} \qquad
         Z = \begin{pmatrix} 1 & \,\,\,0 \\ 0 & -1\end{pmatrix}
     \end{equation*}
-    \caption{The Pauli matrices.}
+    \caption{The Pauli matrices corresponding to the Pauli gates.}
     \label{pauli-matrices}
 \end{figure}
 
-The Pauli $X$ gate is the quantum analogue of the classical NOT gate in that it maps $\ket 0 \leftrightarrow \ket 1$. Importantly, the Pauli $X$ differs from its classical counterpart in that it can act on any arbitrary qubit state.
+The Pauli $X$ gate is the quantum analogue of the classical NOT gate in that it maps $\ket 0 \leftrightarrow \ket 1$. Importantly, the Pauli $X$ differs from its classical counterpart in that it can act on any arbitrary qubit state. Similarly, we have that the Pauli $Z$ gate maps $\ket + \leftrightarrow \ket -$ and the Pauli $Y$ gate maps $\ket R \leftrightarrow \ket L$.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\linewidth]{chapter-1/zero_one}
+%     \caption{Pauli $X$ gate acting on the $\ket 0$ state.}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\linewidth]{chapter-1/plus_minus}
+%     \caption{Pauli $Z$ gate acting on the $\ket +$ state.}
+% \end{figure}
+
+The Hadamard gate interconverts between the $Z$ and $X$ bases and maps $\ket 0 \leftrightarrow \ket +$ and $\ket 1 \leftrightarrow \ket -$. The Hadamard gate can, therefore, be viewed as a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $z$ and $x$ axes.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{chapter-1/zero_one}
-    \caption{Pauli $X$ gate acting on the $\ket 0$ state.}
+    \includezxdiagramtext{chapter-1/hadamard}{0.15}{
+    \frac{1}{\sqrt 2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
+    \caption{Bloch sphere represrentation of the Hadamard gate.}
 \end{figure}
 
-Similarly, we have that the Pauli $Z$ gate maps $\ket + \leftrightarrow \ket -$.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{chapter-1/plus_minus}
-    \caption{Pauli $Z$ gate acting on the $\ket +$ state.}
-\end{figure}
-
-The Hadamard gate maps $\ket 0 \leftrightarrow \ket +$ and $\ket 1 \leftrightarrow \ket -$. Hence, the Hadamard gate can be viewed as interconverting between the $Z$ and $X$ bases through a rotation $\pi$ radians about the line bisecting the $z$ and $x$ axes in the Bloch sphere representation. Since the Hadamard and Pauli gates correspond to Hermitian matrices, and since all quantum gates are unitary by definition, it follows that they are also self-inverse.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\linewidth]{chapter-1/plus_zero}
-    \caption{Hadamard gate acting on the $\ket +$ state.}
-\end{figure}
+Since the Pauli gates and the Hadamard gate each correspond to unitary and Hermitian matrices, it follows that they are also self-inverse. Consequently, successively applying a Pauli or Hadamard twice is equivalent to applying the identity Pauli matrix, $I$, or applying no transformation at all.
 
 The R$_Z(\theta)$ and R$_X(\theta)$ rotation gates correspond to rotations of the Bloch sphere by some angle $\theta$, in the $Z$ and $X$ bases respectively.
 
@@ -122,36 +123,97 @@ The R$_Z(\theta)$ and R$_X(\theta)$ rotation gates correspond to rotations of th
               1 - e^{i\theta} & 1 + e^{i\theta}
         \end{pmatrix}}
     \end{minipage}
-    \caption{Arbitrary rotations in the $Z$ and $X$ bases by $\theta$ radians.}
+    \caption{Bloch sphere representations of arbitrary $Z$ and $X$ rotations.}
 \end{figure}
 
 \subsection{Multiple-Qubit Gates}
 
-We will now introduce the two-qubit CNOT gate, which is used to entangle two qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. We define CNOT as the gate that takes $\alpha$ to be the control qubit and $\beta$ to be the target qubit, and acts on the $\ket\alpha\otimes\ket\beta$ state to give the $\ket\alpha\otimes\ket{\alpha\oplus\beta}$ state. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The CNOT gate acts on the two-qubit basis states as follows.
+The most fundamental multi-qubit gate is the two-qubit CNOT gate, which is used to entangle two qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. Taking $\alpha$ to be the control qubit and $\beta$ to be the target qubit, we define the CNOT gate as the gate that acts on the $\ket\alpha\otimes\ket\beta$ state to give the $\ket\alpha\otimes\ket{\alpha\oplus\beta}$ state. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The CNOT gate acts on the two-qubit basis states as follows.
 \begin{equation*}
     \ket{00} \rightarrow \ket {00} \qquad
     \ket{01} \rightarrow \ket {01} \qquad
     \ket{10} \rightarrow \ket {11} \qquad
     \ket{11} \rightarrow \ket {10}
 \end{equation*}
-In this way the CNOT gate is the quantum generalisation of the classical XOR gate. Since the CNOT must be unitary, it has two outputs instead of one, such that $\text{CNOT}^{-1}$ is well-defined.
+In this way the CNOT gate is the quantum generalisation of the classical XOR gate. We define the two matrices corresponding to the CNOT gates (with the control and target qubits interchanged), as follows.
 
-We define the matrices corresponding to the CNOT gates, with the control and target qubits interchanged, as follows.
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+    \text{CNOT}^{c=0}_{t=1} =
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0
+        \end{pmatrix} \qquad
+        %
+        \text{CNOT}^{c=1}_{t=0} =
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0
+        \end{pmatrix}
+    \end{equation*}
+    \caption{Matrix definitions of the CNOT gates with the control and target qubits interchanged.}
+\end{figure}
+
+The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, the CNOT gate acts on $\ket{+0}$ as follows.
 \begin{equation*}
-\text{CNOT}^{c=0}_{t=1} =
-    \begin{pmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 0 & 1 \\
-        0 & 0 & 1 & 0
-    \end{pmatrix} \qquad
-    %
-    \text{CNOT}^{c=1}_{t=0} =
-    \begin{pmatrix}
-        1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 1 \\
-        0 & 0 & 1 & 0 \\
-        0 & 1 & 0 & 0
-    \end{pmatrix}
-\end{equation*}\smallskip
-The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, the CNOT gate actions on the $\ket{+0}$ state to give the $\frac{1}{\sqrt 2} (\ket{00} + \ket{11})$ Bell state.
+    \text{CNOT} \ket{+ \, 0} = \frac{\ket{00} + \ket{11}}{\sqrt 2}
+\end{equation*}
+
+% \subsection{Quantum Circuits}
+
+% The research presented in this thesis revolves around the manipulation of \textit{quantum circuits} using a diagrammatic language known as the ZX calculus, which we introduce in more detail in Section \ref{zx-calculus}. Quantum circuits are composed of quantum gates (unitary transformations), such that the resulting quantum circuit itself, corresponds to a $2^n \times 2^n$ unitary transformation. This unitary transformation then acts on an $n$-qubit input vector to produce an $n$-qubit output vector. Below we summarise the representation of some of these quantum gates in the ZX calculus.
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{minipage}{0.45\textwidth}
+%         \centering
+%         \includezxdiagramtext{figures/chapter-2/pauli_z}{0.25}{
+%         \begin{pmatrix} 1 & \,\,0 \\ 0 & -1 \end{pmatrix}}
+%     \end{minipage}
+%     \begin{minipage}{.45\textwidth}
+%         \centering
+%     \includezxdiagramtext{figures/chapter-2/pauli_x}{0.25}{
+%     \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}}
+%     \end{minipage}%
+%     \caption{Representation of the Pauli $Z$ and Pauli $X$ gates in the ZX calculus.}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includezxdiagramtext{figures/chapter-1/hadamard_zx}{0.16}{
+%     \frac{1}{\sqrt 2} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
+%     \caption{Representation of the Hadamard gate in the ZX calculus.}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \begin{minipage}{0.45\textwidth}
+%         \centering
+%         \includezxdiagramtext{chapter-2/cnot}{0.25}{
+%             \begin{pmatrix}
+%             1 & 0 & 0 & 0 \\
+%             0 & 1 & 0 & 0 \\
+%             0 & 0 & 0 & 1 \\
+%             0 & 0 & 1 & 0
+%             \end{pmatrix}
+%         }
+%     \end{minipage}
+%     \begin{minipage}{.45\textwidth}
+%         \centering
+%         \includezxdiagramtext{chapter-2/cnot2}{0.25}{
+%         \begin{pmatrix}
+%         1 & 0 & 0 & 0 \\
+%         0 & 0 & 0 & 1 \\
+%         0 & 0 & 1 & 0 \\
+%         0 & 1 & 0 & 0 \\
+%         \end{pmatrix}}
+%     \end{minipage}%
+%     \caption{Representation of the CNOT gates in the ZX calculus, with the control and target qubits interchanged.}
+% \end{figure}
+
