@@ -1,12 +1,12 @@
 \chapter{Excitation Operators}%
 \label{excitation-operators}
 
-In this chapter, we will discuss how the excitation operators used to construct UCC ansätze can be implemented on a quantum computer. We will then use the ZX calculus to represent these excitation operators as Pauli gadgets and discuss a number of circuit optimisation strategies in the context of the DISCO-VQE algorithm. We will demonstrate how these excitation operators can be expressed in terms of controlled rotations (Chapter \ref{controlled-rotations}), as well as discuss their representation as phase polynomials following diagonalisation by some Clifford subcircuit. 
+In this chapter, we discuss how the excitation operators used to construct UPS ansätze can be implemented on a quantum computer. We then use the ZX calculus to represent these excitation operators as Pauli gadgets and discuss ways in which we can optimise their circuits with respect to circuit depth. We then demonstrate how these excitation operators can be expressed in terms of controlled rotations (see Chapter \ref{controlled-rotations}) following conjugation by some subcircuit. 
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-5/ucc}{0.7}
-    \caption{Example UCC ansatz approximating some fermionic ground state.}
+    \caption{Example UPS ansatz approximating some fermionic ground state.}
 \end{figure}
 
-As stated in Cowtan \textit{et al} \cite{Cowtan2020}, circuit optimisation amounts to pattern replacement, that is, recognising a subcircuit of a specific form and replacing it with an equivalent circuit that uses fewer quantum resources. Hence, by identifying the macroscopic structures representing these excitation operators, we facilitate the manipulation of large-scale structures in the quantum circuit, as well as identify the means by which they interact with one another.
+As stated in Cowtan \textit{et al} \cite{Cowtan2020}, circuit optimisation amounts to pattern replacement, that is, recognising a subcircuit of a specific form and replacing it with an equivalent circuit that uses fewer quantum resources. Hence, by identifying the macroscopic structures representing these excitation operators, we facilitate the manipulation and optimisation of large-scale structures in the quantum circuit.

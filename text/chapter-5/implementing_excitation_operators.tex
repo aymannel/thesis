@@ -1,6 +1,6 @@
 \section{Implementing Excitation Operators}
 
-In Section \ref{unitary-coupled-cluster-ansatz}, we showed that any fermionic state can be represented by a finite sequence of $k$ parametrised one-body and two-body excitation operators acting on a single-Slater determinant reference state. Hence, after invoking the Trotter formula using one time step, we obtained the following equation for the UCC ansatz.
+In Section \ref{ups-ansatz}, we showed that a fermionic state can be represented by a finite sequence of $k$ parametrised one-body and two-body excitation operators acting on a single-Slater determinant reference state. After invoking the Trotter formula using one time step, we obtained the following equation for the UPS ansatz.
 
 \begin{figure}[H]
     \centering
@@ -8,7 +8,7 @@ In Section \ref{unitary-coupled-cluster-ansatz}, we showed that any fermionic st
         U(\bm\theta) = \prod_{m=1}^k U_m(\theta_m) \qquad
         U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
     \end{equation*}
-    \caption{UCC ansatz (sequence of $k$ one-body and two-body excitation operators).}
+    \caption{UPS ansatz (sequence of $k$ one-body and two-body excitation operators).}
 \end{figure}
 
 In order to implement the fermionic excitation operators $U_m(\theta_m)$ on a quantum computer, we must first represent the second-quantised creation and annhilation operators in terms of quantum gates. For a single-state system, we do this by taking the following linear combinations of the Pauli gates.
@@ -70,7 +70,7 @@ By applying the Jordan-Wigner transformation to the two-body excitation operator
     \caption{Two-body excitation operator expressed in terms of the Pauli matrices.}
 \end{figure}
 
-Now that we have expressed the one-body and two-body excitation operators in terms of quantum gates, we will discuss their specific implementations on a quantum computer. Starting with the one-body excitation operator, we can show that it can be expressed as the following product of commuting exponential terms.
+Now that we have expressed the one-body and two-body excitation operators in terms of quantum gates, we discuss their specific implementations on a quantum computer. Starting with the one-body excitation operator, we can show that it can be expressed as the following product of commuting exponential terms.
 
 \begin{equation*}
     U^q_p (\theta) =

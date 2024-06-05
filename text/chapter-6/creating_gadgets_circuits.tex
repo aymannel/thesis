@@ -12,7 +12,7 @@ We can construct a circuit of Pauli gadgets using the \lstinline{GadgetCircuit} 
 
 \includejupyter{chapter-6/circuit}{chapter-6/circuit_zx}{0.45}
 
-We will now introduce the classes implementing the standard quantum gates. As we will see in Section \ref{manipulating-circuits}, ZxFermion encodes the logic describing the interaction of the these gates with Pauli gadgets, allowing us to replicate the results in Chapter \ref{excitation-operators}. The CNOT and CZ gates are implemented by the \lstinline{CX} and \lstinline{CZ} classes respectively. We can specify the control and target qubits using the \lstinline{control} and \lstinline{target} parameters. When not specified, these parameters default to \lstinline{control=0} and \lstinline{target=1}.
+We now introduce the classes implementing the standard quantum gates. As we will see in Section \ref{manipulating-circuits}, ZxFermion encodes the logic describing the interaction of the these gates with Pauli gadgets, allowing us to replicate the results in Chapter \ref{excitation-operators}. The CNOT and CZ gates are implemented by the \lstinline{CX} and \lstinline{CZ} classes respectively. We can specify the control and target qubits using the \lstinline{control} and \lstinline{target} parameters. When not specified, these parameters default to \lstinline{control=0} and \lstinline{target=1}.
 
 \includejupyter{chapter-6/cx_cz}{chapter-6/cx_cz_zx}{0.3}
 
