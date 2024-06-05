@@ -59,10 +59,6 @@ The $\pi$ \textit{copy rule} (\textit{c}) states that when a Pauli $Z$ or Pauli 
     \label{pi-copy}
 \end{figure}
 
-Using the $\pi$ copy, spider fusion (\ref{spider-fusion}) and identity (\ref{identity}) rules, we show that conjugating a rotation by Pauli gates in the opposite basis negates the phase.
-
-\includezxdiagram{chapter-2/phase_flip}{0.95}
-
 %%%
 
 \subsection{Hadamard Rules}
@@ -99,14 +95,17 @@ Using the spider fusion rule (\ref{spider-fusion}), we can show that a spider wi
     \label{copy}
 \end{figure}
 
-Using the natural commutation relation of the classical XOR and COPY gates, we define the \textit{bialgebra rule} (\textit{ba}). We encourage the reader to verify this relation.
+The natural commutation relation of the classical XOR and COPY gates, implies the \textit{bialgebra rule} (\textit{ba}). By successively applying the two-input/two-output case, we can generalise to any number of inputs and outputs.
+
+\includezxdiagram{chapter-2/bialgebra}{1}
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-2/bialgebra}{1}
-    \caption{The bialgebra rule (and its classical motivation).}
+    \includezxdiagram{chapter-2/bialgebra2}{0.5}
+    \caption{The bialgebra rule.}
     \label{bialgebra}
 \end{figure}
+
 
 %%%
 
@@ -117,7 +116,7 @@ Like with the bialgebra rule, our motivation for this rule stems from the behavi
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-2/hopf}{1}
-    \caption{The Hopf rule (and its classical motivation).}
+    \caption{The Hopf rule.}
     \label{hopf}
 \end{figure}
 
