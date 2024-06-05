@@ -112,12 +112,12 @@ The CNOT ladder constructions compute the parity of the spin orbitals between $p
     \label{two-body-implementation}
 \end{figure}
 
-Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. The poor fidelity of today's quantum (NISQ) devices results in an accumulation of error as circuit depth increases. Consequently, we are interested in optimising these excitation operators with respect to circuit depth.
+% Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. Consequently, we are interested in optimising these excitation operators with respect to circuit depth.
 
 \subsection{Excitation Operators as Pauli Gadgets}%
 \label{excitation-operators-pauli-gadgets}
 
-Using the phase gadget result (\ref{phase-gadget-result}) to collapse the CNOT ladder constructions, we can show that the quantum circuit implementing a one-body excitation operator (Figure \ref{one-body-implementation}) corresponds to two commuting Pauli gadgets.
+Using the phase gadget result (\ref{phase-gadget-result}) to collapse the CNOT ladder constructions, we can show that the quantum circuit implementing a one-body excitation operator (Figure \ref{one-body-implementation}) corresponds to two commuting Pauli gadgets in the ZX calculus.
 
 \includezxdiagram{chapter-5/one_body3}{0.45}
 
