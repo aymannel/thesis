@@ -131,7 +131,7 @@ The R$_Z(\theta)$ and R$_X(\theta)$ rotation gates correspond to rotations of th
 
 \subsection{Multiple-Qubit Gates}
 
-The most fundamental multi-qubit gate is the two-qubit CNOT gate, which is used to entangle two qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. Taking the first qubit ($\alpha$) to be the control, and the second qubit ($\beta$) to be the target, we define the CNOT gate as the gate that maps $\ket\alpha\otimes\ket\beta \rightarrow \ket\alpha\otimes\ket{\alpha\oplus\beta}$. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The same CNOT gate acts on the two-qubit basis states (Figure \ref{two-qubit-states}) as follows.
+The CNOT gate is the most fundamental multi-qubit gate and is used to entangle qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. Taking the first qubit ($\alpha$) to be the control, and the second qubit ($\beta$) to be the target, we define the CNOT gate as the gate that maps $\ket\alpha\otimes\ket\beta \rightarrow \ket\alpha\otimes\ket{\alpha\oplus\beta}$. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The CNOT gate acts on the two-qubit basis states (Figure \ref{two-qubit-states}) as follows.
 \begin{equation*}
     \ket{00} \rightarrow \ket {00} \qquad
     \ket{01} \rightarrow \ket {01} \qquad
@@ -163,7 +163,7 @@ In this way the CNOT gate is the quantum generalisation of the classical XOR gat
     \label{cnot-definition}
 \end{figure}
 
-The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, starting with the $\ket{+0}$ state, and letting the first qubit be the control qubit ($\ket +$), we have the following.
+The CNOT gate can be used to entangle two qubits when the control qubit exists in a superposition of states. For instance, applying CNOT gate to the $\ket{+0}$ state, letting the first qubit be the control qubit ($\ket +$), yields the following Bell state.
 \smallskip
 \begin{equation*}
     \text{CNOT} \ket{+ \, 0} = \frac{\ket{00} + \ket{11}}{\sqrt 2}

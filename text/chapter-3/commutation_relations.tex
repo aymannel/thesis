@@ -5,7 +5,7 @@ A pair of Pauli gadgets commute when their Hamiltonians commute \cite{Yeung2020}
 
 \includezxdiagram{chapter-3/mismatches}{1}
 
-Starting with the mismatching $Z$/$X$ pair and using the bialgebra (\ref{bialgebra}), Hadamard commutation (\ref{hadamard-commutation}) and spider fusion (\ref{spider-fusion}) rules, we can show that commuting the gadgets' legs introduces a Hadamard between the bodies of the gadgets. \cite{Yeung2020}.
+Starting with the mismatching $Z$/$X$ pair and using the bialgebra (\ref{bialgebra}), Hadamard commutation (\ref{hadamard-commutation}) and spider fusion (\ref{spider-fusion}) rules, we can show that commuting the gadgets' legs introduces a Hadamard between the bodies of the gadgets \cite{Yeung2020}.
 
 \includezxdiagram{chapter-3/mismatch_proof}{1}
 
@@ -42,13 +42,21 @@ Let us illustrate this with an example. Using the $Z \otimes Z$ Pauli string, we
 
 \includezxdiagram{chapter-3/commutation_trick}{0.62}
 
-Recall that up to a global phase of $-i$, the Pauli $Y$ gate can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (\ref{pauli-Y}). We can, therefore, derive how the $\text{CNOT}_{0, 1}$ gate interacts with the $\text{exp} \left[ - i\frac{\theta}{2} \left(Y \otimes X \right) \right]$ Pauli gadget by identifying how the CNOT$_{0, 1}$ gate interacts with the $Y \otimes X$ Pauli string.
+Recall that the Pauli $Y$ gate can be obtained by conjugating the Pauli $Z$ gate with Clifford gates (\ref{pauli-Y}). Using the $\pi$ copy (\ref{pi-copy}) and spider fusion (\ref{spider-fusion}) rules, we can show that the Pauli $Y$ can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (up to a global phase of $-i$).
+
+\includezxdiagram{chapter-3/clifford_conjugation}{0.8}
+
+We can derive how the same $\text{CNOT}$ gate interacts with the $\text{exp} \left[ - i\frac{\theta}{2} \left(Y \otimes X \right) \right]$ Pauli gadget by identifying how it gate interacts with the $Y \otimes X$ Pauli string.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{0.95}
 
-Similarly, identifying how single-qubit Clifford gates interact with Pauli gadgets amounts to identifying how they interact with the Pauli gates. Importantly, if the phase of the Pauli gate is flipped, we must also flip the phase of the corresponding Pauli gadget.
+Similarly, identifying how single-qubit Clifford gates (\ref{clifford-definitions}) interact with Pauli gadgets amounts to identifying how they interact with the Pauli gates. Importantly, if the phase of the Pauli gate is flipped, we must also flip the phase of the corresponding Pauli gadget.
 
 \includezxdiagram{chapter-3/single_qubit_clifford}{0.5}
+
+PROPER EXAMPLE HERE BASED ON \ref{clifford-conjugation}
+
+Using these rules, we are able to derive all of the commutation relations in the following figures. IMPORTANT FOR LATER DERIVATIONS etc
 
 \begin{figure}[H]
     \centering
