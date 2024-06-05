@@ -1,13 +1,13 @@
 \section{The Variational Quantum Eigensolver}%
 \label{vqe}
 
-Developed in 2014 by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014}, 
+% Developed in 2014 by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014}, 
 
- VQE algorithms implement fermionic states on quantum devices via the Unitary Coupled Cluster (UCC) ansatz \cite{Taube2006}. By preparing quantum states as a sequence of unitary excitation operations acting on some reference state, we are able to parametrically explore the Hilbert space of possible quantum states \cite{McClean2016}.
+%  VQE algorithms implement fermionic states on quantum devices via the Unitary Coupled Cluster (UCC) ansatz \cite{Taube2006}. By preparing quantum states as a sequence of unitary excitation operations acting on some reference state, we are able to parametrically explore the Hilbert space of possible quantum states \cite{McClean2016}.
 
-Consequently, a significant portion of this thesis revolves around developing the diagrammatic techniques essential for replicating the findings of Yordanov \textit{et al} in the ZX calculus.
+% Consequently, a significant portion of this thesis revolves around developing the diagrammatic techniques essential for replicating the findings of Yordanov \textit{et al} in the ZX calculus.
 
-specifically the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)},
+% specifically the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)},
 
 
 In this chapter, we introduce the \textit{Variational Quantum Eigensolver (VQE)} algorithm, a particular class of variational quantum algorithms used to estimate the ground state energy of molecular systems. The research presented in this thesis is conducted within this framework. As providing an overview of the VQE algorithm, we will introduce the fundamentals of quantum computing and the \textit{Unitary Coupled Cluster (UCC) ansatz} used to represent fermionic wavefunctions on quantum devices.
@@ -27,23 +27,23 @@ For the purposes of this thesis, we are interested in a variant of the VQE algor
 
 %%%
 
-\subsection{Unitary Coupled Cluster Ansatz}%
+\subsection{Unitary Product State Ansatz}%
 \label{unitary-coupled-cluster-ansatz}
 
-As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates, whose implementation we refer to as the UCC ansatz $\ket{\psi(\bm\theta)}$. In other words, the UCC ansatz corresponds to some unitary excitation operator $U(\bm\theta)$ that acts on a reference state, usually a single reference Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method.
+As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates. We refer to the UCC ansatz $\ket{\psi_{\text{UCC}}(\bm\theta)}$ as some unitary excitation operator $U_\text{UCC}(\bm\theta)$ acting on a reference state, usually a single-Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method.
 \begin{equation*}
-    \ket{\psi(\bm\theta)} = U(\bm\theta) \ket{\psi_0} =
+    \ket{\psi_{\text{UCC}}(\bm\theta)} = U_\text{UCC}(\bm\theta) \ket{\psi_0} =
     e^{\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)} \ket{\psi_0}
 \end{equation*}
 
-The operator $\hat T(\bm\theta)$ is a linear combination of fermionic excitation operators, parametrised by coupled cluster amplitudes $\bm\theta$. The exponential of the anti-Hermitian operator $\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)$ is therefore, by definition, unitary. 
+The operator $\hat T(\bm\theta)$ is a linear combination of fermionic second-quantised excitation operators, parametrised by coupled cluster amplitudes $\bm\theta$. The exponential of the anti-Hermitian operator $\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)$ is therefore, by definition, unitary. 
 \begin{equation*}
 \hat T(\bm{\theta}) - \hat T^{\dagger}(\bm{\theta}) =
 \sum_{i, a} \theta^a_i (a^\dagger_i a_a - a^\dagger_a a_i) + 
 \sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j) + \dots
 \end{equation*}
 
-Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals. The resulting unitary operator $U(\bm\theta)$ cannot be directly implemented on a quantum computer since the terms of the excitation operator do not commute. Instead, we must invoke the Trotter formula to approximate the unitary. Taking a single Trotter step $\rho=1$, since our focus is on the NISQ setting \cite{Cowtan2020}, we define the UCC ansatz as the following product of $k$ parametrised unitary operators.
+Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals. The \textit{Singles-Doubles} formulation of the UCC ansatz has been shown by Evangelista \textit{et al} to exactly parametrise any state, \cite{Evangelista2019}. However, since the terms of the unitary operator $U_\text{UCC}(\bm\theta)$ do not commute, it cannot be directly implemented on a quantum computer. Instead, by invoking the Trotter formula to approximate the unitary with a single Trotter step, since our focus is on the NISQ setting \cite{Cowtan2020}, we define the \textit{Unitary Product State (UPS)} ansatz $\ket{\psi(\bm\theta)}$ as the following product of $k$ parametrised unitary excitation operators \cite{Burton2023}.
 
 \begin{figure}[H]
     \centering
@@ -51,19 +51,9 @@ Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unocc
         \ket{\psi(\bm\theta)} = \prod_{m=1}^k U_m(\theta_m) \ket{\psi_0} \qquad
         U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
     \end{equation*}
-    \caption{Parametrised $k$-UCC ansatz.}
+    \caption{Parametrised $k$-UPS ansatz.}
 \end{figure}
 
-Where $m$ indexes all possible excitations and $\tau_m - \tau_m^\dagger$ corresponds to anti-Hermitian fermionic excitation operators in second quantisation. For the remainder of this thesis, we will refer to fermionic excitation operators $U_m(\theta_m)$ as the the exponentials of these anti-Hermitian operators. As these fermionic excitation operators derive from second-quantised operators, they preserve the fermionic anti-symmetry and particle number of the reference state.
+Where $m$ indexes all possible excitations and $\tau_m - \tau_m^\dagger$ corresponds to anti-Hermitian fermionic excitation operators in second quantisation. For the remainder of this thesis, we will refer to fermionic excitation operators as the the exponentials of these anti-Hermitian operators, $U_m(\theta_m)$. As these fermionic excitation operators are derived from second-quantised operators, they preserve the fermionic anti-symmetry and particle number of the reference state \cite{Burton2023}.
 
-The operators are then mapped to quantum gates (see Chapter \ref{excitation-operators}) before being implemented on a quantum device. It has been shown by Evangelista \textit{et al} \cite{Evangelista2019} that the UCC ansatz can exactly parametrise any state. Within the DISCO-VQE framework, we consider only generalised \textit{single} (one-body) and \textit{double } (two-body) fermionic excitation (operators), which as shown by Evangelista \textit{et al} \cite{Evangelista2019} achieves universality provided that we combine enough suitably-ordered one-body and two-body excitation operators \cite{Burton2023}. In other words, the UCCSD ansatz is sufficient to represent any vector in the Hilbert space.
-
-\begin{figure}[H]
-    \centering
-    \begin{equation*}
-    \hat T(\bm{\theta}) - \hat T^{\dagger}(\bm{\theta}) =
-    \sum_{i, a} \theta^a_i (a^\dagger_i a_a - a^\dagger_a a_i) + 
-    \sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j)
-    \end{equation*}
-    \caption{Truncated operator containing only \textit{single} and \textit{double} excitations.}
-\end{figure}
+The operators are then mapped to quantum gates using the Jordan-Wigner transformation (see Chapter \ref{excitation-operators}) before being implemented on a quantum device. Within the DISCO-VQE framework, we consider only generalised \textit{single} (one-body) and \textit{double} (two-body) fermionic excitation (operators), which, as shown by Burton \textit{et al} \cite{Burton2023}, achieves universality provided that we combine enough suitably-ordered one-body and two-body excitation operators. In other words, the UPS ansatz is sufficient to represent any vector in the Hilbert space.
