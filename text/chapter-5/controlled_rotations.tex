@@ -28,7 +28,7 @@ Had we instead chosen to insert two $\text{CNOT}_{1, 0}$ gates, we would have ob
 
 \includezxdiagram{chapter-5/minimal2}{0.57}
 
-Let us now look at the general one-body excitation operator. We begin by conjugating with CNOT gates and a CZ gate using the CNOT commutation relations (\ref{cnot-commutations}) and CZ commutation relations (\ref{cz-commutations}) derived in Section \ref{clifford-commutation-relations}.
+Let us now look at the general one-body excitation operator. We begin by conjugating with CNOT gates and a CZ gate (\ref{cz-definition}) using the CNOT commutation relations (\ref{cnot-commutations}) and CZ commutation relations (\ref{cz-commutations}) derived in Section \ref{clifford-commutation-relations}.
 
 \includezxdiagram{chapter-5/one_body_general_proof1}{1}
 
@@ -54,16 +54,16 @@ Finally, by conjugating the circuit with Pauli $X$ gates on the second and fourt
 
 The target qubit is conjugated by Cliffords, putting it in the $Y$ basis, and since the controls on the second and fourth qubits are conjugated by Pauli $X$ gates, they must be in the $\ket 0$ (rather than $\ket 1$) state, to activate the rotation. We have, therefore, succesfully replicated the result in Yordanov \textit{et al} \cite{Yordanov2020} using the ZX calculus.
 
-At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can offset the gate overhead introduced by the additional quantum gates.
+At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can then offset the gate overhead introduced by the additional quantum gates.
 
-% Similarly, Kornell \textit{et al} \cite{Kornell2023} show that by conjugaing the two-body excitation operator with the following subcircuit, we obtain the same triply-controlled $Y$ rotation. We were able to demonstrate this in the ZX calculus as follows.
+Similarly, Kornell \textit{et al} \cite{Kornell2023} show that by conjugaing the two-body excitation operator with the following subcircuit, we obtain the same triply-controlled $Y$ rotation. We were able to demonstrate this in the ZX calculus as follows.
 
-% \includezxdiagram{chapter-5/selinger1}{1}
+\includezxdiagram{chapter-5/selinger1}{1}
 
-% In Chapter \ref{zxfermion}, we introduce a software package called ZxFermion that we developed to facilitate this type of derivation. Using ZxFermion, we were able to identify that it is possible to choose the control and target qubits of the triply-controlled rotation by conjugating with the following subcircuits.
+In Chapter \ref{zxfermion}, we introduce a software package called ZxFermion that we developed to facilitate this type of derivation. Using ZxFermion, we were able to identify that it is possible to choose the control and target qubits of the triply-controlled rotation by conjugating with the following subcircuits.
 
-% \includezxdiagram{chapter-5/selinger2}{1}
+\includezxdiagram{chapter-5/selinger2}{1}
 
-% \includezxdiagram{chapter-5/selinger3}{1}
+\includezxdiagram{chapter-5/selinger3}{1}
 
-% \includezxdiagram{chapter-5/selinger4}{1}
+\includezxdiagram{chapter-5/selinger4}{1}
