@@ -1,7 +1,7 @@
 \section{Excitations as Controlled Rotations}%
 \label{operator-controlled-rotations}
 
-We began this research with the goal of identifying a generalised structure for the excitation operators used in the DISCO-VQE algorithm, in the ZX calculus. We anticipated that by doing so, we might discover novel ways of optimising UCC ansätze by developing a representation for these excitation operators that is independent of specific architectural constraints, as well as identifying rules describing their interactions.
+We began this research with the goal of identifying a generalised structure for the excitation operators used in the DISCO-VQE algorithm, in the ZX calculus. We anticipated that by doing so, we might discover novel ways of optimising UCC ansätze by developing a representation for the excitation operators that is independent of specific architectural constraints.
 
 This led us to the work done by Yordanov \textit{et al} \cite{Yordanov2020} and Kornell \textit{et al} \cite{Kornell2023}, which show that it is possible to reveal an underlying controlled rotation within each excitation operator by conjugating it with some subcircuit $S$. Hence, in this chapter, we replicate the results of Yordanov and Kornell in the ZX calculus using the results that we developed in previous chapters.
 
@@ -11,7 +11,7 @@ This led us to the work done by Yordanov \textit{et al} \cite{Yordanov2020} and 
     \caption{Revealling the controlled rotation CR$(\theta)$ from the excitation operator $U(\theta)$.}
 \end{figure}
 
-Since there exist several efficient implementations of controlled rotations \cite{ZomorodiMoghadam2016}, \cite{Ye2006}, by rewriting the UCC ansatz in terms of controlled rotations, then substituting with a more efficient implementation, we can drastically reduce the circuit depth.
+There exist several efficient implementations of controlled rotations \cite{ZomorodiMoghadam2016}, \cite{Ye2006}, hence, by rewriting the UCC ansatz in terms of controlled rotations and substituting with a more efficient implementation, we can drastically reduce the circuit depth.
 
 We begin by demonstrating the result in Yordanov \textit{et al} by using a minimal one-body excitation operator, implemented by the following quantum circuit.
 
@@ -30,15 +30,18 @@ Had we instead chosen to insert two $\text{CNOT}_{1, 0}$ gates, we would have ob
 
 \includezxdiagram{chapter-5/minimal2}{0.57}
 
-Let us now look at the general one-body excitation operator discussed in Section \ref{excitation-operators-pauli-gadgets}. We begin by eliminating the $Z$ legs responsible for calculating the parity of the fermionic state, then, by expressing the single-legged Pauli gadget as a single-qubit rotation in the $Y$ basis and fusing it with the adjacent Pauli gadget, we obtain the following controlled $Y$ rotation.
+Let us now look at the general one-body excitation operator discussed in Section \ref{excitation-operators-pauli-gadgets}. We begin by conjugating with CNOT gates to eliminate the $Z$ legs responsible for calculating the parity of the fermionic state, then, by expressing the single-legged Pauli gadget as a single-qubit rotation in the $Y$ basis and fusing it with the adjacent Pauli gadget, we obtain the following controlled $Y$ rotation.
 
-\includezxdiagram{chapter-5/one_body_general_proof}{0.9}
+\includezxdiagram{chapter-5/one_body_general_proof}{1}
 
-\newpage
-Now let us consider the two-body excitation operator acting on qubits $p$, $q$, $r$ and $s$. By conjugating the circuit with three CNOT gates as well as two Pauli $X$ gates, we obtain the following.
+By taking this approach, we have eliminated the resource-intensive CNOT ladder constructions responsible for calculating the parity of the state, at the expense of introducing a Clifford subcircuit. However, by choosing an efficient implementation of the controlled rotation, we more than account for the gate overhead introduced by the Clifford subcircuit and drastically reduce the circuit depth.
+
+Let us now consider the two-body excitation operator acting on qubits $p$, $q$, $r$ and $s$. We begin by conjugating the circuit with three CNOT gates. We then conjugate the circuit with Pauli $X$ gates, ensuring the correct phase of the control qubits.
 
 \includezxdiagram{chapter-5/two_body_proof}{1}
 
-Then, by cancelling adjacent Clifford gates, we obtain the a phase polynomial conjugated by Cliffords. Recognising this result as the triply-controlled rotation derived in Chapter \ref{controlled-rotations}, we have demonstrated the result in Yordanov \textit{et al}.
+Finally, by cancelling adjacent Clifford gates, we obtain a phase polynomial conjugated by Cliffords. Recognising this result as the triply-controlled rotation derived in Chapter \ref{controlled-rotations}, we have demonstrated the result in Yordanov \textit{et al}.
 
 \includezxdiagram{chapter-5/two_body2}{1}
+
+Therefore, by conjugating one-body and two-body excitation operators with the subcircuits described above and choosing efficient implementations of the resulting controlled rotations, we can drastically reduce the circuit depth of the UPS ansatz.
