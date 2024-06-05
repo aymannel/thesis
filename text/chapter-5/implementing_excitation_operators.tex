@@ -80,25 +80,25 @@ Now that we have expressed the one-body and two-body excitation operators in ter
     i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
 \end{equation*}
 
-The first exponential term is implemented by the following quantum circuit.
+Each exponential terms can be implemented by a quantum circuit consisting of a CNOT ladder construction conjugated by a Clifford subcircuit. By sequentially composing these circuits (\ref{composition}), that is taking their matrix product, we obtain the following quantum circuit.
 
-\includezxdiagramtext{chapter-5/one_body1}{0.45}{
-\left( \text{exp} \left[
-i \frac{\theta}{2} Y_p X_q
-\prod_{k=p+1}^{q-1} Z_k \right] \right)}
+% \includezxdiagramtext{chapter-5/one_body1}{0.45}{
+% \left( \text{exp} \left[
+% i \frac{\theta}{2} Y_p X_q
+% \prod_{k=p+1}^{q-1} Z_k \right] \right)}
 
-And the second exponential term, as the following quantum circuit.
+% And the second exponential term, as the following quantum circuit.
 
-\includezxdiagramtext{chapter-5/one_body2}{0.45}{
-\left( \text{exp} \left[ -
-i \frac{\theta}{2} X_p Y_q
-\prod_{k=p+1}^{q-1} Z_k \right] \right)}
+% \includezxdiagramtext{chapter-5/one_body2}{0.45}{
+% \left( \text{exp} \left[ -
+% i \frac{\theta}{2} X_p Y_q
+% \prod_{k=p+1}^{q-1} Z_k \right] \right)}
 
-By sequentially composing these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator acting on qubits $p$ and $q$.
+% By sequentially composing these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator acting on qubits $p$ and $q$.
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-5/one_body4}{0.82}
+    \includezxdiagram{chapter-5/one_body4}{0.9}
     \caption{Circuit implementation of a one-body excitation operator.}
     \label{one-body-implementation}
 \end{figure}
@@ -117,9 +117,13 @@ Although essential for accurately simulating fermionic systems, these CNOT ladde
 \subsection{Excitation Operators as Pauli Gadgets}%
 \label{excitation-operators-pauli-gadgets}
 
-Using the phase gadget result (\ref{phase-gadget-result}), we can show that the quantum circuit implementing a one-body excitation operator corresponds to two commuting Pauli gadgets the ZX calculus.
+Using the phase gadget result (\ref{phase-gadget-result}) to collapse the CNOT ladder constructions, we can show that the quantum circuit implementing a one-body excitation operator (Figure \ref{one-body-implementation}) corresponds to two commuting Pauli gadgets.
 
 \includezxdiagram{chapter-5/one_body3}{0.45}
+
+Similarly, we can show that the quantum circuit implementing a two-body excitation operator (Figure \ref{two-body-implementation}) corresponds to eight commuting Pauli gadgets.
+
+\includezxdiagram{chapter-5/two_body1}{1}
 
 One immediate advantage of representing excitation operators in this form is that we can easily show that these Pauli gadgets do indeed commute by recognising that they have two mismatching pairs of legs (see Section \ref{commutation-relations}). Another is that we can resynthesise the quantum circuit using the balanced tree decomposition result (\ref{balanced-tree}), yielding a circuit depth of $2\text{log}_2(n)$ rather than $2(n-1)$.
 
@@ -128,7 +132,3 @@ One immediate advantage of representing excitation operators in this form is tha
     \includezxdiagram{chapter-5/balanced_tree}{0.65}
     \caption{Balanced tree decomposition of a one-body excitation operator.}
 \end{figure}
-
-Similarly, we can show that the two-body excitation operator corresponds to eight commuting Pauli gadgets.
-
-\includezxdiagram{chapter-5/two_body1}{1}
