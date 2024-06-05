@@ -28,12 +28,12 @@
 		\node [style=none] (40) at (-4.25, 1) {};
 		\node [style=none] (41) at (-4.25, -1) {};
 		\node [style=none] (42) at (-4.75, 0) {$\Bigg($};
-		\node [style=none] (43) at (-5.5, 0.5) {};
-		\node [style=none] (44) at (-8.5, 0.5) {};
+		\node [style=none] (43) at (-5.5, 0.75) {};
+		\node [style=none] (44) at (-8.5, 0.75) {};
 		\node [style={z_node}] (45) at (-6.5, 0) {};
-		\node [style=none] (46) at (-5.5, -0.5) {};
+		\node [style=none] (46) at (-5.5, -0.75) {};
 		\node [style={x_node}] (47) at (-7.5, 0) {};
-		\node [style=none] (48) at (-8.5, -0.5) {};
+		\node [style=none] (48) at (-8.5, -0.75) {};
 		\node [style=none] (49) at (1, 0.5) {\tiny (ba)};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}

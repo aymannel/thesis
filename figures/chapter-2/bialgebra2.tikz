@@ -1,16 +1,9 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (10) at (3, 0.25) {};
-		\node [style=none] (12) at (3, 1.75) {};
-		\node [style=none] (17) at (0, 1) {};
-		\node [style=none] (18) at (0, 1.75) {};
-		\node [style=none] (19) at (0, 0.25) {};
-		\node [style={z_node}] (20) at (2, 1) {};
-		\node [style={x_node}] (21) at (1, 1) {};
-		\node [style=none] (22) at (8.75, 0.5) {};
-		\node [style={x_node}] (23) at (8, 0.5) {};
-		\node [style=none] (24) at (8.75, 1.5) {};
-		\node [style={x_node}] (25) at (8, 1.5) {};
+		\node [style=none] (22) at (8.5, 0.5) {};
+		\node [style={x_node}] (23) at (7.75, 0.5) {};
+		\node [style=none] (24) at (8.5, 1.5) {};
+		\node [style={x_node}] (25) at (7.75, 1.5) {};
 		\node [style={z_node}] (26) at (6.5, 1) {};
 		\node [style={z_node}] (27) at (6.5, 1.75) {};
 		\node [style={z_node}] (28) at (6.5, 0.25) {};
@@ -19,18 +12,19 @@
 		\node [style=none] (31) at (5.75, 0.25) {};
 		\node [style=none] (32) at (4.25, 1) {=};
 		\node [style=none] (33) at (4.25, 1.5) {\tiny (ba)};
-		\node [style=none] (34) at (3, 1.25) {\vdots};
-		\node [style=none] (35) at (9, 1.25) {\vdots};
+		\node [style=none] (35) at (8.75, 1.25) {\vdots};
 		\node [style=none] (36) at (5.5, 1.25) {\vdots};
-		\node [style=none] (37) at (-0.25, 1.25) {\vdots};
+		\node [style=none] (38) at (3, 1.75) {};
+		\node [style=none] (39) at (0, 1.75) {};
+		\node [style={z_node}] (40) at (2, 1) {};
+		\node [style=none] (41) at (3, 0.25) {};
+		\node [style={x_node}] (42) at (1, 1) {};
+		\node [style=none] (43) at (0, 0.25) {};
+		\node [style=none] (44) at (0, 1) {};
+		\node [style=none] (45) at (-0.25, 1.25) {\vdots};
+		\node [style=none] (46) at (3.25, 1.25) {\vdots};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
-		\draw [bend left] (18.center) to (21);
-		\draw (17.center) to (21);
-		\draw [bend right] (19.center) to (21);
-		\draw (21) to (20);
-		\draw [bend left] (20) to (12.center);
-		\draw [bend right=330] (10.center) to (20);
 		\draw (22.center) to (23);
 		\draw (24.center) to (25);
 		\draw (28) to (25);
@@ -42,5 +36,12 @@
 		\draw (31.center) to (28);
 		\draw (29.center) to (26);
 		\draw (27) to (30.center);
+		\draw [bend right] (40) to (41.center);
+		\draw [bend left] (42) to (43.center);
+		\draw (42) to (40);
+		\draw [bend left] (40) to (38.center);
+		\draw [bend right] (42) to (39.center);
+		\draw (42) to (40);
+		\draw (44.center) to (42);
 	\end{pgfonlayer}
 \end{tikzpicture}
