@@ -1,6 +1,15 @@
 \section{The Variational Quantum Eigensolver}%
 \label{vqe}
 
+Developed in 2014 by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014}, 
+
+ VQE algorithms implement fermionic states on quantum devices via the Unitary Coupled Cluster (UCC) ansatz \cite{Taube2006}. By preparing quantum states as a sequence of unitary excitation operations acting on some reference state, we are able to parametrically explore the Hilbert space of possible quantum states \cite{McClean2016}.
+
+Consequently, a significant portion of this thesis revolves around developing the diagrammatic techniques essential for replicating the findings of Yordanov \textit{et al} in the ZX calculus.
+
+specifically the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)},
+
+
 In this chapter, we introduce the \textit{Variational Quantum Eigensolver (VQE)} algorithm, a particular class of variational quantum algorithms used to estimate the ground state energy of molecular systems. The research presented in this thesis is conducted within this framework. As providing an overview of the VQE algorithm, we will introduce the fundamentals of quantum computing and the \textit{Unitary Coupled Cluster (UCC) ansatz} used to represent fermionic wavefunctions on quantum devices.
 
 The VQE algorithm consists of a quantum subroutine, a \textit{Parametrised Quantum Circuit (PQC)}, that implements some UCC ansatz, and a classical subroutine that classically optimises the UCC ansatz until it converges to the best approximation of the true ground state. PQCs are similar to classical neural networks in concept, but by definition, correspond to $2^n \times 2^n$ unitary maps, where $n$ is the number of qubits, and hence have the same number of inputs as outputs \cite{Yeung2020}.
