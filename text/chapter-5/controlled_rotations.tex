@@ -48,13 +48,13 @@ Then, by cancelling the adjacent Clifford gates, we reveal a phase polynomial.
 
 \includezxdiagram{chapter-5/two_body_proof3}{1}
 
-Finally, by conjugating the circuit with Pauli $X$ gates on the second and fourth qubits, using the Pauli $X$ commutation relations (\ref{pauli-commutations}), we flip the phases of some of the phase gadgets, ensuring that the phase polynomial matches the result for the triply-controlled $Y$ rotation in Figure \ref{cccry}. Note that the first qubit corresponds to the target, and the second to fourth qubits, correspond to the controls.
+Finally, by conjugating the circuit with Pauli $X$ gates on the second and fourth qubits, using the Pauli $X$ commutation relations (\ref{pauli-commutations}), we flip the phases of some of the phase gadgets, ensuring that the phase polynomial matches the result for the triply-controlled $Y$ rotation in Figure \ref{cccry}. Note that the \textit{first qubit} corresponds to the target, and the \textit{second, third and fourth qubits}, correspond to the controls.
 
 \includezxdiagram{chapter-5/two_body_proof4}{1}
 
-Note that the target (first) qubit is conjugated into the $Y$ basis, and since we have conjugated the second and fourth qubits with Pauli $X$ gates, the second and fourth controls must be in the $\ket 0$ state to activate the rotation. In this way, we have succesfully replicated the result in Yordanov \textit{et al} \cite{Yordanov2020} using the ZX calculus.
+The target qubit is conjugated by Cliffords, putting it in the $Y$ basis, and since the controls on the second and fourth qubits are conjugated by Pauli $X$ gates, they must be in the $\ket 0$ (rather than $\ket 1$) state, to activate the rotation. We have, therefore, succesfully replicated the result in Yordanov \textit{et al} \cite{Yordanov2020} using the ZX calculus.
 
-At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can offset the gate overhead introduced by the additional gates.
+At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can offset the gate overhead introduced by the additional quantum gates.
 
 % Similarly, Kornell \textit{et al} \cite{Kornell2023} show that by conjugaing the two-body excitation operator with the following subcircuit, we obtain the same triply-controlled $Y$ rotation. We were able to demonstrate this in the ZX calculus as follows.
 
