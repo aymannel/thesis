@@ -121,7 +121,7 @@ To calculate the matrix of a ZX diagram consisting of sequentially composed spid
 \end{pmatrix}
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}}
 
-Alternatively, we could have chosen to compose the spiders in parallel, corresponding to the tensor product.
+In contrast, by composing spiders in parallel, we obtain the tensor product. Note that the order of operation should be interpreted from top to bottom.
 
 \includezxdiagramtext{chapter-2/parallel}{0.105}{\frac{1}{2}
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
@@ -130,7 +130,7 @@ Alternatively, we could have chosen to compose the spiders in parallel, correspo
     1 - e^{i\beta} & 1 + e^{i\beta}
 \end{pmatrix}}
 
-The CNOT gate (\ref{cnot-definition}) in the ZX calculus is represented by a $Z$ spider (control qubit) and an $X$ spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
+The CNOT gate (\ref{cnot-definition}) is represented in the ZX calculus by a $Z$ spider (control qubit) and an $X$ spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 
 \includezxdiagram{chapter-2/cnot_def}{0.65}
 
@@ -151,7 +151,7 @@ Similarly, to calculate the matrix $B$, we take the following tensor product.
 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
 
-We can then calculate the CNOT matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows (up to a global scalar factor of $\frac{1}{\sqrt 2}$).
+We can then calculate the CNOT matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows (up to a global scalar factor of $1/\sqrt 2$).
 
 \includezxdiagramtext{chapter-2/cnot}{0.10}{
     \Bigg[
@@ -174,12 +174,13 @@ We can then calculate the CNOT matrix by taking the matrix product of matrix $A$
     \end{pmatrix}
 }
 
-Since \textit{only connectivity matters} (\ref{only-connectivity-matters}), we could have equivalently calculated the matrix of the CNOT gate by deforming the diagram as follows.
+% Since \textit{only connectivity matters} (\ref{only-connectivity-matters}), we could have equivalently calculated the matrix of the CNOT gate by deforming the diagram as follows.
 
-\vspace{10pt}
-\includezxdiagram{chapter-2/cnot_def2}{0.65}
+% \vspace{10pt}
+% \includezxdiagram{chapter-2/cnot_def2}{0.65}
 
 Had we chosen to make the first qubit the target and the second qubit the control, we would have instead obtained the following matrix.
+
 \includezxdiagramtext{chapter-2/cnot2}{0.10}{
 \Bigg[
 \frac{1}{\sqrt 2}
@@ -203,13 +204,9 @@ Had we chosen to make the first qubit the target and the second qubit the contro
 
 \subsection{Hadamard Generator}
 
-All quantum gates are unitary transformations. Therefore, up to a global phase, an arbitrary single qubit gate $U$ can be viewed as a rotation of the Bloch sphere about some axis. We can decompose $U$ using Euler angles to represent it as three successive rotations \cite{Wetering2020}.
+Up to a global phase, an arbitrary single qubit gate $U$ can be viewed as a rotation of the Bloch sphere about some axis. Therefore, we can decompose $U$ using Euler angles to represent it as three successive rotations \cite{Wetering2020}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{chapter-2/unitary}
-    \caption{Arbitrary single-qubit rotation.}
-\end{figure}
+\includezxdiagram{chapter-2/unitary}{0.5}
 
 The Hadamard gate $H$ (\ref{hadamard-definition}) corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $X$ and $Z$ axes. Up to a global phase of $\text{exp} \left(-i \frac{\pi}{4} \right)$, it can be decomposed into three successive rotations by choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$. 
 
@@ -217,9 +214,19 @@ The Hadamard gate $H$ (\ref{hadamard-definition}) corresponds to a rotation of t
 \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
 
-There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles (see Appendix \ref{appendix-hadamard}). The Hadamard gate switches between the $Z$ and $X$ bases. Hence, diagrammatically, applying Hadamard generators to all of the legs of a spider changes the colour of the spider.
+% There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles (see Appendix \ref{appendix-hadamard}).
+
+Recall that the Hadamard gate is the member of the Clifford group that switches between the $Z$ and $X$ bases (\ref{hadamard-definition}). Hence, diagrammatically, applying Hadamard generators to all of the legs of a spider changes the colour of the spider.
 
 \includezxdiagram{chapter-2/colour_changing}{0.45}
+
+The CZ  gate applies the Pauli $Z$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. It is diagonal in the $Z$ basis and has a symmetric representation in the ZX calculus. It can be derived by conjugating the target of the CNOT gate with Hadamards, then applying the Hadamard commutation rule (\ref{hadamard-commutation}).
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-2/cz}{0.42}
+    \caption{The CZ gate in the ZX calculus.}
+\end{figure}
 
 %%%
 
