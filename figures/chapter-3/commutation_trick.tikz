@@ -28,6 +28,31 @@
 		\node [style=none] (79) at (9, 0.75) {=};
 		\node [style=none] (80) at (9, 1.25) {\tiny (c)};
 		\node [style=none] (81) at (14.5, 1.25) {\tiny (f)};
+		\node [style=none] (82) at (20.75, -1) {};
+		\node [style={z_node}] (83) at (21, 0.25) {};
+		\node [style={z_phase}] (84) at (21.5, -1.25) {$-\theta$};
+		\node [style={x_node}] (85) at (21.5, -0.5) {};
+		\node [style=none] (86) at (20, 0.25) {};
+		\node [style=none] (87) at (23, 0.25) {};
+		\node [style=none] (88) at (20.5, -0.75) {$\vdots$};
+		\node [style={z_node}] (92) at (22.25, 1.25) {};
+		\node [style={x_node}] (93) at (22.25, 0.25) {};
+		\node [style=none] (94) at (20, 1.25) {};
+		\node [style=none] (95) at (23, 1.25) {};
+		\node [style=none] (96) at (19.25, 0.75) {$\Leftrightarrow$};
+		\node [style=none] (97) at (2.25, -1) {};
+		\node [style={z_node}] (98) at (2.5, 0.25) {};
+		\node [style={z_phase}] (99) at (3, -1.25) {$-\theta$};
+		\node [style={x_node}] (100) at (3, -0.5) {};
+		\node [style=none] (101) at (3.5, 0.25) {};
+		\node [style=none] (102) at (0.5, 0.25) {};
+		\node [style=none] (103) at (2, -0.75) {$\vdots$};
+		\node [style={z_node}] (104) at (1.25, 1.25) {};
+		\node [style={x_node}] (105) at (1.25, 0.25) {};
+		\node [style=none] (106) at (3.5, 1.25) {};
+		\node [style=none] (107) at (0.5, 1.25) {};
+		\node [style={z_node}] (108) at (2.5, 1.25) {};
+		\node [style=none] (109) at (4.25, 0.75) {$\Leftrightarrow$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (9) to (8);
@@ -51,5 +76,25 @@
 		\draw (52) to (53);
 		\draw (33) to (67);
 		\draw (67) to (34);
+		\draw (85) to (84);
+		\draw (82.center) to (85);
+		\draw (83) to (85);
+		\draw (92) to (93);
+		\draw (87.center) to (93);
+		\draw (93) to (83);
+		\draw (83) to (86.center);
+		\draw (94.center) to (92);
+		\draw (92) to (95.center);
+		\draw (100) to (99);
+		\draw (97.center) to (100);
+		\draw (98) to (100);
+		\draw (104) to (105);
+		\draw (102.center) to (105);
+		\draw (105) to (98);
+		\draw (98) to (101.center);
+		\draw (104) to (107.center);
+		\draw (106.center) to (108);
+		\draw (108) to (100);
+		\draw (104) to (108);
 	\end{pgfonlayer}
 \end{tikzpicture}

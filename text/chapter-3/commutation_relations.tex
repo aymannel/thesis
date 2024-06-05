@@ -40,7 +40,7 @@ Whilst it is possible to derive each of these commutation relations directly, it
 
 Let us illustrate this with an example. Using the $Z \otimes Z$ Pauli string, we show that the $\text{CNOT}_{0, 1}$ gate commutes through the $\text{exp} \left[ - i\frac{\theta}{2} \left( Z \otimes Z \right) \right]$ gadget to give the $\text{exp} \left[ - i\frac{\theta}{2} \left( I \otimes Z \right) \right]$ gadget. We first push the bottom Pauli $Z$ gate through the CNOT target using the $\pi$ copy rule (\ref{pi-copy}), then, we push the top Pauli $Z$ gate through the CNOT control using the spider fusion rule (\ref{spider-fusion}), cancelling one of the copied Pauli $Z$ gates in the process.
 
-\includezxdiagram{chapter-3/commutation_trick}{0.62}
+\includezxdiagram{chapter-3/commutation_trick}{1}
 
 The Pauli $Y$ gate is obtained by conjugating the Pauli $Z$ gate with Clifford gates (\ref{pauli-Y}). Using the $\pi$ copy (\ref{pi-copy}) and spider fusion (\ref{spider-fusion}) rules, we can show that $Y=XZ$ up to a global phase of $i$ and $Y=ZX$ up to a global phase of $-i$.
 
@@ -50,7 +50,7 @@ In the example below, we use $Y=XZ$ to derive how the same $\text{CNOT}$ gate in
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{0.95}
 
-Similarly, we can identify how the single-qubit Clifford gates (\ref{clifford-definitions}) interact with Pauli gadgets by identifying how they interact with the Pauli gates. In the example below, we use the fact that the Pauli $Y$ gate definitions above differ by a factor of $-1$ to show that commuting a Hadamard through a $Y$ leg flips the gadget's phase.
+Similarly, we can identify how single-qubit gates interact with Pauli gadgets by identifying how they interact with the Pauli gates. In the example below, we use the fact that the above definitions of the Pauli $Y$ gate differ by a factor of $-1$ to show that commuting a Hadamard through a $Y$ leg flips the gadget's phase.
 
 \includezxdiagram{chapter-3/single_qubit_clifford}{1}
 
