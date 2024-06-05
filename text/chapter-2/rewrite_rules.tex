@@ -41,7 +41,7 @@ Combining this with the spider fusion rule (\ref{spider-fusion}), we see that tw
 
 \subsection{State Copy and $\pi$ Copy Rules}%
 
-We can depict the $Z$ and $X$ eigenstates by assigning a phase to a $Z$ or an $X$ spider, respectively, through a Boolean variable $a$ (0 or 1) multiplied by $\pi$ \cite{Wetering2020}.
+We can depict the $Z$ and $X$ eigenstates (\ref{z-eigenstates-zx}, \ref{x-eigenstates-zx}) by assigning a phase of $\pi$ multiplied by a Boolean variable $a$ (0 or 1) to an $X$ or $Z$ spider, respectively \cite{Wetering2020}.
 
 \includezxdiagramtext{chapter-2/boolean_x}{0.075}{
 \ket 0 \text{ where $a = 0$ and }
@@ -69,7 +69,7 @@ Using the $\pi$ copy, spider fusion (\ref{spider-fusion}) and identity (\ref{ide
 
 \subsection{Hadamard Rules}
 
-Using that the Hadamard gate is both unitary and Hermitian, we define the \textit{Hadamard self-inverse rule} (\textit{hi}).
+Using that the Hadamard gate is both unitary and Hermitian, we define the \textit{Hadamard self-inverse rule} (\textit{hi}) as follows.
 
 \begin{figure}[H]
     \centering
@@ -114,7 +114,7 @@ Using the natural commutation relation of the classical XOR and COPY gates, we d
 
 \subsection{Hopf Rule}
 
-Like with the bialgebra rule, our motivation for this rule stems from the behaviour of the classical XOR and COPY gates. Since copying two bits then taking their XOR invariably yields 0, we can define the \textit{Hopf rule} (\textit{hpf}).
+Like with the bialgebra rule, our motivation for this rule stems from the behaviour of the classical XOR and COPY gates. Since copying two bits then taking their XOR invariably yields 0, we define the \textit{Hopf rule} (\textit{hpf}).
 
 \begin{figure}[H]
     \centering
@@ -136,7 +136,7 @@ The ZX calculus is a diagrammatic language that makes use of the complementary o
 
 \includezxdiagram{chapter-2/hermitian}{0.55}
 
-The $Y$ basis, unlike the $Z$ and $X$ bases, is \textit{not Hermitian}. Therefore, converting the inputs of a $Y$ \textit{Spider} into outputs and \textit{vice verse} does \textit{not} yield its transpose. Instead, we define rotations in the $Y$ basis by conjugating $Z$ and $X$ spiders \cite{Yeung2020}.
+The $Y$ basis, unlike the $Z$ and $X$ bases, is \textit{not} Hermitian. Therefore, converting the inputs of a $Y$ \textit{Spider} into outputs and \textit{vice verse} does \textit{not} yield its transpose. Instead, we define rotations in the $Y$ basis by conjugating $Z$ and $X$ spiders \cite{Yeung2020}.
 
 \begin{figure}[H]
     \centering

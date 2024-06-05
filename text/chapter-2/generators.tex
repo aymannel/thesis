@@ -12,7 +12,7 @@ By sequentially or horizontally composing the \textit{Z Spider} (green) and \tex
 
 \notation{We interpret the flow of time left to right. Hence, the wires on the left refer to inputs and the wires on the right refer to outputs.}
 
-$Z$ Spiders (green) are defined with respect to the $Z$ eigenbasis, $\ket 0$ and $\ket 1$, such that a $Z$ Spider with $n$ inputs and $m$ outputs represents the following linear map.
+$Z$ Spiders (green) are defined with respect to the $Z$ eigenbasis $\ket 0$ and $\ket 1$ (\ref{z-eigenstates}). A $Z$ Spider with $n$ inputs and $m$ outputs represents the following linear map.
 
 \begin{figure}[H]
 \centering
@@ -22,7 +22,7 @@ $Z$ Spiders (green) are defined with respect to the $Z$ eigenbasis, $\ket 0$ and
 \caption{Interpretation of a Z Spider as a linear map.}
 \end{figure}
 
-$X$ Spiders (red), are defined with respect to the $X$ eigenbasis, $\ket +$ and $\ket -$.
+$X$ Spiders (red), are defined with respect to the $X$ eigenbasis $\ket +$ and $\ket -$ (\ref{x-eigenstates}).
 
 \begin{figure}[H]
 \centering
@@ -47,6 +47,7 @@ We can represent the $Z$ eigenstates using an $X$ spider with a phase of $0$ or 
     \includezxdiagramtext{figures/chapter-2/one_state}{0.16}{\,
     \ket + - \ket - = \sqrt{2} \ket 1}
     \caption{$\ket 1$ eigenstate}
+    \label{z-eigenstates-zx}
 \end{minipage}
 \end{figure}
 
@@ -65,6 +66,7 @@ Similarly, we represent the $X$ eigenstates using the corresponding $Z$ spiders.
     \includezxdiagramtext{figures/chapter-2/minus_state}{0.16}{\,
     \ket 0 - \ket 1 = \sqrt{2} \ket -}
     \caption{$\ket -$ eigenstate}
+    \label{x-eigenstates-zx}
 \end{minipage}
 \end{figure}
 
@@ -177,7 +179,7 @@ Since \textit{only connectivity matters} (\ref{only-connectivity-matters}), we c
 \vspace{10pt}
 \includezxdiagram{chapter-2/cnot_def2}{0.65}
 
-Had we chosen to make the first qubit the target and the second qubit the control, we would have obtained the following.
+Had we chosen to make the first qubit the target and the second qubit the control, we would have instead obtained the following matrix.
 \includezxdiagramtext{chapter-2/cnot2}{0.10}{
 \Bigg[
 \frac{1}{\sqrt 2}
@@ -211,7 +213,7 @@ All quantum gates are unitary transformations. Therefore, up to a global phase, 
 
 The Hadamard gate $H$ (\ref{hadamard-definition}) corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $X$ and $Z$ axes. Up to a global phase of $\text{exp} \left(-i \frac{\pi}{4} \right)$, it can be decomposed into three successive rotations by choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$. 
 
-\includezxdiagramtext{figures/chapter-2/hadamard}{0.48}{
+\includezxdiagramtext{figures/chapter-2/hadamard}{0.46}{
 \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
 
