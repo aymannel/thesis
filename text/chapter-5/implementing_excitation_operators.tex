@@ -96,11 +96,39 @@ i \frac{\theta}{2} X_p Y_q
 
 By sequentially composing these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator acting on qubits $p$ and $q$.
 
-\includezxdiagram{chapter-5/one_body4}{0.82}
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/one_body4}{0.82}
+    \caption{Circuit implementation of a one-body excitation operator.}
+    \label{one-body-implementation}
+\end{figure}
 
-The CNOT ladder constructions arise from exponentiating the string of Pauli $Z$ gates, and serve to compute the parity of the spin orbitals between $p$ and $q$, ensuring that the correct phase is applied to the fermionic state, and therefore accounting for the fermionic anti-symmetry imposed by the Pauli principle. The two-body excitation operator can similarly be factorised into eight commuting exponential terms, and is implemented as eight subcircuits.
+The CNOT ladder constructions arise from exponentiating the string of Pauli $Z$ gates, and serve to compute the parity of the spin orbitals between $p$ and $q$, ensuring that the correct phase is applied to the fermionic state, and therefore accounting for the fermionic anti-symmetry imposed by the Pauli principle. The two-body excitation operator can similarly be factorised into eight commuting exponential terms, and is implemented by composing eight subcircuits.
 
-\includezxdiagram{chapter-5/full_two_body}{1}
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/full_two_body}{1}
+    \caption{Circuit implementation of a two-body excitation operator.}
+    \label{two-body-implementation}
+\end{figure}
 
 Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. The poor fidelity of today's quantum (NISQ) devices results in an accumulation of error as circuit depth increases. Consequently, we are interested in optimising these excitation operators with respect to circuit depth.
 
+\subsection{Excitation Operators as Pauli Gadgets}%
+\label{excitation-operators-pauli-gadgets}
+
+Using the phase gadget result (\ref{phase-gadget-result}), we can show that the quantum circuit implementing a one-body excitation operator corresponds to two commuting Pauli gadgets the ZX calculus.
+
+\includezxdiagram{chapter-5/one_body3}{0.45}
+
+One immediate advantage of representing the one-body excitation operator in this form is that we can easily show that these Pauli gadgets do indeed commute by recognising that they have two mismatching pairs of legs (see Section \ref{commutation-relations}). Another is that, from this intermediate form, we can resynthesise the quantum circuit using the balanced tree decomposition result (\ref{balanced-tree}), yielding a circuit depth of $2\text{log}_2(n)$ rather than $2(n-1)$.
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/balanced_tree}{0.65}
+    \caption{Balanced tree decomposition of a one-body excitation operator.}
+\end{figure}
+
+Similarly, we can show that the two-body excitation operator corresponds to eight commuting Pauli gadgets.
+
+\includezxdiagram{chapter-5/two_body1}{1}
