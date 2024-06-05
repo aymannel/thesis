@@ -95,7 +95,7 @@ Let us now introduce the most fundamental quantum gates: the Pauli gates. The Pa
 
 The Pauli $X$ gate is the quantum analogue of the classical NOT gate in that it maps $\ket 0 \leftrightarrow \ket 1$. Importantly, the Pauli $X$ differs from its classical counterpart in that it can act on any arbitrary qubit state. Similarly, we have that the Pauli $Z$ gate maps $\ket + \leftrightarrow \ket -$, but can also act on any arbitrary qubit state.
 
-The Hadamard gate interconverts between the $Z$ and $X$ bases and maps $\ket 0 \leftrightarrow \ket +$ and $\ket 1 \leftrightarrow \ket -$. Therefore, the Hadamard gate can be viewed as a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $z$ and $x$ axes.
+The Hadamard gate is a member of the Clifford group that maps $\ket 0 \leftrightarrow \ket +$ and $\ket 1 \leftrightarrow \ket -$. Therefore, the Hadamard gate can be viewed as a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $z$ and $x$ axes.
 
 \begin{figure}[H]
     \centering
@@ -131,7 +131,7 @@ The R$_Z(\theta)$ and R$_X(\theta)$ rotation gates correspond to rotations of th
 
 \subsection{Multiple-Qubit Gates}
 
-The CNOT gate is the most fundamental multi-qubit gate and is used to entangle qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. Taking the first qubit ($\alpha$) to be the control, and the second qubit ($\beta$) to be the target, we define the CNOT gate as the gate that maps $\ket\alpha\otimes\ket\beta \rightarrow \ket\alpha\otimes\ket{\alpha\oplus\beta}$. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The CNOT gate acts on the two-qubit basis states (Figure \ref{two-qubit-states}) as follows.
+The CNOT gate is a two-qubit member of the Clifford group which we can use to entangle qubits. Consider a two-qubit state of the form $\ket \alpha \otimes \ket \beta$. Taking the first qubit ($\alpha$) to be the control, and the second qubit ($\beta$) to be the target, we define the CNOT gate as the gate that maps $\ket\alpha\otimes\ket\beta \rightarrow \ket\alpha\otimes\ket{\alpha\oplus\beta}$. That is, the CNOT gate applies the Pauli $X$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. The CNOT gate acts on the two-qubit basis states (\ref{two-qubit-states}) as follows.
 \begin{equation*}
     \ket{00} \rightarrow \ket {00} \qquad
     \ket{01} \rightarrow \ket {01} \qquad

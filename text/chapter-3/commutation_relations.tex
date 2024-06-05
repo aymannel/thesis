@@ -1,7 +1,7 @@
 \section{Commutation Relations}%
 \label{commutation-relations}
 
-A pair of Pauli gadgets commute when their Hamiltonians commute \cite{Yeung2020}. That is, a pair of Pauli gadgets commute when the Pauli strings that they are defined by also commute. Diagrammatically, we have that a pair of Pauli gadgets commute when they \textit{mismatch on an even number of legs} \cite{Yeung2020}. Let us demonstrate this by first considering the three possible mismatching pairs of Pauli gadget legs.
+A pair of Pauli gadgets commute when their Hamiltonians commute. That is, a pair of Pauli gadgets commute when the Pauli strings that they are defined by also commute. Diagrammatically, we have that a pair of Pauli gadgets commute when they \textit{mismatch on an even number of legs} \cite{Yeung2020}. Let us demonstrate this by first considering the three possible mismatching pairs of Pauli gadget legs.
 
 \includezxdiagram{chapter-3/mismatches}{1}
 
@@ -13,7 +13,7 @@ Similarly, for the $X$/$Y$ and $Y$/$Z$ mismatching pairs, we have the following.
 
 \includezxdiagram{chapter-3/mismatch_proof2}{0.7}
 
-Therefore, we can show that two Pauli gadgets with an even number of mismatching legs commute by first commuting all of their legs, then using the Hopf rule (\ref{hopf}) to remove the wires between them.
+Therefore, we can show that two Pauli gadgets with an even number of mismatching legs commute by first commuting all of their legs, then using the Hopf rule (\ref{hopf}) to remove the wires between them \cite{Yeung2020}.
 
 \includezxdiagram{chapter-3/mismatch_proof3}{0.8}
 
@@ -42,21 +42,19 @@ Let us illustrate this with an example. Using the $Z \otimes Z$ Pauli string, we
 
 \includezxdiagram{chapter-3/commutation_trick}{0.62}
 
-Recall that the Pauli $Y$ gate can be obtained by conjugating the Pauli $Z$ gate with Clifford gates (\ref{pauli-Y}). Using the $\pi$ copy (\ref{pi-copy}) and spider fusion (\ref{spider-fusion}) rules, we can show that the Pauli $Y$ can be expressed as a Pauli $X$ gate followed by a Pauli $Z$ gate (up to a global phase of $-i$).
+The Pauli $Y$ gate is obtained by conjugating the Pauli $Z$ gate with Clifford gates (\ref{pauli-Y}). Using the $\pi$ copy (\ref{pi-copy}) and spider fusion (\ref{spider-fusion}) rules, we can show that $Y=XZ$ up to a global phase of $i$ and $Y=ZX$ up to a global phase of $-i$.
 
-\includezxdiagram{chapter-3/clifford_conjugation}{0.8}
+\includezxdiagram{chapter-3/clifford_conjugation}{1}
 
-We can derive how the same $\text{CNOT}$ gate interacts with the $\text{exp} \left[ - i\frac{\theta}{2} \left(Y \otimes X \right) \right]$ Pauli gadget by identifying how it gate interacts with the $Y \otimes X$ Pauli string.
+In the example below, we use $Y=XZ$ to derive how the same $\text{CNOT}$ gate interacts with the $\text{exp} \left[ - i\frac{\theta}{2} \left(Y \otimes X \right) \right]$ Pauli gadget by identifying how it gate interacts with the $Y \otimes X$ Pauli string.
 
 \includezxdiagram{chapter-3/commutation_trick_YX}{0.95}
 
-Similarly, identifying how single-qubit Clifford gates (\ref{clifford-definitions}) interact with Pauli gadgets amounts to identifying how they interact with the Pauli gates. Importantly, if the phase of the Pauli gate is flipped, we must also flip the phase of the corresponding Pauli gadget.
+Similarly, we can identify how the single-qubit Clifford gates (\ref{clifford-definitions}) interact with Pauli gadgets by identifying how they interact with the Pauli gates. In the example below, we use the fact that the Pauli $Y$ gate definitions above differ by a factor of $-1$ to show that commuting a Hadamard through a $Y$ leg flips the gadget's phase.
 
-\includezxdiagram{chapter-3/single_qubit_clifford}{0.5}
+\includezxdiagram{chapter-3/single_qubit_clifford}{1}
 
-PROPER EXAMPLE HERE BASED ON \ref{clifford-conjugation}
-
-Using these rules, we are able to derive all of the commutation relations in the following figures. IMPORTANT FOR LATER DERIVATIONS etc
+Using the rules described in this section, we were able to identify how Pauli gadgets interact with the Clifford and Pauli gates, in agreement with \cite{Yeung2020} and \cite{Cowtan2019}. We have summarised these commutation relations below. In Chapter \ref{excitation-operators}, we demonstrate how these commutation relations can be used to prove several important results.
 
 \begin{figure}[H]
     \centering

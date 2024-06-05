@@ -113,7 +113,7 @@ We can recover the Pauli $Z$ and Pauli $X$ matrices (\ref{pauli-matrices}) by se
 
 To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse of how we have defined it for ZX diagrams.
 
-\includezxdiagramtext{chapter-2/sequential}{0.27}{
+\includezxdiagramtext{chapter-2/sequential}{0.27}{\frac{1}{2}
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\gamma} \end{pmatrix}
 \begin{pmatrix}
     1 + e^{i\beta} & 1 - e^{i\beta} \\
@@ -123,7 +123,7 @@ To calculate the matrix of a ZX diagram consisting of sequentially composed spid
 
 Alternatively, we could have chosen to compose the spiders in parallel, corresponding to the tensor product.
 
-\includezxdiagramtext{chapter-2/parallel}{0.105}{
+\includezxdiagramtext{chapter-2/parallel}{0.105}{\frac{1}{2}
 \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
 \begin{pmatrix}
     1 + e^{i\beta} & 1 - e^{i\beta} \\
@@ -151,7 +151,7 @@ Similarly, to calculate the matrix $B$, we take the following tensor product.
 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
 
-We can then calculate the CNOT matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows.
+We can then calculate the CNOT matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows (up to a global scalar factor of $\frac{1}{\sqrt 2}$).
 
 \includezxdiagramtext{chapter-2/cnot}{0.10}{
     \Bigg[
