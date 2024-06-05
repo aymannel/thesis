@@ -80,7 +80,7 @@ Now that we have expressed the one-body and two-body excitation operators in ter
     i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
 \end{equation*}
 
-Each exponential terms can be implemented by a quantum circuit consisting of a CNOT ladder construction conjugated by a Clifford subcircuit. By sequentially composing these circuits (\ref{composition}), that is taking their matrix product, we obtain the following quantum circuit.
+Each exponential terms can be implemented by a quantum circuit consisting of a CNOT ladder construction conjugated by a Clifford subcircuit. By sequentially composing these circuits (\ref{composition}), that is taking their matrix product, we obtain the following quantum circuit implementing the one-body excitation operator.
 
 % \includezxdiagramtext{chapter-5/one_body1}{0.45}{
 % \left( \text{exp} \left[
@@ -103,12 +103,12 @@ Each exponential terms can be implemented by a quantum circuit consisting of a C
     \label{one-body-implementation}
 \end{figure}
 
-The CNOT ladder constructions arise from exponentiating the string of Pauli $Z$ gates, and serve to compute the parity of the spin orbitals between $p$ and $q$, ensuring that the correct phase is applied to the fermionic state, and therefore accounting for the fermionic anti-symmetry imposed by the Pauli principle. The two-body excitation operator can similarly be factorised into eight commuting exponential terms, and is implemented by composing eight subcircuits.
+The CNOT ladder constructions compute the parity of the spin orbitals between $p$ and $q$, ensuring that the correct phase is applied to the fermionic state, thus accounting for the fermionic antisymmetry imposed by the Pauli principle. The two-body excitation operator can similarly be factorised into eight commuting exponential terms, and implemented by composing eight subcircuits.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-5/full_two_body}{1}
-    \caption{Circuit implementation of a two-body excitation operator.}
+    \caption{Truncated circuit implementation of a two-body excitation operator.}
     \label{two-body-implementation}
 \end{figure}
 
