@@ -5,22 +5,8 @@
 % References: \cite{Atilla1996}
 
 The main interest of electronic structure theory is finding approximate solutions to the eigenvalue equation of the full molecular Hamiltonian. Specifically, we seek solutions to the non-relativistic time-independent Schrödinger equation.
-\begin{figure}[H]
-\centering
-\begin{equation*}
-    H =
-    - \sum_{i=1}^{N} \frac{1}{2} \nabla^{2}_{i}
-    - \sum_{i=1}^{M} \frac{1}{2M_i} \nabla^{2}_{i}
-    - \sum_{i=1}^{N} \sum_{j=1}^{M} \frac{Z_j}{|r_{i} - R_{j}|}
-    + \sum_{i=1}^{N} \sum_{j>i}^{N} \frac{1}{|r_{i} - r_{j}|}
-    + \sum_{i=1}^{M} \sum_{j>i}^{M} \frac{Z_{i} Z_{j}}{|R_{i} - R_{j}|}
-\end{equation*}
-\caption{Full molecular Hamiltonian in atomic units, where $Z_i$ is the charge of nucleus $i$ and $M_i$ is its mass relative to the mass of an electron.}
-\end{figure}
 
-The full molecular Hamiltonian, $H$, describes all of the interactions within a system of $N$ interacting electrons and $M$ nuclei. The first term corresponds to the kinetic energy of all electrons in the system. The second term corresponds to the total kinetic energy of all nuclei. The third term corresponds to the pairwise attractive Coulombic interactions between the $N$ electrons and $M$ nuclei, whilst the fourth and fifth terms correspond to all repulsive Coulombic interactions between electrons and nuclei respectively.
-
-We are able to simplify the problem to an electronic one using the Born-Oppenheimer approximation. Motivated by the large difference in mass of electrons and nuclei, we can approximate nuclei as stationary on the timescale of electronic motion such that the electronic wavefunction depends only parametrically on the nuclear coordinates. Within this approximation, the nuclear kinetic energy term can be neglected and the nuclear repulsive term is considered to be constant. The resulting equation is the electronic Hamiltonian for $N$ electrons. 
+The full molecular Hamiltonian describes all of the interactions within a system of $N$ interacting electrons and $M$ nuclei. We are able to simplify the problem to an electronic one using the Born-Oppenheimer approximation. Motivated by the large difference in mass of electrons and nuclei, we can approximate nuclei as stationary on the timescale of electronic motion such that the electronic wavefunction depends only parametrically on the nuclear coordinates. Within this approximation, the nuclear kinetic energy term can be neglected and the nuclear repulsive term is considered to be constant. Following this, we obtain the electronic Hamiltonian for $N$ electrons.
 
 \begin{figure}[H]
 \begin{equation*}
@@ -32,7 +18,7 @@ We are able to simplify the problem to an electronic one using the Born-Oppenhei
 \caption{Electronic molecular Hamiltonian in atomic units.}
 \end{figure}
 
-Throughout the remainder of this text, we will concern ourselves only with the electronic Hamiltonian, simply referring to it as the Hamiltonian, $H$. The solution to the eigenvalue equation involving the electronic Hamiltonian is the electronic wavefunction, which depends only parametrically on the nuclear coordinates. It is solved for fixed nuclear coordinates, such that different arrangements of nuclei yields different functions of the electronic coordinates. The total molecular energy can then be calculated by solving the electronic Schrödinger equation and including the constant repulsive nuclear term.
+The first term corresponds to the kinetic energy of the $N$ electrons in the system, the second term corresponds to the pairwise attractive Coulombic interactions between the $N$ electrons and $M$ nuclei and the final term corresponds to the repulsive Coulombic interactions between $N$ electrons in the system. Throughout the remainder of this text, we will concern ourselves only with the electronic Hamiltonian, simply referring to it as the Hamiltonian, $H$. The solution to the eigenvalue equation involving the electronic Hamiltonian is the electronic wavefunction, which depends only parametrically on the nuclear coordinates. It is solved for fixed nuclear coordinates, such that different arrangements of nuclei yields different functions of the electronic coordinates. The total molecular energy can be calculated by solving the electronic Schrödinger equation and including a constant nuclear term.
 
 % \begin{equation*}
 %     E_\text{total} = E_\text{elec} + \sum_{i=1}^{M} \sum_{j>i}^{M} \frac{Z_{i} Z_{j}}{|R_{i} - R_{j}|}
@@ -42,21 +28,11 @@ Throughout the remainder of this text, we will concern ourselves only with the e
 
 % References: \cite{Atilla1996}
 
-The many-electron wavefunction, which describes all fermions in given molecular system, must satisfy the Pauli principle. This is an independent postulate of quantum mechanics that requires the many-electron wavefunction to be antisymmetric with respect to the exchange of any two fermions.
+The many-electron wavefunction, which describes all the electrons in given molecular system, must satisfy the Pauli principle. This is an independent postulate of quantum mechanics that requires the many-electron wavefunction to be antisymmetric with respect to the exchange of any two fermions.
 
 A spatial molecular orbital is defined as a one-particle function of the position vector, spanning the whole molecule. The spatial orbitals form an orthonormal set $\{\psi_i(\mathbf{r})\}$, which if complete can be used to expand any arbitrary single-particle molecular wavefunction, that is, an arbitrary single-particle function of the position vector. In practice, only a finite set of such orbitals is available to us, spanning only a subspace of the complete space. Hence, wavefunctions expanded using this finite set are described as being `exact' only within the subspace that they span.
 
-We will now introduce the spin orbitals $\{\phi_i(\mathbf{x})\}$, that is, the set of functions of the composite coordinate $\mathbf{x}$, which describes both the spin and spatial distribution of an electron. Given a set of $K$ spatial orbitals, we can construct $2K$ spin orbitals by taking their product with the orthonormal spin functions $\alpha(\omega)$ and $\beta(\omega)$. Whilst the Hamiltonian operator makes no reference to spin, it is a necessary component when constructing many-electron wavefunctions in order to correctly antisymmetrise the wavefunction with respect to fermion exchange. Constructing the antisymmetric many-electron wavefunction from a finite set of spin orbitals amounts to taking the appropriate linear combinations of symmetric products of $N$ spin orbitals.
-
-% \begin{figure}[H]
-% \centering
-% \begin{gather*}
-% \Psi_{1,2}(\mathbf{x_1}, \mathbf{x_2}) = \frac{1}{\sqrt{2}} \left[ \psi_{1,2}(\mathbf{x_1}, \mathbf{x_2}) - \psi_{2,1}(\mathbf{x_2}, \mathbf{x_1}) \right]
-% \end{gather*}
-% \caption{Antisymmetric linear combination of Hartree products $\Psi_{1,2}(\mathbf{x_1}, \mathbf{x_2})$.}
-% \end{figure}
-
-A general procedure for this is achieved by constructing a Slater determinant from the finite set of spin orbitals, where each row relates to the electron coordinate $\mathbf{x_n}$ and each column corresponds to a particular spin orbital $\phi_i$ \cite{Atilla1996}. 
+We will now introduce the spin orbitals $\{\phi_i(\mathbf{x})\}$, that is, the set of functions of the composite coordinate $\mathbf{x}$, which describes both the spin and spatial distribution of an electron. Given a set of $K$ spatial orbitals, we can construct $2K$ spin orbitals by taking their product with the orthonormal spin functions $\alpha(\omega)$ and $\beta(\omega)$. Whilst the Hamiltonian operator makes no reference to spin, it is a necessary component when constructing many-electron wavefunctions in order to correctly antisymmetrise the wavefunction with respect to fermion exchange. Constructing the antisymmetric many-electron wavefunction from a finite set of spin orbitals amounts to taking the appropriate linear combinations of symmetric products of $N$ spin orbitals. A general procedure for this is achieved by constructing a Slater determinant from the finite set of spin orbitals, where each row relates to the electron coordinate $\mathbf{x_n}$ and each column corresponds to a particular spin orbital $\phi_i$ \cite{Atilla1996}. 
 
 \begin{figure}[H]
 \centering
@@ -90,65 +66,41 @@ The Hartree-Fock method yields a set of orthonormal spin orbitals, which when us
 % \caption{Hartree-Fock equation used in the Self-Consistent Field method.}
 % \end{figure}
 
-For an $N$ electron system, and given a set of $2K$ Hartree-Fock spin orbitals, where $2K > N$, there exist many different single Slater determinants. The Hartree-Fock groundstate being one of these. The remainder are excited Slater determinants, recalling that all of these must be orthogonal to one-another. By treating the Hartree-Fock ground state as a reference state, we can describe the excited states relative to the reference state, as single, double, \dots, N-tuple excited states \cite{Atilla1996}.
+% For an $N$ electron system, and given a set of $2K$ Hartree-Fock spin orbitals, where $2K > N$, there exist many different single Slater determinants. The Hartree-Fock groundstate being one of these. The remainder are excited Slater determinants, recalling that all of these must be orthogonal to one-another. By treating the Hartree-Fock ground state as a reference state, we can describe the excited states relative to the reference state, as single, double, \dots, N-tuple excited states \cite{Atilla1996}.
 
 \subsection{\label{second-quantisation}Second Quantisation}
 
 % References: \cite{Helgaker2000}, \cite{Fetter1972}
 
-In second quantisation, both observables and states (by acting on the vacuum state) are represented by operators, namely the creation and annhilation operators \cite{Helgaker2000}. In contrast to the standard formulation of quantum mechanics, operators in second quantisation incorporate the relevant Bose or Fermi statistics each time they act on a state, circumventing the need to keep track of symmetrised or antisymmetrised products of single-particle wavefunctions \cite{Fetter1972}. Put differently, the antisymmetry of an electronic wavefunction simply follows from the algebra of the creation and annhilation operators, which greatly simplifies the discussion of systems of many identical interacting fermions \cite{Helgaker2000}, \cite{Fetter1972}.
+In second quantisation, both observables and states are represented by creation and annihilation operators, papi. Unlike the standard formulation of quantum mechanics, these operators inherently incorporate Bose or Fermi statistics, eliminating the need to track symmetrised or antisymmetrised products of single-particle wavefunctions, papi. Put differently, the antisymmetry of an electronic wavefunction follows from the algebra of these operators, which greatly simplifyies the discussion of many identical interacting fermions \cite{Helgaker2000}, \cite{Fetter1972}.
 
-The Fock space is a linear abstract vector space spanned by $N$ orthonormal occupation number vectors, each representing a single Slater determinant \cite{Helgaker2000}. Hence, given a basis of $N$ spin orbitals we can construct $2^N$ single Slater determinants, each corresponding to a single occupation number vector in the full Fock space. The occupation number vector for fermionic systems is succinctly denoted in Dirac notation as below, where the occupation number $f_j$ is 1 if spin orbital $j$ is occupied, and 0 if spin orbital $j$ is unnoccupied.
+The Fock space is a linear abstract vector space spanned by $N$ orthonormal occupation number vectors, each representing a single Slater determinant \cite{Helgaker2000}. Hence, given a basis of $N$ spin orbitals we can construct $2^N$ single Slater determinants, each corresponding to a single occupation number vector in the full Fock space. The occupation number representation of fermionic states is succinctly denoted in Dirac notation as below, where the occupation number $f_j$ is 1 if spin orbital $j$ is occupied, and 0 if spin orbital $j$ is unnoccupied.
 \begin{equation*}
     \ket\psi = \ket{f_{n-1} \,\, f_{n-2} \dots f_{1} \,\, f_{0}} \qquad \text{where } f_{j} \in {0, 1}
 \end{equation*}
 Whilst there is a one-to-one mapping between Slater determinants with canonically ordered spin orbitals and the occupation number vectors in the Fock space, it is important to distinguish between the two since, unlike the Slater determinants, the occupation number vectors have no spatial structure and are simply vectors in an abstract vector space \cite{Helgaker2000}.
 
-% \begin{equation*}
-%     \ket{\psi_1} = \ket{0 \dots 1} =
-%     \begin{pmatrix} 1 \\ \vdots \\ 0 \end{pmatrix} \qquad
-%     \dots\qquad
-%     \ket{\psi_N} = \ket{1 \dots 1} =
-%     \begin{pmatrix} 0 \\ \vdots \\ 1 \end{pmatrix} \qquad
-% \end{equation*}
-
-Operators in second quantisation are constructed from the creation and annhilation operators $a_j^\dagger$ and $a_j$, where the subscripts $i$ and $j$ denote the spin orbital. $a_j^\dagger$ and $a_j$ are one another's Hermitian adjoints, and are not self-adjoint \cite{Helgaker2000}. Taking the excitation of an electron from spin orbital 0 to spin orbital 1 as an example, we can construct the following excitation operator.
-\begin{equation*}
-    a_1^\dagger \, a_0 \ket{0 \dots 01} = \ket{0 \dots 10}
-\end{equation*}
-
-Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital.
-\begin{align*}
-    a_j^\dagger \ket{f_{n-1} \dots
-    f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0} &=
-    (-1)^{\sum_{s=0}^{j-1} f_s}
-    \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} \\
-    %
-    a_j \ket{f_{n-1} \dots f_{j+1},\,\, 1,\,\, f_{j-1} \dots f_0} &=
-    (-1)^{\sum_{s=0}^{j-1} f_s}
-    \ket{f_{n-1} \dots f_{j+1},\,\, 0,\,\, f_{j-1} \dots f_0}
-\end{align*}
-In second quantisation, this exchange anti-symmetry requirement is accounted for by the anti-commutation relations of the creation and annhilation operators.
-\begin{equation*}
-    \{ \hat a_{j}, \hat a_{k} \} = 0 \qquad \qquad
-    \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} = 0 \qquad
-    \{ \hat a_{j}, \hat a_{k}^{\dagger} \} = \delta_{jk} \hat{1}
-\end{equation*}
-The phase factor required for the second quantised representation to be consistent with the first quantised representation is automatically kept track of by the anticommutation relations of the creation and annhilation operators \cite{Helgaker2000}.
-
-With these creation and annhilation operators in mind, the Hamiltonian in second quantisation can be expressed as follows.
+Operators in second quantisation are constructed from the creation and annhilation operators $a_j^\dagger$ and $a_j$, where the subscripts $i$ and $j$ denote the spin orbital. $a_j^\dagger$ and $a_j$ are one another's Hermitian adjoints, and are not self-adjoint \cite{Helgaker2000}. Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital. This phase factor is automatically kept track of by the creation and annhilation operators' anticommutation relations \cite{Helgaker2000}.
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+        \{ \hat a_{j}, \hat a_{k} \} = 0 \qquad \qquad
+        \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} = 0 \qquad
+        \{ \hat a_{j}, \hat a_{k}^{\dagger} \} = \delta_{jk} \hat{1}
+    \end{equation*}
+    \caption{Anticommutation relations of the creation and annhilation operators.}
+    \label{anticommutation-relations}
+\end{figure}
+The Hamiltonian in second quantisation can be expressed as follows, where the one-body matrix element $h_{ij}$ corresponds to the kinetic energy of an electron and its interaction energy with the nuclei, and the two-body matrix element $h_{ijkl}$ corresponds to the repulsive interaction between electrons $i$ and $j$.
 \begin{equation*}
     \hat H =
     \sum_{ij} h_{ij} a^\dagger_i a_j +
     \frac{1}{2} \sum_{ijkl} h_{ijkl} a^\dagger_i a^\dagger_j a_k a_l +
     h_\text{Nu}
 \end{equation*}
-Where the one-body matrix element $h_{ij}$ corresponds to the kinetic energy of an electron and its interaction energy with the nuclei, and the two-body matrix element $h_{ijkl}$ corresponds to the repulsive interaction between electrons $i$ and $j$.
+These matrix elements are then computed classically, allowing us to simulate only the inherently quantum aspects of the problem on a quantum computer.
 \begin{gather*}
 h_{ij} = \int^\infty_{-\infty} \psi^*_{i(x_1)} \left( - \frac{1}{2} \nabla^2 + \hat V_{(x_1)} \right) \psi_{j(x_1)} \,\, d^3 x_1 \\[3ex]
 %
 h_{ijkl} = \int^\infty_{-\infty} \int^\infty_{-\infty} \psi^*_{i(x_1)} \psi^*_{j(x_2)} \left( \frac{1}{|x_1 - x_2|} \right) \psi_{k(x_2)} \psi_{l(x_1)} \,\, d^3 x_1 d^3 x_2
 \end{gather*}
-
-$h_\text{Nu}$ is a constant corresponding to the repulsive interaction between nuclei. These matrix elements are computed classically, allowing us to simulate only the inherently quantum aspects of the problem on a quantum computer.
-
