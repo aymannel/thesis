@@ -82,22 +82,18 @@ Similarly, by applying the Jordan-Wigner transformation to the two-body excitati
     \caption{Two-body excitation operator expressed in terms of the Pauli matrices.}
 \end{figure}
 
-Now that we have expressed the one-body and two-body excitation operators in terms of quantum gates, we discuss their specific implementations on a quantum computer. Starting with the one-body excitation operator, we can show that it can be rewritten as the following product of commuting exponential terms.
+The expression for the one-body excitation operator in Figure \ref{one-body-excitation-operator} can then be rewritten as the following product of commuting exponential terms.
+\vspace{10pt}
+\begin{equation*}
+    U^q_p (\theta) =
+    \left( \text{exp} \left[
+    i \frac{\theta}{2} Y_p X_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+    \left( \text{exp} \left[ -
+    i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+\end{equation*}
+\vspace{-16pt}
 
-\begin{figure}[H]
-    \centering
-    \begin{equation*}
-        U^q_p (\theta) =
-        \left( \text{exp} \left[
-        i \frac{\theta}{2} Y_p X_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
-        \left( \text{exp} \left[ -
-        i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
-    \end{equation*}
-    \caption{One-body excitation operator expressed as a product of exponential terms.}
-\end{figure}
-\vspace{-10pt}
-
-Recognising these exponential terms as the one parameter unitary groups of two Pauli strings, as we discussed in Section \ref{pauli-gadgets-section}, we see that they each correspond to a Pauli gadget. Consequently, by sequentially composing these Pauli gadgets (taking their matrix product) we obtain the following diagram in the ZX calculus. 
+Recognising these exponential terms as the one parameter unitary groups of Pauli strings, we see that they each correspond to a Pauli gadget, as we discussed in Section \ref{pauli-gadgets-section}. Then, by sequentially composing these Pauli gadgets (taking their matrix product) we obtain the following diagram in the ZX calculus. 
 
 \begin{figure}[H]
     \centering
@@ -105,7 +101,7 @@ Recognising these exponential terms as the one parameter unitary groups of two P
     \caption{Representation of a one-body excitation operator in the ZX calculus.}
 \end{figure}
 
-We are only interested in paired two-body excitation operators (Section \ref{disco-vqe}), which are constructed from the following four-legged Pauli gadgets. Each Pauli gadget can, therefore, be implemented by a constant number of CNOT gates \cite{Burton2023}.
+Recall that, in the context of the DISCO-VQE algorithm, introduced in Section \ref{disco-vqe}, we are only interested in paired two-body excitation operators. In contrast to their \textit{general} counterparts, the CNOT overhead associated with the parity computation is eliminated in paired two-body operators \cite{Burton2023}, such that they can be expressed as the following \textit{four-legged} Pauli gadgets, each having a constant CNOT depth.
 
 \begin{figure}[H]
     \centering
