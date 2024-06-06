@@ -3,7 +3,14 @@
 
 The DISCO-VQE algorithm (Section \ref{vqe}) generates multiple UPS ansätze, each yielding the same energy expectation value but corresponding to a unique sequence of excitation operators. This indicates that the ansätze generated equivalently capture the correlation present in the molecular system of interest, implying potential redundancies among the expectation energy-equivalent ansätze. To address this issue, we used the Pauli gadget commutation rules outlined in Section \ref{commutation-relations} to identify commuting excitation operators within the set of excitation operators employed by the algorithm. Our objective is to minimise redundancies in the output of the DISCO-VQE algorithm through this approach.
 
-We begin by recognising that the Pauli gadgets comprising the one-body and two-body excitation operators mutually commute with each another by identifying that every pair of gadgets in these operators possesses two mismatching pairs of legs. We then define \textit{trivially commuting} excitation operators as commuting excitation operators, that act on a disjoint set of qubits, and \textit{non-trivially commuting} excitation operators as commuting operators that act on an intersecting set of qubits. Using this approach, we successfully identified six previously-unknown pairs of trivially commuting excitation operators.
+We begin by recognising that the Pauli gadgets comprising the one-body and two-body excitation operators mutually commute with each another by identifying that every pair of gadgets in these operators possesses two mismatching pairs of legs. We then define \textit{trivially commuting} excitation operators as commuting excitation operators, that act on a disjoint set of qubits, and \textit{non-trivially commuting} excitation operators as commuting operators that act on an intersecting set of qubits. Using this approach, we successfully identified six previously-unknown pairs of non-trivially commuting excitation operators.
 
 In contrast to traditional VQE algorithms, which optimise ansatz parameters continuously, the DISCO-VQE algorithm also incorporates discrete optimisation techniques. Specifically, it optimises the sequence of excitation operators through cyclic permutations, mutations, and pair swaps \cite{Burton2023}. We, therefore, propose a modification to the DISCO-VQE algorithm to account for the additional non-trivially commuting excitation operators identified. We anticipate that by doing so, we might minimise redundancies among the expectation energy-equivalent ansätze, thereby decreasing the number of genuinely unique ansätze produced by the algorithm. We expect that this smaller set of ansätze may provide valuable insights into the correlations within the molecular system under study and potentially inform the development of more efficient optimisation algorithms and strategies.
 
+
+
+
+trivially commuting operators are independe tof spin orbital ordering
+put operators in appendix
+irrespective of what system you use and how you choose to order qubits
+future work look at bigger system sizes
