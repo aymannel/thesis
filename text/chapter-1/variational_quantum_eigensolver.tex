@@ -1,22 +1,13 @@
 \section{The Variational Quantum Eigensolver}%
 \label{vqe}
 
-% Developed in 2014 by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014}, 
-
-%  VQE algorithms implement fermionic states on quantum devices via the Unitary Coupled Cluster (UCC) ansatz \cite{Taube2006}. By preparing quantum states as a sequence of unitary excitation operations acting on some reference state, we are able to parametrically explore the Hilbert space of possible quantum states \cite{McClean2016}.
-
-% Consequently, a significant portion of this thesis revolves around developing the diagrammatic techniques essential for replicating the findings of Yordanov \textit{et al} in the ZX calculus.
-
-% specifically the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)},
-
-
-In this chapter, we introduce the \textit{Variational Quantum Eigensolver (VQE)} algorithm, a particular class of variational quantum algorithms used to estimate the ground state energy of molecular systems. The research presented in this thesis is conducted within this framework. As providing an overview of the VQE algorithm, we introduce the fundamentals of quantum computing and the \textit{Unitary Product State (UPS) ansatz} used to represent fermionic wavefunctions on quantum devices.
+In this chapter, we introduce the \textit{Variational Quantum Eigensolver (VQE)} algorithm, a particular class of variational quantum algorithms developed by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014} in 2014 to estimate the ground state energy of molecular systems. We then present the DISCO-VQE algorithm, a variant of the VQE algorithm that serves as the framework for the research presented in this thesis. Finally, we introduce the \textit{Unitary Product State (UPS) ansatz} which we use to represent fermionic wavefunctions on quantum devices.
 
 The VQE algorithm consists of a quantum subroutine, a \textit{Parametrised Quantum Circuit (PQC)}, that implements some UPS ansatz, and a classical subroutine that classically optimises the ansatz until it converges to the best approximation of the true ground state. PQCs are similar to classical neural networks in concept, but by definition, correspond to $2^n \times 2^n$ unitary maps, where $n$ is the number of qubits, and hence have the same number of inputs as outputs \cite{Yeung2020}.
 
-The input state for the PQC is the reference state that the unitary operator $U(\bm\theta)$ acts on, which in the case of the single Slater determinant Hartree-Fock state, is encoded as a pure quantum state $\ket{\psi_0}$. The output of the PQC is then an entangled state, that is, some linear combination of vectors in the Fock space, that captures the correlation present in true ground state of the molecular system of interest.
+The VQE input state is some reference state $\ket{\psi_0}$, which in the case of the single-Slater determinant Hartree-Fock state, corresponds to a single vector in the Fock space. The VQE output is then some linear combination of vectors in the Fock space, that captures the correlation present in the molecular system of interest.
 
-Upon measuring the PQC output state, it collapses into a single vector in the Fock space, with a probability defined by that vector's weight in the UPS ansatz. The quantum subroutine computes the energy expectation value of the UPS ansatz via a quantum circuit consisting of the PQC and the Hamiltonian for the system.
+Upon measuring the PQC output state, it collapses into a single vector in the Fock space, with a probability defined by that vector's weight in the ansatz. The quantum subroutine computes the energy expectation value of the ansatz via a quantum circuit consisting of the ansatz itself and the Hamiltonian for the system.
 
 \includezxdiagram{chapter-1/expectation}{0.7}
 \begin{equation*}
