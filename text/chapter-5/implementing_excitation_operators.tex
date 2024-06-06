@@ -1,4 +1,5 @@
-\section{Implementing Excitation Operators}
+\section{Implementing Excitation Operators}%
+\label{implementing-excitation-operators}
 
 In Section \ref{ups-ansatz}, we showed that a fermionic state can be represented by a finite sequence of $k$ parametrised one-body and two-body excitation operators acting on a single-Slater determinant reference state. After invoking the Trotter formula using one time step, we obtained the following equation for the UPS ansatz.
 \begin{equation*}
@@ -19,6 +20,7 @@ Recalling that the creation and annhilation operators must preserve the fermioni
         \hat a_j = \frac{1}{2} (X + iY) \bigotimes_{k=1}^{j-1} Z_k
     \end{equation*}
     \caption{The Jordan-Wigner transformation.}
+    \label{jordan-wigner}
 \end{figure}
 
 This mapping is known as the Jordan-Wigner transformation \cite{Seeley2020} and has the advantage of preserving a direct mapping between fermionic states in the occupation number representation and the qubit state vector. In other words, each qubit in our quantum circuit encodes the occupation number of each spin orbital in our fermionic state $\ket{f_{n-1} \dots f_{0}} \,\,\rightarrow\,\, \ket{q_{n-1} \dots q_{0}}$.

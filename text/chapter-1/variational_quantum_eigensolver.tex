@@ -5,7 +5,7 @@ In this chapter, we introduce the \textit{Variational Quantum Eigensolver (VQE)}
 
 The VQE algorithm consists of a quantum subroutine, a \textit{Parametrised Quantum Circuit (PQC)}, that implements some UPS ansatz, and a classical subroutine that classically optimises the ansatz until it converges to the best approximation of the true ground state. PQCs are similar to classical neural networks in concept, but by definition, correspond to $2^n \times 2^n$ unitary maps, where $n$ is the number of qubits, and hence have the same number of inputs as outputs \cite{Yeung2020}.
 
-The VQE input state is some reference state $\ket{\psi_0}$, which in the case of the single-Slater determinant Hartree-Fock state, corresponds to a single vector in the Fock space. The VQE output is then some linear combination of vectors in the Fock space, that captures the correlation present in the molecular system of interest.
+The VQE input state is some reference state, which in the case of the single-Slater determinant Hartree-Fock state, corresponds to a single vector in the Fock space. The output state is then some linear combination of vectors in the Fock space, that captures the correlation present in the molecular system of interest.
 
 Upon measuring the PQC output state, it collapses into a single vector in the Fock space, with a probability defined by that vector's weight in the ansatz. The quantum subroutine computes the energy expectation value of the ansatz via a quantum circuit consisting of the ansatz itself and the Hamiltonian for the system.
 
@@ -14,17 +14,12 @@ Upon measuring the PQC output state, it collapses into a single vector in the Fo
     E(\bm\theta) = \bra{0} U^\dagger(\bm\theta) H U(\bm\theta) \ket{0} 
 \end{equation*}
 
-\subsection{The DISCO-VQE Algorithm}%
-\label{disco}
-
-For the purposes of this thesis, we are interested in a variant of the VQE algorithm developed by Burton \textit{et al} \cite{Burton2023} known as the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)}. We implement a fermionic state on a quantum device as a sequence of quantum gates representing unitary excitation operators that act on some reference state. The DISCO-VQE algorithm then finds approximate solutions to the fermionic ground state by both (\textit{discretely}) optimising the sequence of fermionic excitation operators, chosen from a finite operator pool, and (\textit{continuously}) optimising their parameters. This allows us to parametrically explore the Hilbert space of possible quantum states until we find a good approximation of the true fermionic ground state \cite{Taube2006}. The DISCO-VQE algorithm, therefore, discovers accurate representations of fermionic wavefunctions using a minimal number of parameters \cite{Burton2023}.
-
 %%%
 
 \subsection{Unitary Product State Ansatz}%
 \label{ups-ansatz}
 
-As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates. We refer to the UCC ansatz $\ket{\psi_{\text{UCC}}(\bm\theta)}$ as some unitary excitation operator $U_\text{UCC}(\bm\theta)$ acting on a reference state, usually a single-Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method.
+As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates. We refer to the UCC ansatz $\ket{\psi_{\text{UCC}}(\bm\theta)}$ as the application of the unitary excitation operator $U_\text{UCC}(\bm\theta)$ to some reference state, usually a single-Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method.
 \begin{equation*}
     \ket{\psi_{\text{UCC}}(\bm\theta)} = U_\text{UCC}(\bm\theta) \ket{\psi_0} =
     e^{\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)} \ket{\psi_0}
@@ -37,7 +32,7 @@ The operator $\hat T(\bm\theta)$ is a linear combination of fermionic second-qua
 \sum_{i, j, a, b} \theta^{ab}_{ij} (a^\dagger_i a^\dagger_j a_a a_b - a^\dagger_a a^\dagger_b a_i a_j) + \dots
 \end{equation*}
 
-Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals. The \textit{Singles-Doubles} formulation of the UCC ansatz has been shown by Evangelista \textit{et al} to exactly parametrise any state, \cite{Evangelista2019}. However, since the terms of the unitary operator $U_\text{UCC}(\bm\theta)$ do not commute, it cannot be directly implemented on a quantum computer. Instead, by invoking the Trotter formula to approximate the unitary with a single Trotter step, since our focus is on the NISQ setting \cite{Cowtan2020}, we define the \textit{Unitary Product State (UPS)} ansatz $\ket{\psi(\bm\theta)}$ as the following product of $k$ parametrised unitary excitation operators \cite{Burton2023}.
+Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unoccupied, spin orbitals. The formulation of the UCC ansatz that includes only single and double excitations has been shown by Evangelista \textit{et al} to exactly parametrise any state \cite{Evangelista2019}. However, since the terms of the unitary operator $U_\text{UCC}(\bm\theta)$ do not commute, it cannot be directly implemented on a quantum computer. Instead, by invoking the Trotter formula to approximate the unitary with a single Trotter step, we define the \textit{Unitary Product State (UPS)} ansatz $\ket{\psi(\bm\theta)}$ as the following product of $k$ parametrised unitary excitation operators \cite{Burton2023}.
 
 \begin{figure}[H]
     \centering
@@ -48,6 +43,16 @@ Where $i, j$ indexes occupied spin orbitals and $a, b$ indexes virtual, or unocc
     \caption{Parametrised $k$-UPS ansatz.}
 \end{figure}
 
-Where $m$ indexes all possible excitations and $\tau_m - \tau_m^\dagger$ corresponds to anti-Hermitian fermionic excitation operators in second quantisation. For the remainder of this thesis, we refer to fermionic excitation operators as the the exponentials of these anti-Hermitian operators, $U_m(\theta_m)$. As these fermionic excitation operators are derived from second-quantised operators, they preserve the fermionic anti-symmetry and particle number of the reference state \cite{Burton2023}.
+Where $m$ indexes all possible excitations and $\tau_m - \tau_m^\dagger$ corresponds to anti-Hermitian fermionic excitation operators in second quantisation. For the remainder of this thesis, we refer to fermionic excitation operators as the the parametrised exponentials of these anti-Hermitian operators, $U_m(\theta_m)$. Since these fermionic excitation operators are derived from second-quantised operators, they preserve the fermionic anti-symmetry and particle number of the reference state \cite{Burton2023}. The operators are then mapped to quantum gates using the Jordan-Wigner transformation, introduced in Section \ref{implementing-excitation-operators}, before being implemented on a quantum computer.
 
-The operators are then mapped to quantum gates using the Jordan-Wigner transformation (see Chapter \ref{excitation-operators}) before being implemented on a quantum device. Within the DISCO-VQE framework, we consider only generalised \textit{single} (one-body) and \textit{double} (two-body) fermionic excitation (operators), which, as shown by Burton \textit{et al} \cite{Burton2023}, achieves universality provided that we combine enough suitably-ordered one-body and two-body excitation operators. In other words, the UPS ansatz is sufficient to represent any vector in the Hilbert space.
+In one sense, by invoking the Trotter formula to approximate $U_\text{UCC}(\bm\theta)$, the UPS operator abandons its connection to many body theory. Hence instead of representing correlational processes, the UPS operator should be viewed as some unitary rotation that parametrically explores the Hilbert state of possible states. Nevertheless, as shown by Burton \textit{et al} \cite{Burton2023}, the \textit{Singles--Doubles} formulation of the UPS ansatz, that includes only single and double excitations, can represent any vector in the Hilbert space, provided that we combine enough suitably-ordered fermionic excitation operators. In this way, the UPS ansatz is said to achieve \textit{universality}.
+
+%%%
+
+\subsection{DISCO-VQE}%
+\label{disco-vqe}
+
+For the purposes of this thesis, we focus on a variant of the VQE algorithm known as the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)} developed by Burton \textit{et al} \cite{Burton2023}. This algorithm finds approximate solutions for the ground state of a molecular system by both (\textit{discretely}) optimising the sequence of fermionic excitation operators in the ansatz and (\textit{continuously}) optimising their parameters.
+
+The DISCO-VQE algorithm selects excitation operators from a pool of one-body and two-body excitation operators to implement the UPS ansatz discussed in the previous section. The excitation operators in the pool are chosen to preserve the spin quantum numbers $\langle \hat S \rangle$ and $\langle \hat S^2 \rangle$. Specifically, we consider only one-body and \textit{paired} two-body excitation operators that conserve the spin symmetry of the initial state. Paired two-body excitation operators represent the excitation of a pair of electrons from the same spatial orbital to another spatial orbital and have the advantage of being implemented by a constant number of quantum gates. In contrast, unpaired two-body excitation operators require a number of quantum gates that grows linearly with the number of orbitals \cite{Burton2023}.
+
