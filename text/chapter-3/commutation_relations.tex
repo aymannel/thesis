@@ -28,7 +28,7 @@ Taking $C = \text{CNOT}_{1, 2}$, we can interpret the conjugation of a \textit{p
 
 \includezxdiagram{chapter-3/commutation}{1}
 
-Since the CNOT and CZ gates act on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings $\{I, X, Y, Z\}^{\otimes 2}$. Consequently, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT and CZ gates.
+Since the CNOT (\ref{cnot-definition}) and CZ (\ref{cz-definition}) gates act on two qubits ($n=2$), we can form 16 unique Pauli gadgets from the set of Pauli strings $\{I, X, Y, Z\}^{\otimes 2}$. Consequently, we must derive 16 commutation relations to fully describe the interaction of Pauli gadgets with the CNOT and CZ gates.
 
 % \begin{figure}[H]
 %     \centering
@@ -52,7 +52,7 @@ In the example below, one of the definitions of the Pauli $Y$ gate above to deri
 
 Similarly, we can identify how single-qubit gates interact with Pauli gadgets by identifying how they interact with the Pauli gates. In the example below, we use the fact that the above definitions of the Pauli $Y$ gate differ by a factor of $-1$ to show that commuting a Hadamard through a $Y$ leg flips the gadget's phase.
 
-\includezxdiagram{chapter-3/single_qubit_clifford}{1}
+\includezxdiagram{chapter-3/single_qubit_clifford}{0.9}
 
 Using the rules described in this section, we were able to identify how Pauli gadgets interact with the Clifford and Pauli gates, in agreement with \cite{Yeung2020} and \cite{Cowtan2019}. We have summarised these commutation relations below. In Chapter \ref{excitation-operators}, we demonstrate how these commutation relations can be used to prove several important results.
 

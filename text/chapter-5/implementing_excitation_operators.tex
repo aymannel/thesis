@@ -11,7 +11,7 @@ In Section \ref{ups-ansatz}, we showed that a fermionic state can be represented
     \caption{UPS ansatz (sequence of $k$ one-body and two-body excitation operators).}
 \end{figure}
 
-In order to implement the fermionic excitation operators $U_m(\theta_m)$ on a quantum computer, we must first represent the second-quantised creation and annhilation operators in terms of quantum gates. For a single-state system, we do this by taking the following linear combinations of the Pauli gates.
+In order to implement the fermionic excitation operators $U_m(\theta_m)$ on a quantum computer, we must first represent the second-quantised creation and annhilation operators in terms of quantum gates. For a single-qubit system, we do this by taking the following linear combinations of the Pauli gates.
 
 \begin{figure}[H]
     \centering
@@ -19,10 +19,10 @@ In order to implement the fermionic excitation operators $U_m(\theta_m)$ on a qu
         \hat a^\dagger = \ket 1 \bra 0 = \frac{1}{2} (X - iY) \qquad\qquad
         \hat a = \ket 0 \bra 1 = \frac{1}{2} (X + iY) 
     \end{equation*}
-    \caption{Jordan-Wigner transformation for a single-state system.}
+    \caption{Jordan-Wigner transformation for a single-qubit system.}
 \end{figure}
 
-Recalling that the creation and annhilation operators must preserve the fermionic anti-symmetry imposed by the Pauli principle, we modify these equations to account for the parity of the spin orbitals preceding the target spin orbital $j$ when dealing with many-state systems. We do this by introducing a string of Pauli $Z$ operators to compute the parity of the spin orbitals preceding spin orbital $j$.
+Recalling that the creation and annhilation operators must preserve the fermionic anti-symmetry imposed by the Pauli principle, we modify these equations to account for the parity of the spin orbitals preceding the target spin orbital $j$ when dealing with many-qubit systems. We do this by introducing a string of Pauli $Z$ operators to compute the parity of the spin orbitals preceding spin orbital $j$.
 
 \begin{figure}[H]
     \centering
@@ -30,10 +30,10 @@ Recalling that the creation and annhilation operators must preserve the fermioni
         \hat a_j^+ = \frac{1}{2} (X - iY) \bigotimes_{k=1}^{j-1} Z_k \qquad\quad
         \hat a_j = \frac{1}{2} (X + iY) \bigotimes_{k=1}^{j-1} Z_k
     \end{equation*}
-    \caption{Jordan-Wigner transformation for a many-state system.}
+    \caption{Jordan-Wigner transformation for a many-qubit system.}
 \end{figure}
 
-This mapping is known as the Jordan-Wigner transformation \cite{Seeley2020} and has the advantage of preserving a direct mapping between fermionic states in the occupation number representation and the qubit state vector. In other words, each qubit in our quantum circuit now encodes the occupation number of each spin orbital in our fermionic state $\ket{f_{n-1} \dots f_{0}} \,\,\rightarrow\,\, \ket{q_{n-1} \dots q_{0}}$.
+This mapping is known as the Jordan-Wigner transformation \cite{Seeley2020} and has the advantage of preserving a direct mapping between fermionic states in the occupation number representation and the qubit state vector. In other words, each qubit in our quantum circuit encodes the occupation number of each spin orbital in our fermionic state $\ket{f_{n-1} \dots f_{0}} \,\,\rightarrow\,\, \ket{q_{n-1} \dots q_{0}}$.
 
 Let us take the unitary operator $U^q_p(\theta)$ to be a one-body excitation operator derived from the anti-Hermitian second-quantised operator $a_q^\dagger a_p - a_p^\dagger a_q$ and acting on qubits $p$ and $q$. After applying the Jordan-Wigner transformation to the second-quantised operator and exponentiating it, we obtain the following one-body excitation operator in terms of the Pauli matrices.
 

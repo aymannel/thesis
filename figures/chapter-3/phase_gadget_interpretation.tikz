@@ -1,21 +1,21 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=none] (0) at (0, 0) {};
+		\node [style=none] (0) at (0, 0.25) {};
 		\node [style=none] (1) at (0, 1.5) {};
-		\node [style=none] (2) at (0, 3) {};
-		\node [style=none] (3) at (2.5, 0) {};
+		\node [style=none] (2) at (0, 2.75) {};
+		\node [style=none] (3) at (2.5, 0.25) {};
 		\node [style=none] (4) at (2.5, 1.5) {};
-		\node [style=none] (5) at (2.5, 3) {};
-		\node [style={z_node}] (6) at (1.25, 0) {};
+		\node [style=none] (5) at (2.5, 2.75) {};
+		\node [style={z_node}] (6) at (1.25, 0.25) {};
 		\node [style={z_node}] (7) at (1.25, 1.5) {};
-		\node [style={z_node}] (8) at (1.25, 3) {};
+		\node [style={z_node}] (8) at (1.25, 2.75) {};
 		\node [style={z_phase}] (9) at (3, 0.75) {$\theta$};
 		\node [style={x_node}] (10) at (2, 0.75) {};
-		\node [style=none] (11) at (4.25, 0.75) {\small $\oplus_i q_i$};
-		\node [style=none] (12) at (0.75, 0.25) {\tiny $q_2$};
+		\node [style=none] (11) at (3.5, 1.5) {\small $\oplus_i q_i$};
+		\node [style=none] (12) at (0.75, 0.5) {\tiny $q_2$};
 		\node [style=none] (13) at (0.75, 1.75) {\tiny $q_1$};
-		\node [style=none] (14) at (0.75, 3.25) {\tiny $q_0$};
-		\node [style=none] (15) at (4.75, 0.75) {};
+		\node [style=none] (14) at (0.75, 3) {\tiny $q_0$};
+		\node [style=none] (15) at (4, 0.75) {};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (8) to (2.center);
