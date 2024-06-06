@@ -1,5 +1,7 @@
-\section{Phase Gadgets}
-Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of only the Pauli $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They can be naively implemented as a $Z$ rotation sandwiched between two ladders of CNOT gates.
+\section{Phase Gadgets}%
+\label{phase-gadgets}
+
+Phase gadgets are defined as the one parameter unitary groups of Pauli strings consisting of only the Pauli $I$ and $Z$ matrices, $P \in \{I, Z\}^{\otimes n}$. They can be naively implemented as a $Z$ rotation nested between two ladders of CNOT gates.
 
 \includezxdiagramtext{chapter-3/phase_gadget_expanded}{0.28}
 {\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
@@ -30,7 +32,7 @@ It is then a simple matter of recursively applying this result to phase gadgets 
 
 Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on its parity \cite{Yeung2020}. 
 
-\includezxdiagramtext{chapter-3/phase_gadget_interpretation}{0.25}{
+\includezxdiagramtext{chapter-3/phase_gadget_interpretation}{0.2}{
 \quad\text{diag} \left\{
 \begin{pmatrix}
     1 \\ e^{i\theta} \\ e^{i\theta} \\ 1 \\
@@ -78,13 +80,13 @@ Using the phase gadget result described above (\ref{phase-gadget-result}), we ca
     \label{phase-gadget-decomposition}
 \end{figure}
 
-% \subsubsection{Balanced Tree Decomposition}%
-By recursively applying this decomposition, we can show that it is possible to decompose a phase gadget in the balanced tree representation such that it has a circuit depth of $2\log_2(n)$, rather than $2(n-1)$ in the ladder representation \cite{Cowtan2019}, where $n$ is the number of qubits.
+\subsubsection{Balanced Tree Representation}%
+By recursively applying this decomposition, we can demonstrate that a phase gadget in the balanced tree representation can achieve a circuit depth of $2\text{log}_2(n) + 1$, rather than $2n - 1$ as in the ladder representation, where $n$ is the number of qubits \cite{Cowtan2019}.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-3/phase_gadget_decomposition}{0.95}
-    \caption{Balanced tree phase gadget decomposition.}
+    \caption{Phase gadget in the balanced tree representation.}
     \label{balanced-tree}
 \end{figure}
 

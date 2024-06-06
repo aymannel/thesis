@@ -1,27 +1,15 @@
 \section{Implementing Excitation Operators}
 
 In Section \ref{ups-ansatz}, we showed that a fermionic state can be represented by a finite sequence of $k$ parametrised one-body and two-body excitation operators acting on a single-Slater determinant reference state. After invoking the Trotter formula using one time step, we obtained the following equation for the UPS ansatz.
-
-\begin{figure}[H]
-    \centering
-    \begin{equation*}
-        U(\bm\theta) = \prod_{m=1}^k U_m(\theta_m) \qquad
-        U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
-    \end{equation*}
-    \caption{UPS ansatz (sequence of $k$ one-body and two-body excitation operators).}
-\end{figure}
-
+\begin{equation*}
+    U(\bm\theta) = \prod_{m=1}^k U_m(\theta_m) \qquad
+    U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
+\end{equation*}
 In order to implement the fermionic excitation operators $U_m(\theta_m)$ on a quantum computer, we must first represent the second-quantised creation and annhilation operators in terms of quantum gates. For a single-qubit system, we do this by taking the following linear combinations of the Pauli gates.
-
-\begin{figure}[H]
-    \centering
-    \begin{equation*}
-        \hat a^\dagger = \ket 1 \bra 0 = \frac{1}{2} (X - iY) \qquad\qquad
-        \hat a = \ket 0 \bra 1 = \frac{1}{2} (X + iY) 
-    \end{equation*}
-    \caption{Jordan-Wigner transformation for a single-qubit system.}
-\end{figure}
-
+\begin{equation*}
+    \hat a^\dagger = \ket 1 \bra 0 = \frac{1}{2} (X - iY) \qquad\qquad
+    \hat a = \ket 0 \bra 1 = \frac{1}{2} (X + iY) 
+\end{equation*}
 Recalling that the creation and annhilation operators must preserve the fermionic anti-symmetry imposed by the Pauli principle, we modify these equations to account for the parity of the spin orbitals preceding the target spin orbital $j$ when dealing with many-qubit systems. We do this by introducing a string of Pauli $Z$ operators to compute the parity of the spin orbitals preceding spin orbital $j$.
 
 \begin{figure}[H]
@@ -30,12 +18,18 @@ Recalling that the creation and annhilation operators must preserve the fermioni
         \hat a_j^+ = \frac{1}{2} (X - iY) \bigotimes_{k=1}^{j-1} Z_k \qquad\quad
         \hat a_j = \frac{1}{2} (X + iY) \bigotimes_{k=1}^{j-1} Z_k
     \end{equation*}
-    \caption{Jordan-Wigner transformation for a many-qubit system.}
+    \caption{The Jordan-Wigner transformation.}
 \end{figure}
 
 This mapping is known as the Jordan-Wigner transformation \cite{Seeley2020} and has the advantage of preserving a direct mapping between fermionic states in the occupation number representation and the qubit state vector. In other words, each qubit in our quantum circuit encodes the occupation number of each spin orbital in our fermionic state $\ket{f_{n-1} \dots f_{0}} \,\,\rightarrow\,\, \ket{q_{n-1} \dots q_{0}}$.
 
-Let us take the unitary operator $U^q_p(\theta)$ to be a one-body excitation operator derived from the anti-Hermitian second-quantised operator $a_q^\dagger a_p - a_p^\dagger a_q$ and acting on qubits $p$ and $q$. After applying the Jordan-Wigner transformation to the second-quantised operator and exponentiating it, we obtain the following one-body excitation operator in terms of the Pauli matrices.
+After applying the Jordan-Wigner transformation to the anti-Hermitian seecond-quantised operator $a_q^\dagger a_p - a_p^\dagger a_q$ and finding its corresponding unitary operator $U^q_p(\theta)$, we obtain the following expression in terms of the Pauli matrices.
+
+% \begin{equation*}
+%     U^q_p (\theta) =
+%     \text{exp} \left( i
+%     \frac{\theta}{2} (Y_p X_q - X_p Y_q) \prod_{k=p+1}^{q-1} Z_k \right)
+% \end{equation*}
 
 \begin{figure}[H]
     \centering
@@ -48,7 +42,23 @@ Let us take the unitary operator $U^q_p(\theta)$ to be a one-body excitation ope
     \label{one-body-excitation-operator}
 \end{figure}
 
-By applying the Jordan-Wigner transformation to the two-body excitation operator $U^{rs}_{pq}(\theta)$, derived from the second-quantised operator $a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r$, we obtain the following two-body excitation operator in terms of the Pauli matrices.
+Similarly, by applying the Jordan-Wigner transformation to the two-body excitation operator derived from the second-quantised operator $a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r$, we obtain the following expression for $U^{rs}_{pq} (\theta)$.
+
+% \begin{align*}
+%     U^{rs}_{pq} (\theta) &= \text{exp} \left( i \frac{\theta}{8} (
+%     X_p X_q Y_s X_r +
+%     Y_p X_q Y_s Y_r +
+%     X_p Y_q Y_s Y_r +
+%     X_p X_q X_s Y_r - \right. \\
+%     &\left. \hspace{1cm} 
+%     Y_p X_q X_s X_r -
+%     X_p Y_q X_s X_r -
+%     Y_p Y_q Y_s X_r -
+%     Y_p Y_q X_s Y_r )
+%     \prod_{k=p+1}^{q-1} Z_k
+%     \prod_{l=r+1}^{s-1} Z_l
+%     \right)
+% \end{align*}
 
 \begin{figure}[H]
     \centering
@@ -72,15 +82,20 @@ By applying the Jordan-Wigner transformation to the two-body excitation operator
 
 Now that we have expressed the one-body and two-body excitation operators in terms of quantum gates, we discuss their specific implementations on a quantum computer. Starting with the one-body excitation operator, we can show that it can be expressed as the following product of commuting exponential terms.
 
-\begin{equation*}
-    U^q_p (\theta) =
-    \left( \text{exp} \left[
-    i \frac{\theta}{2} Y_p X_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
-    \left( \text{exp} \left[ -
-    i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
-\end{equation*}
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+        U^q_p (\theta) =
+        \left( \text{exp} \left[
+        i \frac{\theta}{2} Y_p X_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+        \left( \text{exp} \left[ -
+        i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
+    \end{equation*}
+    \caption{One-body excitation operator expressed as a product of exponential terms.}
+\end{figure}
+\vspace{-10pt}
 
-Each exponential terms can be implemented by a quantum circuit consisting of a CNOT ladder construction conjugated by a Clifford subcircuit. By sequentially composing these circuits (\ref{sequential-composition}), that is taking their matrix product, we obtain the following quantum circuit implementing the one-body excitation operator.
+Each exponential term can be implemented by a quantum circuit corresponding to a Pauli gadget in the ladder representation (\ref{pauli-gadgets-section}). Then, by sequentially composing (\ref{sequential-composition}) these circuits, that is taking their matrix product, we obtain the following quantum circuit implementing the one-body excitation operator.
 
 % \includezxdiagramtext{chapter-5/one_body1}{0.45}{
 % \left( \text{exp} \left[
@@ -96,58 +111,38 @@ Each exponential terms can be implemented by a quantum circuit consisting of a C
 
 % By sequentially composing these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator acting on qubits $p$ and $q$.
 
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-5/one_body4}{0.8}
-    \caption{Circuit implementation of a one-body excitation operator.}
-    \label{one-body-implementation}
-\end{figure}
+\includezxdiagram{chapter-5/one_body4}{0.8}
 
-The CNOT ladder constructions compute the parity of the spin orbitals between $p$ and $q$, ensuring that the correct phase is applied to the fermionic state, thus accounting for the fermionic antisymmetry imposed by the Pauli principle.
-
-Similarly, the two-body excitation operator can be factorised into eight commuting exponential terms, and implemented by composing eight subcircuits. Note that, for convenience, we have truncated the full circuit in the figure below.
-
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-5/full_two_body}{1}
-    \caption{Truncated circuit implementation of a two-body excitation operator.}
-    \label{two-body-implementation}
-\end{figure}
-
-\subsection{Excitation Operators as Pauli Gadgets}%
-\label{excitation-operators-pauli-gadgets}
-
-Using the phase gadget result (\ref{phase-gadget-result}) to collapse the CNOT ladder constructions, we can show that the quantum circuit implementing a one-body excitation operator (Figure \ref{one-body-implementation}) corresponds to two commuting Pauli gadgets in the ZX calculus.
+As discussed in Section \ref{pauli-gadgets-section}, Pauli gadgets are simply phase gadgets associated with a change of basis. The phase gadget component is responsible for computing the parity of the spin orbitals between $p$ and $q$. Then, depending on this parity, it applies a phase to the state, thereby accounting for the fermionic antisymmetry imposed by the Pauli principle (Section \ref{many-electron-wavefunctions}). The one-body excitation operator, therefore, has the following representation in the ZX calculus.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-5/one_body3}{0.45}
-    \caption{One-body excitation operator represented as two Pauli gadgets.}
+    \caption{Representation of a one-body excitation operator in the ZX calculus.}
 \end{figure}
 
-% Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. Consequently, we are interested in optimising these excitation operators with respect to circuit depth.
-
-Similarly, we can show that the quantum circuit implementing a two-body excitation operator (Figure \ref{two-body-implementation}) corresponds to eight commuting Pauli gadgets.
-
+Similarly, the two-body excitation operator can be factorised into eight commuting exponential terms, and implemented by composing their subcircuits. The two-body excitation operator has the following representation in the ZX calculus.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-5/two_body1}{1}
-    \caption{Two-body excitation operator represented as eight Pauli gadgets.}
+    \caption{Representation of a two-body excitation operator in the ZX calculus.}
 \end{figure}
 
-
-Recalling that Pauli gadgets can be decomposed using the balanced tree decomposition result (\ref{balanced-tree}), we obtain a circuit depth of $2\text{log}_2(n)$ rather than $2(n-1)$.
+Although essential for accurately simulating fermionic systems, phase gadgets in the ladder representation are extremely resource-intensive and contribute significantly to the circuit depth. Hence, recalling the balanced tree representation (\ref{balanced-tree}), we can optimise the circuit such that it has a depth of $2\text{log}_2(n) + 1$ rather than $2n - 1$.
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-5/balanced_tree}{0.65}
-    \caption{Balanced tree decomposition of a one-body excitation operator.}
+    \includezxdiagram{chapter-5/balanced_tree}{0.7}
+    \caption{Balanced tree representation of a one-body excitation operator.}
 \end{figure}
 
-Another advantage of representing the one-body and two-body excitation operators in this form is that we can easily show that the Pauli gadgets commute by recognising that each pair of gadgets has two mismatching pairs of legs (see Section \ref{commutation-relations}).
+\section{Commuting Excitation Operators}
 
-% The DISCO-VQE algorithm generates multiple UPS ansätze, each yielding the same energy expectation value, but corresponding to a unique sequence of excitation operators. The identical energy expectation values of these UPS ansätze implies that they equivalently capture the correlation present in the molecular system of interest, suggesting that it may be possible to demonstrate an equivalence between them through algebraic manipulation. Motivated by this result, in this section we use the commutation rules developed in Section \ref{commutation-relations} to identify which excitation operators in the DISCO-VQE operator pool commute, and which do not.
+The DISCO-VQE algorithm, introduced in Section \ref{vqe}, generates multiple UPS ansätze, each yielding the same energy expectation value, but corresponding to a unique sequence of excitation operators. The identical energy expectation values of these ansätze implies that they equivalently capture the correlation present in the molecular system of interest. Motivated by this result, we use the gadget commutation relations discussed in Section \ref{commutation-relations} to identify which excitation operators in the set of excitation operators used in the DISCO-VQE algorithm commute, and which do not. We anticipated that by doing so, we might be able to demonstrate the equivalence between two or more of the ansätze generated by the DISCO-VQE algorithm.
 
-We define \textit{trivially commuting} excitation operators as commuting operators that act on a disjoint set of qubits, and \textit{non-trivially commuting} excitation operators as commuting operators which act on an intersecting set of qubits. By expressing the excitation operators in the DISCO-VQE operator pool in terms of Pauli gadgets, we were able to identify several previously unknown non-trivially commuting pairs of excitation operators. We hope that by using these commutation relations, we might be able to demonstrate an equivalence between the UPS ansätze generated by the DISCO-VQE algorithm. Whilst we did not have sufficient time to attempt this, we leave it to future researchers to attempt. In the following graph, A -- F represent one-body excitation operators and G -- L represent two-body excitation operators. We have then drawn lines between commuting pairs.
+We begin by recognising that the Pauli gadgets that make up the one-body and two-body excitation operators themselves commute with one-another by recognising that each pair of gadgets in these operators has two mismatching pairs of legs. We then define \textit{trivially commuting} excitation operators as commuting excitation operators, that act on a disjoint set of qubits, and \textit{non-trivially commuting} excitation operators as commuting operators that act on an intersecting set of qubits. By expressing the set of excitation operators used in the DISCO-VQE algorithm in the ZX calculus, we were able to identify six previously-unknown trivially commuting pairs of excitation operators.
 
+Unlike traditional VQE algorithms, which optimise ansätze by continuously varying their parameters, the DISCO-VQE algorithm also employs a number of discrete optimisation subroutines. That is, the sequence of excitation operators in a given ansatz is optimised through cyclic permutations, mutations and pair swaps \cite{Burton2023}. We therefore propose a modification to the DISCO-VEQ algorithm that accounts for the additional non-trivial commutation relations identified, anticipating that we might minimise redundancies by reducing the number of expectation energy-equivalent ansätze generated. In so doing, we hope to reduce the problem space and the number of veritably unique ansätze generated by the DISCO-VQE algorithm, such that we may gain insights in the nature of the correlations in the molecular system of interest.
+
+In contrast to traditional VQE algorithms, which optimise ansatz parameters continuously, the DISCO-VQE algorithm also incorporates discrete optimisation techniques. Specifically, it optimises the sequence of excitation operators within a given ansatz through cyclic permutations, mutations, and pair swaps \cite{Burton2023}. We propose a modification to the DISCO-VQE algorithm to accommodate the additional non-trivial commutation relations identified here. We anticipate that by doing so, we might reduce redundancies in the expectation energy-equivalent ansätze generated, thereby decreasing the number of genuinely unique ansatz instances produced by the DISCO-VQE algorithm. We expect that this smaller set of outputs may provide valuable insights into the correlations within the molecular system under study, potentially informing the development of more efficient optimisation strategies and algorithms.

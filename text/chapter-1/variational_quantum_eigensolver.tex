@@ -23,12 +23,21 @@ Upon measuring the PQC output state, it collapses into a single vector in the Fo
     E(\bm\theta) = \bra{0} U^\dagger(\bm\theta) H U(\bm\theta) \ket{0} 
 \end{equation*}
 
+\subsection{The DISCO-VQE Algorithm}%
+\label{disco}
+
+TALK ABOUT CYCLIC PERMUTATIONS, SWAPS AND MUTATIONS
+
+REFER TO UPS ANSATZ HERE
+
 For the purposes of this thesis, we are interested in a variant of the VQE algorithm developed by Burton \textit{et al} \cite{Burton2023} known as the \textit{Discretely and Continuously Optimised Variational Quantum Eigensolver (DISCO-VQE)}. We implement a fermionic state on a quantum device as a sequence of quantum gates representing unitary excitation operators that act on some reference state. The DISCO-VQE algorithm then finds approximate solutions to the fermionic ground state by both (\textit{discretely}) optimising the sequence of fermionic excitation operators, chosen from a finite operator pool, and (\textit{continuously}) optimising their parameters. This allows us to parametrically explore the Hilbert space of possible quantum states until we find a good approximation of the true fermionic ground state \cite{Taube2006}. The DISCO-VQE algorithm, therefore, discovers accurate representations of fermionic wavefunctions using a minimal number of parameters \cite{Burton2023}.
 
 %%%
 
 \subsection{Unitary Product State Ansatz}%
 \label{ups-ansatz}
+
+TALK ABOUT SPIN ADAPTED UPS
 
 As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates. We refer to the UCC ansatz $\ket{\psi_{\text{UCC}}(\bm\theta)}$ as some unitary excitation operator $U_\text{UCC}(\bm\theta)$ acting on a reference state, usually a single-Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method.
 \begin{equation*}
