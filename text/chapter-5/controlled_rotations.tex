@@ -32,7 +32,7 @@ Had we instead chosen $p$ = target and $q$ = control, we would have obtained the
 
 \includezxdiagram{chapter-5/minimal2}{0.55}
 
-Let us now look at a general one-body excitation operator. We begin by conjugating with CNOT gates and a CZ gate (\ref{cz-definition}) using the CNOT commutation relations in Figure \ref{cnot-commutations} and the CZ commutation relations in Figure \ref{cz-commutations}.
+In the general case, we begin by conjugating with CNOT gates and a CZ gate (\ref{cz-definition}) using the commutation relations in Figures \ref{cnot-commutations} and \ref{cz-commutations}.
 
 \includezxdiagram{chapter-5/one_body_general_proof1}{1}
 
@@ -44,19 +44,19 @@ Let us now consider the following two-body excitation operator.
 
 \includezxdiagram{chapter-5/two_body_proof1}{1}
 
-We begin by conjugating the circuit with three CNOT gates using the CNOT commutation relations in Figure \ref{cnot-commutations}.
+We begin by conjugating the circuit with three CNOT gates, using Figure \ref{cnot-commutations}.
 
-\includezxdiagram{chapter-5/two_body_proof2}{0.9}
+\includezxdiagram{chapter-5/two_body_proof2}{1}
 
 Then, by cancelling the adjacent Clifford gates, we reveal a phase polynomial.
 
 \includezxdiagram{chapter-5/two_body_proof3}{1}
 
-Whilst the phase gadgets we obtain have the correct distribution of legs, their phases do not match those of a triply-controlled rotation, as shown in Figure \ref{cccry}. We correct this by conjugating the second and fourth qubits with Pauli $X$ gates, using the Pauli $X$ commutation relations in Figure \ref{pauli-commutations}, which we then fuse with the CNOT targets. Note that the controls conjugated by Pauli $X$ gates are now controlled by the $\ket 0$ state, rather than the $\ket 1$ state (white control nodes).
+Whilst the phase gadgets we obtain have the correct distribution of legs, their phases do not match those of the triply-controlled rotation shown in Figure \ref{cccrz}. We correct this by conjugating the second and fourth qubits with Pauli $X$ gates, using the commutation relations in Figure \ref{pauli-commutations}, then fuse them with the CNOT targets. Note that the controls conjugated by Pauli $X$ gates are now controlled by the $\ket 0$ state, rather than the $\ket 1$ state, as denoted by the white control nodes.
 
 \includezxdiagram{chapter-5/two_body_proof4}{1}
 
-Finally, recognising that the target (top) qubit is in the $Y$ basis (\ref{clifford-conjugation}), we have revealed a CCCR$_Y(\theta)$ gate and succesfully replicated the result in Yordanov \textit{et al} using the ZX calculus. Note that above, we use `$\simeq$' since we haven't included the Clifford subcircuit for the left representation of the CCCR$_Y(\theta)$ gate. We have included the Pauli $X$ gates, however, as denoted by the white control nodes.
+Finally, recognising that the target (top) qubit is in the $Y$ basis, we have revealed a CCCR$_Y(\theta)$ gate and, therefore, succesfully replicated the result in Yordanov \textit{et al}. Note that above, we use `$\simeq$' since we haven't included the conjugation by the Clifford subcircuit in the left side of the equality. We have, however, implicitly included the Pauli $X$ gates by using white control nodes on the left.
 
 Similarly, Kornell \textit{et al} \cite{Kornell2023} show that by conjugating the two-body excitation operator with the following subcircuit, we obtain the same triply-controlled $Y$ rotation. We were able to demonstrate this using the ZX calculus as follows.
 
