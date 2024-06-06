@@ -16,14 +16,14 @@
 		\node [style={x_phase}] (13) at (4, 0) {$-$};
 		\node [style=none] (14) at (8, 1.5) {};
 		\node [style=none] (15) at (8, 0) {};
-		\node [style=none] (16) at (13.75, 1.5) {};
-		\node [style=none] (17) at (13.75, 0) {};
+		\node [style=none] (16) at (12.75, 1.5) {};
+		\node [style=none] (17) at (12.75, 0) {};
 		\node [style={z_node}] (18) at (8.75, 0) {};
 		\node [style={x_node}] (19) at (8.75, 1.5) {};
-		\node [style={z_node}] (20) at (12.75, 0) {};
-		\node [style={x_node}] (21) at (12.75, 1.5) {};
-		\node [style=box] (22) at (10.75, 0) {$R_Y(\theta)$};
-		\node [style=black] (23) at (10.75, 1.5) {};
+		\node [style={z_node}] (20) at (11.75, 0) {};
+		\node [style={x_node}] (21) at (11.75, 1.5) {};
+		\node [style=box] (22) at (10.25, 0) {$R_Y(\theta)$};
+		\node [style=black] (23) at (10.25, 1.5) {};
 		\node [style=none] (24) at (7.25, 0.75) {=};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}

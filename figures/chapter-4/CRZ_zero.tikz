@@ -1,44 +1,44 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
 		\node [style=none] (99) at (18.75, 1) {\tiny (id)};
-		\node [style=none] (61) at (0, 0) {};
-		\node [style={x_node}] (62) at (0, 1) {};
-		\node [style={z_node}] (63) at (2, 1) {};
-		\node [style={x_node}] (64) at (2, 0) {};
-		\node [style={z_phase}] (65) at (3, 0) {$-\frac{\theta}{2}$};
-		\node [style={z_node}] (66) at (4, 1) {};
-		\node [style={x_node}] (67) at (4, 0) {};
-		\node [style=none] (69) at (4.75, 0) {};
-		\node [style=none] (70) at (4.75, 1) {};
-		\node [style=none] (71) at (6.5, 0) {};
-		\node [style={x_node}] (72) at (8.5, 0) {};
-		\node [style={z_node}] (74) at (10.5, 1) {};
-		\node [style={x_node}] (75) at (10.5, 0) {};
-		\node [style=none] (77) at (11.25, 0) {};
-		\node [style=none] (78) at (11.25, 1) {};
-		\node [style=none] (79) at (5.75, 0.5) {=};
-		\node [style=none] (80) at (5.75, 1) {\tiny (c,  f)};
-		\node [style={x_node}] (81) at (9.5, 1) {};
-		\node [style=none] (82) at (17.75, 0) {};
-		\node [style={x_node}] (83) at (16.75, 0) {};
-		\node [style={z_phase}] (84) at (15.75, 0) {$-\frac{\theta}{2}$};
-		\node [style={x_node}] (85) at (14.75, 0) {};
-		\node [style={z_phase}] (86) at (13.75, 0) {$\frac{\theta}{2}$};
-		\node [style=none] (87) at (13, 0) {};
-		\node [style=none] (88) at (17.75, 1) {};
-		\node [style=none] (89) at (12.25, 0.5) {=};
-		\node [style=none] (90) at (12.25, 1) {\tiny (c,  f)};
-		\node [style={x_node}] (91) at (16.75, 1) {};
-		\node [style=none] (92) at (22.5, 0) {};
-		\node [style={z_phase}] (93) at (21.5, 0) {$-\frac{\theta}{2}$};
-		\node [style={z_phase}] (94) at (20.25, 0) {$\frac{\theta}{2}$};
-		\node [style=none] (95) at (19.5, 0) {};
-		\node [style=none] (96) at (22.5, 1) {};
-		\node [style={x_node}] (97) at (21.75, 1) {};
+		\node [style=none] (61) at (0.75, 1) {};
+		\node [style={x_node}] (62) at (0.75, 0) {};
+		\node [style={z_node}] (63) at (2.75, 0) {};
+		\node [style={x_node}] (64) at (2.75, 1) {};
+		\node [style={z_phase}] (65) at (3.75, 1) {$-\frac{\theta}{2}$};
+		\node [style={z_node}] (66) at (4.75, 0) {};
+		\node [style={x_node}] (67) at (4.75, 1) {};
+		\node [style=none] (69) at (5.5, 1) {};
+		\node [style=none] (70) at (5.5, 0) {};
+		\node [style=none] (71) at (7, 1) {};
+		\node [style={x_node}] (72) at (9, 1) {};
+		\node [style={z_node}] (74) at (11, 0) {};
+		\node [style={x_node}] (75) at (11, 1) {};
+		\node [style=none] (77) at (11.75, 1) {};
+		\node [style=none] (78) at (11.75, 0) {};
+		\node [style=none] (79) at (6.25, 0.5) {=};
+		\node [style=none] (80) at (6.25, 1) {\tiny (c,  f)};
+		\node [style={x_node}] (81) at (10, 0) {};
+		\node [style=none] (82) at (18, 1) {};
+		\node [style={x_node}] (83) at (17, 1) {};
+		\node [style={z_phase}] (84) at (16, 1) {$-\frac{\theta}{2}$};
+		\node [style={x_node}] (85) at (15, 1) {};
+		\node [style={z_phase}] (86) at (14, 1) {$\frac{\theta}{2}$};
+		\node [style=none] (87) at (13.25, 1) {};
+		\node [style=none] (88) at (18, 0) {};
+		\node [style=none] (89) at (12.5, 0.5) {=};
+		\node [style=none] (90) at (12.5, 1) {\tiny (c,  f)};
+		\node [style={x_node}] (91) at (17, 0) {};
+		\node [style=none] (92) at (22.5, 1) {};
+		\node [style={z_phase}] (93) at (21.5, 1) {$-\frac{\theta}{2}$};
+		\node [style={z_phase}] (94) at (20.25, 1) {$\frac{\theta}{2}$};
+		\node [style=none] (95) at (19.5, 1) {};
+		\node [style=none] (96) at (22.5, 0) {};
+		\node [style={x_node}] (97) at (21.5, 0) {};
 		\node [style=none] (98) at (18.75, 0.5) {=};
-		\node [style={z_phase}] (100) at (1, 0) {$\frac{\theta}{2}$};
-		\node [style={z_phase}] (101) at (7.25, 0) {$\frac{\theta}{2}$};
-		\node [style={z_phase}] (102) at (9.5, 0) {$-\frac{\theta}{2}$};
+		\node [style={z_phase}] (100) at (1.75, 1) {$\frac{\theta}{2}$};
+		\node [style={z_phase}] (101) at (7.75, 1) {$\frac{\theta}{2}$};
+		\node [style={z_phase}] (102) at (10, 1) {$-\frac{\theta}{2}$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (63) to (64);
@@ -68,5 +68,6 @@
 		\draw (72) to (102);
 		\draw (75) to (102);
 		\draw (75) to (77.center);
+		\draw (67) to (69.center);
 	\end{pgfonlayer}
 \end{tikzpicture}

@@ -1,9 +1,9 @@
 \section{Excitations as Controlled Rotations}%
 \label{operator-controlled-rotations}
 
-Recall that our objective is to establish a generalised representation for excitation operators using the ZX calculus. To achieve this, we draw upon the work of Yordanov \textit{et al} \cite{Yordanov2020} and Kornell \textit{et al} \cite{Kornell2023}, as discussed in this section. We replicate their findings within the ZX calculus framework, using the representation of higher-order controlled rotations developed in Chapter \ref{controlled-rotations} and the commutation relations derived in Chapter \ref{clifford-commutation-relations}. 
+Recall that our objective is to establish a generalised representation for excitation operators using the ZX calculus. To achieve this, we draw upon the work of Yordanov \textit{et al} \cite{Yordanov2020} and Kornell \textit{et al} \cite{Kornell2023} and replicate their findings within the ZX calculus framework, using the representation of higher-order controlled rotations developed in Chapter \ref{controlled-rotations} and the commutation relations derived in Chapter \ref{clifford-commutation-relations}. 
 
-Fermionic excitation operators implemented as quantum circuits exhibit significant circuit depths due to the numerous CNOT gates constructions necessary to compute the parity of the fermionic state. Both Yordanov \textit{et al} and Kornell \textit{et al} propose that by rewriting the excitation operators in terms of controlled rotations, through conjugation with some subcircuit, and subsequently selecting a more efficient implementation for the controlled rotation, the circuit depth can be substantially decreased.
+Fermionic excitation operators implemented as quantum circuits exhibit significant circuit depths due to the numerous CNOT gates required to compute the parity of the fermionic state. Both Yordanov \textit{et al} and Kornell \textit{et al} propose that by rewriting the excitation operators in terms of controlled rotations, through conjugation with some subcircuit, and subsequently selecting a more efficient implementation for the controlled rotation, the circuit depth can be substantially decreased.
 
 \begin{figure}[H]
     \centering
@@ -20,23 +20,27 @@ To illustrate this, we begin by demonstrating the outcome of conjugating a minim
     \label{minimal-one-body}
 \end{figure}
 
-By inserting two adjacent CNOT gates, with $p$ = control and $q$ = target, and using the CNOT commutation relations in Figure \ref{cnot-commutations}, we reveal two Pauli gadgets corresponding to a singly-controlled $Y$ rotation, as discussed in Section \ref{singly-controlled-rotations}.
+By inserting two adjacent CNOT gates, where $p$ = control and $q$ = target, and using the CNOT commutation relations in Figure \ref{cnot-commutations}, we reveal two Pauli gadgets.
 
-\includezxdiagram{chapter-5/minimal_proof}{1}
+\includezxdiagram{chapter-5/minimal_proof1}{0.9}
+
+Recognising the single-legged Pauli gadget as a $Y$ rotation and fusing it with the two-legged Pauli gadget, yields the CR$_Y(\theta)$ gate introduced in Section \ref{singly-controlled-rotations}.
+
+\includezxdiagram{chapter-5/minimal_proof2}{1}
 
 Had we instead chosen $p$ = target and $q$ = control, we would have obtained the following singly-controlled $Y$ rotation, now controlled by the other qubit.
 
-\includezxdiagram{chapter-5/minimal2}{0.57}
+\includezxdiagram{chapter-5/minimal2}{0.55}
 
-Let us now look at a general one-body excitation operator. We begin by conjugating with CNOT gates and a CZ gate (\ref{cz-definition}) using the CNOT commutation relations in Figure \ref{cnot-commutations} and CZ commutation relations in Figure \ref{cz-commutations}.
+Let us now look at a general one-body excitation operator. We begin by conjugating with CNOT gates and a CZ gate (\ref{cz-definition}) using the CNOT commutation relations in Figure \ref{cnot-commutations} and the CZ commutation relations in Figure \ref{cz-commutations}.
 
 \includezxdiagram{chapter-5/one_body_general_proof1}{1}
 
-Then, by fusing the single-qubit $Y$ rotation with the adjacent Pauli gadget, we identify the following singly-controlled $Y$ rotation. In this way, we have succesfully replicated the result in Yordanov \textit{et al} \cite{Yordanov2020} using the ZX calculus.
+As before, by fusing the resulting single-qubit $Y$ rotation with the adjacent Pauli gadget, we obtain the CR$_Y(\theta)$ gate. Therefore, we have succesfully replicated the result in Yordanov \textit{et al} using the ZX calculus.
 
 \includezxdiagram{chapter-5/one_body_general_proof2}{1}
 
-Let us now consider the two-body excitation operator, represented as follows.
+Let us now consider the following two-body excitation operator.
 
 \includezxdiagram{chapter-5/two_body_proof1}{1}
 
@@ -48,13 +52,11 @@ Then, by cancelling the adjacent Clifford gates, we reveal a phase polynomial.
 
 \includezxdiagram{chapter-5/two_body_proof3}{1}
 
-Whilst the phase gadgets we obtain have the correct distribution of legs, their phases do not match those of a triply-controlled rotation. We correct this by conjugating the circuit with Pauli $X$ gates on the second and fourth qubits, using the Pauli $X$ commutation relations in Figure \ref{pauli-commutations}, ensuring that the phase polynomial exactly matches triply-controlled $Z$ rotation in Figure \ref{cccrz}. Note that by doing so, the controls on the second and fourth qubits are now controlled by the $\ket 0$ state, rather than the $\ket 1$ state.
+Whilst the phase gadgets we obtain have the correct distribution of legs, their phases do not match those of a triply-controlled rotation, as shown in Figure \ref{cccry}. We correct this by conjugating the second and fourth qubits with Pauli $X$ gates, using the Pauli $X$ commutation relations in Figure \ref{pauli-commutations}, which we then fuse with the CNOT targets. Note that the controls conjugated by Pauli $X$ gates are now controlled by the $\ket 0$ state, rather than the $\ket 1$ state (white control nodes).
 
 \includezxdiagram{chapter-5/two_body_proof4}{1}
 
-Finally, recognising that the target qubit (first qubit) is in the $Y$ basis through conjugation by Clifford gates, as discussed in Section \ref{clifford-conjugation}, we have, succesfully replicated the result in Yordanov \textit{et al} \cite{Yordanov2020} using the ZX calculus.
-
-At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can then offset the gate overhead introduced by the additional quantum gates.
+Finally, recognising that the target (top) qubit is in the $Y$ basis (\ref{clifford-conjugation}), we have revealed a CCCR$_Y(\theta)$ gate and succesfully replicated the result in Yordanov \textit{et al} using the ZX calculus. Note that above, we use `$\simeq$' since we haven't included the Clifford subcircuit for the left representation of the CCCR$_Y(\theta)$ gate. We have included the Pauli $X$ gates, however, as denoted by the white control nodes.
 
 Similarly, Kornell \textit{et al} \cite{Kornell2023} show that by conjugating the two-body excitation operator with the following subcircuit, we obtain the same triply-controlled $Y$ rotation. We were able to demonstrate this using the ZX calculus as follows.
 
@@ -67,3 +69,7 @@ In Chapter \ref{zxfermion}, we introduce a software package called ZxFermion tha
 \includezxdiagram{chapter-5/selinger3}{1}
 
 \includezxdiagram{chapter-5/selinger4}{1}
+
+
+At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can then offset the gate overhead introduced by the additional quantum gates.
+

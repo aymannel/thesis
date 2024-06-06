@@ -12,7 +12,7 @@ We can express a singly-controlled $Z$ rotation gate CR$_Z(\theta)$, controlled 
 
 The CR$_Z(\theta)$ gate applies a rotation to the target qubit if the control qubit is in the $\ket 1$ state, and applies no rotation, if the control qubit is in the $\ket 0$ state. This behaviour generalises to superpositions of states. Using the spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we obtain the following in quantum circuit notation.
 
-\includezxdiagram{chapter-4/CRZ2}{0.72}
+\includezxdiagram{chapter-4/CRZ2}{0.75}
 
 To verify that this circuit does indeed correspond to a controlled rotation in the $Z$ basis, let us observe what happens when the control qubit is in the $\ket 0$ state. Using the spider fusion (\ref{spider-fusion}), state copy (\ref{state-copy}) and identity (\ref{identity}) rules,
 
@@ -24,4 +24,4 @@ As expected, the resulting diagram fuses to give identity. Conversely, when the 
 
 Using the the phase gadget fusion rule (\ref{phase-gadget-fusion}) and the phase gadget decomposition result (\ref{phase-gadget-decomposition}), we can decompose the CR$_Z(\theta)$ gate into four equivalent circuits.
 
-\includezxdiagram{chapter-4/CRZ_decomp}{0.96}
+\includezxdiagram{chapter-4/CRZ_decomp}{0.95}
