@@ -57,7 +57,7 @@
 		\node [style={x_node}] (54) at (27.25, 3) {};
 		\node [style={x_node}] (55) at (27.25, 0) {};
 		\node [style={x_node}] (56) at (26.25, 1) {};
-		\node [style={x_phase}] (57) at (24.5, 4) {$-$};
+		\node [style={x_phase}] (57) at (24.75, 4) {$-$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (2) to (1);
