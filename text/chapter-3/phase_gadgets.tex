@@ -8,11 +8,12 @@ Phase gadgets correspond to unitary maps which are diagonal in the $Z$ computati
 
 \includezxdiagramtext{chapter-3/phase_gadget}{0.15}{
 \text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)
-= \begin{pmatrix}
-    1 & \dots & 0 \\
-    \vdots & \ddots & \vdots \\
-    0 & \dots & e^{i\theta}
-\end{pmatrix}}
+% = \begin{pmatrix}
+%     1 & \dots & 0 \\
+%     \vdots & \ddots & \vdots \\
+%     0 & \dots & e^{i\theta}
+% \end{pmatrix}
+}
 
 Using the identity (\ref{identity}), spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we are able to derive its representation in the ZX calculus.
 
@@ -29,8 +30,8 @@ It is then a simple matter of recursively applying this result to phase gadgets 
 
 Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on its parity \cite{Yeung2020}. 
 
-\includezxdiagramtext{chapter-3/phase_gadget_interpretation}{0.2}{
-\text{diag} \left\{
+\includezxdiagramtext{chapter-3/phase_gadget_interpretation}{0.25}{
+\quad\text{diag} \left\{
 \begin{pmatrix}
     1 \\ e^{i\theta} \\ e^{i\theta} \\ 1 \\
     e^{i\theta} \\ 1 \\ 1 \\ e^{i\theta}
@@ -68,7 +69,7 @@ Phase gadgets can be shown to commute using the spider fusion rule (\ref{spider-
 
 \subsubsection{Phase Gadget Decomposition}%
 
-Using the bialgebra rule (\ref{bialgebra}), we can show that a two-legged phase gadget can be decomposed in the following two ways.
+Using the phase gadget result described above (\ref{phase-gadget-result}), we can show that a two-legged phase gadget can be decomposed in the following two ways.
 
 \begin{figure}[H]
     \centering
