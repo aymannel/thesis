@@ -108,27 +108,57 @@ We can recover the Pauli $Z$ and Pauli $X$ matrices (\ref{pauli-matrices}) by se
 
 %%%
 
-\subsection{Composition}%
-\label{composition}
-
 To calculate the matrix of a ZX diagram consisting of sequentially composed spiders, we take the matrix product. Note that the order of operation of matrix multiplication is the reverse of how we have defined it for ZX diagrams.
 
-\includezxdiagramtext{chapter-2/sequential}{0.27}{\frac{1}{2}
-\begin{pmatrix} 1 & 0 \\ 0 & e^{i\gamma} \end{pmatrix}
-\begin{pmatrix}
-    1 + e^{i\beta} & 1 - e^{i\beta} \\
-    1 - e^{i\beta} & 1 + e^{i\beta}
-\end{pmatrix}
-\begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}}
+\begin{figure}[H]
+    \centering
+    \includezxdiagramtext{chapter-2/sequential}{0.27}{\frac{1}{2}
+    \begin{pmatrix} 1 & 0 \\ 0 & e^{i\gamma} \end{pmatrix}
+    \begin{pmatrix}
+        1 + e^{i\beta} & 1 - e^{i\beta} \\
+        1 - e^{i\beta} & 1 + e^{i\beta}
+    \end{pmatrix}
+    \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix}}
+    \caption{Sequential composition corresponding to the matrix product.}
+    \label{sequential-composition}
+\end{figure}
 
 In contrast, by composing spiders in parallel, we obtain the tensor product. Note that the order of operation should be interpreted from top to bottom.
 
-\includezxdiagramtext{chapter-2/parallel}{0.105}{\frac{1}{2}
-\begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
-\begin{pmatrix}
-    1 + e^{i\beta} & 1 - e^{i\beta} \\
-    1 - e^{i\beta} & 1 + e^{i\beta}
-\end{pmatrix}}
+\begin{figure}[H]
+    \centering
+    \includezxdiagramtext{chapter-2/parallel}{0.105}{\frac{1}{2}
+    \begin{pmatrix} 1 & 0 \\ 0 & e^{i\alpha} \end{pmatrix} \otimes
+    \begin{pmatrix}
+        1 + e^{i\beta} & 1 - e^{i\beta} \\
+        1 - e^{i\beta} & 1 + e^{i\beta}
+    \end{pmatrix}}
+    \caption{Parallel composition corresponding to the tensor product.}
+    \label{parallel-composition}
+\end{figure}
+
+%%%
+
+\subsection{Hadamard Generator}
+
+Up to a global phase, an arbitrary single qubit gate $U$ can be viewed as a rotation of the Bloch sphere about some axis. Therefore, we can decompose $U$ using Euler angles to represent it as three successive rotations \cite{Wetering2020}.
+
+\includezxdiagram{chapter-2/unitary}{0.5}
+
+The Hadamard gate (\ref{hadamard-definition}) corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $X$ and $Z$ axes. Up to a global phase of $\text{exp} \left(-i \frac{\pi}{4} \right)$, it can be decomposed into three successive rotations by choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$. 
+
+\includezxdiagramtext{figures/chapter-2/hadamard}{0.46}{
+\frac{1}{\sqrt 2}
+\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
+
+% There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles (see Appendix \ref{appendix-hadamard}).
+
+Recall that the Hadamard gate is the member of the Clifford group that switches between the $Z$ and $X$ bases. Hence diagrammatically, applying Hadamard generators to all of the legs of a spider changes the colour of the spider.
+
+\includezxdiagram{chapter-2/colour_changing}{0.45}
+
+
+\subsection{CNOT Gate}
 
 The CNOT gate (\ref{cnot-definition}) is represented in the ZX calculus by a $Z$ spider (control qubit) and an $X$ spider (target qubit). We can arbitrarily deform the diagram and decompose it into matrix and tensor products as follows.
 
@@ -144,12 +174,14 @@ We can calculate matrix $A$, consisting of a single-input and two-output $Z$ Spi
     0 & 1
 \end{pmatrix} \otimes
 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}}
+\vspace{-10pt}
 
 Similarly, to calculate the matrix $B$, we take the following tensor product.
 
 \includezxdiagramtext{chapter-2/B_def}{0.33}{
 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \otimes \frac{1}{\sqrt 2}
 \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 1 & 0 \end{pmatrix}}
+\vspace{-5pt}
 
 We can then calculate the CNOT matrix by taking the matrix product of matrix $A$ and matrix $B$ as follows (up to a global scalar factor of $1/\sqrt 2$).
 
@@ -173,6 +205,7 @@ We can then calculate the CNOT matrix by taking the matrix product of matrix $A$
     0 & 0 & 1 & 0
     \end{pmatrix}
 }
+\vspace{-10pt}
 
 % Since \textit{only connectivity matters} (\ref{only-connectivity-matters}), we could have equivalently calculated the matrix of the CNOT gate by deforming the diagram as follows.
 
@@ -199,32 +232,16 @@ Had we chosen to make the first qubit the target and the second qubit the contro
 0 & 0 & 1 & 0 \\
 0 & 1 & 0 & 0 \\
 \end{pmatrix}}
+\vspace{-10pt}
 
 %%%
 
-\subsection{Hadamard Generator}
-
-Up to a global phase, an arbitrary single qubit gate $U$ can be viewed as a rotation of the Bloch sphere about some axis. Therefore, we can decompose $U$ using Euler angles to represent it as three successive rotations \cite{Wetering2020}.
-
-\includezxdiagram{chapter-2/unitary}{0.5}
-
-The Hadamard gate $H$ (\ref{hadamard-definition}) corresponds to a rotation of the Bloch sphere $\pi$ radians about the line bisecting the $X$ and $Z$ axes. Up to a global phase of $\text{exp} \left(-i \frac{\pi}{4} \right)$, it can be decomposed into three successive rotations by choosing $\alpha = \beta = \gamma = \frac{\pi}{2}$. 
-
-\includezxdiagramtext{figures/chapter-2/hadamard}{0.46}{
-\frac{1}{\sqrt 2}
-\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}}
-
-% There are many equivalent ways of decomposing the Hadamard gate $H$ using Euler angles (see Appendix \ref{appendix-hadamard}).
-
-Recall that the Hadamard gate is the member of the Clifford group that switches between the $Z$ and $X$ bases (\ref{hadamard-definition}). Hence, diagrammatically, applying Hadamard generators to all of the legs of a spider changes the colour of the spider.
-
-\includezxdiagram{chapter-2/colour_changing}{0.45}
-
-The CZ  gate applies the Pauli $Z$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. It is diagonal in the $Z$ basis and has a symmetric representation in the ZX calculus. It can be derived by conjugating the target of the CNOT gate with Hadamards, then applying the Hadamard commutation rule (\ref{hadamard-commutation}).
+\subsection{CZ Gate}
+The CZ  gate applies the Pauli $Z$ gate to the target qubit \textit{iff} the control qubit is in the $\ket 1$ state. It is derived by conjugating the CNOT target with Hadamards.
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-2/cz}{0.4}
+    \includezxdiagram{chapter-2/cz}{0.43}
     \caption{The CZ gate in the ZX calculus.}
     \label{cz-definition}
 \end{figure}

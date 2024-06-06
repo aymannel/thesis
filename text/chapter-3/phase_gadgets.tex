@@ -8,14 +8,13 @@ Phase gadgets correspond to unitary maps which are diagonal in the $Z$ computati
 
 \includezxdiagramtext{chapter-3/phase_gadget}{0.15}{
 \text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)
-% = \begin{pmatrix}
-%     \theta_{12} & \dots & \theta_{13} \\
-%     \vdots & \ddots & \vdots \\
-%     \theta_{12} & \dots & \theta_{13}
-% \end{pmatrix}
-}
+= \begin{pmatrix}
+    1 & \dots & 0 \\
+    \vdots & \ddots & \vdots \\
+    0 & \dots & e^{i\theta}
+\end{pmatrix}}
 
-Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on the state's parity \cite{Yeung2020}. Using the identity (\ref{identity}), spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we are able to derive its representation in the ZX calculus.
+Using the identity (\ref{identity}), spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we are able to derive its representation in the ZX calculus.
 
 \begin{figure}[H]
     \centering
@@ -27,16 +26,23 @@ Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\
 It is then a simple matter of recursively applying this result to phase gadgets in quantum circuit notation to generalise to arbitrary arity.
 
 \includezxdiagram{chapter-3/phase_gadget_proof2}{0.8}%
-\label{phase-gadget-proof}
 
-As well as being intuitively self-transpose, and hence diagonal, this representation comes equipped with various rules describing the interactions of phase gadgets. 
+Phase gadgets can be interpreted as first copying each input in the $Z$ basis (\ref{copy}), computing the parity of the state by taking the XOR (\ref{xor}), then multiplying the state by $\text{exp} \left(-i\frac{\theta}{2} \right)$ or $\text{exp} \left(i\frac{\theta}{2} \right)$ depending on its parity \cite{Yeung2020}. 
+
+\includezxdiagramtext{chapter-3/phase_gadget_interpretation}{0.2}{
+\text{diag} \left\{
+\begin{pmatrix}
+    1 \\ e^{i\theta} \\ e^{i\theta} \\ 1 \\
+    e^{i\theta} \\ 1 \\ 1 \\ e^{i\theta}
+\end{pmatrix} \cdot e^{-i\frac{\theta}{2}}
+\right\}
+}
 
 %%%
 
 \subsubsection{Phase Gadget Identity}%
-\label{phase-gadget-identity}
 
-Phase gadgets with an angle $\theta = 0$ can be shown to be equivalent to identity using the state copy (\ref{state-copy}), spider fusion (\ref{spider-fusion}) and identity removal (\ref{identity}) rules.
+We can show that phase gadgets with an angle $\theta = 0$ are equivalent to identity using the state copy (\ref{state-copy}), spider fusion (\ref{spider-fusion}) and identity removal (\ref{identity}) rules.
 
 \includezxdiagram{chapter-3/phase_gadget_identity}{0.8}
 
@@ -82,11 +88,11 @@ By recursively applying this decomposition, we can show that it is possible to d
 \end{figure}
 
 \subsubsection{Single-Legged Phase Gadgets}
-Phase gadgets can be thought of as the many-qubit generalisation of a $Z$ rotation (\ref{z-rotation-definition}). For instance, using the bialgebra (\ref{bialgebra}), spider fusion (\ref{spider-fusion}), state copy (\ref{state-copy}) and identity (\ref{identity}) rules, we can demonstrate the correspondence between single-legged phase gadgets and $Z$ rotations.
+Single-legged phase gadgets simply correspond to $Z$ rotations. Therefore, phase gadgets can be thought of as the many-qubit generalisation of $Z$ rotations.
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-3/phase_gadget_single_leg_steps}{0.75}
+    \includezxdiagram{chapter-3/phase_gadget_single_leg_steps}{0.5}
     \caption{Single-legged phase gadget as a $Z$ rotation.}
     \label{phase-gadget-single-leg}
 \end{figure}

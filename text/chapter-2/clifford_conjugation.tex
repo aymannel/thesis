@@ -5,7 +5,17 @@ The ZX calculus is a diagrammatic language that makes use of the complementary o
 
 \includezxdiagram{chapter-2/hermitian}{0.55}
 
-The $Y$ basis, unlike the $Z$ and $X$ bases, is \textit{not} Hermitian. Therefore, converting the inputs of a $Y$ \textit{Spider} into outputs and \textit{vice verse} does \textit{not} yield its transpose. We define rotations in the $Y$ basis with the following Clifford conjugations \cite{Yeung2020}.
+We now introduce the single-qubit Clifford gates, $R_Z \brac{\pi}{2}$, $R_Z \brac{3\pi}{2}$, $R_X \brac{\pi}{2}$ and $R_X \brac{\pi}{2}$, as defined in Grier \textit{et al} \cite{Grier2016}, in the ZX calculus.
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-2/cliffords}{1}
+    \caption{Representation of single-qubit Clifford gates in the ZX calculus.}
+    \label{clifford-definitions}
+\end{figure}
+
+
+Since the $Y$ basis, unlike the $Z$ and $X$ bases, is \textit{not} Hermitian \cite{Yeung2020}, swapping the inputs and outputs of a $Y$ \textit{Spider} does \textit{not} yield its transpose. Instead, we define rotations in the $Y$ basis by conjugating with the Clifford gates described above.
 
 \begin{figure}[H]
     \centering
@@ -13,16 +23,6 @@ The $Y$ basis, unlike the $Z$ and $X$ bases, is \textit{not} Hermitian. Therefor
     \caption{Conjugation of generators in the $Z$ and $X$ bases into the $Y$ basis.}
     \label{pauli-Y}
 \end{figure}
-
-The single-qubit Clifford gates, $R_Z \brac{\pi}{2}$, $R_Z \brac{3\pi}{2}$, $R_X \brac{\pi}{2}$ and $R_X \brac{\pi}{2}$, as defined in Grier \textit{et al} \cite{Grier2016}, are represented as follows in the ZX calculus.
-
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-2/cliffords}{1}
-    \caption{Definition of the single-qubit Clifford gates.}
-    \label{clifford-definitions}
-\end{figure}
-
 
 Using the fact that the Clifford gates are unitary $C^{-1} = C^\dagger$, we expand our definition of the $Y$ rotation to obtain the following commutation relations \cite{Yeung2020}.
 

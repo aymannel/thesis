@@ -80,7 +80,7 @@ Now that we have expressed the one-body and two-body excitation operators in ter
     i \frac{\theta}{2} X_p Y_q \prod_{k=p+1}^{q-1} Z_k \right] \right)
 \end{equation*}
 
-Each exponential terms can be implemented by a quantum circuit consisting of a CNOT ladder construction conjugated by a Clifford subcircuit. By sequentially composing these circuits (\ref{composition}), that is taking their matrix product, we obtain the following quantum circuit implementing the one-body excitation operator.
+Each exponential terms can be implemented by a quantum circuit consisting of a CNOT ladder construction conjugated by a Clifford subcircuit. By sequentially composing these circuits (\ref{sequential-composition}), that is taking their matrix product, we obtain the following quantum circuit implementing the one-body excitation operator.
 
 % \includezxdiagramtext{chapter-5/one_body1}{0.45}{
 % \left( \text{exp} \left[
@@ -119,13 +119,23 @@ Similarly, the two-body excitation operator can be factorised into eight commuti
 
 Using the phase gadget result (\ref{phase-gadget-result}) to collapse the CNOT ladder constructions, we can show that the quantum circuit implementing a one-body excitation operator (Figure \ref{one-body-implementation}) corresponds to two commuting Pauli gadgets in the ZX calculus.
 
-\includezxdiagram{chapter-5/one_body3}{0.45}
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/one_body3}{0.45}
+    \caption{One-body excitation operator represented as two Pauli gadgets.}
+\end{figure}
 
 % Although essential for accurately simulating fermionic systems, these CNOT ladder constructions are extremely resource-intensive and contribute significantly to the circuit depth. Consequently, we are interested in optimising these excitation operators with respect to circuit depth.
 
 Similarly, we can show that the quantum circuit implementing a two-body excitation operator (Figure \ref{two-body-implementation}) corresponds to eight commuting Pauli gadgets.
 
-\includezxdiagram{chapter-5/two_body1}{1}
+
+\begin{figure}[H]
+    \centering
+    \includezxdiagram{chapter-5/two_body1}{1}
+    \caption{Two-body excitation operator represented as eight Pauli gadgets.}
+\end{figure}
+
 
 Recalling that Pauli gadgets can be decomposed using the balanced tree decomposition result (\ref{balanced-tree}), we obtain a circuit depth of $2\text{log}_2(n)$ rather than $2(n-1)$.
 
