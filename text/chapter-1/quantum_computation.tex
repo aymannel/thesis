@@ -5,7 +5,7 @@ The central concept that enables gate-based quantum computation to represrent ex
 
 \subsection{Introduction to Qubits}
 
-Classical computation encodes information using binary strings formed from the computational basis states 0 and 1. Thus, given $n$ classical bits, we can encode $2^n$ binary strings. In contrast, information on a quantum computer is encoded using two quantum states, corresponding to vectors in a two-dimensional complex Hilert space $\mathbb{C}$. The $\ket 0$ and $\ket 1$ states, known as the $Z$ computational basis, form the standard computational basis for encoding information on a quantum computer.
+Classical computation encodes information using binary strings formed from the 0 and 1 computational basis. Thus, given $n$ classical bits, we can encode $2^n$ binary strings. In contrast, information on a quantum computer is encoded using two quantum states, corresponding to vectors in a two-dimensional complex Hilert space $\mathbb{C}$. The $\ket 0$ and $\ket 1$ states, known as the $Z$ computational basis, form the standard computational basis for encoding information on a quantum computer.
 
 \begin{figure}[H]
     \centering
@@ -23,9 +23,7 @@ Classical computation encodes information using binary strings formed from the c
     \label{z-eigenstates}
 \end{figure}
 
-An arbitrary qubit state $\ket\psi$ can be described as a complex linear combination of the computational basis states, $\ket\psi = \alpha\ket 0 + \beta\ket 1$, provided that the qubit state is normalised. In other words we require two complex numbers, or four real numbers, to describe an arbitrary qubit state. Since only the relative phase between the basis states is directly measureable, there is a redundancy in this description that allows us to represent an arbitrary qubit state using only three real numbers.
-
-By taking advantage of this redundancy, we can derive a three-dimensional representation of an arbitrary qubit state, known as the Bloch sphere. Note that opposite points on the Bloch sphere correspond to mutually orthonal states, as in Figure \ref{z-eigenstates} in which we have represented the $Z$ computational basis states.
+An arbitrary qubit state $\ket\psi$ can be described as a complex linear combination of the computational basis states, $\ket\psi = \alpha\ket 0 + \beta\ket 1$, provided that the qubit state is normalised. In other words we require two complex numbers to describe an arbitrary qubit state. Since only the relative phase between the basis states is directly measureable, there is a redundancy in this description that allows us to represent $\ket\psi$ using only three real numbers. Since $\ket\psi$ is normalised, we can describe it using two real phases, $\ket\psi = \cos{\brac{\theta}{2}} + e^{i\phi} \sin{\brac{\theta}{2}} \ket 1$. We can therefore derive a three-dimensional representation for arbitrary qubit states known as the Bloch sphere. The Bloch sphere is a unit sphere in which opposite points correspond to mutually orthonal states. For instance, at one end of the $Z$ axis we have the $\ket 0$ state, and at the other, we have the $\ket 1$ state, as shown in Figure \ref{z-eigenstates}.
 
 We could have chosen to form our computational basis with any pair of orthonormal states. For instance, we define the $X$ basis states as follows.
 
