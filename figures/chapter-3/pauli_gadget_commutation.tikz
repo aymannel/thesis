@@ -38,11 +38,11 @@
 		\node [style=hadamard] (159) at (12.5, -0.25) {};
 		\node [style={z_node}] (160) at (13.25, 1.25) {};
 		\node [style={z_node}] (161) at (13.25, 2.75) {};
-		\node [style={x_phase}] (162) at (12.5, 2.75) {$-$};
-		\node [style={x_phase}] (163) at (14, 2.75) {$+$};
+		\node [style={x_phase}] (162) at (12.5, 2.75) {$+$};
+		\node [style={x_phase}] (163) at (14, 2.75) {$-$};
 		\node [style={z_node}] (164) at (10, 2.75) {};
-		\node [style={x_phase}] (165) at (9.25, 2.75) {$-$};
-		\node [style={x_phase}] (166) at (10.75, 2.75) {$+$};
+		\node [style={x_phase}] (165) at (9.25, 2.75) {$+$};
+		\node [style={x_phase}] (166) at (10.75, 2.75) {$-$};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (6) to (8);
