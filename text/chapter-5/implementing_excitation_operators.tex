@@ -23,7 +23,7 @@ Recalling that the creation and annhilation operators must preserve the fermioni
     \label{jordan-wigner}
 \end{figure}
 
-This mapping is known as the Jordan-Wigner transformation \cite{Seeley2020} and has the advantage of preserving a direct mapping between fermionic states in the occupation number representation and the qubit state vector. In other words, each qubit in our quantum circuit encodes the occupation number of each spin orbital in our fermionic state $\ket{f_{n-1} \dots f_{0}} \,\,\rightarrow\,\, \ket{q_{n-1} \dots q_{0}}$.
+This mapping is known as the Jordan-Wigner transformation \cite{Seeley2020} and has the advantage of preserving a direct mapping between fermionic states in the occupation number representation and the qubit state vector. In other words, each qubit in our quantum circuit directly encodes the occupation number of each spin orbital in the fermionic state: $\ket{f_{n-1}, f_{n-2}, \dots f_1, f_0} \,\,\rightarrow\,\, \ket{q_{n-1}, q_{n-2}, \dots q_1, q_0}$.
 
 After applying the Jordan-Wigner transformation to the anti-Hermitian seecond-quantised operator $a_q^\dagger a_p - a_p^\dagger a_q$ and finding its corresponding unitary operator $U^q_p(\theta)$, we obtain the following expression in terms of the Pauli matrices.
 
@@ -44,7 +44,7 @@ After applying the Jordan-Wigner transformation to the anti-Hermitian seecond-qu
     \label{one-body-excitation-operator}
 \end{figure}
 
-Similarly, by applying the Jordan-Wigner transformation to the two-body excitation operator derived from the second-quantised operator $a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r$, we obtain the following expression for $U^{rs}_{pq} (\theta)$.
+Similarly, by applying the Jordan-Wigner transformation to the two-body excitation operator derived from $a_r^\dagger a_s^\dagger a_q a_p - a_p^\dagger a_q^\dagger a_s a_r$, we obtain the following.
 
 % \begin{align*}
 %     U^{rs}_{pq} (\theta) &= \text{exp} \left( i \frac{\theta}{8} (
@@ -82,7 +82,7 @@ Similarly, by applying the Jordan-Wigner transformation to the two-body excitati
     \caption{Two-body excitation operator expressed in terms of the Pauli matrices.}
 \end{figure}
 
-Now that we have expressed the one-body and two-body excitation operators in terms of quantum gates, we discuss their specific implementations on a quantum computer. Starting with the one-body excitation operator, we can show that it can be expressed as the following product of commuting exponential terms.
+Now that we have expressed the one-body and two-body excitation operators in terms of quantum gates, we discuss their specific implementations on a quantum computer. Starting with the one-body excitation operator, we can show that it can be rewritten as the following product of commuting exponential terms.
 
 \begin{figure}[H]
     \centering
@@ -97,25 +97,7 @@ Now that we have expressed the one-body and two-body excitation operators in ter
 \end{figure}
 \vspace{-10pt}
 
-Each exponential term can be implemented by a quantum circuit corresponding to a Pauli gadget in the ladder representation (\ref{pauli-gadgets-section}). Then, by sequentially composing (\ref{sequential-composition}) these circuits, that is taking their matrix product, we obtain the following quantum circuit implementing the one-body excitation operator.
-
-% \includezxdiagramtext{chapter-5/one_body1}{0.45}{
-% \left( \text{exp} \left[
-% i \frac{\theta}{2} Y_p X_q
-% \prod_{k=p+1}^{q-1} Z_k \right] \right)}
-
-% And the second exponential term, as the following quantum circuit.
-
-% \includezxdiagramtext{chapter-5/one_body2}{0.45}{
-% \left( \text{exp} \left[ -
-% i \frac{\theta}{2} X_p Y_q
-% \prod_{k=p+1}^{q-1} Z_k \right] \right)}
-
-% By sequentially composing these circuits, that is, taking their matrix product, we have implemented the one-body excitation operator acting on qubits $p$ and $q$.
-
-\includezxdiagram{chapter-5/one_body4}{0.8}
-
-As discussed in Section \ref{pauli-gadgets-section}, Pauli gadgets are simply phase gadgets associated with a change of basis. The phase gadget component is responsible for computing the parity of the spin orbitals between $p$ and $q$. Then, depending on this parity, it applies a phase to the state, thereby accounting for the fermionic antisymmetry imposed by the Pauli principle (Section \ref{many-electron-wavefunctions}). The one-body excitation operator, therefore, has the following representation in the ZX calculus.
+Recognising these exponential terms as the one parameter unitary groups of two Pauli strings, as we discussed in Section \ref{pauli-gadgets-section}, we see that they each correspond to a Pauli gadget. Consequently, by sequentially composing these Pauli gadgets (taking their matrix product) we obtain the following diagram in the ZX calculus. 
 
 \begin{figure}[H]
     \centering
@@ -123,7 +105,7 @@ As discussed in Section \ref{pauli-gadgets-section}, Pauli gadgets are simply ph
     \caption{Representation of a one-body excitation operator in the ZX calculus.}
 \end{figure}
 
-Similarly, the two-body excitation operator can be factorised into eight commuting exponential terms, and implemented by composing their subcircuits. The two-body excitation operator has the following representation in the ZX calculus.
+Similarly, the two-body excitation operator can be factorised into eight commuting exponential terms, and implemented by composing their corresponding Pauli gadgets, resulting in the following representation in the ZX calculus.
 
 \begin{figure}[H]
     \centering
@@ -131,10 +113,12 @@ Similarly, the two-body excitation operator can be factorised into eight commuti
     \caption{Representation of a two-body excitation operator in the ZX calculus.}
 \end{figure}
 
-Although essential for accurately simulating fermionic systems, phase gadgets in the ladder representation are extremely resource-intensive and contribute significantly to the circuit depth. Hence, recalling the balanced tree representation (\ref{balanced-tree}), we can optimise the circuit such that it has a depth of $2\text{log}_2(n) + 1$ rather than $2n - 1$.
+At this point, it is worth acknowledging the expressive power of the ZX calculus. Had we been using traditional circuit notation to represent the one-body excitation operator, we would have needed to choose a specific circuit implementation. Quantum computing literature usually discusses this operator in the ladder representation, which gives no indication of the many possible equivalent implementations.
 
-\begin{figure}[H]
-    \centering
-    \includezxdiagram{chapter-5/balanced_tree}{0.7}
-    \caption{Balanced tree representation of a one-body excitation operator.}
-\end{figure}
+\includezxdiagram{chapter-5/one_body4}{0.85}
+
+The commonly-used ladder representation isn't even the most efficient circuit implementation of the Pauli gadgets. Recalling the balanced tree representation (\ref{balanced-tree}), we can implement operator with a depth of $2\text{log}_2(n) + 1$ rather than $2n - 1$.
+
+\includezxdiagram{chapter-5/balanced_tree}{0.7}
+
+Furthermore, the extensive set of rules, introduced in Chapter \ref{pauli-gadgets}, which describe the interactions of Pauli gadgets in the ZX calculus make this description far more powerful. For instance, we can easily verify that the Pauli gadgets comprising fermionic excitation operators mutually commute by realising that each pair of Pauli gadgets has two mismatching pairs of legs, as discussed in Section \ref{commutation-relations}.
