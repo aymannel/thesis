@@ -1,7 +1,7 @@
 \section{Implementing Excitation Operators}%
 \label{implementing-excitation-operators}
 
-In Section \ref{ups-ansatz}, we showed that a fermionic state can be represented by a finite sequence of $k$ parametrised one-body and two-body excitation operators acting on a single-Slater determinant reference state. After invoking the Trotter formula using one time step, we obtained the following equation for the UPS ansatz.
+In Section \ref{ups-ansatz}, we introduced the UPS ansatz, which can represent any state using a sufficiently large sequence of $k$ parametrised one-body and paired two-body excitation operators.
 \begin{equation*}
     U(\bm\theta) = \prod_{m=1}^k U_m(\theta_m) \qquad
     U_m(\theta_m) = e^{\theta_m (\tau_m - \tau_m^\dagger)}
@@ -105,12 +105,12 @@ Recognising these exponential terms as the one parameter unitary groups of two P
     \caption{Representation of a one-body excitation operator in the ZX calculus.}
 \end{figure}
 
-Similarly, the two-body excitation operator can be factorised into eight commuting exponential terms, and implemented by composing their corresponding Pauli gadgets, resulting in the following representation in the ZX calculus.
+We are only interested in paired two-body excitation operators (Section \ref{disco-vqe}), whose $Z$ legs can be shown to cancel, and can be implemented by eight four-legged Pauli gadgets, each of which can implemented with constant circuit depth.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-5/two_body1}{1}
-    \caption{Representation of a two-body excitation operator in the ZX calculus.}
+    \caption{Representation of a paired two-body excitation operator in the ZX calculus.}
 \end{figure}
 
 At this point, it is worth acknowledging the expressive power of the ZX calculus. Had we been using traditional circuit notation to represent the one-body excitation operator, we would have needed to choose a specific circuit implementation. Quantum computing literature usually discusses this operator in the ladder representation, which gives no indication of the many possible equivalent implementations.

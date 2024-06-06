@@ -1,6 +1,6 @@
 \section{Higher-Order Controlled Rotations}
 
-We can implement higher order controlled rotations by nesting singly-controlled rotations as in Yordanov \textit{et al} \cite{Yordanov2020}. We implement a doubly-controlled $Z$ rotation using two singly-controlled $Z$ rotations with opposite phases as follows.
+We can implement higher order controlled rotations by nesting singly-controlled rotations in CNOT gates \cite{Yordanov2020}. For instance, we implement a doubly-controlled $Z$ rotation using two singly-controlled $Z$ rotations with opposite phases as follows.
 
 \includezxdiagram{chapter-4/CCRZ1}{0.65}
 
@@ -12,11 +12,11 @@ We can minimise the depth of the circuit implementing the CCR$_Z(\theta)$ gate b
     \caption{CCR$_Z(\theta)$ circuit decomposition (left). Cancelling CNOT gate pair (right).}
 \end{figure}
 
-For the purposes of this thesis, we are interested in the form of controlled rotations in terms of Pauli gadgets. By expressing all $Z$ rotations as phase gadgets (\ref{phase-gadget-single-leg}) and commuting all CNOT gates through them such that the CNOT gates cancel, we obtain a phase polynomial consisting of four commuting phase gadgets.
+For the purposes of this thesis, we are interested in the form of controlled rotations in terms of Pauli gadgets. By expressing all $Z$ rotations as phase gadgets (\ref{phase-gadget-single-leg}) and commuting the CNOT gates through them using the commutation rules in Figure \ref{cnot-commutations}, we can cancel the CNOT gates and obtain the following phase polynomial.
 
 \begin{figure}[H]
     \centering
-    \includezxdiagram{chapter-4/CCRZ3}{0.55}
+    \includezxdiagram{chapter-4/CCRZ3}{0.7}
     \caption{Representation of the CCR$_Z(\theta)$ gate in the ZX calculus.}
     \label{ccrz}
 \end{figure}
@@ -40,13 +40,15 @@ As before, we can show that the CCCR$_Z(\theta)$ gate corresponds to a phase pol
 
 \subsection{Controlled Rotations in Different Bases}
 
-By conjugating the target qubit with the correct Clifford gate (\ref{clifford-conjugation}), we obtain a controlled rotation in the desired basis. Consider the following examples.
+Starting with a controlled $Z$ rotation and surrounding the target qubit with Hadamard gates (\ref{hadamard-definition}), we obtain the corresponding controlled $X$ rotation.
 
 \begin{figure}[H]
     \centering
     \includezxdiagram{chapter-4/CCRX}{0.7}
     \caption{Representation of the CCR$_X(\theta)$ gate in the ZX calculus.}
 \end{figure}
+
+Similarly, by surrounding the target qubit of a controlled $Z$ rotation with the Clifford gates described in Section \ref{clifford-conjugation}, we obtain a controlled $Y$ rotation.
 
 \begin{figure}[H]
     \centering
