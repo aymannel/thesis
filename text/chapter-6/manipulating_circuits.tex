@@ -3,15 +3,15 @@
 
 The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing Pauli gadgets via the \lstinline{apply()} method. This method takes a quantum gate object as its input and inserts it, along with its adjoint, into the circuit. The \lstinline{start} and \lstinline{end} parameters allow us to specify the insertion positions.
 
-\includejupyter{chapter-6/apply1}{chapter-6/apply1_zx}{0.39}
+\includejupyter{chapter-6/apply1}{chapter-6/apply1_zx}{0.37}
 
 If no insertion positions are specified, the specified quantum gate and its adjoint are inserted at the start and at the end of the circuit respectively. The relevant commutation relations developed in Section \ref{clifford-commutation-relations} are then applied as required.
 
-\includejupyter{chapter-6/apply2}{chapter-6/apply2_zx}{0.4}
+\includejupyter{chapter-6/apply2}{chapter-6/apply2_zx}{0.38}
 
 The \lstinline{apply()} method is not limited to CNOT gates -- we could have instead chosen any of the quantum gates mentioned in the previous section. The commutation logic uses Stim's \lstinline{Tableau} class to construct the required Clifford tableau ensuring that the correct transformation is applied. Below we conjugate with the CZ gate.
 
-\includejupyter{chapter-6/apply_cz}{chapter-6/apply_cz_zx}{0.4}
+\includejupyter{chapter-6/apply_cz}{chapter-6/apply_cz_zx}{0.38}
 
 The \lstinline{GadgetCircuit} class offers the ability to manipulate circuits containing multiple gadgets simultaneously. Below, we instantiate the minimal one-body excitation operator discussed in Figure \ref{minimal-one-body}.
 

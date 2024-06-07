@@ -9,13 +9,7 @@ Phase gadgets are defined as the one parameter unitary groups of Pauli strings c
 Phase gadgets correspond to unitary maps which are diagonal in the $Z$ computational basis \cite{Cowtan2020}. Consequently, they apply a global phase to a state without changing the distribution of the observed state \cite{Yeung2020}. Phase gadgets have the following representation in the ZX calculus.
 
 \includezxdiagramtext{chapter-3/phase_gadget}{0.15}{
-\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)
-% = \begin{pmatrix}
-%     1 & \dots & 0 \\
-%     \vdots & \ddots & \vdots \\
-%     0 & \dots & e^{i\theta}
-% \end{pmatrix}
-}
+\text{exp} \left( - i \frac{\theta}{2} Z \otimes Z \otimes Z \right)}
 
 Using the identity (\ref{identity}), spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules, we are able to derive its representation in the ZX calculus.
 
@@ -55,7 +49,6 @@ We can show that phase gadgets with an angle $\theta = 0$ are equivalent to iden
 \label{phase-gadget-fusion}
 We can show that phase gadgets with the same distribution of legs fuse together and their phases add using the spider fusion (\ref{spider-fusion}) and bialgebra (\ref{bialgebra}) rules.
 
-% \includezxdiagram{chapter-3/phase_gadget_fusion}{0.55}
 \includezxdiagram{chapter-3/phase_gadget_fusion_steps}{0.8}
 
 %%%

@@ -2,8 +2,6 @@
 
 \subsection{Electronic Structure Problem}
 
-% References: \cite{Atilla1996}
-
 The main interest of electronic structure theory is finding approximate solutions to the eigenvalue equation of the full molecular Hamiltonian. Specifically, we seek solutions to the non-relativistic time-independent Schrödinger equation.
 
 The full molecular Hamiltonian describes all of the interactions within a system of $N$ interacting electrons and $M$ nuclei. We are able to simplify the problem to an electronic one using the Born-Oppenheimer approximation. Motivated by the large difference in mass of electrons and nuclei, we can approximate nuclei as stationary on the timescale of electronic motion such that the electronic wavefunction depends only parametrically on the nuclear coordinates. Within this approximation, the nuclear kinetic energy term can be neglected and the nuclear repulsive term is considered to be constant. Following this, we obtain the electronic Hamiltonian for $N$ electrons.
@@ -19,10 +17,6 @@ The full molecular Hamiltonian describes all of the interactions within a system
 \end{figure}
 
 The first term corresponds to the kinetic energy of the $N$ electrons in the system, the second term corresponds to the pairwise attractive Coulombic interactions between the $N$ electrons and $M$ nuclei and the final term corresponds to the repulsive Coulombic interactions between $N$ electrons in the system. Throughout the remainder of this text, we concern ourselves only with the electronic Hamiltonian, simply referring to it as the Hamiltonian, $H$. The solution to the eigenvalue equation involving the electronic Hamiltonian is the electronic wavefunction, which depends only parametrically on the nuclear coordinates. It is solved for fixed nuclear coordinates, such that different arrangements of nuclei yields different functions of the electronic coordinates. The total molecular energy can be calculated by solving the electronic Schrödinger equation and including a constant nuclear term.
-
-% \begin{equation*}
-%     E_\text{total} = E_\text{elec} + \sum_{i=1}^{M} \sum_{j>i}^{M} \frac{Z_{i} Z_{j}}{|R_{i} - R_{j}|}
-% \end{equation*}
 
 \subsection{Many-Electron Wavefunctions}%
 \label{many-electron-wavefunctions}
@@ -48,28 +42,9 @@ We now introduce the spin orbitals $\{\phi_i(\mathbf{x})\}$, that is, the set of
 \caption{Slater determinant representing an antisymmetrised $N$-electron wavefunction.}
 \end{figure}
 
-% Since exchanging any two rows or columns of a determinant changes its sign, Slater determinants satisfy the Pauli principle by definition. Slater determinants constructed from orthonormal spin orbitals are themselves normalised and $N$ electron Slater determinants constructed from different orthonormal spin orbitals are orthogonal to one another \cite{Atilla1996}.
-
-% By antisymmetrising the many-electron wavefunction to meet the requirements of the Pauli principle, we incorporate exchange correlation, in that, the motion of any two electrons with parallel spins is now correlated \cite{Atilla1996}.
-
 The Hartree-Fock method yields a set of orthonormal spin orbitals, which when used to construct a single Slater determinant, gives the best variational approximation to the ground state of a system \cite{Atilla1996}. By treating electron-electron repulsion in an average way, the Hartree-Fock approximation allows us to iteratively solve the Hartree-Fock equation for spin orbitals until they become the same as the eigenfunctions of the Fock operator. This is known as the \textit{Self-Consistent Field (SCF)} method and is an elegant starting point for finding approximate solutions to the many-electron wavefunction.
 
-% \begin{figure}[H]
-% \centering
-% \begin{equation*}
-% \left[
-% -\frac{1}{2}\nabla^2 - \sum_{A=1}^M \frac{Z_A}{r_{i_A}} + \nu^\text{HF}(i)
-% \right]
-% \phi_i(\mathbf x_i) = \varepsilon \phi_i(\mathbf x_i)
-% \end{equation*}
-% \caption{Hartree-Fock equation used in the Self-Consistent Field method.}
-% \end{figure}
-
-% For an $N$ electron system, and given a set of $2K$ Hartree-Fock spin orbitals, where $2K > N$, there exist many different single Slater determinants. The Hartree-Fock groundstate being one of these. The remainder are excited Slater determinants, recalling that all of these must be orthogonal to one-another. By treating the Hartree-Fock ground state as a reference state, we can describe the excited states relative to the reference state, as single, double, \dots, N-tuple excited states \cite{Atilla1996}.
-
 \subsection{\label{second-quantisation}Second Quantisation}
-
-% References: \cite{Helgaker2000}, \cite{Fetter1972}
 
 In second quantisation, both observables and states are represented by creation and annihilation operators. Unlike the standard formulation of quantum mechanics, these operators inherently incorporate Bose or Fermi statistics, eliminating the need to track symmetrised or antisymmetrised products of single-particle wavefunctions. Put differently, the antisymmetry of an electronic wavefunction follows from the algebra of these operators, which greatly simplifyies the discussion of many identical interacting fermions \cite{Helgaker2000}, \cite{Fetter1972}.
 
