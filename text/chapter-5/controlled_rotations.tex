@@ -58,12 +58,11 @@ Whilst the phase gadgets we obtain have the correct distribution of legs, their 
 
 Finally, recognising that the target (top) qubit is in the $Y$ basis, we have revealed the CCCR$_Y(\theta)$ gate and, therefore, succesfully replicated the result in Yordanov \textit{et al}. Note that above, we use `$\simeq$' since we haven't included the conjugation by the Clifford subcircuit in the left side of the equality. We have, however, implicitly included the Pauli $X$ gates by using white control nodes on the left.
 
-KORNELL
 Similarly, Kornell \textit{et al} \cite{Kornell2023} show that by conjugating the two-body excitation operator with the following subcircuit, we obtain the same triply-controlled $Y$ rotation. We were able to demonstrate this using the ZX calculus as follows.
 
 \includezxdiagram{chapter-5/selinger1}{1}
 
-In Chapter \ref{zxfermion}, we introduce a software package called ZxFermion that we developed to facilitate this type of derivation. Using ZxFermion, we were able to identify that it is possible to choose the control and target qubits of the triply-controlled rotation by conjugating with the following subcircuits.
+In Chapter \ref{zxfermion}, we introduce a software package called ZxFermion that we developed to facilitate this type of derivation. Using ZxFermion, we were able to identify that it is possible to choose the control and target qubits of the triply-controlled rotation by modifying the Clifford subcircuit with which we conjugate the same paired two-body excitation operator.
 
 \includezxdiagram{chapter-5/selinger2}{1}
 
@@ -72,5 +71,5 @@ In Chapter \ref{zxfermion}, we introduce a software package called ZxFermion tha
 \includezxdiagram{chapter-5/selinger4}{1}
 
 
-At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can then offset the gate overhead introduced by the additional quantum gates.
+At the expense of introducing additional quantum gates, we have eliminated the resource-intensive CNOT ladder constructions associated with the two subcircuits in the one-body excitation operator and the eight subcircuits in the two-body excitation operator. By choosing efficient implementations of controlled $Y$ rotations, we can then offset the gate overhead introduced by the additional quantum gates. Alternatively, we could choose to implement the phase polynomial corresponding to the CCCR$_Z(\theta)$ gate using any of the well-known phase polynomial synthesis algorithms \cite{Amy2013}, \cite{Amy2014}, \cite{Nam2018}.
 
