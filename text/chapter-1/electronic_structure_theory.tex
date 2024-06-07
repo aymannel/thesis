@@ -50,7 +50,7 @@ We now introduce the spin orbitals $\{\phi_i(\mathbf{x})\}$, that is, the set of
 
 % Since exchanging any two rows or columns of a determinant changes its sign, Slater determinants satisfy the Pauli principle by definition. Slater determinants constructed from orthonormal spin orbitals are themselves normalised and $N$ electron Slater determinants constructed from different orthonormal spin orbitals are orthogonal to one another \cite{Atilla1996}.
 
-By constructing Slater determinants and antisymmetrising the many-electron wavefunction to meet the requirements of the Pauli principle, we have incorporated exchange correlation, in that, the motion of any two electrons with parallel spins is now correlated \cite{Atilla1996}.
+% By antisymmetrising the many-electron wavefunction to meet the requirements of the Pauli principle, we incorporate exchange correlation, in that, the motion of any two electrons with parallel spins is now correlated \cite{Atilla1996}.
 
 The Hartree-Fock method yields a set of orthonormal spin orbitals, which when used to construct a single Slater determinant, gives the best variational approximation to the ground state of a system \cite{Atilla1996}. By treating electron-electron repulsion in an average way, the Hartree-Fock approximation allows us to iteratively solve the Hartree-Fock equation for spin orbitals until they become the same as the eigenfunctions of the Fock operator. This is known as the \textit{Self-Consistent Field (SCF)} method and is an elegant starting point for finding approximate solutions to the many-electron wavefunction.
 
@@ -80,6 +80,7 @@ The Fock space is a linear abstract vector space spanned by $N$ orthonormal occu
 Whilst there is a one-to-one mapping between Slater determinants with canonically ordered spin orbitals and the occupation number vectors in the Fock space, it is important to distinguish between the two since, unlike the Slater determinants, the occupation number vectors have no spatial structure and are simply vectors in an abstract vector space \cite{Helgaker2000}.
 
 Operators in second quantisation are constructed from the creation and annihilation operators $a_j^\dagger$ and $a_j$, where the subscripts $i$ and $j$ denote the spin orbital. $a_j^\dagger$ and $a_j$ are one another's Hermitian adjoints, and are not self-adjoint \cite{Helgaker2000}. Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital. This phase factor is automatically kept track of by the creation and annhilation operators' anticommutation relations \cite{Helgaker2000}.
+
 \begin{figure}[H]
     \centering
     \begin{equation*}
@@ -90,16 +91,24 @@ Operators in second quantisation are constructed from the creation and annihilat
     \caption{Anticommutation relations of the creation and annhilation operators.}
     \label{anticommutation-relations}
 \end{figure}
+
 The Hamiltonian in second quantisation can be expressed as follows, where the one-body matrix element $h_{ij}$ corresponds to the kinetic energy of an electron and its interaction energy with the nuclei, and the two-body matrix element $h_{ijkl}$ corresponds to the repulsive interaction between electrons $i$ and $j$.
-\begin{equation*}
-    \hat H =
-    \sum_{ij} h_{ij} a^\dagger_i a_j +
-    \frac{1}{2} \sum_{ijkl} h_{ijkl} a^\dagger_i a^\dagger_j a_k a_l +
-    h_\text{Nu}
-\end{equation*}
+
+\begin{figure}[H]
+    \centering
+    \begin{equation*}
+        \hat H =
+        \sum_{ij} h_{ij} a^\dagger_i a_j +
+        \frac{1}{2} \sum_{ijkl} h_{ijkl} a^\dagger_i a^\dagger_j a_k a_l +
+        h_\text{Nu}
+    \end{equation*}
+    \caption{Hamiltonian in second quantisation.}
+    \label{hamiltonian}
+\end{figure}
+
 These matrix elements are then computed classically, allowing us to simulate only the inherently quantum aspects of the problem on a quantum computer.
 \begin{gather*}
-h_{ij} = \int^\infty_{-\infty} \psi^*_{i(x_1)} \left( - \frac{1}{2} \nabla^2 + \hat V_{(x_1)} \right) \psi_{j(x_1)} \,\, d^3 x_1 \\[3ex]
+h_{ij} = \int^\infty_{-\infty} \psi^*_{i(x_1)} \left( - \frac{1}{2} \nabla^2 + \hat V_{(x_1)} \right) \psi_{j(x_1)} \,\, d^3 x_1 \\[4ex]
 %
 h_{ijkl} = \int^\infty_{-\infty} \int^\infty_{-\infty} \psi^*_{i(x_1)} \psi^*_{j(x_2)} \left( \frac{1}{|x_1 - x_2|} \right) \psi_{k(x_2)} \psi_{l(x_1)} \,\, d^3 x_1 d^3 x_2
 \end{gather*}
