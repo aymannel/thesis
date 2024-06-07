@@ -1,11 +1,11 @@
-\section{Fundamentals of Quantum Computating}%
+\section{Fundamentals of Quantum Computation}%
 \label{quantum-computation}
 
-The central concept that enables gate-based quantum computation to represrent exponentially scaling fermionic states with polynomially scaling quantum resources is its ability to encode and manipulate superpositions of states. In this section, we provide an introduction to qubits and basic quantum gates.
+The central concept that enables gate-based quantum computation to represent exponentially scaling fermionic states with polynomially scaling quantum resources is its ability to encode and manipulate superpositions of states. In this section, we provide an introduction to qubits and basic quantum gates.
 
 \subsection{Introduction to Qubits}
 
-Classical computation encodes information using binary strings formed from the 0 and 1 computational basis. Thus, given $n$ classical bits, we can encode $2^n$ binary strings. In contrast, information on a quantum computer is encoded using two quantum states, corresponding to vectors in a two-dimensional complex Hilert space $\mathbb{C}$. The $Z$ eigenbasis, corresponding to the $\ket 0$ and $\ket 1$ states, forms the standard computational basis for encoding information on a quantum computer.
+Classical computation encodes information using binary strings formed from the 0 and 1 computational basis. Thus, given $n$ classical bits, we can encode $2^n$ binary strings. In contrast, information on a quantum computer is encoded using two quantum states, corresponding to vectors in a two-dimensional complex Hilbert space $\mathbb{C}$. The $Z$ eigenbasis, corresponding to the $\ket 0$ and $\ket 1$ states, forms the standard computational basis for encoding information on a quantum computer.
 
 \begin{figure}[H]
     \centering
@@ -23,7 +23,7 @@ Classical computation encodes information using binary strings formed from the 0
     \label{z-eigenstates}
 \end{figure}
 
-An arbitrary qubit state $\ket\psi$ can be described as a complex linear combination of the computational basis states, $\ket\psi = \alpha\ket 0 + \beta\ket 1$, provided that the qubit state is normalised. In other words we require two complex numbers to describe an arbitrary qubit state. Since only the relative phase between the basis states is directly measureable, there is a redundancy in this description, allowing us to represent $\ket\psi$ using only three real numbers. Furthermore, since $\ket\psi$ is normalised, we can describe it using two real phases as follows $\ket\psi = \cos{\brac{\theta}{2}} + e^{i\phi} \sin{\brac{\theta}{2}} \ket 1$. This representation allows us to derive a three-dimensional representation for arbitrary qubit states known as the Bloch sphere. The Bloch sphere is a unit sphere in which opposite points correspond to mutually orthonal states. At one end of the $Z$ axis, we have the $\ket 0$ state, and at the other end, we have the $\ket 1$ state (Figure \ref{z-eigenstates}).
+An arbitrary qubit state $\ket\psi$ can be described as a complex linear combination of the computational basis states, $\ket\psi = \alpha\ket 0 + \beta\ket 1$, provided that the qubit state is normalised. In other words we require two complex numbers to describe an arbitrary qubit state. Since only the relative phase between the basis states is directly measurable, there is a redundancy in this description, allowing us to represent $\ket\psi$ using only three real numbers. Furthermore, since $\ket\psi$ is normalised, we can describe it using two real phases as follows $\ket\psi = \cos{\brac{\theta}{2}} + e^{i\phi} \sin{\brac{\theta}{2}} \ket 1$. This representation allows us to derive a three-dimensional representation for arbitrary qubit states known as the Bloch sphere. The Bloch sphere is a unit sphere in which opposite points correspond to mutually orthogonal states. At one end of the $Z$ axis, we have the $\ket 0$ state, and at the other end, we have the $\ket 1$ state (Figure \ref{z-eigenstates}).
 
 We could have chosen to form our computational basis with any pair of orthonormal states. For instance, we define the $X$ eigenbasis states as follows.
 
@@ -43,7 +43,7 @@ We could have chosen to form our computational basis with any pair of orthonorma
     \label{x-eigenstates}
 \end{figure}
 
-In theory, a qubit can exist in an infinite number of states, however, upon measuring with respect to a particular basis, the qubit state collapses into one basis state, or the other. This result gives rise to the \textit{no-cloning theorem}, which states that we cannot create indentical and independent copies of arbitrary qubit states, as this would first involve measuring that state.
+In theory, a qubit can exist in an infinite number of states, however, upon measuring with respect to a particular basis, the qubit state collapses into one basis state, or the other. This result gives rise to the \textit{no-cloning theorem}, which states that we cannot create identical and independent copies of arbitrary qubit states, as this would first involve measuring that state.
 
 \subsection{Multiple-Qubit States}
 

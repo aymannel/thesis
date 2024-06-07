@@ -46,15 +46,15 @@ The Hartree-Fock method yields a set of orthonormal spin orbitals, which when us
 
 \subsection{\label{second-quantisation}Second Quantisation}
 
-In second quantisation, both observables and states are represented by creation and annihilation operators. Unlike the standard formulation of quantum mechanics, these operators inherently incorporate Bose or Fermi statistics, eliminating the need to track symmetrised or antisymmetrised products of single-particle wavefunctions. Put differently, the antisymmetry of an electronic wavefunction follows from the algebra of these operators, which greatly simplifyies the discussion of many identical interacting fermions \cite{Helgaker2000}, \cite{Fetter1972}.
+In second quantisation, both observables and states are represented by creation and annihilation operators. Unlike the standard formulation of quantum mechanics, these operators inherently incorporate Bose or Fermi statistics, eliminating the need to track symmetrised or antisymmetrised products of single-particle wavefunctions. Put differently, the antisymmetry of an electronic wavefunction follows from the algebra of these operators, which greatly simplifies the discussion of many identical interacting fermions \cite{Helgaker2000}, \cite{Fetter1972}.
 
-The Fock space is a linear abstract vector space spanned by $N$ orthonormal occupation number vectors, each representing a single Slater determinant \cite{Helgaker2000}. Hence, given a basis of $N$ spin orbitals we can construct $2^N$ single Slater determinants, each corresponding to a single occupation number vector in the full Fock space. The occupation number representation of fermionic states is succinctly denoted in Dirac notation as below, where the occupation number $f_j$ is 1 if spin orbital $j$ is occupied, and 0 if spin orbital $j$ is unnoccupied.
+The Fock space is a linear abstract vector space spanned by $N$ orthonormal occupation number vectors, each representing a single Slater determinant \cite{Helgaker2000}. Hence, given a basis of $N$ spin orbitals we can construct $2^N$ single Slater determinants, each corresponding to a single occupation number vector in the full Fock space. The occupation number representation of fermionic states is succinctly denoted in Dirac notation as below, where the occupation number $f_j$ is 1 if spin orbital $j$ is occupied, and 0 if spin orbital $j$ is unoccupied.
 \begin{equation*}
     \ket\psi = \ket{f_{n-1} \,\, f_{n-2} \dots f_{1} \,\, f_{0}} \qquad \text{where } f_{j} \in {0, 1}
 \end{equation*}
 Whilst there is a one-to-one mapping between Slater determinants with canonically ordered spin orbitals and the occupation number vectors in the Fock space, it is important to distinguish between the two since, unlike the Slater determinants, the occupation number vectors have no spatial structure and are simply vectors in an abstract vector space \cite{Helgaker2000}.
 
-Operators in second quantisation are constructed from the creation and annihilation operators $a_j^\dagger$ and $a_j$, where the subscripts $i$ and $j$ denote the spin orbital. $a_j^\dagger$ and $a_j$ are one another's Hermitian adjoints, and are not self-adjoint \cite{Helgaker2000}. Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annhilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital. This phase factor is automatically kept track of by the creation and annhilation operators' anticommutation relations \cite{Helgaker2000}.
+Operators in second quantisation are constructed from the creation and annihilation operators $a_j^\dagger$ and $a_j$, where the subscripts $i$ and $j$ denote the spin orbital. $a_j^\dagger$ and $a_j$ are one another's Hermitian adjoints, and are not self-adjoint \cite{Helgaker2000}. Due to the fermionic exchange anti-symmetry imposed by the Pauli principle, the action of the creation and annihilation operators introduces a phase to the state that depends on the parity of the spin orbitals preceding the target spin orbital. This phase factor is automatically kept track of by the creation and annihilation operators' anti-commutation relations \cite{Helgaker2000}.
 
 \begin{figure}[H]
     \centering
@@ -63,7 +63,7 @@ Operators in second quantisation are constructed from the creation and annihilat
         \{ \hat a_{j}^{\dagger}, \hat a_{k}^{\dagger} \} = 0 \qquad
         \{ \hat a_{j}, \hat a_{k}^{\dagger} \} = \delta_{jk} \hat{1}
     \end{equation*}
-    \caption{Anticommutation relations of the creation and annhilation operators.}
+    \caption{Anti-commutation relations of the creation and annihilation operators.}
     \label{anticommutation-relations}
 \end{figure}
 
