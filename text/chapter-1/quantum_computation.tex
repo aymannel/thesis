@@ -23,7 +23,7 @@ Classical computation encodes information using binary strings formed from the 0
     \label{z-eigenstates}
 \end{figure}
 
-An arbitrary qubit state $\ket\psi$ can be described as a complex linear combination of the computational basis states, $\ket\psi = \alpha\ket 0 + \beta\ket 1$, provided that the qubit state is normalised. In other words we require two complex numbers to describe an arbitrary qubit state. Since only the relative phase between the basis states is directly measurable, there is a redundancy in this description, allowing us to represent $\ket\psi$ using only three real numbers. Furthermore, since $\ket\psi$ is normalised, we can describe it using two real phases as follows $\ket\psi = \cos{\brac{\theta}{2}} + e^{i\phi} \sin{\brac{\theta}{2}} \ket 1$. This representation allows us to derive a three-dimensional representation for arbitrary qubit states known as the Bloch sphere. The Bloch sphere is a unit sphere in which opposite points correspond to mutually orthogonal states. At one end of the $Z$ axis, we have the $\ket 0$ state, and at the other end, we have the $\ket 1$ state (Figure \ref{z-eigenstates}).
+An arbitrary qubit state $\ket\psi$ can be described as a complex linear combination of the computational basis states, $\ket\psi = \alpha\ket 0 + \beta\ket 1$, provided that the qubit state is normalised. In other words we require two complex numbers to describe an arbitrary qubit state. Since only the relative phase between the basis states is directly measurable, there is a redundancy in this description, allowing us to represent $\ket\psi$ using only three real numbers. Furthermore, since $\ket\psi$ is normalised, we can describe it using two real phases, $\ket\psi = \cos{\brac{\theta}{2}} \ket 0 + e^{i\phi} \sin{\brac{\theta}{2}} \ket 1$. This representation allows us to derive a three-dimensional representation for arbitrary qubit states known as the Bloch sphere. The Bloch sphere is a unit sphere in which opposite points correspond to mutually orthogonal states. At one end of the $z$-axis, we have the $\ket 0$ state, and at the other end, we have the $\ket 1$ state (Figure \ref{z-eigenstates}).
 
 We could have chosen to form our computational basis with any pair of orthonormal states. For instance, we define the $X$ eigenbasis states as follows.
 
@@ -75,7 +75,7 @@ An arbitrary $n$-qubit \textit{state vector}, describing the state of the entire
 \subsection{Introduction to Quantum Gates}%
 \label{quantum-gates}
 
-By definition, quantum gates correspond to unitary transformations, $U^{-1} = U^\dagger$ \cite{Nielsen2012}. In other words, any quantum gate corresponds to a square unitary matrix that conserves the complex inner product of the state it acts on. Consequently, quantum gates can be viewed as rotations of the qubit state vector in Hilbert space.
+By definition, quantum gates correspond to unitary transformations, $U^{-1} = U^\dagger$ \cite{Nielsen2012}. In other words, any quantum gate corresponds to a square unitary matrix. Consequently, quantum gates can be viewed as rotations of the qubit state vector in Hilbert space.
 
 Let us now introduce the most fundamental quantum gates: the Pauli gates. The Pauli gates are described by the $2 \times 2$ Pauli matrices and rotate an arbitrary qubit state by $\pi$ radians about their respective axes.
 

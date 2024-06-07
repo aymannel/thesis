@@ -3,7 +3,7 @@
 
 In this chapter, we introduce the \textit{Variational Quantum Eigensolver (VQE)} algorithm, a particular class of variational quantum algorithms developed by Peruzzo and McClean \textit{et al} \cite{Peruzzo2014} in 2014 to estimate the ground state energy of molecular systems. We then introduce the \textit{Unitary Product State (UPS) ansatz} which we use to represent fermionic wavefunctions on quantum devices. Finally, we present the DISCO-VQE algorithm, a variant of the VQE algorithm that serves as the framework for the research presented in this thesis.
 
-The VQE algorithm consists of a quantum subroutine, a \textit{Parametrised Quantum Circuit (PQC)}, that implements some UPS ansatz, and a classical subroutine that makes use of the variational principle to classically optimise the ansatz until it converges to the best approximation of the true ground state. PQCs are similar to classical neural networks in concept, but by definition, correspond to $2^n \times 2^n$ unitary maps, where $n$ is the number of qubits \cite{Yeung2020}.
+The VQE algorithm consists of a quantum subroutine, a \textit{Parametrised Quantum Circuit (PQC)}, that implements some UPS ansatz, and a subroutine that makes use of the variational principle to classically optimise the ansatz until it converges to the best approximation of the true ground state. PQCs are similar to classical neural networks in concept, but by definition, correspond to $2^n \times 2^n$ unitary maps, where $n$ is the number of qubits \cite{Yeung2020}.
 
 The VQE input state is some reference state, which in the case of the single-Slater determinant Hartree-Fock state, corresponds to a single vector in the Fock space. The output state is then some linear combination of vectors in the Fock space, that captures the correlation present in the molecular system of interest.
 
@@ -19,7 +19,7 @@ Upon measuring the PQC output state, it collapses into a single vector in the Fo
 \subsection{Unitary Product State Ansatz}%
 \label{ups-ansatz}
 
-As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates. We refer to the UCC ansatz $\ket{\psi_{\text{UCC}}(\bm\theta)}$ as the application of the unitary excitation operator $U_\text{UCC}(\bm\theta)$ to some reference state, usually a single-Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method.
+As suggested by Peruzzo \textit{et al} \cite{Peruzzo2014}, the UCC formulation of a wavefunction can be efficiently implemented on a quantum device in terms of quantum gates. We refer to the UCC ansatz $\ket{\psi_{\text{UCC}}(\bm\theta)}$ as the application of the unitary excitation operator $U_\text{UCC}(\bm\theta)$ to some reference state, usually a single-Slater determinant Hartree-Fock state $\ket{\psi_0}$ obtained via the self-consistent field method discussed in Section \ref{many-electron-wavefunctions}.
 \begin{equation*}
     \ket{\psi_{\text{UCC}}(\bm\theta)} = U_\text{UCC}(\bm\theta) \ket{\psi_0} =
     e^{\hat T(\bm\theta) - \hat T^\dagger(\bm\theta)} \ket{\psi_0}
